@@ -7,47 +7,13 @@ import cgmgl.springmvc.app.persistence.entity.User;
  */
 public interface UserDao {
 
-	/**
-	 * Find by id.
-	 *
-	 * @param int id
-	 * @return user
-	 */
-	User findById(int id);
+    public User dbGetUserByName(String username);
 
-	/**
-	 * Find by email.
-	 *
-	 * @param String email
-	 * @return user
-	 */
-	User findByEmail(String email);
+    public long dbGetUserCount();
 
-	/**
-	 * Creates user.
-	 *
-	 * @param User user
-	 */
-	void createUser(User user);
-	
-	/**
-	 * Update user.
-	 *
-	 * @param User user
-	 */
-	void updateUser(User user);
+    public void dbSaveUser(User user);
 
-	/**
-	 * Delete user.
-	 *
-	 * @param int id
-	 */
-	void deleteUser(int id);
+    public User dbFindUserByAllEmail(String user_email);
 
-	/**
-	 * Delete user by email.
-	 *
-	 * @param String email
-	 */
-	void deleteUserByEmail(String email);
+    public void dbUpdateUserPassword(User user);
 }
