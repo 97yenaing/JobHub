@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -20,6 +20,12 @@
 	type="text/css" />
 <link rel="stylesheet" href="<c:url value="/assets/css/app.css" />"
 	type="text/css" />
+  <link rel="stylesheet" href="<c:url value="/assets/css/emailSend.css" />"
+    type="text/css" />
+    <link rel="stylesheet" href="<c:url value="/assets/css/login.css" />"
+    type="text/css" />
+    <link rel="stylesheet" href="<c:url value="/assets/css/resetpassword.css" />"
+    type="text/css" />
 </head>
 <body>
 	<tiles:insertAttribute name="header" />

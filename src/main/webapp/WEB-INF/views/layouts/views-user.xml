@@ -12,7 +12,7 @@
     </definition>
     <!-- sendMailForm -->
     <definition name="email" extends="template">
-        <put-attribute name="title" value="email" />
+        <put-attribute name="title" value="emailform" />
         <put-attribute name="body"
             value="/WEB-INF/views/emailSend.jsp" />
     </definition>

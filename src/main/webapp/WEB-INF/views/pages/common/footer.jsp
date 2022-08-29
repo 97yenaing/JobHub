@@ -3,7 +3,7 @@
 <%@ page import="java.time.LocalDate" %>
 
 <footer>
-	<div class="container">
+	<div class="l-container">
 		Copyright &copy; ${LocalDate.now().year} CGMGL.
 	</div>
 </footer>

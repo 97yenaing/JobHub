@@ -39,7 +39,8 @@
       name="${_csrf.parameterName}" value="${_csrf.token}" />
         </div>
         <div class = "forgot-pass">
-          <a href="forgot-password">Forgot Password</a>
+          <a href ="<c:url value ="/forgot_password"/>"> Forgot Password</a>
+         
         </div>
        
         <div class="forgot-pass">
@@ -49,6 +50,7 @@
           <button type="submit" class="registerbtn">Sign Up</button>
         </div>
       </form:form>
+    
     </div>
   </div>
 </body>

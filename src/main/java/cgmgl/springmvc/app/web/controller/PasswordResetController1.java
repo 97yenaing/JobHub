@@ -28,26 +28,27 @@ import cgmgl.springmvc.app.bl.service.UserService;
 public class PasswordResetController1 {
     @Autowired
     JavaMailSender mailSender;
-    
+
     @Autowired
     UserService userService;
-    
+
     @Autowired
     PasswordResetService passwordResetService;
-    
+
     @Autowired
     MessageSource messageSource;
-    
-      @RequestMapping( value = "/forgot_password" , method = RequestMethod.GET)
-      public ModelAndView email(HttpServletRequest request) { ModelAndView model =
-      new ModelAndView("email"); model.addObject("emailForm", new
-      PasswordResetMailForm()); model.setViewName("email"); return model; }
-     
-    
-    @RequestMapping(value = "/sendEmail", method = RequestMethod.POST )
-    public ModelAndView sendEmail(
-            @Valid @ModelAttribute("emailForm") PasswordResetMailForm passwordResetMailForm, BindingResult result,
-            HttpServletRequest request, HttpServletResponse response) {
+
+    @RequestMapping(value = "/forgot_password", method = RequestMethod.GET)
+    public ModelAndView email(HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("email");
+        model.addObject("emailForm", new PasswordResetMailForm());
+        model.setViewName("email");
+        return model;
+    }
+
+    @RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
+    public ModelAndView sendEmail(@Valid @ModelAttribute("emailForm") PasswordResetMailForm passwordResetMailForm,
+            BindingResult result, HttpServletRequest request, HttpServletResponse response) {
         if (result.hasErrors()) {
             ModelAndView model = new ModelAndView("emailSend");
             model.addObject("errorMsg", messageSource.getMessage("M_SC_0007", null, null));
@@ -66,7 +67,7 @@ public class PasswordResetController1 {
         return newModel;
 
     }
-    
+
     @RequestMapping(value = "/sendEmail/{token}", method = RequestMethod.GET)
     public ModelAndView showResetPassword(@PathVariable String token) {
         ModelAndView mv = new ModelAndView("invalidMail");
@@ -85,6 +86,7 @@ public class PasswordResetController1 {
         mv.addObject("passwordResetForm", passwordChangeResetForm);
         return mv;
     }
+
     @RequestMapping(value = "/password/reset", method = RequestMethod.POST)
     public ModelAndView resetPassword(@Valid @ModelAttribute("passwordResetForm") PasswordResetForm passwordResetForm,
             BindingResult result) {
@@ -120,7 +122,7 @@ public class PasswordResetController1 {
         return url;
     }
 
-    public  void sendMail(String url,PasswordResetMailForm passwordResetMailForm) {
+    public void sendMail(String url, PasswordResetMailForm passwordResetMailForm) {
         String sender = "htetn4494@gmail.com";
         String subject = "Reset Your Password";
         String body = "Reset your password from following url : \n";
