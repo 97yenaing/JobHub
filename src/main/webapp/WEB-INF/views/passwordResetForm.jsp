@@ -15,7 +15,7 @@
         <c:url value="/password/reset" var="changeUrl" />
         <form:form action="${changeUrl}" method="POST"
           modelAttribute="passwordResetForm">
-          <div class="form-group">
+          <div class="pass-group">
             <h1 class="reset-header">Reset Your Password</h1>
             <c:if test="${errorMsg != null}">
             <div>

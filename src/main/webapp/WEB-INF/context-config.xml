@@ -36,7 +36,7 @@
 	<!-- MESSAGE SOURCE -->
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="basenames" value="classpath:messages" />
+		<property name="basenames" value="classpath:messages.properties" />
 		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
 
@@ -101,6 +101,7 @@
 				<prop key="mail.smtp.port">${mail.port}</prop>
 				<prop key="mail.smtp.auth">true</prop>
 				<prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.auth">FALSE</prop>
 			</props>
 		</property>
 	</bean>

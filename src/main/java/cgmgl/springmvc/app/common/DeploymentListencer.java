@@ -44,7 +44,7 @@ public class DeploymentListencer {
             this.authorityDAO.dbSaveAuthority(userAuthority);
             userAuthorities.add(userAuthority);
             User user = new User(null, "user", passwordEncoder.encode("123"),
-                    null, null, null, null, null, 0, userAuthorities);
+                    "yinyinswe199@gmail.com"  , null, null, null, null, 0, userAuthorities);
             
             this.userDAO.dbSaveUser(user);
             

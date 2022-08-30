@@ -20,11 +20,12 @@
 	type="text/css" />
 <link rel="stylesheet" href="<c:url value="/assets/css/app.css" />"
 	type="text/css" />
-  <link rel="stylesheet" href="<c:url value="/assets/css/emailSend.css" />"
+  <link rel="stylesheet" href="<c:url value="/assets/css/sendemailform.css" />"
     type="text/css" />
-    <link rel="stylesheet" href="<c:url value="/assets/css/login.css" />"
+    <link rel="stylesheet" href="<c:url value="/assets/css/loginform.css" />"
     type="text/css" />
-    <link rel="stylesheet" href="<c:url value="/assets/css/resetpassword.css" />"
+    
+    <link rel="stylesheet" href="<c:url value="/assets/css/resetpasswod.css" />"
     type="text/css" />
 </head>
 <body>

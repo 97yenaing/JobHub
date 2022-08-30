@@ -24,7 +24,7 @@ public class UserController {
 	
     @Autowired 
     UserService userService;
-    @RequestMapping( value = "/login-page" , method = RequestMethod.GET)
+    @RequestMapping( value = "/" , method = RequestMethod.GET)
     public ModelAndView email(HttpServletRequest request) {
         ModelAndView model = new ModelAndView("login");
         model.addObject("userForm", new UserDto());
@@ -43,8 +43,10 @@ public class UserController {
      */
     
     @RequestMapping(value = "/home")
-    public String userPage() {
-        return "home";
+    public ModelAndView userPage() {
+        ModelAndView model = new ModelAndView("home");
+        model.setViewName("home");
+        return model;
     }
 
     @RequestMapping(value = "/admin")

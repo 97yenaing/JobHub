@@ -9,10 +9,24 @@ import cgmgl.springmvc.app.persistence.entity.PasswordReset;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * <h2> PasswordResetMailForm Class</h2>
+ * <p>
+ * Process for Displaying PasswordResetMailForm
+ * </p>
+ * 
+ * @author Yin Yin Swe
+ *
+ */
 @Getter
 @Setter
-
 public class PasswordResetMailForm {
+    /**
+     * <h2> user_email</h2>
+     * <p>
+     * user_email
+     * </p>
+     */
     @Email
     @NotEmpty
     private String user_email;

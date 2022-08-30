@@ -41,24 +41,25 @@ public class PasswordResetController1 {
     @RequestMapping(value = "/forgot_password", method = RequestMethod.GET)
     public ModelAndView email(HttpServletRequest request) {
         ModelAndView model = new ModelAndView("email");
-        model.addObject("emailForm", new PasswordResetMailForm());
+        model.addObject("email", new PasswordResetMailForm());
         model.setViewName("email");
         return model;
     }
 
     @RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
-    public ModelAndView sendEmail(@Valid @ModelAttribute("emailForm") PasswordResetMailForm passwordResetMailForm,
-            BindingResult result, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView sendEmail(@Valid @ModelAttribute("email") PasswordResetMailForm passwordResetMailForm,
+            BindingResult result,HttpServletRequest request){
+        ModelAndView model= new ModelAndView("email");
         if (result.hasErrors()) {
-            ModelAndView model = new ModelAndView("emailSend");
-            model.addObject("errorMsg", messageSource.getMessage("M_SC_0007", null, null));
             return model;
         }
+
         if (!userService.doIsEmailExist(passwordResetMailForm.getUser_email())) {
-            ModelAndView model = new ModelAndView("emailSend");
+            model = new ModelAndView("email");
             model.addObject("errorMsg", "Invalid email address!");
             return model;
         }
+
         passwordResetMailForm = this.passwordResetService.createResetToken(passwordResetMailForm.getUser_email());
         String url = getBaseUrl(request) + request.getServletPath() + "/" + passwordResetMailForm.getToken();
         this.sendMail(url, passwordResetMailForm);

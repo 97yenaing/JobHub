@@ -13,7 +13,7 @@
   </c:url>
  <div class="com-inner">
     <div class="email-container">
-  <form:form action="${send }" modelAttribute="emailForm" method="post">
+  <form:form action="${send }" modelAttribute="email"  id="form" method="post">
      <h1 class="email-header">Please Enter Email</h1>
       <c:if test="${errorMsg != null}">
             <div>
@@ -24,7 +24,7 @@
           <form:input path="user_email" type="user_email" name="user_email"
             class="email-input" placeholder="Enter your e-mail" />
             <div>
-           <form:errors  class="emial-error" path="user_email"  />
+           <form:errors class="email-error" path="user_email"  />
           </div>
         <div>
           <button type="submit" class="email-registerbtn" >Send</button>

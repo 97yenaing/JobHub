@@ -24,17 +24,17 @@
         </c:if>
         <p>
           <form:input path="username" type="username" name="username"
-            class="input" placeholder="Enter your username" />
+            class="login-input" placeholder="Enter your username" />
         <div>
           <form:errors path="username" />
         </div>
-        <form:password path="password" name="password" class="input"
+        <form:password path="password" name="password" class="login-input"
           placeholder="Enter your password" />
         <div>
           <form:errors  class="pass-error" path="password" />
         </div>
         <div>
-          <button type="submit" class="registerbtn">Send</button>
+          <button type="submit" class="login-registerbtn">Send</button>
           <input type="hidden"
       name="${_csrf.parameterName}" value="${_csrf.token}" />
         </div>
@@ -47,7 +47,7 @@
           <p>Do you have job hub account?</p>
         </div>
         <div>
-          <button type="submit" class="registerbtn">Sign Up</button>
+          <button type="submit" class="login-registerbtn">Sign Up</button>
         </div>
       </form:form>
     

@@ -25,12 +25,12 @@ a{
   margin: 0 auto;
   max-width: 1180px;
 }
-.h1{
+.email-header{
   font-family: 'IBM Plex Sans-Bold';
   font-size: 25px;
   
 }
-.login-container{
+.email-container{
   width:40%;
   margin:0 auto;
   margin-top:100px;
@@ -41,16 +41,16 @@ a{
   border-radius: 20px;
 }
 
-.input
+.email-input
 {
-    width: 70%;
+    width: 80%;
     margin-top:20px;
     padding: 10px;
     border: 1px solid rgb(168, 166, 166);
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.registerbtn{
+.email-registerbtn{
   margin-top: 20px;
   margin-left: 10px;
   padding: 5px 50px;
@@ -63,6 +63,15 @@ a{
 .forgot-pass{
   margin-top: 20px;
 }
+.email-error{
+  color:red;
+}
+.error-message{
+  border:1px solid ;
+  width:100%;
+  background-color:red;
+  color:#ffffff;
+}
 /*Ipad*/
 @media screen and (min-width: 768px) and (max-width: 1180px) {
   .com-inner {
@@ -70,7 +79,7 @@ a{
     margin: 0 auto;
     max-width: 1180px;
   }
-  .login-container{
+  .email-container{
     width:40%;
     margin:0 auto;
     margin-top:100px;
@@ -80,9 +89,9 @@ a{
     text-align: center;
     border-radius: 20px;
   }
-  .input
+  .email-input
 {
-    width: 60%;
+    width: 100%;
     margin-top:20px;
     padding: 10px;
     border: 1px solid rgb(168, 166, 166);
@@ -97,13 +106,13 @@ a{
     margin: 0 auto;
     max-width: 640px;
   }
-  h1{
+  .email-header{
     font-family: 'IBM Plex Sans-Bold';
     font-size: 20px;
     width: 100%;
   }
-  .login-container{
-    width:100%;
+  .email-container{
+    width:70%;
     max-width: 250px;
     margin:0 auto;
     margin-top:100px;
@@ -113,7 +122,7 @@ a{
     text-align: center;
     border-radius: 20px;
   }
-  .input
+  .email-input
   {
       width:100%;
       max-width: 250px;
@@ -123,7 +132,7 @@ a{
       border-radius: 20px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
-  .registerbtn{
+  .email-registerbtn{
     
     margin-top: 20px;
     margin-left: 10px;

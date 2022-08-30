@@ -10,11 +10,17 @@
         <put-attribute name="body"
             value="/WEB-INF/views/pages/user/login.jsp" />
     </definition>
+    <!-- Home -->
+     <definition name="home" extends="template">
+        <put-attribute name="title" value="emailSend" />
+        <put-attribute name="body"
+            value="/WEB-INF/views/home.jsp" />
+    </definition>
     <!-- sendMailForm -->
     <definition name="email" extends="template">
         <put-attribute name="title" value="emailform" />
         <put-attribute name="body"
-            value="/WEB-INF/views/emailSend.jsp" />
+            value="/WEB-INF/views/pages/user/emailSend.jsp" />
     </definition>
     <!-- passwordResetForm -->
     <definition name="passwordReset" extends="template">
