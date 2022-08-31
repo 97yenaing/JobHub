@@ -8,7 +8,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.bl.service.UserService;
 import cgmgl.springmvc.app.common.Constant;
@@ -30,6 +32,7 @@ public class UserController {
 	
 	@RequestMapping(value = { "/register" }, method = RequestMethod.GET)
 	public String register() {
+		
 		return "register";
 	}
 	
@@ -47,5 +50,6 @@ public class UserController {
 
 		return "view";
 	}
+
 
 }

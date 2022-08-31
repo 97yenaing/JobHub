@@ -20,6 +20,11 @@
 	type="text/css" />
 <link rel="stylesheet" href="<c:url value="/assets/css/app.css" />"
 	type="text/css" />
+  <link rel="stylesheet" href="<c:url value="/assets/css/form.css" />"
+  type="text/css" />
+   <link rel="stylesheet" href="<c:url value="/assets/css/cofirm_form.css" />"
+  type="text/css" />
+
 </head>
 <body>
 	<tiles:insertAttribute name="header" />
