@@ -16,7 +16,7 @@
     <put-attribute name="title" value="UserList - SPRING MVC FRAME" />
     <put-attribute name="body" value="/WEB-INF/views/pages/user/userList.jsp" />
   </definition>
-  <definition name="userList" extends="template">
+  <definition name="updateUser" extends="template">
     <put-attribute name="title" value="UserList - SPRING MVC FRAME" />
     <put-attribute name="body" value="/WEB-INF/views/pages/user/update/updateUser.jsp" />
   </definition>

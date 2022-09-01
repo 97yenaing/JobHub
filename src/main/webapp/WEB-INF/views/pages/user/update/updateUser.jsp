@@ -5,7 +5,7 @@
 <div class="com-inner">
   <div class="signup-container">
     <c:url var="editUser" value="/updateUser"></c:url>
-    <form:form class="form-container" action="${updateUser }"
+    <form:form class="form-container" action="${editUser }"
       method="POST" id="form" modelAttribute="user">
       <h1>Update Users</h1>
 
@@ -33,7 +33,8 @@
           placeholder="Pleease Enter Password" name="password"
           class="sign-input" />
       </div>
-      <button type="submit" name="updateUser" class="register"></button>
+      
+      <button type="submit" name="updateUser" class="registerbtn"></button>
       <a class="btn btn-secondary" href="${pageContext.request.contextPath}/userList">Cancel</a>
     </form:form>
   </div>

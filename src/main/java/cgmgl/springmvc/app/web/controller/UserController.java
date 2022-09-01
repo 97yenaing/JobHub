@@ -34,7 +34,7 @@ import cgmgl.springmvc.app.persistence.entity.User;
 public class UserController {
 	@Autowired
 	private BCryptPasswordEncoder passEncoder;
-	
+
 	@Autowired
 	private AuthorityService authorityService;
 
@@ -93,7 +93,7 @@ public class UserController {
 		ModelAndView createUserView = new ModelAndView("redirect:/home");
 		return createUserView;
 	}
-	
+
 	@RequestMapping(value = "/userList")
 	public ModelAndView getUserList(ModelAndView model) throws IOException {
 		List<User> userList = userService.doGetUserList();
@@ -101,7 +101,7 @@ public class UserController {
 		model.setViewName("userList");
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/editUser", method = RequestMethod.GET)
 	public ModelAndView editUser(@RequestParam("id") Long userId, HttpServletRequest request) {
 		UserDto userForm = userService.getUserByID(userId);
@@ -115,7 +115,7 @@ public class UserController {
 		model.setViewName("updateUser");
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/updateUser", params = "updateUser", method = RequestMethod.POST)
 	public ModelAndView callUpdateUserConfirm(@ModelAttribute("user") @Valid UserDto userForm, BindingResult result)
 	        throws ParseException, FileNotFoundException, IOException {
