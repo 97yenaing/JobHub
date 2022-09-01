@@ -12,7 +12,7 @@
         <springframework.version>5.2.22.RELEASE</springframework.version>
         <springsecurity.version>5.3.13.RELEASE</springsecurity.version>
         <hibernate.version>5.6.10.Final</hibernate.version>
-        <hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
+        <hibernate-validator.version>6.0.10.Final</hibernate-validator.version>
         <tomcat-dbcp.version>10.1.0-M10</tomcat-dbcp.version>
         <mysql.connector.version>8.0.30</mysql.connector.version>
         <javamail.api.version>1.5.5</javamail.api.version>

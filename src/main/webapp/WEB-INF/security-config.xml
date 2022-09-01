@@ -11,26 +11,24 @@
     <http>
         <intercept-url pattern="/home"
             access="hasAnyRole('USER', 'ADMIN','FULL_ADMIN' )" />
-        <intercept-url pattern="/user"
-            access="hasAnyRole('USER')" />
-        <intercept-url pattern="/full_admin"
-            access="hasRole('FULl_ADMIN')" />
+        <intercept-url pattern="/applicant"
+            access="hasAnyRole('USER','FULL_ADMIN','ADMIN')" />
+        <intercept-url pattern="/company"
+            access="hasAnyRole('FULl_ADMIN','ADMIN')" />
         <intercept-url pattern="/admin"
-            access="hasRole('ADMIN')" />
+            access="hasRole('FULL_ADMIN')" />
 
-        <form-login login-page="/login.jsp"
+        <form-login login-page="/"
             login-processing-url="/login" username-parameter="username"
             password-parameter="password" default-target-url="/home" />
-        <logout logout-url="/logout"
-            logout-success-url="/login.jsp" />
+        <logout logout-url="/logout" logout-success-url="/" />
         <access-denied-handler error-page="/error" />
     </http>
 
     <authentication-manager>
         <authentication-provider
             user-service-ref="userService">
-            <password-encoder
-                ref="passwordEncoder" />
+            <password-encoder ref="passwordEncoder" />
         </authentication-provider>
     </authentication-manager>
 </beans:beans>  

@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * <h2> PasswordResetMailForm Class</h2>
+ * <h2>PasswordResetMailForm Class</h2>
  * <p>
  * Process for Displaying PasswordResetMailForm
  * </p>
@@ -22,7 +22,7 @@ import lombok.Setter;
 @Setter
 public class PasswordResetMailForm {
     /**
-     * <h2> user_email</h2>
+     * <h2>user_email</h2>
      * <p>
      * user_email
      * </p>
@@ -37,6 +37,7 @@ public class PasswordResetMailForm {
      * password@
      * </p>
      */
+    @NotEmpty
     private String password;
 
     /**

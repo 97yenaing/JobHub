@@ -4,35 +4,17 @@
     "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="login" extends="template">
-        <put-attribute name="title"
-            value="Login - SPRING MVC FRAME" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/pages/user/login.jsp" />
-    </definition>
-    <!-- Home -->
-     <definition name="home" extends="template">
-        <put-attribute name="title" value="emailSend" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/home.jsp" />
-    </definition>
-    <!-- sendMailForm -->
-    <definition name="email" extends="template">
-        <put-attribute name="title" value="emailform" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/pages/user/emailSend.jsp" />
-    </definition>
-    <!-- passwordResetForm -->
-    <definition name="passwordReset" extends="template">
-        <put-attribute name="title" value="emailSend" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/passwordResetForm.jsp" />
-    </definition>
     <definition name="register" extends="template">
         <put-attribute name="title"
             value="Registration - SPRING MVC FRAME" />
         <put-attribute name="body"
             value="/WEB-INF/views/pages/user/register.jsp" />
+    </definition>
+    <definition name="sendMailSuccess" extends="template">
+        <put-attribute name="title"
+            value="Registration - SPRING MVC FRAME" />
+        <put-attribute name="body"
+            value="/WEB-INF/views/pages/user/sendMailSuccess.jsp" />
     </definition>
     <definition name="view" extends="template">
         <put-attribute name="title"

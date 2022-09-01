@@ -13,11 +13,19 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * <h2>PasswordReset Class</h2>
+ * <p>
+ * Process for Displaying PasswordReset
+ * </p>
+ * 
+ * @author Yin Yin Swe
+ *
+ */
 @AllArgsConstructor
 @Getter
 @Setter
 @NoArgsConstructor
-
 @Entity
 @Table(name = "password_reset")
 public class PasswordReset {

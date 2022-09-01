@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,13 +16,24 @@ import cgmgl.springmvc.app.persistence.dao.UserDao;
 import cgmgl.springmvc.app.persistence.entity.PasswordReset;
 import cgmgl.springmvc.app.persistence.entity.User;
 
-
-
-
-
+/**
+ * <h2>PasswordResetServiceImpl Class</h2>
+ * <p>
+ * Process for Displaying PasswordResetServiceImpl
+ * </p>
+ * 
+ * @author Yin Yin Swe
+ *
+ */
 @Transactional
 @Service
 public class PasswordResetServiceImpl implements PasswordResetService {
+    /**
+     * <h2>psw_token_length</h2>
+     * <p>
+     * psw_token_length
+     * </p>
+     */
     public static final int psw_token_length = 20;
 
     /**
@@ -49,13 +60,34 @@ public class PasswordResetServiceImpl implements PasswordResetService {
      */
     @Autowired
     PasswordResetDao passwordResetDAO;
-    
+
+    /**
+     * <h2>userDAO</h2>
+     * <p>
+     * userDAO
+     * </p>
+     */
     @Autowired
     UserDao userDAO;
-    
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
 
+    /**
+     * <h2>passwordEncoder</h2>
+     * <p>
+     * passwordEncoder
+     * </p>
+     */
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    /**
+     * <h2>createResetToken</h2>
+     * <p>
+     * 
+     * </p>
+     * 
+     * @param user_email
+     * @return
+     */
     @Override
     public PasswordResetMailForm createResetToken(String user_email) {
         if (isEmailExit(user_email)) {
@@ -72,14 +104,34 @@ public class PasswordResetServiceImpl implements PasswordResetService {
         passwordResetForm.setExpired_at(expired);
         this.passwordResetDAO.createToken(this.getPswToken(passwordResetForm));
         return passwordResetForm;
-       
+
     }
 
+    /**
+     * <h2>isEmailExit</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param user_email
+     * @return
+     * @return boolean
+     */
     private boolean isEmailExit(String user_email) {
         PasswordReset pwToken = this.passwordResetDAO.getTokenDataByEmail(user_email);
         return pwToken != null;
     }
 
+    /**
+     * <h2>getPswToken</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param passwordResetForm
+     * @return
+     * @return Object
+     */
     private Object getPswToken(PasswordResetMailForm passwordResetForm) {
         PasswordReset pwToken = new PasswordReset();
         pwToken.setUser_email(passwordResetForm.getUser_email());
@@ -89,6 +141,15 @@ public class PasswordResetServiceImpl implements PasswordResetService {
         return pwToken;
     }
 
+    /**
+     * <h2>getDataByToken</h2>
+     * <p>
+     * 
+     * </p>
+     * 
+     * @param token
+     * @return
+     */
     @Override
     public PasswordResetMailForm getDataByToken(String token) {
         try {
@@ -100,20 +161,35 @@ public class PasswordResetServiceImpl implements PasswordResetService {
         }
     }
 
+    /**
+     * <h2>doUpdatePassword</h2>
+     * <p>
+     * 
+     * </p>
+     * 
+     * @param newPasswordResetForm
+     */
     @Override
     public void doUpdatePassword(PasswordResetMailForm newPasswordResetForm) {
         newPasswordResetForm.setPassword(passwordEncoder.encode(newPasswordResetForm.getPassword()));
         User user = this.userDAO.dbFindUserByAllEmail(newPasswordResetForm.getUser_email());
         user.setPassword(newPasswordResetForm.getPassword());
         this.userDAO.dbUpdateUserPassword(user);
-        
 
     }
 
+    /**
+     * <h2>doDeleteToken</h2>
+     * <p>
+     * 
+     * </p>
+     * 
+     * @param token
+     */
     @Override
     public void doDeleteToken(String token) {
         this.passwordResetDAO.dbDeleteToken(token);
-        
+
     }
 
 }

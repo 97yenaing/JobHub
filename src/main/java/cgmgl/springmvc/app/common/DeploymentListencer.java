@@ -16,16 +16,51 @@ import cgmgl.springmvc.app.persistence.entity.User;
 
 
 
+/**
+ * <h2> DeploymentListencer Class</h2>
+ * <p>
+ * Process for Displaying DeploymentListencer
+ * </p>
+ * 
+ * @author Yin Yin Swe
+ *
+ */
 @Component
 public class DeploymentListencer {
+    /**
+     * <h2> passwordEncoder</h2>
+     * <p>
+     * passwordEncoder
+     * </p>
+     */
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    /**
+     * <h2> authorityDAO</h2>
+     * <p>
+     * authorityDAO
+     * </p>
+     */
     @Autowired
     private AuthorityDao authorityDAO;
 
+    /**
+     * <h2> userDAO</h2>
+     * <p>
+     * userDAO
+     * </p>
+     */
     @Autowired
     private UserDao userDAO;
+    /**
+     * <h2> addInitialData</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @return void
+     */
     @PostConstruct
     public void addInitialData() {
 
@@ -36,7 +71,7 @@ public class DeploymentListencer {
             this.authorityDAO.dbSaveAuthority(adminAuthority);
             adminAuthorities.add(adminAuthority);
             User admin = new User(null, "admin", passwordEncoder.encode("123"),
-                    "yinyinswe1999@gmail.com", null, null, null, null, 0, adminAuthorities);
+                    "htetn4494@gmail.com", null, null, null, null, 0, adminAuthorities);
             this.userDAO.dbSaveUser(admin);
 
             List<Authority> userAuthorities = new ArrayList<Authority>();
@@ -44,8 +79,7 @@ public class DeploymentListencer {
             this.authorityDAO.dbSaveAuthority(userAuthority);
             userAuthorities.add(userAuthority);
             User user = new User(null, "user", passwordEncoder.encode("123"),
-                    "yinyinswe199@gmail.com"  , null, null, null, null, 0, userAuthorities);
-            
+                    "yinyinswe1999@gmail.com"  , null, null, null, null, 0, userAuthorities);
             this.userDAO.dbSaveUser(user);
             
             List<Authority> fullAdminAuthorities = new ArrayList<Authority>();

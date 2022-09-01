@@ -11,6 +11,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+/**
+ * <h2>Authority Class</h2>
+ * <p>
+ * Process for Displaying Authority
+ * </p>
+ * 
+ * @author Yin Yin Swe
+ *
+ */
 @Getter
 @Setter
 @NoArgsConstructor
@@ -18,6 +28,12 @@ import lombok.Setter;
 @Entity
 @Table(name = "authorities")
 public class Authority {
+    /**
+     * <h2>id</h2>
+     * <p>
+     * id
+     * </p>
+     */
     @Id
     @Column(name = "authority_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
