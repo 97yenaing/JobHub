@@ -1,125 +1,133 @@
 package cgmgl.springmvc.app.persistence.entity;
 
-import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.DynamicUpdate;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
- * Class User.
+ * <h2> User Class</h2>
+ * <p>
+ * Process for Displaying User
+ * </p>
+ * 
+ * @author Yin Yin Swe
+ *
  */
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name = "user")
-@DynamicUpdate
-public class User implements Serializable{
+@Table(name = "users")
+public class User {
+    /**
+     * <h2> id</h2>
+     * <p>
+     * id
+     * </p>
+     */
+    @Id
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+   
+    /**
+     * <h2> username</h2>
+     * <p>
+     * username
+     * </p>
+     */
+    private String username;
+    
+   
+    /**
+     * <h2> password</h2>
+     * <p>
+     * password
+     * </p>
+     */
+    private String password;
+    
+   
+    /**
+     * <h2> email</h2>
+     * <p>
+     * email
+     * </p>
+     */
+    private String email;
+    
+   
+    /**
+     * <h2> type</h2>
+     * <p>
+     * type
+     * </p>
+     */
+    private String type;
+    
+   
+    /**
+     * <h2> created_at</h2>
+     * <p>
+     * created_at
+     * </p>
+     */
+    private Date created_at;
+    
+   
+    /**
+     * <h2> updated_at</h2>
+     * <p>
+     * updated_at
+     * </p>
+     */
+    private Date updated_at;
+    
+   
+    /**
+     * <h2> deleted_at</h2>
+     * <p>
+     * deleted_at
+     * </p>
+     */
+    private Date deleted_at;
+    
+    /**
+     * <h2> company_id</h2>
+     * <p>
+     * company_id
+     * </p>
+     */
+    @Column(name = "company_id")
+    private int company_id;
+    
 
-	/** Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-
-	/** id. */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	private int id;
-	
-	/** username. */
-	@Column(name = "username", nullable = false, length = 120)
-	private String username;
-	
-	/** email. */
-	@Column(name = "email", unique = true, nullable = false, length = 50)
-	private String email;
-	
-	/** password. */
-	@Column(name = "password", nullable = false)
-	private String password;
-	
-	/** gender. */
-	@Column(name = "gender", length = 1)
-	private char gender;
-	
-	/** address. */
-	@Column(name = "address")
-	private String address;
-	
-	/** created at. */
-	@Column(name = "created_at", updatable = false)
-	private Timestamp createdAt;
-	
-	/** updated at. */
-	@Column(name = "updated_at")
-	private Timestamp updatedAt;
-	
-	/** Auto Generate Getter Setter */
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public char getGender() {
-		return gender;
-	}
-
-	public void setGender(char gender) {
-		this.gender = gender;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public Timestamp getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Timestamp createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Timestamp getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Timestamp updatedAt) {
-		this.updatedAt = updatedAt;
-	}
+    /**
+     * <h2> authorities</h2>
+     * <p>
+     * authorities
+     * </p>
+     */
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "users_authorities", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "authority_id"))
+    private List<Authority> authorities = new ArrayList<Authority>();
 }

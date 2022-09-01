@@ -1,51 +1,127 @@
 package cgmgl.springmvc.app.web.controller;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-import cgmgl.springmvc.app.bl.dto.UserDto;
+import cgmgl.springmvc.app.bl.dto.PasswordResetMailForm;
 import cgmgl.springmvc.app.bl.service.UserService;
-import cgmgl.springmvc.app.common.Constant;
 
 /**
  * Class UserController.
  */
+/**
+ * <h2> UserController Class</h2>
+ * <p>
+ * Process for Displaying UserController
+ * </p>
+ * 
+ * @author Yin Yin Swe
+ *
+ */
 @Controller
 public class UserController {
-	
-	@Autowired
-	private UserService userService;
-	
 
-	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
-	public String login() {
-		return "login";
-	}
-	
-	@RequestMapping(value = { "/register" }, method = RequestMethod.GET)
-	public String register() {
-		return "register";
-	}
-	
-	@RequestMapping(value = { "/view" }, method = RequestMethod.GET)
-	public String view(@RequestParam(value = "name", required = false) String name, ModelMap model,
-			HttpSession session) {
+    /**
+     * <h2> userService</h2>
+     * <p>
+     * userService
+     * </p>
+     */
+    @Autowired
+    UserService userService;
 
-		UserDto user = userService.findById(1);
-		if (user != null) {
-			model.addAttribute("user", user);
-			name = user.getUsername();
-		}
-		model.addAttribute("name", name);
-		model.addAttribute("mail", Constant.MAIL_PW_RESET_SENDER);
+    /**
+     * <h2> email</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param request
+     * @return
+     * @return ModelAndView
+     */
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView email(HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("login");
+        model.setViewName("login");
+        return model;
+    }
 
-		return "view";
-	}
+    /**
+     * <h2> homePage</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @return
+     * @return ModelAndView
+     */
+    @RequestMapping(value = "/home")
+    public ModelAndView homePage() {
+        ModelAndView model = new ModelAndView();
+        model.setViewName("home");
+        return model;
+    }
+    /**
+     * <h2> signUp</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param request
+     * @return
+     * @return ModelAndView
+     */
+    @RequestMapping(value = "/sign-up", method = RequestMethod.GET)
+    public ModelAndView signUp(HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("sign-up");
+        model.setViewName("sign-up");
+        return model;
+    }
+    /**
+     * <h2> companyPage</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @return
+     * @return String
+     */
+    @RequestMapping(value = "/company" , method = RequestMethod.GET)
+    public String companyPage() {
+        return "admin";
+    }
 
+    /**
+     * <h2> applicantPage</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @return
+     * @return String
+     */
+    @RequestMapping(value = "/applicant")
+    public String applicantPage() {
+        return "access-denied";
+    }
+
+    /**
+     * <h2> AdminPage</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @return
+     * @return String
+     */
+    @RequestMapping(value = "/admin")
+    public String AdminPage() {
+        return "access-denied";
+    }
 }
