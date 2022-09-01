@@ -20,8 +20,6 @@ import cgmgl.springmvc.app.persistence.entity.User;
 public interface UserDao {
     User dbGetUserById(long userId);
 
-	void dbSaveUser(User admin);
-
     void dbUpdateUser(@Valid User user);
 
 	User dbGetUserByEmail(String userEmail);

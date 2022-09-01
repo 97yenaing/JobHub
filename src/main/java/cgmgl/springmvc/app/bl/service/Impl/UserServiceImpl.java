@@ -12,9 +12,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
 import cgmgl.springmvc.app.bl.dto.CustomUserDetail;
+import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.bl.service.UserService;
 import cgmgl.springmvc.app.persistence.dao.ApplicantInfoDao;
 import cgmgl.springmvc.app.persistence.dao.UserDao;
@@ -22,7 +24,7 @@ import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.User;
 
 /**
- * <h2> UserServiceImpl Class</h2>
+ * <h2>UserServiceImpl Class</h2>
  * <p>
  * Process for Displaying UserServiceImpl
  * </p>
@@ -33,39 +35,30 @@ import cgmgl.springmvc.app.persistence.entity.User;
 @Service
 @Transactional
 public class UserServiceImpl implements UserService, UserDetailsService {
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
-	
-	@Autowired
-	private UserDao userDAO;
-	
-	@Autowired
-	private ApplicantInfoDao applicantInfoDao;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
-	@Override
-	public User doGetUserById(long userId) {
-		// TODO Auto-generated method stub
-		User resultPost = this.userDAO.dbGetUserById(userId);
-		return resultPost;
-	}
-
-	@Override
-	public void doUpdateUser(@Valid User user) {
-		// TODO Auto-generated method stub
-		this.userDAO.dbUpdateUser(user);
-	}
-    
-    /**
-     * <h2> userDAO</h2>
-     * <p>
-     * userDAO
-     * </p>
-     */
     @Autowired
     private UserDao userDAO;
 
+    @Autowired
+    private ApplicantInfoDao applicantInfoDao;
+
+    @Override
+    public User doGetUserById(long userId) {
+        // TODO Auto-generated method stub
+        User resultPost = this.userDAO.dbGetUserById(userId);
+        return resultPost;
+    }
+
+    @Override
+    public void doUpdateUser(@Valid User user) {
+        // TODO Auto-generated method stub
+        this.userDAO.dbUpdateUser(user);
+    }
+
     /**
-     * <h2> doGetUserByName </h2>
+     * <h2>doGetUserByName</h2>
      * <p>
      * 
      * </p>
@@ -79,7 +72,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     /**
-     * <h2> doGetUserCount </h2>
+     * <h2>doGetUserCount</h2>
      * <p>
      * 
      * </p>
@@ -93,7 +86,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     /**
-     * <h2> loadUserByUsername </h2>
+     * <h2>loadUserByUsername</h2>
      * <p>
      * 
      * </p>
@@ -105,55 +98,54 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User userInfo = this.userDAO.dbGetUserByName(username);
-        
+
         if (userInfo == null) {
             throw new UsernameNotFoundException("Invalid Username or Password!");
         }
-        UserDetails user = new CustomUserDetail(userInfo.getUsername(), userInfo.getPassword(),
-                userInfo.getAuthorities());
+        UserDetails user = new CustomUserDetail(userInfo.getName(), userInfo.getPassword(), userInfo.getAuthorities());
         return user;
     }
 
-	@Override
-	public void doSaveUser(@Valid ApplicantDto applicantForm) {
-		// TODO Auto-generated method stub
-		ApplicantInfo applicantInfo = new ApplicantInfo(applicantForm);
-		Date created_date = new Date();
-		applicantInfoDao.dbSaveApplicantInfo(applicantInfo);
-		User user = new User(applicantForm);
-		user.setPassword(passwordEncoder.encode(applicantForm.getUser().getPassword()));
-		this.userDAO.dbAddUser(user, applicantInfo, created_date);
-		
-	}
+    @Override
+    public void doSaveUser(@Valid ApplicantDto applicantForm) {
+        // TODO Auto-generated method stub
+        ApplicantInfo applicantInfo = new ApplicantInfo(applicantForm);
+        Date created_date = new Date();
+        applicantInfoDao.dbSaveApplicantInfo(applicantInfo);
+        User user = new User(applicantForm);
+        user.setPassword(passwordEncoder.encode(applicantForm.getUser().getPassword()));
+        this.userDAO.dbAddUser(user, applicantInfo, created_date);
 
-	@Override
-	public List<User> doGetUserList() {
-		// TODO Auto-generated method stub
-		return userDAO.dbGetUserList();
-	}
+    }
 
-	@Override
-	public UserDto getUserByID(Long userId) {
-		// TODO Auto-generated method stub
-		User resultPost = this.userDAO.dbGetUserById(userId);
-		UserDto resultPostform = resultPost != null ? new UserDto(resultPost) : null;
-		return resultPostform;
-	}
+    @Override
+    public List<User> doGetUserList() {
+        // TODO Auto-generated method stub
+        return userDAO.dbGetUserList();
+    }
 
-	@Override
-	public void doUpdateUser(@Valid UserDto userForm) {
-		// TODO Auto-generated method stub
-		Date updatedDate = new Date();
-		User updateUser = this.userDAO.dbGetUserById(userForm.getId());
-		updateUser.setName(userForm.getUsername());
-		updateUser.setEmail(userForm.getEmail());
-		updateUser.setPassword(userForm.getPassword());
-		updateUser.setUpdated_at(updatedDate);
-		this.userDAO.dbUpdateUser(updateUser);
-	}
+    @Override
+    public UserDto getUserByID(Long userId) {
+        // TODO Auto-generated method stub
+        User resultPost = this.userDAO.dbGetUserById(userId);
+        UserDto resultPostform = resultPost != null ? new UserDto(resultPost) : null;
+        return resultPostform;
+    }
+
+    @Override
+    public void doUpdateUser(@Valid UserDto userForm) {
+        // TODO Auto-generated method stub
+        Date updatedDate = new Date();
+        User updateUser = this.userDAO.dbGetUserById(userForm.getId());
+        updateUser.setName(userForm.getUsername());
+        updateUser.setEmail(userForm.getEmail());
+        updateUser.setPassword(userForm.getPassword());
+        updateUser.setUpdated_at(updatedDate);
+        this.userDAO.dbUpdateUser(updateUser);
+    }
 
     /**
-     * <h2> doIsEmailExist </h2>
+     * <h2>doIsEmailExist</h2>
      * <p>
      * 
      * </p>
@@ -169,6 +161,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
             result = true;
         }
         return result;
+    }
+
+    @Override
+    public User doGetUserByEmail(String userEmail) {
+        User resultUser = this.userDAO.dbGetUserByEmail(userEmail);
+        return resultUser;
     }
 
 }

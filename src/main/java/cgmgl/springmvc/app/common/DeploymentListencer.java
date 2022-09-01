@@ -11,10 +11,9 @@ import org.springframework.stereotype.Component;
 
 import cgmgl.springmvc.app.persistence.dao.AuthorityDao;
 import cgmgl.springmvc.app.persistence.dao.UserDao;
+import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.User;
-
-
 
 /**
  * <h2> DeploymentListencer Class</h2>
@@ -70,24 +69,24 @@ public class DeploymentListencer {
             Authority adminAuthority = new Authority(null, "ROLE_ADMIN");
             this.authorityDAO.dbSaveAuthority(adminAuthority);
             adminAuthorities.add(adminAuthority);
-            User admin = new User(null, "admin", passwordEncoder.encode("123"),
-                    "htetn4494@gmail.com", null, null, null, null, 0, adminAuthorities);
+            User admin = new User(1, "admin", passwordEncoder.encode("123"),
+                    "htetn4494@gmail.com", null, null, null, null, adminAuthorities);
             this.userDAO.dbSaveUser(admin);
 
             List<Authority> userAuthorities = new ArrayList<Authority>();
             Authority userAuthority = new Authority(null, "ROLE_USER");
             this.authorityDAO.dbSaveAuthority(userAuthority);
             userAuthorities.add(userAuthority);
-            User user = new User(null, "user", passwordEncoder.encode("123"),
-                    "yinyinswe1999@gmail.com"  , null, null, null, null, 0, userAuthorities);
+            User user = new User(2, "user", passwordEncoder.encode("123"),
+                    "yinyinswe1999@gmail.com", null, null, null, null, userAuthorities);
             this.userDAO.dbSaveUser(user);
             
             List<Authority> fullAdminAuthorities = new ArrayList<Authority>();
             Authority admin1Authority = new Authority(null, "ROLE_FULL_ADMIN");
             this.authorityDAO.dbSaveAuthority(admin1Authority);
             fullAdminAuthorities.add(admin1Authority);
-            User user1 = new User(null, "full-admin", passwordEncoder.encode("123"),
-                    null, null, null, null, null, 0, fullAdminAuthorities);
+            User user1 = new User(3, "full-admin", passwordEncoder.encode("123"),
+                    null, null, null, null, null, fullAdminAuthorities);
             this.userDAO.dbSaveUser(user1);
         }
     }

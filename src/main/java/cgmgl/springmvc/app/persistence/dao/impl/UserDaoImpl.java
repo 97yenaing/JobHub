@@ -64,10 +64,11 @@ public class UserDaoImpl implements UserDao {
      * @param username
      * @return
      */
+    @SuppressWarnings("rawtypes")
     @Override
     public User dbGetUserByName(String username) {
         Query query = this.sessionFactory.getCurrentSession()
-                .createQuery("SELECT u FROM User u WHERE u.username = :username");
+                .createQuery("SELECT u FROM User u WHERE u.name = :username");
         query.setParameter("username", username);
         return (User) query.uniqueResult();
     }
@@ -90,20 +91,7 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		this.sessionFactory.getCurrentSession().update(user);
 	}
-
-    /**
-     * <h2> dbSaveUser </h2>
-     * <p>
-     * 
-     * </p>
-     * 
-     * @param user
-     */
-    @Override
-    public void dbSaveUser(User user) {
-        this.sessionFactory.getCurrentSession().save(user);
-        
-    }
+  
     /**
      * <h2> dbFindUserByAllEmail </h2>
      * <p>
@@ -153,5 +141,14 @@ public class UserDaoImpl implements UserDao {
             user1.setPassword(user.getPassword());
             this.sessionFactory.getCurrentSession().update(user);
         }
+    }
+    
+    @Override
+    public User dbGetUserByEmail(String userEmail) {
+        // TODO Auto-generated method stub
+        Query userById = this.sessionFactory.getCurrentSession().createQuery("SELECT u FROM User u where u.email = :email");
+        userById.setParameter("email", userEmail);
+        User userOneByid = (User) userById.uniqueResult();
+        return userOneByid;
     }
 }

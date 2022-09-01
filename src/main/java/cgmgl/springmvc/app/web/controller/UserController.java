@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
 import cgmgl.springmvc.app.bl.dto.PasswordResetMailForm;
+import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.bl.service.AuthorityService;
 import cgmgl.springmvc.app.bl.service.UserService;
 import cgmgl.springmvc.app.persistence.entity.Authority;

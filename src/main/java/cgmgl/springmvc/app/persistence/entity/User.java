@@ -19,6 +19,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
 import cgmgl.springmvc.app.bl.dto.UserDto;
 import lombok.AllArgsConstructor;
