@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+    xmlns="http://www.springframework.org/schema/security"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans.xsd  
+    http://www.springframework.org/schema/security  
+    http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <http>
+        <intercept-url pattern="/home"
+            access="hasAnyRole('USER', 'ADMIN','FULL_ADMIN' )" />
+        <intercept-url pattern="/applicant"
+            access="hasAnyRole('USER','FULL_ADMIN','ADMIN')" />
+        <intercept-url pattern="/company"
+            access="hasAnyRole('FULl_ADMIN','ADMIN')" />
+        <intercept-url pattern="/admin"
+            access="hasRole('FULL_ADMIN')" />
+
+        <form-login login-page="/"
+            login-processing-url="/login" username-parameter="username"
+            password-parameter="password" default-target-url="/home" />
+        <logout logout-url="/logout" logout-success-url="/" />
+        <access-denied-handler error-page="/error" />
+    </http>
+
+    <authentication-manager>
+        <authentication-provider
+            user-service-ref="userService">
+            <password-encoder ref="passwordEncoder" />
+        </authentication-provider>
+    </authentication-manager>
+</beans:beans>  
