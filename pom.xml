@@ -7,22 +7,23 @@
     <name>SpringMVC Frame</name>
     <description>Skeleton Spring MVC Frame</description>
 
-    <properties>
-        <jdk.version>1.8</jdk.version>
-        <springframework.version>5.2.22.RELEASE</springframework.version>
-        <springsecurity.version>5.3.13.RELEASE</springsecurity.version>
-        <hibernate.version>5.6.10.Final</hibernate.version>
-        <hibernate-validator.version>6.0.10.Final</hibernate-validator.version>
-        <tomcat-dbcp.version>10.1.0-M10</tomcat-dbcp.version>
-        <mysql.connector.version>8.0.30</mysql.connector.version>
-        <javamail.api.version>1.5.5</javamail.api.version>
-        <javamail.version>1.4.7</javamail.version>
-        <apachetiles.version>3.0.8</apachetiles.version>
-        <!-- <flyway.version>9.1.2</flyway.version> -->
-        <slf4j.version>1.7.36</slf4j.version>
-        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-        <maven-war-plugin.version>3.3.2</maven-war-plugin.version>
-    </properties>
+	<properties>
+		<jdk.version>1.8</jdk.version>
+		<springframework.version>5.2.22.RELEASE</springframework.version>
+		<springsecurity.version>5.3.13.RELEASE</springsecurity.version>
+		<hibernate.version>5.6.10.Final</hibernate.version>
+		<hibernate-validator.version>7.0.5.Final</hibernate-validator.version>
+		<tomcat-dbcp.version>10.1.0-M10</tomcat-dbcp.version>
+		<mysql.connector.version>8.0.30</mysql.connector.version>
+		<javamail.api.version>1.5.5</javamail.api.version>
+		<javamail.version>1.4.7</javamail.version>
+		<apachetiles.version>3.0.8</apachetiles.version>
+		<!-- <flyway.version>9.1.2</flyway.version> -->
+		<slf4j.version>1.7.36</slf4j.version>
+		<jackson.version>2.11.3</jackson.version>
+		<maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
+		<maven-war-plugin.version>3.3.2</maven-war-plugin.version>
+	</properties>
 
     <dependencies>
         <!-- Spring -->
@@ -228,24 +229,81 @@
             <version>${slf4j.version}</version>
         </dependency>
 
-        <!-- Pretty Time -->
-        <dependency>
-            <groupId>org.ocpsoft.prettytime</groupId>
-            <artifactId>prettytime</artifactId>
-            <version>5.0.3.Final</version>
-        </dependency>
-        <!-- lombook-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
-            <version>1.3.2</version>
-        </dependency>
+		<!-- Pretty Time -->
+		<dependency>
+			<groupId>org.ocpsoft.prettytime</groupId>
+			<artifactId>prettytime</artifactId>
+			<version>5.0.3.Final</version>
+		</dependency>
+		
+		<!-- poi export -->
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>5.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicemix.bundles</groupId>
+			<artifactId>org.apache.servicemix.bundles.poi</artifactId>
+			<version>4.1.2_1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlbeans</groupId>
+			<artifactId>xmlbeans</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-compress</artifactId>
+			<version>1.20</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<!-- File Upload -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+			<scope>provided</scope>
+		</dependency>
 
     </dependencies>
 

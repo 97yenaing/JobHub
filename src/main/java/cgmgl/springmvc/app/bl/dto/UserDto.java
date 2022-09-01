@@ -1,9 +1,13 @@
 package cgmgl.springmvc.app.bl.dto;
 
+import java.sql.Timestamp;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
+import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
+import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,99 +28,122 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDto {
-    /**
-     * <h2>id</h2>
-     * <p>
-     * id
-     * </p>
-     */
-    private Long id;
+	private long id;
 
-    /**
-     * <h2>username</h2>
-     * <p>
-     * username
-     * </p>
-     */
-    @NotEmpty
-    private String username;
+	@NotEmpty
+	private String username;
 
-    /**
-     * <h2>password</h2>
-     * <p>
-     * password
-     * </p>
-     */
-    @NotEmpty
-    private String password;
+	@NotEmpty
+	private String email;
 
-    /**
-     * <h2>email</h2>
-     * <p>
-     * email
-     * </p>
-     */
-    @NotEmpty
-    private String email;
+	@NotEmpty
+	private String password;
 
-    /**
-     * <h2>type</h2>
-     * <p>
-     * type
-     * </p>
-     */
-    private String type;
+	@NotEmpty
+	private String confirmPwd;
 
-    /**
-     * <h2>created_at</h2>
-     * <p>
-     * created_at
-     * </p>
-     */
-    private Date created_at;
+	private List<Authority> authorityList;
 
-    /**
-     * <h2>updated_at</h2>
-     * <p>
-     * updated_at
-     * </p>
-     */
-    private Date updated_at;
+	private Authority authority;
 
-    /**
-     * <h2>deleted_at</h2>
-     * <p>
-     * deleted_at
-     * </p>
-     */
-    private Date deleted_at;
+	private Date created_at;
 
-    /**
-     * <h2>company_id</h2>
-     * <p>
-     * company_id
-     * </p>
-     */
-    private int company_id;
+	private Date updated_at;
 
-    /**
-     * <h2>Constructor for UserDto</h2>
-     * <p>
-     * Constructor for UserDto
-     * </p>
-     * 
-     * @param user
-     */
-    public UserDto(User user) {
-        super();
-        this.id = user.getId();
-        this.username = user.getUsername();
-        this.password = user.getPassword();
-        this.email = user.getEmail();
-        this.company_id = user.getCompany_id();
-        this.created_at = user.getCreated_at();
-        this.deleted_at = user.getDeleted_at();
+	private Date deleted_at;
+	
+	private ApplicantInfo applicantInfo;
 
-    }
+	public UserDto(User user) {
+		if (user == null) {
+			user = new User();
+		}
+		this.id = user.getId();
+		this.username = user.getName();
+		this.email = user.getEmail();
+		this.password = user.getPassword();
+		this.authorityList = user.getAuthorities();
+		this.applicantInfo = user.getApplicantInfo();
+		this.created_at = user.getCreated_at();
+		this.updated_at = user.getUpdated_at();
+		this.deleted_at = user.getDeleted_at();
+	}
 
+	/** id. */
+	/*
+	 * private int id;
+	 * 
+	 *//** username. */
+	/*
+	 * @NotEmpty private String username;
+	 * 
+	 *//** email. */
+	/*
+	 * @Email
+	 * 
+	 * @NotEmpty private String email;
+	 * 
+	 *//** password. */
+	/*
+	 * @NotEmpty
+	 * 
+	 * @Size(max = 20) private String password;
+	 * 
+	 *//** gender. */
+	/*
+	 * @NotNull private char gender;
+	 * 
+	 *//** address. */
+	/*
+	 * @NotEmpty private String address;
+	 * 
+	 *//** created at. */
+	/*
+	 * private Timestamp createdAt;
+	 * 
+	 *//** updated at. */
+	/*
+	 * private Timestamp updatedAt;
+	 * 
+	 *//**
+	    * Instantiates a new user detail dto.
+	    *
+	    * @param user the user
+	    */
+	/**
+	 * Getters and Setters
+	 *//*
+	    * 
+	    * public int getId() { return id; }
+	    * 
+	    * public void setId(int id) { this.id = id; }
+	    * 
+	    * public String getUsername() { return username; }
+	    * 
+	    * public void setUsername(String username) { this.username = username; }
+	    * 
+	    * public String getEmail() { return email; }
+	    * 
+	    * public void setEmail(String email) { this.email = email; }
+	    * 
+	    * public String getPassword() { return password; }
+	    * 
+	    * public void setPassword(String password) { this.password = password; }
+	    * 
+	    * public char getGender() { return gender; }
+	    * 
+	    * public void setGender(char gender) { this.gender = gender; }
+	    * 
+	    * public String getAddress() { return address; }
+	    * 
+	    * public void setAddress(String address) { this.address = address; }
+	    * 
+	    * public Timestamp getCreatedAt() { return createdAt; }
+	    * 
+	    * public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
+	    * 
+	    * public Timestamp getUpdatedAt() { return updatedAt; }
+	    * 
+	    * public void setUpdatedAt(Timestamp updatedAt) { this.updatedAt = updatedAt; }
+	    */
 }

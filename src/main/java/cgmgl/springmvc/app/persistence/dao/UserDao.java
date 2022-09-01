@@ -1,5 +1,11 @@
 package cgmgl.springmvc.app.persistence.dao;
 
+import java.util.Date;
+import java.util.List;
+
+import javax.validation.Valid;
+
+import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.User;
 
 /**
@@ -12,6 +18,17 @@ import cgmgl.springmvc.app.persistence.entity.User;
  *
  */
 public interface UserDao {
+    User dbGetUserById(long userId);
+
+	void dbSaveUser(User admin);
+
+    void dbUpdateUser(@Valid User user);
+
+	User dbGetUserByEmail(String userEmail);
+
+    void dbAddUser(User user, ApplicantInfo applicantInfo, Date created_date);
+
+	List<User> dbGetUserList();
 
     /**
      * <h2> dbGetUserByName</h2>

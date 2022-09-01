@@ -25,10 +25,14 @@
     <mvc:resources mapping="/assets/**"
         location="/WEB-INF/assets/" />
 
-    <!-- INTERCEPTORS SETTING -->
-    <!-- ADD ANY INTERCEPTORS <mvc:interceptors> <mvc:interceptor> <mvc:mapping 
-        path="/auth/**" /> <bean class="cgmgl.springmvc.app.web.filter.AuthInterceptor" 
-        /> </mvc:interceptor> </mvc:interceptors> -->
+	<!-- INTERCEPTORS SETTING -->
+	<!--  ADD ANY INTERCEPTORS
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/auth/**" />
+			<bean class="cgmgl.springmvc.app.web.filter.AuthInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors> -->
 
     <!-- MESSAGE SOURCE -->
     <bean id="messageSource"

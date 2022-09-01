@@ -1,13 +1,22 @@
 package cgmgl.springmvc.app.persistence.dao.impl;
 
+import java.util.Date;
+import java.util.List;
+
+import javax.transaction.Transactional;
+import javax.validation.Valid;
+
+import org.hibernate.SessionFactory;
 import javax.transaction.Transactional;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import cgmgl.springmvc.app.persistence.dao.UserDao;
+import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.User;
 
 /**
@@ -30,6 +39,22 @@ public class UserDaoImpl implements UserDao {
      */
     @Autowired
     SessionFactory sessionFactory;
+
+    @SuppressWarnings("rawtypes")
+	@Override
+	public User dbGetUserById(long userId) {
+		// TODO Auto-generated method stub
+		Query userById = this.sessionFactory.getCurrentSession().createQuery("SELECT u FROM User u where u.id = :id");
+		userById.setParameter("id", userId);
+		User userOneByid = (User) userById.uniqueResult();
+		return userOneByid;
+	}
+    @Override
+	public void dbSaveUser(User user) {
+		// TODO Auto-generated method stub
+		this.sessionFactory.getCurrentSession().save(user);
+	}
+
     /**
      * <h2> dbGetUserByName </h2>
      * <p>
@@ -59,6 +84,13 @@ public class UserDaoImpl implements UserDao {
         Query query = this.sessionFactory.getCurrentSession().createQuery("SELECT COUNT(u) FROM User u");
         return (long) query.getSingleResult();
     }
+
+    @Override
+	public void dbUpdateUser(@Valid User user) {
+		// TODO Auto-generated method stub
+		this.sessionFactory.getCurrentSession().update(user);
+	}
+
     /**
      * <h2> dbSaveUser </h2>
      * <p>
@@ -88,8 +120,23 @@ public class UserDaoImpl implements UserDao {
         query.setParameter("email", user_email);
         User user = (User) query.uniqueResult();
         return user;
-
     }
+
+    @Override
+	public void dbAddUser(User user, ApplicantInfo applicantInfo, Date created_date) {
+		// TODO Auto-generated method stub
+		user.setApplicantInfo(applicantInfo);
+		user.setCreated_at(created_date);
+		this.sessionFactory.getCurrentSession().save(user);
+	}
+
+    @SuppressWarnings("unchecked")
+	@Override
+	public List<User> dbGetUserList() {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createQuery("from User").list();
+	}
+    
     /**
      * <h2> dbUpdateUserPassword </h2>
      * <p>
