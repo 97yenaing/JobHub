@@ -19,6 +19,8 @@
 			<list>
 				<value>/WEB-INF/views/layouts/app.xml</value>
 				<value>/WEB-INF/views/layouts/views-user.xml</value>
+                <value>/WEB-INF/views/layouts/views-jobPost.xml</value>
+                <value>/WEB-INF/views/layouts/views-jobType.xml</value>
 			</list>
 		</property>
 	</bean>

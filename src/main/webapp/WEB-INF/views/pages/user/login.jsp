@@ -5,7 +5,11 @@
 
 <div class="content">
 	<div>
-		<a class="btn" href="<c:url value ="/"/>">Back</a>
+	<a class="btn" href="<c:url value ="/"/>">Back</a><br>
+    <a href="${pageContext.request.contextPath}/jobPostList">Company View JobPost List</a><br>
+    <a href="<c:url value ="/createJobPosts"/>">Create Job Post</a><br>
+    
+    <a href="${pageContext.request.contextPath}/jobTypeList">Job Type List</a><br>
 	</div>
 	<section>
 		<div>
