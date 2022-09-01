@@ -20,6 +20,25 @@
 	type="text/css" />
 <link rel="stylesheet" href="<c:url value="/assets/css/app.css" />"
 	type="text/css" />
+<link rel="stylesheet" href="<c:url value="/assets/css/signup.css" />"
+  type="text/css" />
+<link rel="stylesheet" href="<c:url value="/assets/css/form.css" />"
+  type="text/css" />
+<script
+  src="<c:url value="/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+<script src="<c:url value="/resources/js/adminlte.min.js"/>"></script>
+<script src="<c:url value="/resources/js/common.js"/>"></script>
+<script src="<c:url value="/resources/js/demo.js"/>"></script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+<link rel="stylesheet"
+  href='<c:url value="/resources/plugins/fontawesome-free/css/all.min.css"/>'>
+<link rel="stylesheet"
+  href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 	<tiles:insertAttribute name="header" />
@@ -27,7 +46,7 @@
 		<tiles:insertAttribute name="body" />
 	</div>
 	<tiles:insertAttribute name="footer" />
-	<script src="<c:url value="/assets/js/jquery-3.6.0.min.js" />"></script>
+<%-- 	<script src="<c:url value="/assets/js/jquery-3.6.0.min.js" />"></script> --%>
 	<script src="<c:url value="/assets/js/app.js" />"></script>
 </body>
 </html>

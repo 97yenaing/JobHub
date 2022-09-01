@@ -30,8 +30,7 @@
 			<mvc:mapping path="/auth/**" />
 			<bean class="cgmgl.springmvc.app.web.filter.AuthInterceptor" />
 		</mvc:interceptor>
-	</mvc:interceptors>
-	-->
+	</mvc:interceptors> -->
 
 	<!-- MESSAGE SOURCE -->
 	<bean id="messageSource"
@@ -105,7 +104,11 @@
 		</property>
 	</bean>
 
-	<bean id="passwordEncoder"
+	<bean id="bCryptPasswordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+        
+   <!-- <bean id="userService"
+        class="spring.security.crud.service.Impl.UserServiceImpl">
+    </bean> -->
 
 </beans>

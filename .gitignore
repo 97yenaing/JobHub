@@ -1,4 +1,3 @@
-src/main/resources/database.properties
 target
 *.class
 *.log

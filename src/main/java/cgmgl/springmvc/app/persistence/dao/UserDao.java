@@ -1,53 +1,28 @@
 package cgmgl.springmvc.app.persistence.dao;
 
+import java.util.Date;
+import java.util.List;
+
+import javax.validation.Valid;
+
+import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.User;
 
 /**
  * Interface UserDao.
  */
 public interface UserDao {
+	void dbSaveUser(User admin);
 
-	/**
-	 * Find by id.
-	 *
-	 * @param int id
-	 * @return user
-	 */
-	User findById(int id);
+	long dbGetUserCount();
 
-	/**
-	 * Find by email.
-	 *
-	 * @param String email
-	 * @return user
-	 */
-	User findByEmail(String email);
+	User dbGetUserById(long userId);
 
-	/**
-	 * Creates user.
-	 *
-	 * @param User user
-	 */
-	void createUser(User user);
-	
-	/**
-	 * Update user.
-	 *
-	 * @param User user
-	 */
-	void updateUser(User user);
+	void dbUpdateUser(@Valid User user);
 
-	/**
-	 * Delete user.
-	 *
-	 * @param int id
-	 */
-	void deleteUser(int id);
+	User dbGetUserByEmail(String userEmail);
 
-	/**
-	 * Delete user by email.
-	 *
-	 * @param String email
-	 */
-	void deleteUserByEmail(String email);
+	void dbAddUser(User user, ApplicantInfo applicantInfo, Date created_date);
+
+	List<User> dbGetUserList();
 }
