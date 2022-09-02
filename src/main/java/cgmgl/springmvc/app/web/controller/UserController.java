@@ -1,6 +1,5 @@
 package cgmgl.springmvc.app.web.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
@@ -10,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
-import cgmgl.springmvc.app.bl.dto.PasswordResetMailForm;
 import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.bl.service.AuthorityService;
 import cgmgl.springmvc.app.bl.service.UserService;
@@ -56,6 +55,7 @@ public class UserController {
      */
     @Autowired
     UserService userService;
+    
 
     /**
      * <h2> email</h2>
@@ -67,10 +67,10 @@ public class UserController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView email(HttpServletRequest request) {
-        ModelAndView model = new ModelAndView("login");
-        model.setViewName("login");
+        ModelAndView model = new ModelAndView("log");
+        model.setViewName("log");
         return model;
     }
 
@@ -130,7 +130,7 @@ public class UserController {
 		return model;
 	}
 
-@RequestMapping(value = "/editUser", method = RequestMethod.GET)
+    @RequestMapping(value = "/editUser", method = RequestMethod.GET)
 	public ModelAndView editUser(@RequestParam("id") Long userId, HttpServletRequest request) {
 		UserDto userForm = userService.getUserByID(userId);
 		List<Authority> authorities = authorityService.doGetAuthList();
@@ -152,77 +152,4 @@ public class UserController {
 		ModelAndView updateUserView = new ModelAndView("redirect:/userList");
 		return updateUserView;
 	}
-
-    /**
-     * <h2> homePage</h2>
-     * <p>
-     * 
-     * </p>
-     *
-     * @return
-     * @return ModelAndView
-     */
-    @RequestMapping(value = "/home")
-    public ModelAndView homePage() {
-        ModelAndView model = new ModelAndView();
-        model.setViewName("home");
-        return model;
-    }
-    /**
-     * <h2> signUp</h2>
-     * <p>
-     * 
-     * </p>
-     *
-     * @param request
-     * @return
-     * @return ModelAndView
-     */
-    @RequestMapping(value = "/sign-up", method = RequestMethod.GET)
-    public ModelAndView signUp(HttpServletRequest request) {
-        ModelAndView model = new ModelAndView("sign-up");
-        model.setViewName("sign-up");
-        return model;
-    }
-    /**
-     * <h2> companyPage</h2>
-     * <p>
-     * 
-     * </p>
-     *
-     * @return
-     * @return String
-     */
-    @RequestMapping(value = "/company" , method = RequestMethod.GET)
-    public String companyPage() {
-        return "admin";
-    }
-
-    /**
-     * <h2> applicantPage</h2>
-     * <p>
-     * 
-     * </p>
-     *
-     * @return
-     * @return String
-     */
-    @RequestMapping(value = "/applicant")
-    public String applicantPage() {
-        return "access-denied";
-    }
-
-    /**
-     * <h2> AdminPage</h2>
-     * <p>
-     * 
-     * </p>
-     *
-     * @return
-     * @return String
-     */
-    @RequestMapping(value = "/admin")
-    public String AdminPage() {
-        return "access-denied";
-    }
 }

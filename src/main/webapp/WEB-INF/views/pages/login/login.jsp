@@ -9,7 +9,7 @@
 </head>
 <body>
   <div class="com-inner">
-    <div class="email-container">
+    <div class="login-container">
       <form action="<c:url value='/login' />" method="POST">
         <font color="red">
           ${SPRING_SECURITY_LAST_EXCEPTION.message} </font>

@@ -23,6 +23,8 @@
                 <value>/WEB-INF/views/layouts/views-applicant.xml</value>
                 <value>/WEB-INF/views/layouts/views-jobPost.xml</value>
                 <value>/WEB-INF/views/layouts/views-jobType.xml</value>
+                <value>/WEB-INF/views/layouts/views-login.xml</value>
+                
 			</list>
 		</property>
 	</bean>
