@@ -169,4 +169,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return resultUser;
     }
 
+	@Override
+	public void doDeleteUser(long userId) {
+		// TODO Auto-generated method stub
+		Date deletedAt = new Date();
+		User user = this.userDAO.dbGetUserById(userId);
+		this.userDAO.dbDeleteUser(user, deletedAt);
+	}
+
 }

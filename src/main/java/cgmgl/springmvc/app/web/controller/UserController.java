@@ -101,8 +101,9 @@ public class UserController {
 			userView.addObject("authorityRoles", authorities);
 			userView.addObject("errorMsg", "Confirm password must be equal with the first password.");
 		}
-        System.out.println(authoId);
+        System.out.println(authoId);        
 		if (authoId == 3) {
+			userDto.setAuthorityList(authorities);
 			ApplicantDto applicantDto = new ApplicantDto();
 			ModelAndView applicantRegister = new ModelAndView("applicantInfo");
 			applicantRegister.addObject("applicantInfoForm", applicantDto);
@@ -117,6 +118,11 @@ public class UserController {
 	public ModelAndView insert(@ModelAttribute("applicantInfoForm") @Valid ApplicantDto applicantForm,
 	        BindingResult result, HttpServletRequest request, HttpServletResponse response) {
 		System.out.println(applicantForm.getUser().getEmail());
+		List<Authority> authorities = new ArrayList<Authority>();
+		int authoId = applicantForm.getAuthority().getId();
+		Authority authority = authorityService.doGetAuthById(authoId);
+		authorities.add(authority);
+		applicantForm.setAuthorityList(authorities);
 		this.userService.doSaveUser(applicantForm);
 		ModelAndView createUserView = new ModelAndView("redirect:/home");
 		return createUserView;
@@ -151,5 +157,12 @@ public class UserController {
 		this.userService.doUpdateUser(userForm);
 		ModelAndView updateUserView = new ModelAndView("redirect:/userList");
 		return updateUserView;
+	}
+	
+	@RequestMapping(value = "/deleteUser", method = RequestMethod.GET)
+	public ModelAndView deleteUser(HttpServletRequest request) {
+		long userId = Integer.parseInt(request.getParameter("id"));
+		userService.doDeleteUser(userId);
+		return new ModelAndView("redirect:/userList");
 	}
 }

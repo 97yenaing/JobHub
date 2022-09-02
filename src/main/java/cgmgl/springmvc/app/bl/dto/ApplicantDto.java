@@ -1,8 +1,11 @@
 package cgmgl.springmvc.app.bl.dto;
 
+import java.util.List;
+
 import javax.validation.constraints.NotEmpty;
 
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
+import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +18,10 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ApplicantDto {
 	private User user;
+	
+	private Authority authority;
+	
+	private List<Authority> authorityList;
 	
 	private long applicantId;
 	

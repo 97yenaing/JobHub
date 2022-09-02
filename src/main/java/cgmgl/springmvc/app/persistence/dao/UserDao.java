@@ -84,4 +84,6 @@ public interface UserDao {
      * @return void
      */
     public void dbUpdateUserPassword(User user);
+
+	void dbDeleteUser(User user, Date deletedAt);
 }

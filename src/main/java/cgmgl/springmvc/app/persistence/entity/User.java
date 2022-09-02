@@ -97,7 +97,7 @@ public class User implements Serializable {
 		this.updated_at = applicantForm.getUser().getUpdated_at();
 		this.deleted_at = applicantForm.getUser().getDeleted_at();
 		this.applicantInfo = applicantForm.getUser().getApplicantInfo();
-		this.authorities = applicantForm.getUser().getAuthorities();
+		this.authorities = applicantForm.getAuthorityList();
 	}
 }
 

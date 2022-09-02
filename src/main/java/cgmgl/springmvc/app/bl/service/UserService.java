@@ -29,6 +29,8 @@ public interface UserService {
 
 	public void doUpdateUser(@Valid UserDto userForm);
 
+	public void doDeleteUser(long userId);
+
 	/**
 	 * Find by id.
 	 *

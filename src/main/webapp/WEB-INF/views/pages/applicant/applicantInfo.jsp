@@ -11,6 +11,7 @@
     <form:input type="hidden" path="user.name" value="${user.username}" /> 
     <form:input type="hidden" path="user.email" value="${user.email}" />
     <form:input type="hidden" path="user.password" value="${user.password}" />
+    <form:input type="hidden" path="authority.id" value="${user.authority.id }"/>
 
     <img src="" class="form-img" alt="profile">
     <div class="form-group">

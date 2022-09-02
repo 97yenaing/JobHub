@@ -151,4 +151,10 @@ public class UserDaoImpl implements UserDao {
         User userOneByid = (User) userById.uniqueResult();
         return userOneByid;
     }
+	@Override
+	public void dbDeleteUser(User user, Date deletedAt) {
+		// TODO Auto-generated method stub
+		user.setDeleted_at(deletedAt);
+		this.sessionFactory.getCurrentSession().update(user);
+	}
 }

@@ -17,8 +17,9 @@
             <div class="row">
               <div class="col-sm-12 col-md-12">
                 <div class="search-sec">
-                  <a href="${pageContext.request.contextPath}/createStudent"
-                      class="btn btn-info">Add</a>
+                  <a
+                    href="${pageContext.request.contextPath}/createStudent"
+                    class="btn btn-info">Add</a>
                 </div>
               </div>
             </div>
@@ -29,40 +30,42 @@
                   <thead>
                     <tr>
                       <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Created At</th>
-                    <th>Updated At</th>
-                    <th>Deleted At</th>
-                    <th>Actions</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Role</th>
+                      <th>Created At</th>
+                      <th>Updated At</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                  <c:forEach items="${UserList}" var="user"
-                    varStatus="loop">
-                    <tr>
-                      <td>${user.id }</td>
-                      <td>${user.name }</td>
-                      <td>${user.email}</td>
-                      <td>${user.password }</td>
-                      <td>${user.created_at}</td>
-                      <td>${user.updated_at}</td>
-                      <td>${user.deleted_at}</td>
-                      <td class="text-right py-0 align-middle">
-                        <div class="btn-group btn-group-sm">
-                          <a
-                            href="${pageContext.request.contextPath}/editUser?id=${user.id}"
-                            class="btn btn-secondary">Edit</a> <a href="#"
-                            data-toggle="modal"
-                            data-href="${pageContext.request.contextPath}/deleteUser?id=${user.id }"
-                            data-target="#myModal"
-                            class="btn btn-danger">Delete</a>
-                        </div>
-                      </td>
-                    </tr>
-                  </c:forEach>
-                </tbody>
+                    <c:forEach items="${UserList}" var="user"
+                      varStatus="loop">
+                      <c:if test="${user.deleted_at == null }">
+                        <tr>
+                          <td>${user.id }</td>
+                          <td>${user.name }</td>
+                          <td>${user.email}</td>
+                          <c:forEach items="${user.authorities }"
+                            var="auo" varStatus="loop">
+                            <td>${auo.name }</td>
+                          </c:forEach>
+                          <td>${user.created_at}</td>
+                          <td>${user.updated_at}</td>
+                          <td class="text-right py-0 align-middle">
+                            <div class="btn-group btn-group-sm">
+                              <a
+                                href="${pageContext.request.contextPath}/editUser?id=${user.id}"
+                                class="btn btn-secondary">Edit</a> <a
+                                href="${pageContext.request.contextPath}/deleteUser?id=${user.id }"
+                                data-target="#myModal"
+                                class="btn btn-danger">Delete</a>
+                            </div>
+                          </td>
+                        </tr>
+                      </c:if>
+                    </c:forEach>
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -72,35 +75,3 @@
     </div>
   </section>
 </div>
-
-
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Delete Student Confirmation!</h4>
-      </div>
-      <div class="modal-body">
-        <p>Are You Sure Want to Delete!</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default"
-          data-dismiss="modal">Cancel</button>
-        <a class="btn btn-danger btn-ok">OK</a>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-	$('#myModal').on(
-			'show.bs.modal',
-			function(e) {
-				$(this).find('.btn-ok').attr('href',
-						$(e.relatedTarget).data('href'));
-				$('.debug-url').html(
-						'Delete URL: <strong>'
-								+ $(this).find('.btn-ok').attr('href')
-								+ '</strong>');
-			});
-</script>
