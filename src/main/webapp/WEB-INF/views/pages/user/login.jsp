@@ -5,8 +5,11 @@
 
 <div class="content">
 	<div>
-		<a class="btn" href="<%=request.getContextPath()%>/createCompany">Back</a>
+		<a class="btn" href="<%=request.getContextPath()%>/company/List">Back</a>
 	</div>
+  <div>
+    <a class="btn" href="<%=request.getContextPath()%>/company/Profile/18">profile</a>
+  </div>
 	<section>
 		<div>
 			<h1>LOGIN PAGE</h1>

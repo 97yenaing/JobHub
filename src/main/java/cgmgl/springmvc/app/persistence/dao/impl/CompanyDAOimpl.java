@@ -14,7 +14,6 @@ import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.persistence.dao.CompanyDAO;
 import cgmgl.springmvc.app.persistence.entity.Company;
 
-
 @Repository
 @Transactional
 
@@ -30,47 +29,27 @@ public class CompanyDAOimpl implements CompanyDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Company> CompanyList() {
-		return this.sessionFactory.getCurrentSession().createQuery("Select c from Company c where c.delete_at = null")
+	public List<Company> dbCompanyList() {
+		return sessionFactory.getCurrentSession().createQuery("SELECT c FROM Company c where c. deleted_at = null")
 		        .list();
 
 	}
 
 	@Override
-	public void addCompany(Company company) {
+	public void dbaddCompany(Company company, Date currentDate) {
+		company.setCreated_at(currentDate);
 		sessionFactory.getCurrentSession().save(company);
-
 	}
 
 	@Override
-	public void deleteCompany(int company_id, Date currentDate) {
-		Company company = sessionFactory.getCurrentSession().load(Company.class, company_id);
-		if (null != company) {
-			company.setDeleted_at(new Date());
-			this.sessionFactory.getCurrentSession().update(company);
-		}
-	}
-
-	@Override
-	public CompanyDto getCompany(int company_id) {
-		String companyquery = "select c from Company  c where c:company_id=:company_id";
-		@SuppressWarnings("unchecked")
-		Query<Company> queryCompanyBuId = this.sessionFactory.getCurrentSession().createQuery(companyquery);
-		queryCompanyBuId.setParameter("company_id", company_id);
-		Company result = (Company) queryCompanyBuId.uniqueResult();
-		CompanyDto companyForm = new CompanyDto(result);
-		return companyForm;
-	}
-
-	@Override
-	public void updateCompany(Company company) {
+	public void dbupdateCompany(Company company) {
 		this.sessionFactory.getCurrentSession().update(company);
 
 	}
 
 	@Override
-	public Company findByEmail(String email) {
-		String companyquery = "select c from Company  c where c:email_=:email";
+	public Company dbfindByEmail(String email) {
+		String companyquery = "select c from Company  c where c.email=:email";
 		@SuppressWarnings("unchecked")
 		Query<Company> queryCompanyByEmail = this.sessionFactory.getCurrentSession().createQuery(companyquery);
 		queryCompanyByEmail.setParameter("email", email);
@@ -78,20 +57,30 @@ public class CompanyDAOimpl implements CompanyDAO {
 	}
 
 	@Override
-	public void createCompany(Company company) {
+	public void dbcreateCompany(Company company) {
 		this.sessionFactory.getCurrentSession().save(company);
 
 	}
 
 	@Override
-	public void deleteCompanyByEmail(String email) {
-		String companyquery = "select c from Company  c where c:email_=:email";
+	public CompanyDto dbgetCompany(int company_id) {
+		String companyquery = "select c from Company c where c.company_id=:company_id";
 		@SuppressWarnings("unchecked")
-		Query<Company> queryCompanyByEmail = this.sessionFactory.getCurrentSession().createQuery(companyquery);
-		if (companyquery != null) {
-			Company company = new Company();
+		Query<Company> queryCompanyByID = this.sessionFactory.getCurrentSession().createQuery(companyquery);
+		queryCompanyByID.setParameter("company_id", company_id);
+		Company result = (Company) queryCompanyByID.uniqueResult();
+		CompanyDto companyForm = new CompanyDto(result);
+		return companyForm;
+	}
+
+	@Override
+	public void dbdeleteCompanyID(int company_id, Date currentDate) {
+		Company company = this.sessionFactory.getCurrentSession().load(Company.class, company_id);
+		if (null != company) {
 			company.setDeleted_at(new Date());
 			this.sessionFactory.getCurrentSession().update(company);
 		}
+
 	}
+
 }

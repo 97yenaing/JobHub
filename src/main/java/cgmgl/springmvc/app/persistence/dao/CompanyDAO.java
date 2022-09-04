@@ -6,24 +6,22 @@ import java.util.List;
 import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.persistence.entity.Company;
 
-
 public interface CompanyDAO {
 	public void dbsaveCompany(Company company);
 
-	public List<Company> CompanyList();
+	public List<Company> dbCompanyList();
 
-	public void addCompany(Company company);
+	public void dbaddCompany(Company company, Date currentDate);
 
-	public void deleteCompany(int company_id, Date currentDate);
+	public void dbupdateCompany(Company company);
 
-	public CompanyDto getCompany(int company_id);
+	public Company dbfindByEmail(String email);
+	
+	void dbcreateCompany(Company company);
 
-	public void updateCompany(Company company);
+	public CompanyDto dbgetCompany(int company_id);
+	
 
-	Company findByEmail(String email);
-
-	void createCompany(Company company);
-
-	void deleteCompanyByEmail(String email);
+	public void dbdeleteCompanyID(int company_id, Date CurrentDate);
 
 }

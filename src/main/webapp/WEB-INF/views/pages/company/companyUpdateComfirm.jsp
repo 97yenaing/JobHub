@@ -16,9 +16,9 @@
 
 <body>
   <div class="card">
-    <c:url var="createcompanyConfirm" value="/company/Insert"></c:url>
-    <form:form class="form-detail" action="${createcompanyConfirm}" method="POST"
-      id="form" modelAttribute="CompanyForm">
+    <c:url var="updatecompanyConfirm" value="/company/Update"></c:url>
+    <form:form class="form-detail" action="${updatecompanyConfirm}" method="POST"
+      id="form" modelAttribute="companyUpdate">
        <c:if test="${errorMsg != null }">
           <div class="alert alert-danger">
             <strong>${errorMsg }</strong>
@@ -26,35 +26,41 @@
         </c:if>
       <h1 class="profile-header">Confirm Company's Registration</h1>
       <ul class="list-group list-group-unbordered mb-3">
+      <li class="list-group-item"> <a
+          class="float-right"> <form:input
+              type="hidden" path="company_id" name="company_id"
+              value="${companyUpdate.company_id }" class="form-control" />
+        </a></li>
         <li class="list-group-item"><b>Company Name:</b> <a
-          class="float-right">${CompanyForm.company_name } <form:input
+          class="float-right">${companyUpdate.company_name } <form:input
               type="hidden" path="company_name" name="company_name"
-              value="${CompanyForm.company_name }" class="form-control" />
+              value="${companyUpdate.company_name }" class="form-control" />
         </a></li>
         <li class="list-group-item"><b>Company Email:</b> <a
-          class="float-right">${CompanyForm.email } <form:input
+          class="float-right">${companyUpdate.email } <form:input
               type="hidden" path="email" name="emial"
-              value="${CompanyForm.email }" class="form-control" />
+              value="${companyUpdate.email }" class="form-control" />
         </a></li>
         <li class="list-group-item"><b>Phone Number:</b> <a
-          class="float-right">${CompanyForm.phone } <form:input
+          class="float-right">${companyUpdate.phone } <form:input
               type="hidden" path="phone" name="phone"
-              value="${CompanyForm.phone }" class="form-control" />
+              value="${companyUpdate.phone }" class="form-control" />
         </a></li>
         <li class="list-group-item"><b>Company Address:</b> <a
-          class="float-right">${CompanyForm.address } <form:input
+          class="float-right">${companyUpdate.address } <form:input
               type="hidden" path="address" name="address"
-              value="${CompanyForm.address }" class="form-control" />
+              value="${companyUpdate.address }" class="form-control" />
         </a></li>
         <li class="list-group-item"><b>Website Link:</b> <a
-          class="float-right">${CompanyForm.web_link } <form:input
+          class="float-right">${companyUpdate.web_link } <form:input
               type="hidden" path="web_link" name="web_link"
-              value="${CompanyForm.web_link }" class="form-control" />
+              value="${companyUpdate.web_link }" class="form-control" />
         </a></li>
       </ul>
-      <button type="submit" class="confirm-btn1" name="addCompany">Create</button>
+      <button type="submit" class="confirm-btn1" name="updateCompany">Update</button>
     &nbsp;
     <button type="submit" class="confirm-btn2" name="cancel">Cancel</button>
+    
     </form:form>
   </div>
 </body>

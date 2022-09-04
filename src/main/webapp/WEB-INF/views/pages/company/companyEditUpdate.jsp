@@ -9,55 +9,60 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Company Registration</title>
+<title>Company Update And Edit</title>
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="WEB-INF/assets/company-css/form.css" />
 </head>
 
 <body>
   <div class="form-card">
-    <c:url var="createCompany" value="/company/Create-Comfirm"></c:url>
-    <h2 class="form-header">Company Registration</h2>
-    <form:form class="form-detail" action="${createCompany}" method="POST"
-      id="form" modelAttribute="rollBackCompanyForm">
+    <c:url var="companyEditUpdate" value="/company/Confirm/Update"></c:url>
+    <h2 class="form-header">Company Update And Edit</h2>
+    <form:form class="form-detail" action="${companyEditUpdate}"
+      method="POST" id="form" modelAttribute="CompanyProfile">
+      <c:if test="${errorMsg != null }">
+        <div class="alert alert-danger">
+          <strong>${errorMsg }</strong>
+        </div>
+      </c:if>
       <div class="form-group">
-        <c:if test="${errorMsg != null }">
-          <div class="alert alert-danger">
-            <strong>${errorMsg }</strong>
-          </div>
-        </c:if>
+        <form:input path="company_id"
+          value=" ${CompanyProfile.company_id}" class="form-input"
+          type="hidden" />
+      </div>
+      <div class="form-group">
         <label for="company_name">Company Name:</label> <br>
-        <form:input   path="company_name" value=" ${rollBackCompanyForm.company_name}" 
-         class="form-input"
+        <form:input path="company_name"
+          value=" ${CompanyProfile.company_name}" class="form-input"
           placeholder="Enter Company Name" />
         <form:errors path="company_name" class="text-danger" />
       </div>
       <div class="form-group">
         <label for="email">Company Email:</label> <br>
-        <form:input  path="email" value="${rollBackCompanyForm.email}"
+        <form:input path="email" value="${CompanyProfile.email}"
           class="form-input" placeholder="Enter Company Email" />
         <form:errors path="email" class="text-danger" />
       </div>
       <div class="form-group">
         <label for="Phone No">Phone No:</label> <br>
-        <form:input  path="phone"
-          value="${rollBackCompanyForm.phone}" class="form-input"
-          placeholder="Enter Company Ph Number" />
+        <form:input path="phone" value="${CompanyProfile.phone}"
+          class="form-input" placeholder="Enter Company Ph Number" />
         <form:errors path="phone" class="text-danger" />
       </div>
       <div class="form-group">
         <label for="Company Address">Company Address:</label> <br>
-        <form:input  path="address" value="${rollBackCompanyForm.address}"
+        <form:input path="address" value="${CompanyProfile.address}"
           class="form-input" placeholder="Enter Company Address" />
         <form:errors path="address" class="text-danger" />
       </div>
       <div class="form-group">
         <label for="Website link">Website Link:</label> <br>
-        <form:input  path="web_link" value="${rollBackCompanyForm.web_link}"
+        <form:input path="web_link" value="${CompanyProfile.web_link}"
           class="form-input" placeholder="Enter Website Link" />
         <form:errors path="web_link" class="text-danger" />
       </div>
-      <button type="submit" class="form-btn" name="companyConfirm">Confirm</button>
+      <button type="submit" class="form-btn"
+        name="company/Update/Confirm">Confirm</button>
       <button type="reset" class="" name="clear">Reset</button>
     </form:form>
   </div>

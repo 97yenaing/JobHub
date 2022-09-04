@@ -14,7 +14,7 @@
 
 <title><tiles:insertAttribute name="title" /></title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="<c:url value="/assets/css/reset.css" />"
 	type="text/css" />
@@ -24,7 +24,8 @@
   type="text/css" />
    <link rel="stylesheet" href="<c:url value="/assets/css/cofirm_form.css" />"
   type="text/css" />
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<tiles:insertAttribute name="header" />

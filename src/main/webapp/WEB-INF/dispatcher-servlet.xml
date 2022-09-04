@@ -19,6 +19,7 @@
 			<list>
 				<value>/WEB-INF/views/layouts/app.xml</value>
 				<value>/WEB-INF/views/layouts/views-user.xml</value>
+                <!-- <value>/WEB-INF/views/layouts/views-company.xml</value> -->
 			</list>
 		</property>
 	</bean>
