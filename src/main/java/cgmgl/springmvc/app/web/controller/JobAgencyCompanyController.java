@@ -23,7 +23,7 @@ import cgmgl.springmvc.app.bl.service.CompanyService;
 import cgmgl.springmvc.app.persistence.entity.Company;
 
 /**
- * <h2> JobAgencyCompanyController Class</h2>
+ * <h2>JobAgencyCompanyController Class</h2>
  * <p>
  * Process for Displaying JobAgencyCompanyController
  * </p>
@@ -40,7 +40,7 @@ public class JobAgencyCompanyController {
 	private MessageSource messageSources;
 
 	/**
-	 * <h2> error</h2>
+	 * <h2>error</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -54,7 +54,7 @@ public class JobAgencyCompanyController {
 	}
 
 	/**
-	 * <h2> getCompanyList</h2>
+	 * <h2>getCompanyList</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -65,7 +65,7 @@ public class JobAgencyCompanyController {
 	 */
 	@RequestMapping(value = "/company/List", method = RequestMethod.GET)
 	public ModelAndView getCompanyList(ModelAndView model) {
-		List<Company> companyList  =  companyservice.dogetCompanyList();
+		List<Company> companyList = companyservice.dogetCompanyList();
 		model.addObject("companyList", companyList);
 		model.setViewName("companyList");
 
@@ -73,7 +73,7 @@ public class JobAgencyCompanyController {
 	}
 
 	/**
-	 * <h2> createCompany</h2>
+	 * <h2>createCompany</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -94,7 +94,7 @@ public class JobAgencyCompanyController {
 	}
 
 	/**
-	 * <h2> resetCompany</h2>
+	 * <h2>resetCompany</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -105,7 +105,7 @@ public class JobAgencyCompanyController {
 	 */
 	@RequestMapping(value = "/createcompanyConfirm", params = "clear", method = RequestMethod.GET)
 	public ModelAndView resetCompany(ModelAndView model) {
-		System.out.println("reset");
+
 		CompanyDto company = new CompanyDto();
 		ModelAndView createCompany = new ModelAndView("createCompany");
 		createCompany.addObject("rollBackCompanyForm", company);
@@ -115,7 +115,7 @@ public class JobAgencyCompanyController {
 	}
 
 	/**
-	 * <h2> createCompanyConfirm</h2>
+	 * <h2>createCompanyConfirm</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -134,23 +134,20 @@ public class JobAgencyCompanyController {
 		if (result.hasErrors()) {
 
 			ModelAndView errorView = new ModelAndView("createCompany");
-
 			errorView.addObject("rollBackCompanyForm", companydto);
 			errorView.addObject("errorMsg", messageSources.getMessage("M_SC_0004", null, null));
 			errorView.setViewName("createCompany");
 			return errorView;
 		} else if (this.companyservice.dofindByEmail(companydto.getEmail())) {
-			System.out.println("same email test");
 
 			companyConfirm.addObject("rollBackCompanyForm", companydto);
 			companyConfirm.addObject("errorMsg", messageSources.getMessage("M_SC_0018", null, null));
 			companyConfirm.setViewName("createCompany");
 			return companyConfirm;
 		} else {
-			System.out.println("comfirm");
+
 			companyConfirm.addObject("CompanyForm", companydto);
 			companyConfirm.setViewName("companyConfirm");
-			System.out.println("comfirm end");
 
 			return companyConfirm;
 		}
@@ -158,7 +155,7 @@ public class JobAgencyCompanyController {
 	}
 
 	/**
-	 * <h2> comfirmCompanyCancel</h2>
+	 * <h2>comfirmCompanyCancel</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -181,7 +178,7 @@ public class JobAgencyCompanyController {
 	}
 
 	/**
-	 * <h2> insertCompany</h2>
+	 * <h2>insertCompany</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -203,7 +200,7 @@ public class JobAgencyCompanyController {
 	}
 
 	/**
-	 * <h2> profileCompany</h2>
+	 * <h2>profileCompany</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -218,24 +215,24 @@ public class JobAgencyCompanyController {
 	public ModelAndView profileCompany(@PathVariable("company_id") Integer company_id, ModelAndView model,
 	        HttpServletRequest request) {
 		CompanyDto companyProfile = this.companyservice.dogetCompany(company_id);
-		System.out.println(companyProfile.getCompany_id());
-		System.out.println(companyProfile.getPhone());
 		model.addObject("CompanyProfile", companyProfile);
 		model.setViewName("companyProfile");
+
 		return model;
 	}
+
 	@RequestMapping(value = "/company/Profile/Update", method = RequestMethod.POST)
 	public ModelAndView profileUpdate(@RequestParam("company_id") Integer company_id, HttpServletRequest request) {
-		System.out.println("Profile and update");
 		CompanyDto companyProfile = this.companyservice.dogetCompany(company_id);
 		ModelAndView model = new ModelAndView("CompanyProfile");
 		model.addObject("CompanyProfile", companyProfile);
 		model.setViewName("companyEditUpdate");
+
 		return model;
 	}
 
 	/**
-	 * <h2> editUpdate</h2>
+	 * <h2>editUpdate</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -247,7 +244,7 @@ public class JobAgencyCompanyController {
 	 */
 	@RequestMapping(value = "/company/Edit-Update", method = RequestMethod.GET)
 	public ModelAndView editUpdate(@RequestParam("company_id") Integer company_id, HttpServletRequest request) {
-		System.out.println("edit and update");
+
 		CompanyDto companyProfile = this.companyservice.dogetCompany(company_id);
 		ModelAndView model = new ModelAndView("CompanyProfile");
 		model.addObject("CompanyProfile", companyProfile);
@@ -256,7 +253,7 @@ public class JobAgencyCompanyController {
 	}
 
 	/**
-	 * <h2> UpdateCompanyConfirm</h2>
+	 * <h2>UpdateCompanyConfirm</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -269,10 +266,8 @@ public class JobAgencyCompanyController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping(value = "/company/Confirm/Update", params = "company/Update/Confirm", method = RequestMethod.POST)
-	public ModelAndView UpdateCompanyConfirm(  HttpServletRequest request, CompanyDto companydto) throws ParseException {
+	public ModelAndView UpdateCompanyConfirm(HttpServletRequest request, CompanyDto companydto) throws ParseException {
 		ModelAndView companyUpdate = new ModelAndView("CompanyProfilecomfirm");
-		System.out.println("update comfirm");
-		System.out.println(companydto.getEmail());	
 		companyUpdate.addObject("companyUpdate", companydto);
 		companyUpdate.setViewName("companyUpdateComfirm");
 
@@ -280,7 +275,7 @@ public class JobAgencyCompanyController {
 	}
 
 	/**
-	 * <h2> updateCompany</h2>
+	 * <h2>updateCompany</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -301,7 +296,7 @@ public class JobAgencyCompanyController {
 	}
 
 	/**
-	 * <h2> companyDelete</h2>
+	 * <h2>companyDelete</h2>
 	 * <p>
 	 * 
 	 * </p>
@@ -311,16 +306,13 @@ public class JobAgencyCompanyController {
 	 * @throws ParseException
 	 * @return ModelAndView
 	 */
-	@RequestMapping(value = "/company/Delete",method = RequestMethod.GET)
+	@RequestMapping(value = "/company/Delete", method = RequestMethod.GET)
 	public ModelAndView companyDelete(HttpServletRequest request) throws ParseException {
 
-		System.out.println("delete comfirm");
 		int company_id = Integer.parseInt(request.getParameter("company_id"));
-		System.out.println(company_id);
 		this.companyservice.dodeleteCompanyID(company_id);
 		ModelAndView deleteView = new ModelAndView("redirect:/company/List");
 		return deleteView;
 	}
-	
 
 }

@@ -14,6 +14,15 @@ import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.persistence.dao.CompanyDAO;
 import cgmgl.springmvc.app.persistence.entity.Company;
 
+/**
+ * <h2> CompanyDAOimpl Class</h2>
+ * <p>
+ * Process for Displaying CompanyDAOimpl
+ * </p>
+ * 
+ * @author yair naing
+ *
+ */
 @Repository
 @Transactional
 
@@ -21,12 +30,28 @@ public class CompanyDAOimpl implements CompanyDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	/**
+	 * <h2> dbsaveCompany </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param company
+	 */
 	@Override
 	public void dbsaveCompany(Company company) {
 		this.sessionFactory.getCurrentSession().save(company);
 
 	}
 
+	/**
+	 * <h2> dbCompanyList </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @return
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Company> dbCompanyList() {
@@ -35,18 +60,44 @@ public class CompanyDAOimpl implements CompanyDAO {
 
 	}
 
+	/**
+	 * <h2> dbaddCompany </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param company
+	 * @param currentDate
+	 */
 	@Override
 	public void dbaddCompany(Company company, Date currentDate) {
 		company.setCreated_at(currentDate);
 		sessionFactory.getCurrentSession().save(company);
 	}
 
+	/**
+	 * <h2> dbupdateCompany </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param company
+	 */
 	@Override
 	public void dbupdateCompany(Company company) {
 		this.sessionFactory.getCurrentSession().update(company);
 
 	}
 
+	/**
+	 * <h2> dbfindByEmail </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param email
+	 * @return
+	 */
 	@Override
 	public Company dbfindByEmail(String email) {
 		String companyquery = "select c from Company  c where c.email=:email";
@@ -56,12 +107,29 @@ public class CompanyDAOimpl implements CompanyDAO {
 		return (Company) queryCompanyByEmail.uniqueResult();
 	}
 
+	/**
+	 * <h2> dbcreateCompany </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param company
+	 */
 	@Override
 	public void dbcreateCompany(Company company) {
 		this.sessionFactory.getCurrentSession().save(company);
 
 	}
 
+	/**
+	 * <h2> dbgetCompany </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param company_id
+	 * @return
+	 */
 	@Override
 	public CompanyDto dbgetCompany(int company_id) {
 		String companyquery = "select c from Company c where c.company_id=:company_id";
@@ -73,6 +141,15 @@ public class CompanyDAOimpl implements CompanyDAO {
 		return companyForm;
 	}
 
+	/**
+	 * <h2> dbdeleteCompanyID </h2>
+	 * <p>
+	 * 
+	 * </p>
+	 * 
+	 * @param company_id
+	 * @param currentDate
+	 */
 	@Override
 	public void dbdeleteCompanyID(int company_id, Date currentDate) {
 		Company company = this.sessionFactory.getCurrentSession().load(Company.class, company_id);
