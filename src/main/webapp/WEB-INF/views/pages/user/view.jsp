@@ -4,7 +4,7 @@
 
 <div class="content">
 	<div>
-		<a class="btn" href="<c:url value ="/"/>">Back</a>
+		<a class="btn" href="<%=request.getContextPath()%>/">Back</a>
 	</div>
 	<section>
 		<div>

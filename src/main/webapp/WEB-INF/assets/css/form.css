@@ -24,6 +24,8 @@ body {
   margin: 0 auto;
   max-width: 60%;
 }
+.form-group {
+  margin-bottom: 30px;
 .group-a {
   margin-bottom: 50px;
 }
