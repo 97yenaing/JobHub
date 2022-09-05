@@ -4,8 +4,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div class="com-inner">
   <div class="signup-container">
-    <c:url var="register" value="/userInfo"></c:url>
-    <form:form class="form-container" action="${register }"
+    <c:url var="createUser" value="/createUserConfirm"></c:url>
+    <form:form class="form-container" action="${createUser }"
       method="POST" id="form" modelAttribute="userForm">
       <h1>Sign Up with Your Role</h1>
       <c:if test="${errorMsg != null }">
@@ -51,7 +51,7 @@
           </c:forEach>
         </form:select>
       </div>
-      <button type="submit" name="signup" class="registerbtn">Sign
+      <button type="submit" name="addAdmin" class="registerbtn">Sign
         Up</button>
       <div class="forgot-pass">
         <a href="login_form.html" class="forgot-pass">Already have

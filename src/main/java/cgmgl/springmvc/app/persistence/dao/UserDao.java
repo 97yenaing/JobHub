@@ -86,4 +86,6 @@ public interface UserDao {
     public void dbUpdateUserPassword(User user);
 
 	void dbDeleteUser(User user, Date deletedAt);
+
+	List<String> dbGetUserEmailList();
 }

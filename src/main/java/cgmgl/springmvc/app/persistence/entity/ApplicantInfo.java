@@ -1,6 +1,7 @@
 package cgmgl.springmvc.app.persistence.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,6 +45,8 @@ public class ApplicantInfo implements Serializable {
 
 	private String certificates;
 	
+	private Date deleted_at;
+	
 	public ApplicantInfo(ApplicantDto applicantDto)
 	{
 		this.id = applicantDto.getApplicantId();
@@ -55,5 +58,6 @@ public class ApplicantInfo implements Serializable {
 		this.gender = applicantDto.getGender();
 		this.address = applicantDto.getAddress();
 		this.certificates = applicantDto.getCertificates();
+		this.deleted_at = applicantDto.getDeleted_at();
 	}
 }

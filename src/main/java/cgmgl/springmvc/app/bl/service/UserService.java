@@ -31,6 +31,10 @@ public interface UserService {
 
 	public void doDeleteUser(long userId);
 
+	public List<String> doGetEmailList();
+
+	public void doSaveUser(@Valid UserDto userDto);
+
 	/**
 	 * Find by id.
 	 *

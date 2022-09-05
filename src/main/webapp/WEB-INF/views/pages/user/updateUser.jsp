@@ -8,7 +8,7 @@
     <form:form class="form-container" action="${editUser }"
       method="POST" id="form" modelAttribute="user">
       <h1>Update Users</h1>
-
+      <input type="hidden" name="id" value="${user.id }" />
       <div class="form-group">
         <label for="name">Name</label><br>
         <form:input path="username" value="${user.username }" type="text"
