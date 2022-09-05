@@ -22,15 +22,6 @@ import cgmgl.springmvc.app.persistence.dao.UserDao;
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.User;
 
-/**
- * <h2>UserServiceImpl Class</h2>
- * <p>
- * Process for Displaying UserServiceImpl
- * </p>
- * 
- * @author Yin Yin Swe
- *
- */
 @Service
 @Transactional
 public class UserServiceImpl implements UserService, UserDetailsService {
@@ -168,11 +159,25 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return resultUser;
     }
 
-    @Override
-    public void doDeleteUser(long userId) {
-        // TODO Auto-generated method stub
-        Date deletedAt = new Date();
-        User user = this.userDAO.dbGetUserById(userId);
-        this.userDAO.dbDeleteUser(user, deletedAt);
-    }
+	@Override
+	public void doDeleteUser(long userId) {
+		// TODO Auto-generated method stub
+		Date deletedAt = new Date();
+		User user = this.userDAO.dbGetUserById(userId);
+		this.userDAO.dbDeleteUser(user, deletedAt);
+	}
+
+	@Override
+	public List<String> doGetEmailList() {
+		// TODO Auto-generated method stub
+		return userDAO.dbGetUserEmailList();
+	}
+
+	@Override
+	public void doSaveUser(@Valid UserDto userDto) {
+		// TODO Auto-generated method stub
+		Date created_date = new Date();
+		User user = new User(userDto);
+		this.userDAO.dbAddUser(user, null, created_date);
+	}
 }

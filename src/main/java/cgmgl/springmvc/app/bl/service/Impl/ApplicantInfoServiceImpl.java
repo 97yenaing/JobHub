@@ -1,5 +1,8 @@
 package cgmgl.springmvc.app.bl.service.Impl;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,20 @@ public class ApplicantInfoServiceImpl implements ApplicantInfoService{
 	public void doSaveApplicant(ApplicantInfo applicantInfo) {
 		// TODO Auto-generated method stub
 		this.applicantDao.dbSaveApplicantInfo(applicantInfo);
+	}
+
+	@Override
+	public List<ApplicantInfo> doGetApplicantList() {
+		// TODO Auto-generated method stub
+		return applicantDao.dbGetApplicantList();
+	}
+
+	@Override
+	public void doDeleteUser(long applicantId) {
+		// TODO Auto-generated method stub
+		Date deletedAt = new Date();
+		ApplicantInfo applicantInfo = this.applicantDao.dbGetApplicantById(applicantId);
+		this.applicantDao.dbDeleteUser(applicantInfo, deletedAt);
 	}
 
 }

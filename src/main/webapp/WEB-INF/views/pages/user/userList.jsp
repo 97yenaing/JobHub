@@ -18,55 +18,58 @@
               <div class="col-sm-12 col-md-12">
                 <div class="search-sec">
                   <a
-                    href="${pageContext.request.contextPath}/createStudent"
-                    class="btn btn-info">Add</a>
+                    href="${pageContext.request.contextPath}/createUser"
+                    class="btn btn-info">Add User</a>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-sm-12">
-                <table id="example1"
-                  class="table table-bordered table-striped">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Email</th>
-                      <th>Role</th>
-                      <th>Created At</th>
-                      <th>Updated At</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <c:forEach items="${UserList}" var="user"
-                      varStatus="loop">
-                      <c:if test="${user.deleted_at == null }">
-                        <tr>
-                          <td>${user.id }</td>
-                          <td>${user.name }</td>
-                          <td>${user.email}</td>
-                          <c:forEach items="${user.authorities }"
-                            var="auo" varStatus="loop">
-                            <td>${auo.name }</td>
-                          </c:forEach>
-                          <td>${user.created_at}</td>
-                          <td>${user.updated_at}</td>
-                          <td class="text-right py-0 align-middle">
-                            <div class="btn-group btn-group-sm">
-                              <a
-                                href="${pageContext.request.contextPath}/editUser?id=${user.id}"
-                                class="btn btn-secondary">Edit</a> <a
-                                href="${pageContext.request.contextPath}/deleteUser?id=${user.id }"
-                                data-target="#myModal"
-                                class="btn btn-danger">Delete</a>
-                            </div>
-                          </td>
-                        </tr>
-                      </c:if>
-                    </c:forEach>
-                  </tbody>
-                </table>
+            <br>
+            <div class="table-responsive">
+              <div class="row">
+                <div class="col-sm-12">
+                  <table id="example1"
+                    class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <c:forEach items="${UserList}" var="user"
+                        varStatus="loop">
+                        <c:if test="${user.deleted_at == null }">
+                          <tr>
+                            <td>${user.id }</td>
+                            <td>${user.name }</td>
+                            <td>${user.email}</td>
+                            <c:forEach items="${user.authorities }"
+                              var="auo" varStatus="loop">
+                              <td>${auo.name }</td>
+                            </c:forEach>
+                            <td>${user.created_at}</td>
+                            <td>${user.updated_at}</td>
+                            <td class="text-right py-0 align-middle">
+                              <div class="btn-group btn-group-sm">
+                                <a
+                                  href="${pageContext.request.contextPath}/editUser?id=${user.id}"
+                                  class="btn btn-secondary">Edit</a> <a
+                                  href="${pageContext.request.contextPath}/deleteUser?id=${user.id }"
+                                  data-target="#myModal"
+                                  class="btn btn-danger">Delete</a>
+                              </div>
+                            </td>
+                          </tr>
+                        </c:if>
+                      </c:forEach>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>

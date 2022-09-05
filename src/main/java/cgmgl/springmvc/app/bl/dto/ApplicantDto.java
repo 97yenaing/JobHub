@@ -1,5 +1,6 @@
 package cgmgl.springmvc.app.bl.dto;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
@@ -39,13 +40,14 @@ public class ApplicantDto {
 	@NotEmpty
 	private String edu_bg;
 	
-	@NotEmpty
 	private String gender;
 	
 	@NotEmpty
 	private String address;
 
 	private String certificates;
+	
+	private Date deleted_at;
 	
 	public ApplicantDto(ApplicantInfo applicantInfo) {
 		this.applicantId = applicantInfo.getId();
@@ -57,5 +59,6 @@ public class ApplicantDto {
 		this.edu_bg = applicantInfo.getEdu_bg();
 		this.address = applicantInfo.getAddress();
 		this.certificates = applicantInfo.getCertificates();
+		this.deleted_at = applicantInfo.getDeleted_at();
 		}
 }
