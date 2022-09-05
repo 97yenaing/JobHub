@@ -56,7 +56,19 @@ public class JobPostServiceImpl implements JobPostService {
     public List<JobPost> doGetJobPostList() {
         return jobPostDao.dbGetJobPostList();
     }
-
+    /**
+     * <h2> doGetJobPostByJobTypeId </h2>
+     * <p>
+     * 
+     * </p>
+     * 
+     * @param jobTypeId
+     * @return
+     */
+    @Override
+    public List<JobPost> doGetJobPostByJobTypeId(Integer jobTypeId) {
+        return jobPostDao.dbGetJobPostByJobTypeId(jobTypeId);
+    }
     /**
      * <h2>doGetJobPostById</h2>
      * <p>
@@ -98,7 +110,8 @@ public class JobPostServiceImpl implements JobPostService {
      */
     @Override
     public void doDeleteJobPost(Integer jobPostId) {
-        jobPostDao.dbDeleteJobPost(jobPostId);
+        Date currentDate = new Date();
+        jobPostDao.dbDeleteJobPost(jobPostId,currentDate);
     }
 
     /**
