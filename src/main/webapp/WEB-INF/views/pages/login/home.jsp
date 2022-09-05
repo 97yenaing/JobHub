@@ -6,7 +6,7 @@
 </head>
 <body>
   <h3>Home Page</h3>
-  <a href="<%=request.getContextPath()%>/user">User</a><br><br>
+  <a href="<%=request.getContextPath()%>/applicant">User</a><br><br>
   <a href="<%=request.getContextPath()%>/admin">Admin</a><br><br>
   <form action="<%=request.getContextPath()%>/logout" method="POST">
     <input type="submit" value="Logout" /> 

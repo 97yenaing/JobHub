@@ -9,65 +9,65 @@ import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.persistence.entity.User;
 
 public interface UserService {
-	User doGetUserByName(String username);
-    
-  long doGetUserCount();
+    User doGetUserByName(String username);
 
-  boolean doIsEmailExist(String user_email);
+    long doGetUserCount();
 
-	public void doSaveUser(@Valid ApplicantDto applicantForm);
+    boolean doIsEmailExist(String user_email);
 
-	public User doGetUserById(long userId);
+    public void doSaveUser(@Valid ApplicantDto applicantForm);
 
-	public void doUpdateUser(@Valid User user);
+    public User doGetUserById(long userId);
 
-	public User doGetUserByEmail(String userEmail);
+    public void doUpdateUser(@Valid User user);
 
-	public List<User> doGetUserList();
+    public User doGetUserByEmail(String userEmail);
 
-	public UserDto getUserByID(Long userId);
+    public List<User> doGetUserList();
 
-	public void doUpdateUser(@Valid UserDto userForm);
+    public UserDto getUserByID(Long userId);
 
-	/**
-	 * Find by id.
-	 *
-	 * @param int id
-	 * @return UserDetailDto
-	 */
-	/*
-	 * UserDto findById(int id);
-	 * 
-	 *//**
-	    * Find by email.
-	    *
-	    * @param String email
-	    * @return UserDetailDto
-	    */
-	/*
-	 * UserDto findByEmail(String email);
-	 * 
-	 *//**
-	    * Create new user.
-	    *
-	    * @param UserDetailDto userDto
-	    */
-	/*
-	 * void createUser(UserDto userDto);
-	 * 
-	 *//**
-	    * Update user.
-	    *
-	    * @param UserUpdateDto userDto
-	    */
-	/*
-	 * void updateUser(UserDto userDto);
-	 * 
-	 *//**
-	    * Delete user.
-	    *
-	    * @param int id
-	    *//*
-	       * void deleteUser(int id);
-	       */
+    public void doUpdateUser(@Valid UserDto userForm);
+
+    /**
+     * Find by id.
+     *
+     * @param int id
+     * @return UserDetailDto
+     */
+    /*
+     * UserDto findById(int id);
+     * 
+     *//**
+        * Find by email.
+        *
+        * @param String email
+        * @return UserDetailDto
+        */
+    /*
+     * UserDto findByEmail(String email);
+     * 
+     *//**
+        * Create new user.
+        *
+        * @param UserDetailDto userDto
+        */
+    /*
+     * void createUser(UserDto userDto);
+     * 
+     *//**
+        * Update user.
+        *
+        * @param UserUpdateDto userDto
+        */
+    /*
+     * void updateUser(UserDto userDto);
+     * 
+     *//**
+        * Delete user.
+        *
+        * @param int id
+        *//*
+           * void deleteUser(int id);
+           */
 }

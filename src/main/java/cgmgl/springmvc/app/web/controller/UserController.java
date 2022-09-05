@@ -27,18 +27,7 @@ import cgmgl.springmvc.app.bl.service.UserService;
 import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.User;
 
-/**
- * Class UserController.
- */
-/**
- * <h2> UserController Class</h2>
- * <p>
- * Process for Displaying UserController
- * </p>
- * 
- * @author Yin Yin Swe
- *
- */
+
 @Controller
 public class UserController {
     @Autowired
@@ -69,8 +58,8 @@ public class UserController {
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView email(HttpServletRequest request) {
-        ModelAndView model = new ModelAndView("log");
-        model.setViewName("log");
+        ModelAndView model = new ModelAndView("login");
+        model.setViewName("loginPage");
         return model;
     }
 

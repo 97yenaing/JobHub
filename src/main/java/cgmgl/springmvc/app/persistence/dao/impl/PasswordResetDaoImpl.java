@@ -53,6 +53,7 @@ public class PasswordResetDaoImpl implements PasswordResetDao{
      * @return
      */
     @Override
+    @SuppressWarnings("rawtypes")
     public PasswordReset getTokenDataByEmail(String user_email) {
         String userHqlQuery = "SELECT pw FROM PasswordReset pw WHERE pw.user_email = :email";
         Query queryUserByEmail = this.sessionFactory.getCurrentSession().createQuery(userHqlQuery);
@@ -69,6 +70,7 @@ public class PasswordResetDaoImpl implements PasswordResetDao{
      * @param user_email
      */
     @Override
+    @SuppressWarnings("rawtypes")
     public void deleteTokenByEmail(String user_email) {
         String userHqlQuery = "DELETE FROM PasswordReset pw WHERE pw.user_email = :email";
         Query queryUserByEmail = this.sessionFactory.getCurrentSession().createQuery(userHqlQuery);
@@ -86,6 +88,7 @@ public class PasswordResetDaoImpl implements PasswordResetDao{
      * @return
      */
     @Override
+    @SuppressWarnings("rawtypes")
     public PasswordReset dbGetDataByToken(String token) {
         String userHqlQuery = "SELECT pw FROM PasswordReset pw WHERE pw.token = :token";
         Query queryUserByToken = this.sessionFactory.getCurrentSession().createQuery(userHqlQuery);

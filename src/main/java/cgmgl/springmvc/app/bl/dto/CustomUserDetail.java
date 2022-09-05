@@ -24,7 +24,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomUserDetail implements UserDetails {
-
     /**
      * <h2>serialVersionUID</h2>
      * <p>
@@ -32,14 +31,9 @@ public class CustomUserDetail implements UserDetails {
      * </p>
      */
     private static final long serialVersionUID = 7376528184215268346L;
-
-    /**
-     * <h2>username</h2>
-     * <p>
-     * username
-     * </p>
-     */
+    
     private String username;
+    
     /**
      * <h2>password</h2>
      * <p>
@@ -63,6 +57,7 @@ public class CustomUserDetail implements UserDetails {
      * 
      * @return
      */
+   
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();

@@ -10,19 +10,24 @@
 
     <http>
         <intercept-url pattern="/home"
-            access="hasAnyRole('USER', 'ADMIN','FULL_ADMIN' )" />
+            access="hasAnyRole('USER', 'ADMIN','COMPANY' )" />
         <intercept-url pattern="/applicant"
-            access="hasAnyRole('USER','FULL_ADMIN','ADMIN')" />
+            access="hasAnyRole('USER','ADMIN')" />
         <intercept-url pattern="/company"
-            access="hasAnyRole('FULl_ADMIN','ADMIN')" />
+            access="hasAnyRole('COMPANY','ADMIN')" />
         <intercept-url pattern="/admin"
-            access="hasRole('FULL_ADMIN')" />
+            access="hasRole('ADMIN')" />
 
-        <form-login login-page="/"
-            login-processing-url="/login" username-parameter="username"
-            password-parameter="password" default-target-url="/home" />
-        <logout logout-url="/logout" logout-success-url="/" />
+        <form-login 
+            login-page="/login"
+            login-processing-url="/loginPage"
+            authentication-failure-url="/login?error" 
+            username-parameter="useremail"
+            password-parameter="password" 
+            default-target-url="/home" />
+        <logout logout-url="/logout" logout-success-url="/login" />
         <access-denied-handler error-page="/error" />
+        
     </http>
 
     <authentication-manager>

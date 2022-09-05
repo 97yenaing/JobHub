@@ -21,18 +21,18 @@
 a{
   text-decoration: none;
 }
-.com-inner {
+.login-page .com-inner {
   width: 85.3%;
   margin: 0 auto;
   max-width: 1180px;
 }
-.h1{
+.login-page .h1{
   font-family: 'IBM Plex Sans-Bold';
   font-size: 25px;
   
 }
-.login-container{
-  width:60%;
+.login-page .login-container{
+  width:50%;
   margin:0 auto;
   padding: 50px 60px 60px 40px;
   border:none;
@@ -41,16 +41,16 @@ a{
   border-radius: 20px;
 }
 
-.login-input
+.login-page .login-input
 {
-    width: 80%;
+    width: 100%;
     margin-top:20px;
     padding: 10px;
     border: 1px solid rgb(168, 166, 166);
     border-radius: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.login-registerbtn{
+.login-page .login-registerbtn{
   margin-top: 20px;
   margin-left: 10px;
   padding: 5px 50px;
@@ -60,27 +60,29 @@ a{
   cursor: pointer;
   border-radius: 20px;
 }
-.forgot-pass{
+.login-page .forgot-pass{
   margin-top: 20px;
 }
 /*Ipad*/
 @media screen and (min-width: 768px) and (max-width: 1180px) {
-  .com-inner {
-    width: 100%;
+  
+ .login-page .com-inner {
+    width: 85.3%;
     margin: 0 auto;
-    max-width: 153.646vw;
+    max-width: 89.583vw;
   }
-  .login-container{
-    width:40%;
+  
+ .login-page .login-container{
+    width:73%;
     margin:0 auto;
-    margin-top:13.021vw;
+   /*  margin-top:13.021vw; */
     padding: 6.51vw 7.813vw 7.813vw 5.208vw;
     border:none;
     background-color: #ced7df;
     text-align: center;
     border-radius: 2.604vw;
   }
-  .login-input
+  .login-page .login-input
 {
     width: 100%;
     margin-top:2.604vw;
@@ -92,38 +94,39 @@ a{
 }
 /*SP*/
 @media screen and (max-width: 767.9px){
-  .com-inner {
-    width: 100%;
+  
+  .login-page .com-inner {
+    width: 85.3%;
+    max-width: 93.125vw;
     margin: 0 auto;
-    max-width: 100vw;
   }
-  .h1{
+ .login-page .h1{
     font-family: 'IBM Plex Sans-Bold';
     font-size: 3.125vw;
     width: 100%;
   }
-  .login-container{
-    width:66%;
-    max-width: 39.063vw;
+ .login-page .login-container{
+    width:69%;
+    max-width: 49.063vw;
     margin:0 auto;
-    margin-top:15.625vw;
+    /* margin-top:15.625vw; */
     padding: 3.125vw 9.375vw 9.375vw 6.25vw;
     border:none;
     background-color: #ced7df;
     text-align: center;
     border-radius: 3.125vw;
   }
-  .login-input
+  .login-page .login-input
   {
       width:100%;
-      max-width: 39.063vw;
+     /*  max-width: 39.063vw; */
       margin-top:3.125vw;
       padding:1.563vw;
       border: 0.156vw solid rgb(168, 166, 166);
       border-radius: 3.125vw;
       box-shadow: 0 0.625vw 1.25vw 0 rgba(0, 0, 0, 0.2), 0 0.938vw 3.125vw 0 rgba(0, 0, 0, 0.19);
   }
-  .login-registerbtn{
+  .login-page .login-registerbtn{
     
     margin-top: 3.125vw;
     margin-left: 1.563vw;

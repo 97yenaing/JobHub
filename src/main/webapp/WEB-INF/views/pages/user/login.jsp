@@ -6,7 +6,7 @@
 <div class="content">
     <div>
         <a class="btn" href="<c:url value ="/"/>">Back</a>
-        <a class="btn" href="<c:url value ="/login"/>">login</a>
+        <a class="btn" href="<c:url value ="/login"/>">loginPage</a>
         
     </div>
     <section>

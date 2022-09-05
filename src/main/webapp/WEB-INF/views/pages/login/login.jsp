@@ -8,21 +8,24 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="login-page">
   <div class="com-inner">
     <div class="login-container">
-      <form action="<c:url value='/login' />" method="POST">
+      <form action="<c:url value='/loginPage' />" method="POST">
         <font color="red">
           ${SPRING_SECURITY_LAST_EXCEPTION.message} </font>
         <h1 class="h1">login to jobhub</h1>
-        <input type="text" name="username" placeholder="Enter user name"
-          class="login-input" /><br /> <input type="password"
+        <input type="text" name="useremail" placeholder="Enter email"
+          class="login-input" /><br />
+           <input type="password"
           name="password" placeholder="Enter password"
-          class="login-input" /> <br /> <input type="submit"
+          class="login-input" /> <br />
+           <input type="submit"
           class="login-registerbtn" value="Login" /> <input
           type="hidden" name="${_csrf.parameterName}"
           value="${_csrf.token}" />
         <div class="forgot-pass">
-          <a href="<c:url value ="/forgot_password"/>"> Forgot
+          <a href="<c:url value ="/login/forgot_password"/>"> Forgot
             Password</a>
         </div>
         <div class="forgot-pass">
@@ -32,6 +35,7 @@
       <a href="<c:url value ="/sign-up"/>"><input type="submit"
         class="login-registerbtn" value="Sign Up" /></a>
     </div>
+  </div>
   </div>
 </body>
 </html>

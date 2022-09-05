@@ -7,12 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * <h2> LoginController Class</h2>
+ * <p>
+ * Process for Displaying LoginController
+ * </p>
+ * 
+ * @author Yin Yin Swe
+ *
+ */
 @Controller
 public class LoginController {
     @RequestMapping(value = { "/" }, method = RequestMethod.GET)
     public String login() {
         return "login";
     }
+   
     /**
      * <h2> homePage</h2>
      * <p>
@@ -69,7 +79,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/applicant")
     public String applicantPage() {
-        return "access-denied";
+        return "applicant";
     }
 
     /**
@@ -83,6 +93,6 @@ public class LoginController {
      */
     @RequestMapping(value = "/admin")
     public String AdminPage() {
-        return "access-denied";
+        return "admin";
     }
 }
