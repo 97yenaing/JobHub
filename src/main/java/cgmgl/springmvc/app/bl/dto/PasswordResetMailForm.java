@@ -37,7 +37,6 @@ public class PasswordResetMailForm {
      * password@
      * </p>
      */
-    @NotEmpty
     private String password;
 
     /**

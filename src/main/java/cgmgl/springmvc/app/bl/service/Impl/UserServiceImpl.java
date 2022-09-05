@@ -85,14 +85,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
      * @return
      * @throws UsernameNotFoundException
      */
+
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User userInfo = this.userDAO.dbGetUserByName(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User userInfo = this.userDAO.dbGetUserByEmail(email);
 
         if (userInfo == null) {
             throw new UsernameNotFoundException("Invalid Username or Password!");
         }
-        UserDetails user = new CustomUserDetail(userInfo.getName(), userInfo.getPassword(), userInfo.getAuthorities());
+        UserDetails user = new CustomUserDetail(userInfo.getEmail(), userInfo.getPassword(),
+                userInfo.getAuthorities());
         return user;
     }
 

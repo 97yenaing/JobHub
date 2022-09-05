@@ -80,7 +80,7 @@ public class PasswordResetController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/forgot_password", method = RequestMethod.GET)
+    @RequestMapping(value = "/login/forgot_password", method = RequestMethod.GET)
     public ModelAndView email(HttpServletRequest request) {
         ModelAndView model = new ModelAndView("emailSend");
         model.addObject("emailForm", new PasswordResetMailForm());
@@ -100,7 +100,7 @@ public class PasswordResetController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/sendEmail", method = RequestMethod.POST)
+    @RequestMapping(value = "/password/sendEmail", method = RequestMethod.POST)
     public ModelAndView sendEmail(@Valid @ModelAttribute("emailForm") PasswordResetMailForm passwordResetMailForm,
             BindingResult result, HttpServletRequest request) {
         ModelAndView model = new ModelAndView("emailSend");
@@ -174,8 +174,6 @@ public class PasswordResetController {
         if (result.hasErrors()) {
             return model;
         }
-
-        System.out.println(passwordResetForm.getPassword());
         String userEmail = passwordResetService.getDataByToken(passwordResetForm.getToken()).getUser_email();
         PasswordResetMailForm newPasswordResetForm = new PasswordResetMailForm();
         newPasswordResetForm.setUser_email(userEmail);

@@ -93,7 +93,7 @@ font-size: 16px;
     font-size: 23px; 
     
   }
-  .container{
+  .sign-container{
     width:40%;
     margin:0 auto;
     margin-top:100px;
@@ -146,12 +146,12 @@ font-size: 16px;
     margin: 0 auto;
     max-width: 640px;
   }
-  h1{
+  .h1{
     width: 100%;
     font-family: 'IBM Plex Sans-Bold';
     font-size: 16px;
   }
-  .container{
+  .sign-container{
     width:66%;
     margin:0 auto;
     margin-top:100px;
