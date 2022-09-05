@@ -1,16 +1,15 @@
 package cgmgl.springmvc.app.bl.service.Impl;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -169,12 +168,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return resultUser;
     }
 
-	@Override
-	public void doDeleteUser(long userId) {
-		// TODO Auto-generated method stub
-		Date deletedAt = new Date();
-		User user = this.userDAO.dbGetUserById(userId);
-		this.userDAO.dbDeleteUser(user, deletedAt);
-	}
-
+    @Override
+    public void doDeleteUser(long userId) {
+        // TODO Auto-generated method stub
+        Date deletedAt = new Date();
+        User user = this.userDAO.dbGetUserById(userId);
+        this.userDAO.dbDeleteUser(user, deletedAt);
+    }
 }

@@ -75,7 +75,6 @@ public class JobTypeServiceImp implements JobTypeService {
         Date currentDate = new Date();
         JobType jobType = new JobType(jobTypeDto);
         this.jobTypeDao.dbAddJobType(jobType, currentDate);
-        System.out.println("Insert type ---");
     }
 
     /**
@@ -87,9 +86,10 @@ public class JobTypeServiceImp implements JobTypeService {
      * @param jobTypeId
      */
     @Override
+    @Transactional
     public void doDeleteJobType(Integer jobTypeId) {
         Date currentDate = new Date();
-        this.jobTypeDao.dbDeleteJobType(jobTypeId, currentDate);
+        jobTypeDao.dbDeleteJobType(jobTypeId, currentDate);
     }
 
     /**

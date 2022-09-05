@@ -11,7 +11,7 @@
 <body>
   <div class="form-card">
     <h1 class="form-header">Create Job Post</h1>
-    <c:url var="createJobPost" value="/createJobPostConfirm"></c:url>
+    <c:url var="createJobPost" value="/post/create/confirm"></c:url>
     <form:form class="form-container" action="${createJobPost }" method="POST" id="form" modelAttribute="rollBackJobPostDto">
       <c:if test="${errorMsg != null }">
         <div class="alert alert-danger">
@@ -31,26 +31,22 @@
       <form:errors path="position" class="text-danger" />
       <div class="group clearfix">
         <label for="position">Position:</label> <br>
-        <form:input path="position" value="${rollBackJobPostDto.position }" class="form-input" placeholder="Enter Job Position" />
-        
+        <form:input path="position" value="${rollBackJobPostDto.position }" class="form-input" placeholder="Enter Job Position" /> 
       </div>
       <form:errors path="offered_salary" class="text-danger" />
       <div class="group clearfix">
         <label for="Offered Salary">Offered Salary:</label> <br>
-        <form:input path="offered_salary" value="${rollBackJobPostDto.offered_salary }" class="form-input" placeholder="Enter your offered salary." />
-        
+        <form:input path="offered_salary" value="${rollBackJobPostDto.offered_salary }" class="form-input" placeholder="Enter your offered salary." /> 
       </div>
       <form:errors path="experience_year" class="text-danger" />
       <div class="group clearfix">
         <label for="experience_year">Work Experience:</label> <br>
         <form:input path="experience_year" value="${rollBackJobPostDto.experience_year}" class="form-input" placeholder="Enter your offered work experience." />
-        
       </div>
       <form:errors path="num_of_position" class="text-danger" />
       <div class="group clearfix">
         <label for="num_of_position">Num Of Position:</label> <br>
         <form:input path="num_of_position" value="${rollBackJobPostDto.num_of_position}" class="form-input" placeholder="Enter your no. of vacancy." />
-        
       </div>
       
       <%-- <div class="form-group">

@@ -44,7 +44,7 @@ public class JobTypeDaoImpl implements JobTypeDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<JobType> dbGetJobTypeList() {
-        return sessionFactory.getCurrentSession().createQuery("from JobType").list();
+        return sessionFactory.getCurrentSession().createQuery("select jt from JobType jt where deleteAt is null").list();
     }
 
     /**
@@ -71,6 +71,7 @@ public class JobTypeDaoImpl implements JobTypeDao {
      * @param jobTypeId
      * @return
      */
+    @SuppressWarnings("rawtypes")
     @Override
     public JobType dbGetJobTypeById(int jobTypeId) {
         String jobTypeHqlQuery = "SELECT jt FROM JobType jt where jt.id = :id";
@@ -105,8 +106,11 @@ public class JobTypeDaoImpl implements JobTypeDao {
      * @param deletedAt
      */
     @Override
-    public void dbDeleteJobType(Integer jobTypeId, Date deletedAt) {
-        JobType jobType = this.sessionFactory.getCurrentSession().load(JobType.class, jobTypeId);
-        this.sessionFactory.getCurrentSession().delete(jobType);
+    public void dbDeleteJobType(Integer jobTypeId, Date currentDate) {
+        JobType jobType = (JobType) sessionFactory.getCurrentSession().load(JobType.class, jobTypeId);
+        if (null != jobType) {
+            jobType.setDeleteAt(new Date());
+            this.sessionFactory.getCurrentSession().update(jobType);
+        }
     }
 }

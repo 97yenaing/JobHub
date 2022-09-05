@@ -44,7 +44,26 @@ public class JobPostDaoImpl implements JobPostDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<JobPost> dbGetJobPostList() {
-        return sessionFactory.getCurrentSession().createQuery("from JobPost").list();
+        return sessionFactory.getCurrentSession().createQuery("select jp from JobPost jp where jp.deleted_at is null").list();
+    }
+
+    /**
+     * <h2> dbGetJobPostByJobTypeId </h2>
+     * <p>
+     * 
+     * </p>
+     * 
+     * @param jobTypeId
+     * @return
+     */
+    @SuppressWarnings({ "unchecked", "deprecation", "rawtypes" })
+    @Override
+    public List<JobPost> dbGetJobPostByJobTypeId(Integer jobTypeId) {
+        String jobPostQuery = "SELECT p FROM JobPost p where p.jobType.id = :id";
+        Query jobPostByJobType = this.sessionFactory.getCurrentSession().createQuery(jobPostQuery);
+        jobPostByJobType.setParameter("id", jobTypeId);
+        List<JobPost> resultJobPost = (List<JobPost>) jobPostByJobType.list();
+        return resultJobPost;
     }
 
     /**
@@ -56,7 +75,8 @@ public class JobPostDaoImpl implements JobPostDao {
      * @param jobPostId
      * @return
      */
-    @SuppressWarnings("deprecation")
+
+    @SuppressWarnings({ "deprecation", "rawtypes" })
     @Override
     public JobPost dbGetJobPostById(Integer jobPostId) {
         String jobPostHqlQuery = "SELECT jp FROM JobPost jp where jp.id = :id";
@@ -91,10 +111,11 @@ public class JobPostDaoImpl implements JobPostDao {
      * @param jobPostId
      */
     @Override
-    public void dbDeleteJobPost(Integer jobPostId) {
-        JobPost jobPost = sessionFactory.getCurrentSession().load(JobPost.class, jobPostId);
+    public void dbDeleteJobPost(Integer jobPostId,Date currentDate) {
+        JobPost jobPost = (JobPost)sessionFactory.getCurrentSession().load(JobPost.class, jobPostId);
         if (null != jobPost) {
-            this.sessionFactory.getCurrentSession().delete(jobPost);
+            jobPost.setDeleted_at(new Date());
+            this.sessionFactory.getCurrentSession().update(jobPost);
         }
     }
 
