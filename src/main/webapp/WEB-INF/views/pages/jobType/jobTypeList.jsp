@@ -17,7 +17,7 @@
               <div class="col-sm-12 col-md-12">
                 <div class="search-sec">
                   <c:url var="addAction" value="/searchUser"></c:url>
-                  <a href="${pageContext.request.contextPath}/createJobTypes"
+                  <a href="${pageContext.request.contextPath}/jobType/create"
                     class="btn btn-info">Add</a>
                 </div>
               </div>
@@ -34,6 +34,7 @@
                       <th>CreatedAt</th>
                       <th>UpdatedAt</th>
                       <th>DeletedAt</th>
+                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -48,13 +49,10 @@
                         <td>${jobType.deleteAt}</td>
                         <td class="text-right py-0 align-middle">
                           <div class="btn-group btn-group-sm">
-                            <a
-                              href="${pageContext.request.contextPath}/editJobTypes?id=${jobType.id}"
-                              class="btn btn-secondary">edit</a> <a
-                              href="#" data-toggle="modal"
-                              data-href="${pageContext.request.contextPath}/deleteJobType?id=${jobType.id }"
-                              data-target="#myModal"
-                              class="btn btn-danger btn-ok"> delete</a>
+                            <a href="${pageContext.request.contextPath}/jobType/edit?id=${jobType.id}"
+                              class="btn btn-secondary">edit</a> 
+                            <a href="${pageContext.request.contextPath}/jobType/delete?id=${jobType.id}"
+                              onclick="if (!(confirm('Are you sure you want to delete this post?'))) return false">delete</a>
                           </div>
                         </td>
                       </tr>
@@ -64,44 +62,8 @@
               </div>
             </div>
           </div>
-          <form action="<%=request.getContextPath()%>/logout"
-            method="POST">
-            <input type="submit" value="Logout" /> <input type="hidden"
-              name="${_csrf.parameterName}" value="${_csrf.token}" />
-          </form>
         </div>
       </div>
     </div>
   </section>
 </div>
-
-<div class="modal fade" id="myModal" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-    Modal content
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Delete User Confirmation!</h4>
-      </div>
-      <div class="modal-body">
-        <p>Are You Sure Want to Delete!</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default"
-          data-dismiss="modal">Cancel</button>
-        <a class="btn btn-danger btn-ok">OK</a>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-	$('#myModal').on(
-			'show.bs.modal',
-			function(e) {
-				$(this).find('.btn-ok').attr('href',
-						$(e.relatedTarget).data('href'));
-				$('.debug-url').html(
-						'Delete URL: <strong>'
-								+ $(this).find('.btn-ok').attr('href')
-								+ '</strong>');
-			});
-</script>

@@ -12,7 +12,7 @@
 <div class="confirm-form">
   <div class="card">
     <h1 class="profile-header">Confirm Job Post</h1>
-    <c:url var="insert" value="/insertJobPost"></c:url>
+    <c:url var="insert" value="/post/insert"></c:url>
     <form:form class="form-create" action="${insert }" method="POST" id="form" modelAttribute="jobPostDto">
       <input type="hidden" name="id" value="${jobPostDto.id }">
       <c:if test="${errorMsg != null }">
@@ -26,7 +26,8 @@
           <form:select path="jobType.id" value="${jobPostDto.jobType}"
          class="form-select">
             <c:forEach items="${JobTypeList}" var="jobType" varStatus="loop">
-              <option value="${jobType.id }">
+              <option value="${jobType.id }"
+              <c:if test="${jobPostDto.jobType.id == jobType.id }"> selected</c:if>>
               ${jobType.type_name}</option>
             </c:forEach>
           </form:select>

@@ -11,7 +11,7 @@
 <body>
   <div class="form-card">
     <h1 class="form-header">Update Job Type</h1>
-    <c:url var="editJobType" value="/editedJobTypeConfirm"></c:url>
+    <c:url var="editJobType" value="/jobType/edited/confirm"></c:url>
     <form:form class="form-container" action="${editJobType}" method="POST" id="form" modelAttribute="editJobTypeDto">
     <input type="hidden" name="id"
                 value="${editJobTypeDto.id }" />
@@ -24,8 +24,8 @@
         <form:input path="description" value="${editJobTypeDto.description}" class="form-input" placeholder="Enter the description for your job." rows="6" />
         </div>
       <button type="submit" class="form-btn" name="confirmJobType">Confirm Edit</button>
-      <a class="btn btn-secondary" href="${pageContext.request.contextPath}/jobTypeList">Back</a>
-      <a class="btn btn-secondary" href="${pageContext.request.contextPath}/editJobTypes?id=${editJobTypeDto.id}">Reset</a>
+      <a class="btn btn-secondary" href="${pageContext.request.contextPath}/jobType/list">Back</a>
+      <a class="btn btn-secondary" href="${pageContext.request.contextPath}/jobType/edit?id=${editJobTypeDto.id}">Reset</a>
       <!-- <button type="reset" class="" name="clear">Back</button> -->
   </form:form>
   </div>

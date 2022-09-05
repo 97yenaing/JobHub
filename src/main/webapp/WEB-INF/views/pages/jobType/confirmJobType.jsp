@@ -11,7 +11,7 @@
 <body>
   <div class="card">
     <h1 class="profile-header">Confirm Job Type</h1>
-    <c:url var="JobTypeInsert" value="/insertJobType"></c:url>
+    <c:url var="JobTypeInsert" value="/jobType/insert"></c:url>
     <form:form class="form-create" action="${JobTypeInsert}" method="POST" id="form" modelAttribute="jobTypeDto">
     <input type="hidden" name="id" value="${jobTypeDto.id }">
       <ul class="list-group list-group-unbordered mb-3">

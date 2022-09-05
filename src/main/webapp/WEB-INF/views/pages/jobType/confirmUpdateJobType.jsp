@@ -11,7 +11,7 @@
 <body>
   <div class="form-card">
     <h1 class="form-header">Confirm Update Job Type</h1>
-    <c:url var="updateJobType" value="/updateJobType"></c:url>
+    <c:url var="updateJobType" value="/jobType/update"></c:url>
     <form:form class="form-container" action="${updateJobType}" method="POST" id="form" modelAttribute="confirmEditedJobTypeDto">
     <input type="hidden" name="id"
                 value="${confirmEditedJobTypeDto.id }" />

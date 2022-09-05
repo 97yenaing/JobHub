@@ -28,6 +28,12 @@ public interface UserService {
     public UserDto getUserByID(Long userId);
 
     public void doUpdateUser(@Valid UserDto userForm);
+    
+    public void doDeleteUser(long userId);
+
+    public List<String> doGetEmailList();
+
+    public void doSaveUser(@Valid UserDto userDto);
 
     /**
      * Find by id.

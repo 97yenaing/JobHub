@@ -151,4 +151,18 @@ public class UserDaoImpl implements UserDao {
         User userOneByid = (User) userById.uniqueResult();
         return userOneByid;
     }
+    
+	@Override
+	public void dbDeleteUser(User user, Date deletedAt) {
+		// TODO Auto-generated method stub
+		user.setDeleted_at(deletedAt);
+		this.sessionFactory.getCurrentSession().update(user);
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<String> dbGetUserEmailList() {
+		// TODO Auto-generated method stub
+		return sessionFactory.getCurrentSession().createQuery("select email from User").list();
+	}
 }

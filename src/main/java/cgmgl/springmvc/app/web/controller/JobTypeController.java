@@ -57,7 +57,7 @@ public class JobTypeController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/jobTypeList")
+    @RequestMapping(value = "/jobType/list")
     public ModelAndView getJobTypeList(ModelAndView model) {
         List<JobType> jobTypeList = jobTypeService.doGetJobTypeList();
         model.addObject("JobTypeList", jobTypeList);
@@ -75,7 +75,7 @@ public class JobTypeController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/createJobTypes", method = RequestMethod.GET)
+    @RequestMapping(value = "/jobType/create", method = RequestMethod.GET)
     public ModelAndView newJobType(ModelAndView model, BindingResult result, HttpServletRequest request) {
         JobTypeDto jobTypeDto = new JobTypeDto();
         ModelAndView createJobType = new ModelAndView("createJobType");
@@ -96,7 +96,7 @@ public class JobTypeController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/createJobTypeConfirm", params = "confirmJobType", method = RequestMethod.POST)
+    @RequestMapping(value = "/jobType/create/confirm", params = "confirmJobType", method = RequestMethod.POST)
     public ModelAndView confirmJobType(@ModelAttribute("rollBackJobTypeDto") @Valid JobTypeDto jobTypeDto,
             BindingResult result, HttpServletRequest request) {
         ModelAndView JobTypeConfirmView = new ModelAndView("createJobTypeConfirm");
@@ -123,10 +123,10 @@ public class JobTypeController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/insertJobType", params = "addJobType", method = RequestMethod.POST)
+    @RequestMapping(value = "/jobType/insert", params = "addJobType", method = RequestMethod.POST)
     public ModelAndView insertJobType(@Valid JobTypeDto jobTypeDto) {
         this.jobTypeService.doAddJobType(jobTypeDto);
-        ModelAndView createJobTypeView = new ModelAndView("redirect:/jobTypeList");
+        ModelAndView createJobTypeView = new ModelAndView("redirect:/jobType/list");
         return createJobTypeView;
     }
 
@@ -140,7 +140,7 @@ public class JobTypeController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/insertJobType", params = "cancel", method = RequestMethod.POST)
+    @RequestMapping(value = "/jobType/insert", params = "cancel", method = RequestMethod.POST)
     public ModelAndView cancelJobType(@ModelAttribute("jobPostDto") @Valid JobTypeDto jobTypeDto) {
         ModelAndView JobTypeView = new ModelAndView("createJobType");
         JobTypeView.addObject("rollBackJobTypeDto", jobTypeDto);
@@ -157,7 +157,7 @@ public class JobTypeController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/editJobTypes", method = RequestMethod.GET)
+    @RequestMapping(value = "/jobType/edit", method = RequestMethod.GET)
     public ModelAndView editJobType(@RequestParam("id") Integer jobTypeId) {
         JobTypeDto jobTypeDto = jobTypeService.doGetJobTypeById(jobTypeId);
         ModelAndView editJobTypeView = new ModelAndView("updateJobType");
@@ -177,7 +177,7 @@ public class JobTypeController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/editedJobTypeConfirm", method = RequestMethod.POST)
+    @RequestMapping(value = "/jobType/edited/confirm", method = RequestMethod.POST)
     public ModelAndView confirmEditedJobType(@Valid JobTypeDto jobTypeDto, BindingResult result) {
         ModelAndView editedConfirmView = new ModelAndView("updateJobTypeConfirm");
         editedConfirmView.addObject("confirmEditedJobTypeDto", jobTypeDto);
@@ -195,10 +195,10 @@ public class JobTypeController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/updateJobType", params = "saveUpdateJobType", method = RequestMethod.POST)
+    @RequestMapping(value = "/jobType/update", params = "saveUpdateJobType", method = RequestMethod.POST)
     public ModelAndView updateJobType(@Valid JobTypeDto jobTypeDto) {
         this.jobTypeService.doUpdateJobType(jobTypeDto);
-        ModelAndView updateJobTypeView = new ModelAndView("redirect:/jobTypeList");
+        ModelAndView updateJobTypeView = new ModelAndView("redirect:/jobType/list");
         return updateJobTypeView;
     }
 
@@ -211,10 +211,9 @@ public class JobTypeController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/updateJobType", params = "cancelUpdate", method = RequestMethod.POST)
+    @RequestMapping(value = "/jobType/update", params = "cancelUpdate", method = RequestMethod.POST)
     public ModelAndView cancelUpdateJobType() {
-        ModelAndView updateJobTypeView = new ModelAndView("redirect:/jobTypeList");
-        // updateJobTypeView.addObject("updateJobTypeConfirm", jobTypeDto);
+        ModelAndView updateJobTypeView = new ModelAndView("redirect:/jobType/list");
         return updateJobTypeView;
     }
 
@@ -228,11 +227,10 @@ public class JobTypeController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/deleteJobType", method = RequestMethod.GET)
+    @RequestMapping(value = "/jobType/delete", method = RequestMethod.GET)
     public ModelAndView deleteJobType(HttpServletRequest request) {
         int jobTypeId = Integer.parseInt(request.getParameter("id"));
         jobTypeService.doDeleteJobType(jobTypeId);
-        ModelAndView deleteJobType = new ModelAndView("redirect:/jobTypeList");
-        return deleteJobType;
+        return new ModelAndView("redirect:/jobType/list");
     }
 }

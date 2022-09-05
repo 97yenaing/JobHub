@@ -38,6 +38,17 @@ public interface JobPostService {
      * @return JobPostDto
      */
     public JobPostDto doGetJobPostById(int jobPostId);
+    /**
+     * <h2> doGetJobPostByJobTypeId</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param jobTypeId
+     * @return
+     * @return JobPostDto
+     */
+    public List<JobPost> doGetJobPostByJobTypeId(Integer jobTypeId);
 
     /**
      * <h2>doAddJobPost</h2>
