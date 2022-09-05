@@ -93,6 +93,13 @@ public class JobPostDto {
      * </p>
      */
     private Date updated_at;
+    /**
+     * <h2> deleted_at</h2>
+     * <p>
+     * deleted_at
+     * </p>
+     */
+    private Date deleted_at;
 
     /**
      * <h2>Constructor for JobPostDto</h2>
@@ -111,6 +118,7 @@ public class JobPostDto {
         this.created_at = jobPost.getCreated_at();
         this.expired_at = jobPost.getExpired_at();
         this.updated_at = jobPost.getUpdated_at();
+        this.deleted_at = jobPost.getDeleted_at();
         this.jobType = jobPost.getJobType();
     }
 }

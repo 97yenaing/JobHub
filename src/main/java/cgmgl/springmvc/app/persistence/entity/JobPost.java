@@ -107,6 +107,15 @@ public class JobPost {
      */
     @Column(name = "updated_at")
     private Date updated_at;
+    
+    /**
+     * <h2> deleted_at</h2>
+     * <p>
+     * deleted_at
+     * </p>
+     */
+    @Column(name = "deleted_at")
+    private Date deleted_at;
 
     /**
      * <h2>expired_at</h2>
@@ -149,6 +158,7 @@ public class JobPost {
         this.created_at = jobPostDto.getCreated_at();
         this.expired_at = jobPostDto.getExpired_at();
         this.updated_at =jobPostDto.getUpdated_at();
+        this.deleted_at =jobPostDto.getDeleted_at();
         this.jobType = jobPostDto.getJobType();
     }
 }

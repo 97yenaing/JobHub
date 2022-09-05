@@ -37,6 +37,17 @@ public interface JobPostDao {
      * @return JobPost
      */
     public JobPost dbGetJobPostById(Integer jobPostId);
+    /**
+     * <h2> dbGetJobPostByJobTypeId</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param jobTypeId
+     * @return
+     * @return JobPost
+     */
+    public List<JobPost> dbGetJobPostByJobTypeId(Integer jobTypeId);
 
     /**
      * <h2> dbAddJobPost</h2>
@@ -59,7 +70,7 @@ public interface JobPostDao {
      * @param jobPostId
      * @return void
      */
-    public void dbDeleteJobPost(Integer jobPostId);
+    public void dbDeleteJobPost(Integer jobPostId,Date currentDate);
 
     /**
      * <h2> dbUpdateJobPost</h2>
