@@ -1,46 +1,79 @@
 package cgmgl.springmvc.app.bl.service;
 
+import java.util.List;
+
+import javax.validation.Valid;
+
+import cgmgl.springmvc.app.bl.dto.ApplicantDto;
 import cgmgl.springmvc.app.bl.dto.UserDto;
+import cgmgl.springmvc.app.persistence.entity.User;
 
-/**
- * Interface UserService for user CRUD functions.
- */
 public interface UserService {
-	
-	/**
-	 * Find by id.
-	 *
-	 * @param int id
-	 * @return UserDetailDto
-	 */
-	UserDto findById(int id);
+    User doGetUserByName(String username);
 
-	/**
-	 * Find by email.
-	 *
-	 * @param String email
-	 * @return UserDetailDto
-	 */
-	UserDto findByEmail(String email);
+    long doGetUserCount();
 
-	/**
-	 * Create new user.
-	 *
-	 * @param UserDetailDto userDto
-	 */
-	void createUser(UserDto userDto);
+    boolean doIsEmailExist(String user_email);
 
-	/**
-	 * Update user.
-	 *
-	 * @param UserUpdateDto userDto
-	 */
-	void updateUser(UserDto userDto);
+    public void doSaveUser(@Valid ApplicantDto applicantForm);
 
-	/**
-	 * Delete user.
-	 *
-	 * @param int id
-	 */
-	void deleteUser(int id);
+    public User doGetUserById(long userId);
+
+    public void doUpdateUser(@Valid User user);
+
+    public User doGetUserByEmail(String userEmail);
+
+    public List<User> doGetUserList();
+
+    public UserDto getUserByID(Long userId);
+
+    public void doUpdateUser(@Valid UserDto userForm);
+    
+    public void doDeleteUser(long userId);
+
+    public List<String> doGetEmailList();
+
+    public void doSaveUser(@Valid UserDto userDto);
+
+    /**
+     * Find by id.
+     *
+     * @param int id
+     * @return UserDetailDto
+     */
+    /*
+     * UserDto findById(int id);
+     * 
+     *//**
+        * Find by email.
+        *
+        * @param String email
+        * @return UserDetailDto
+        */
+    /*
+     * UserDto findByEmail(String email);
+     * 
+     *//**
+        * Create new user.
+        *
+        * @param UserDetailDto userDto
+        */
+    /*
+     * void createUser(UserDto userDto);
+     * 
+     *//**
+        * Update user.
+        *
+        * @param UserUpdateDto userDto
+        */
+    /*
+     * void updateUser(UserDto userDto);
+     * 
+     *//**
+        * Delete user.
+        *
+        * @param int id
+        *//*
+           * void deleteUser(int id);
+           */
 }

@@ -1,0 +1,9 @@
+@charset "ISO-8859-1";
+.container{
+  width: 1180px;
+  margin: 0 auto;
+}
+.table-list{
+  width: 1100px;
+  overflow-x: hidden;
+}

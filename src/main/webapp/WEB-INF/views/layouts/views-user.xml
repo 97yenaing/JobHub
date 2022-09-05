@@ -4,58 +4,16 @@
     "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-    <definition name="login" extends="template">
-        <put-attribute name="title"
-            value="Login - SPRING MVC FRAME" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/pages/user/login.jsp" />
-    </definition>
-    <definition name="register" extends="template">
-        <put-attribute name="title"
-            value="Registration - SPRING MVC FRAME" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/pages/user/register.jsp" />
-    </definition>
-    <definition name="view" extends="template">
-        <put-attribute name="title"
-            value="Profile - SPRING MVC FRAME" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/pages/user/view.jsp" />
-    </definition>
-    <definition name="createCompany" extends="template">
-        <put-attribute name="title" value="create" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/pages/company/createCompany.jsp" />
-    </definition>
-    <definition name="companyConfirm" extends="template">
-        <put-attribute name="title" value="comfirm" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/pages/company/companyConfirm.jsp" />
-    </definition>
-     <!--  <definition name="companyList" extends="template">
-        <put-attribute name="title" value="companyList" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/pages/company/companyList.jsp" />
-    </definition> -->
-     <definition name="companyProfile" extends="template">
-        <put-attribute name="title" value="Profile" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/pages/company/companyProfile.jsp" />
-    </definition>
-     <definition name="companyEditUpdate" extends="template">
-        <put-attribute name="title" value="edit" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/pages/company/companyEditUpdate.jsp" />
-    </definition>
-      <definition name="companyUpdateComfirm" extends="template">
-        <put-attribute name="title" value="edit" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/pages/company/companyUpdateComfirm.jsp" />
-    </definition>
-      <definition name="companyList" extends="template">
-        <put-attribute name="title" value="edit" />
-        <put-attribute name="body"
-            value="/WEB-INF/views/pages/company/companyList.jsp" />
-    </definition>
-  
+  <definition name="login" extends="template">
+    <put-attribute name="title" value="Login - SPRING MVC FRAME" />
+    <put-attribute name="body" value="/WEB-INF/views/pages/user/login.jsp" />
+  </definition>
+  <definition name="register" extends="template">
+    <put-attribute name="title" value="Registration - SPRING MVC FRAME" />
+    <put-attribute name="body" value="/WEB-INF/views/pages/user/register.jsp" />
+  </definition>
+  <definition name="view" extends="template">
+    <put-attribute name="title" value="Profile - SPRING MVC FRAME" />
+    <put-attribute name="body" value="/WEB-INF/views/pages/user/view.jsp" />
+  </definition>
 </tiles-definitions>
