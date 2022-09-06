@@ -12,15 +12,19 @@
   </c:if>
   <c:url var="applicantInfo" value="/applicantInfoSave"></c:url>
   <form:form class="form-container" action="${applicantInfo }"
-    method="POST" id="form" modelAttribute="applicantInfoForm">
+    method="POST" id="form" modelAttribute="applicantInfoForm"
+    enctype="multipart/form-data">
     <form:input type="hidden" path="user.name" value="${user.username}" />
     <form:input type="hidden" path="user.email" value="${user.email}" />
     <form:input type="hidden" path="user.password"
       value="${user.password}" />
     <form:input type="hidden" path="authority.id"
       value="${user.authority.id }" />
-
-    <img src="" class="form-img" alt="profile">
+    <div class="form-group">
+      Profile to upload:
+      <form:input path="photoFile" type="file" name="photoFile"
+        class="form-input" accept=".jpg, .png, .jpeg" />
+    </div>
     <div class="form-group">
       <label for="Phone No">Phone No:</label> <br>
       <form:input path="phone" value="${applicantInfoForm.phone }"
