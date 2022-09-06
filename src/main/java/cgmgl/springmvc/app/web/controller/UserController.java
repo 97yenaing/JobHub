@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
+import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.bl.service.AuthorityService;
 import cgmgl.springmvc.app.bl.service.UserService;
@@ -126,6 +127,18 @@ public class UserController {
 			applicantRegister.setViewName("applicantInfo");
 			return applicantRegister;
 		}
+		else if (authoId == 2) {
+			List<Authority> authoList = new ArrayList<Authority>();
+			Authority authority = authorityService.doGetAuthById(authoId);
+			authoList.add(authority);
+			userDto.setAuthorityList(authoList);
+			CompanyDto companyDto = new CompanyDto();
+			ModelAndView companyRegister = new ModelAndView("createCompany");
+			companyRegister.addObject("rollBackCompanyForm", companyDto);
+			companyRegister.addObject("user", userDto);
+			companyRegister.setViewName("createCompany");
+			return companyRegister;
+		}
 		return userView;
 	}
 
@@ -214,7 +227,9 @@ public class UserController {
 			confirmView.addObject("errorMsg", messageSource.getMessage("M_SC_0007", null, null));
 			return confirmView;
 		}
+		
 		List<Authority> authorities = new ArrayList<Authority>();
+		System.out.println(applicantForm.getAuthority().getId());
 		int authoId = applicantForm.getAuthority().getId();
 		Authority authority = authorityService.doGetAuthById(authoId);
 		authorities.add(authority);
