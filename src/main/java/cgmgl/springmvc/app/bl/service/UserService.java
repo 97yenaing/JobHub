@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
+import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.persistence.entity.User;
 
@@ -34,6 +35,8 @@ public interface UserService {
     public List<String> doGetEmailList();
 
     public void doSaveUser(@Valid UserDto userDto);
+
+	  public void doSaveCompany(@Valid CompanyDto companydto);
 
     User doGetLoginInfo();
 

@@ -1,10 +1,13 @@
 package cgmgl.springmvc.app.bl.dto;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
+import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.Company;
+import cgmgl.springmvc.app.persistence.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +19,11 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class CompanyDto {
+	private User user;
+
+	private Authority authority;
+	
+	private List<Authority> authorityList;
 
 	private int company_id;
 

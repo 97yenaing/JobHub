@@ -8,6 +8,7 @@ import javax.validation.constraints.NotEmpty;
 
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.Authority;
+import cgmgl.springmvc.app.persistence.entity.Company;
 import cgmgl.springmvc.app.persistence.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -53,6 +54,8 @@ public class UserDto {
 	private Date deleted_at;
 	
 	private ApplicantInfo applicantInfo;
+	
+	private Company company;
 
 	public UserDto(User user) {
 		if (user == null) {
@@ -64,6 +67,7 @@ public class UserDto {
 		this.password = user.getPassword();
 		this.authorityList = user.getAuthorities();
 		this.applicantInfo = user.getApplicantInfo();
+		this.company = user.getCompany();
 		this.created_at = user.getCreated_at();
 		this.updated_at = user.getUpdated_at();
 		this.deleted_at = user.getDeleted_at();
