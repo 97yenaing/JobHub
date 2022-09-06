@@ -1,6 +1,7 @@
 package cgmgl.springmvc.app.config;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -11,9 +12,11 @@ import org.springframework.stereotype.Component;
 
 import cgmgl.springmvc.app.persistence.dao.ApplicantInfoDao;
 import cgmgl.springmvc.app.persistence.dao.AuthorityDao;
+import cgmgl.springmvc.app.persistence.dao.CompanyDAO;
 import cgmgl.springmvc.app.persistence.dao.UserDao;
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.Authority;
+import cgmgl.springmvc.app.persistence.entity.Company;
 import cgmgl.springmvc.app.persistence.entity.User;
 
 
@@ -57,6 +60,9 @@ public class DeploymentListener {
 	 */
 	@Autowired
 	private UserDao userDAO;
+	
+	@Autowired
+	private CompanyDAO companyDao;
 
 	/**
 	 * <h2>addInitialData</h2>
@@ -75,14 +81,16 @@ public class DeploymentListener {
 			Authority adminAuthority = new Authority(null, "ROLE_ADMIN");
 			this.authorityDAO.dbSaveAuthority(adminAuthority);
 			adminAuthorities.add(adminAuthority);
-			User admin = new User(1, "admin", "admin@gmail.com", passwordEncoder.encode("123"), null, null, null, null, adminAuthorities);
+			User admin = new User(1, "admin", "admin@gmail.com", passwordEncoder.encode("123"), null, null, null, null, null, adminAuthorities);
 			this.userDAO.dbSaveUser(admin);
 
 			List<Authority> companyAuthorities = new ArrayList<Authority>();
 			Authority companyAuthority = new Authority(null, "ROLE_COMPANY");
 			this.authorityDAO.dbSaveAuthority(companyAuthority);
 			companyAuthorities.add(companyAuthority);
-			User company = new User(2, "company", "company1@gmail.com", passwordEncoder.encode("123"), null, null, null, null, companyAuthorities);
+			Company companyInfo = new Company(1, "SCM", "scm@gmail.com", "09793214719", "Bo ta Htaung Township", "www.scam.com", null, null, null);
+			this.companyDao.dbaddCompany(companyInfo, new Date());
+			User company = new User(2, "company", "company1@gmail.com", passwordEncoder.encode("123"), null, null, null, null, companyInfo, companyAuthorities);
 			this.userDAO.dbSaveUser(company);
 			
 			List<Authority> applicantAuthorities = new ArrayList<Authority>();
@@ -92,7 +100,7 @@ public class DeploymentListener {
 			companyAuthorities.add(companyAuthority);
 			ApplicantInfo appInfo = new ApplicantInfo(1, null, "09-794114723", "2", null, null, "FEMALE", "North Dagon", null, null);
 			this.appInfoDao.dbSaveApplicantInfo(appInfo);
-			User applicant = new User(3, "applicant", "applicant1@gmail.com", passwordEncoder.encode("123"), null, null, null, appInfo, applicantAuthorities);
+			User applicant = new User(3, "applicant", "applicant1@gmail.com", passwordEncoder.encode("123"), null, null, null, appInfo, null, applicantAuthorities);
 			this.userDAO.dbSaveUser(applicant);
 			
 		}

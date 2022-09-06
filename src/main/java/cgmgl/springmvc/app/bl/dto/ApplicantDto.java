@@ -19,36 +19,36 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ApplicantDto {
 	private User user;
-	
+
 	private Authority authority;
-	
+
 	private List<Authority> authorityList;
-	
+
 	private long applicantId;
-	
+
 	private String profile;
-	
+
 	@NotEmpty
 	private String phone;
-	
+
 	@NotEmpty
 	private String job_exp_year;
-	
+
 	@NotEmpty
 	private String job_history;
-	
+
 	@NotEmpty
 	private String edu_bg;
-	
+
 	private String gender;
-	
+
 	@NotEmpty
 	private String address;
 
 	private String certificates;
-	
+
 	private Date deleted_at;
-	
+
 	public ApplicantDto(ApplicantInfo applicantInfo) {
 		this.applicantId = applicantInfo.getId();
 		this.profile = applicantInfo.getProfile();
@@ -60,5 +60,5 @@ public class ApplicantDto {
 		this.address = applicantInfo.getAddress();
 		this.certificates = applicantInfo.getCertificates();
 		this.deleted_at = applicantInfo.getDeleted_at();
-		}
+	}
 }

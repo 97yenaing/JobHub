@@ -6,6 +6,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
+import cgmgl.springmvc.app.persistence.entity.Company;
 import cgmgl.springmvc.app.persistence.entity.User;
 
 /**
@@ -88,4 +89,6 @@ public interface UserDao {
 	void dbDeleteUser(User user, Date deletedAt);
 
 	List<String> dbGetUserEmailList();
+
+	void dbAddCompany(User user, Company companyInfo, Date created_date);
 }

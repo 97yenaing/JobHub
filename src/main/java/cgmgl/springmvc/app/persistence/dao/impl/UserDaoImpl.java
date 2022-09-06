@@ -17,6 +17,7 @@ import org.springframework.stereotype.Repository;
 
 import cgmgl.springmvc.app.persistence.dao.UserDao;
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
+import cgmgl.springmvc.app.persistence.entity.Company;
 import cgmgl.springmvc.app.persistence.entity.User;
 
 /**
@@ -164,5 +165,12 @@ public class UserDaoImpl implements UserDao {
 	public List<String> dbGetUserEmailList() {
 		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().createQuery("select email from User").list();
+	}
+	@Override
+	public void dbAddCompany(User user, Company companyInfo, Date created_date) {
+		// TODO Auto-generated method stub
+		user.setCompany(companyInfo);
+		user.setCreated_at(created_date);
+		this.sessionFactory.getCurrentSession().save(user);
 	}
 }

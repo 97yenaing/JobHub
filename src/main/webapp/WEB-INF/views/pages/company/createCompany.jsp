@@ -16,7 +16,7 @@
 
 <body>
   <div class="form-card">
-    <c:url var="createCompany" value="/company/Create-Comfirm"></c:url>
+    <c:url var="createCompany" value="/company/Insert"></c:url>
     <h2 class="form-header">Company Registration</h2>
     <form:form class="form-container" action="${createCompany}" method="POST"
       id="form" modelAttribute="rollBackCompanyForm">
@@ -25,36 +25,45 @@
             <strong>${errorMsg }</strong>
           </div>
         </c:if>
+        <form:input type="hidden" path="user.name"
+          value="${user.username}" />
+        <form:input type="hidden" path="user.email"
+          value="${user.email}" />
+        <form:input type="hidden" path="user.password"
+          value="${user.password}" />
+        <form:input type="hidden" path="authority.id"
+          value="${user.authority.id }" />
       <div class="group">
         <label for="company_name">Company Name:</label> <br>
-        <form:input   path="company_name" value=" ${rollBackCompanyForm.company_name}" 
-         class="form-input"
-          placeholder="Enter Company Name" />
+        <form:input path="company_name"
+          value=" ${rollBackCompanyForm.company_name}"
+          class="form-input" placeholder="Enter Company Name" />
         <form:errors path="company_name" class="text-danger" />
       </div>
       <div class="group">
         <label for="email">Company Email:</label> <br>
-        <form:input  path="email" value="${rollBackCompanyForm.email}"
+        <form:input path="email" value="${rollBackCompanyForm.email}"
           class="form-input" placeholder="Enter Company Email" />
         <form:errors path="email" class="text-danger" />
       </div>
       <div class="group">
         <label for="Phone No">Phone No:</label> <br>
-        <form:input  path="phone"
-          value="${rollBackCompanyForm.phone}" class="form-input"
-          placeholder="Enter Company Ph Number" />
+        <form:input path="phone" value="${rollBackCompanyForm.phone}"
+          class="form-input" placeholder="Enter Company Ph Number" />
         <form:errors path="phone" class="text-danger" />
       </div>
       <div class="group">
         <label for="Company Address">Company Address:</label> <br>
-        <form:input  path="address" value="${rollBackCompanyForm.address}"
-          class="form-input" placeholder="Enter Company Address" />
+        <form:input path="address"
+          value="${rollBackCompanyForm.address}" class="form-input"
+          placeholder="Enter Company Address" />
         <form:errors path="address" class="text-danger" />
       </div>
       <div class="group">
         <label for="Website link">Website Link:</label> <br>
-        <form:input  path="web_link" value="${rollBackCompanyForm.web_link}"
-          class="form-input" placeholder="Enter Website Link" />
+        <form:input path="web_link"
+          value="${rollBackCompanyForm.web_link}" class="form-input"
+          placeholder="Enter Website Link" />
         <form:errors path="web_link" class="text-danger" />
       </div>
       <div class="create">
