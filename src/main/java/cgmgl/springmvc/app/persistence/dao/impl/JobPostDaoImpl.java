@@ -65,6 +65,25 @@ public class JobPostDaoImpl implements JobPostDao {
         List<JobPost> resultJobPost = (List<JobPost>) jobPostByJobType.list();
         return resultJobPost;
     }
+    private static final int limitResultsPerPage =3 ;
+    @Override
+    public List<JobPost> dbgetJobPostList(Long page) {
+        Query q = sessionFactory.getCurrentSession().createQuery(
+                "select jp from JobPost jp where jp.deleted_at is null");
+        q.setFirstResult((int) (page * limitResultsPerPage)); 
+        q.setMaxResults(limitResultsPerPage);
+        return (List<JobPost>) q.list();
+    }
+
+    @Override
+    public List<JobPost> dbGetJobPostByJobTypeId(Integer jobTypeId, Long page) {
+        Query q = sessionFactory.getCurrentSession().createQuery("SELECT p FROM JobPost p where p.jobType.id = :id");
+        q.setParameter("id", jobTypeId);
+        q.setFirstResult((int) (page * limitResultsPerPage));
+        q.setMaxResults(limitResultsPerPage);
+        List<JobPost> resultJobPost = (List<JobPost>) q.list();
+        return resultJobPost;
+    }
 
     /**
      * <h2>dbGetJobPostById</h2>
@@ -131,4 +150,5 @@ public class JobPostDaoImpl implements JobPostDao {
     public void dbUpdateJobPost(JobPost jobPost, Date updateAt) {
         this.sessionFactory.getCurrentSession().update(jobPost);
     }
+   
 }

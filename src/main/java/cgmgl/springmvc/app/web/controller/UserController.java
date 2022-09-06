@@ -60,7 +60,7 @@ public class UserController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView email(HttpServletRequest request) {
+	public ModelAndView loginEmail(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("loginPage");
 		return model;
 	}

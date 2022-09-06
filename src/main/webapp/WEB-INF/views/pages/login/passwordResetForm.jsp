@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <div class="com-inner">
   <div class="reset-container">
-    <c:url value="/password/reset" var="changeUrl" />
+    <c:url value="/loginForm/password/reset" var="changeUrl" />
     <form:form action="${changeUrl}" method="POST"
       modelAttribute="passwordResetForm">
       <div class="pass-group">

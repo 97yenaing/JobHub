@@ -25,15 +25,19 @@
 	type="text/css" />
 <link rel="stylesheet" href="<c:url value="/assets/css/signup1.css" />"
   type="text/css" />
+  <link rel="stylesheet" href="<c:url value="/assets/css/style.css" />"
+  type="text/css" />
+  <link rel="stylesheet" href="<c:url value="/assets/css/slick.css" />"
+  type="text/css" />
 
-// start for datatable responsive
+<!-- // start for datatable responsive -->
 <link rel="stylesheet" href="<c:url value="/assets/css/form.css" />"
   type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-// end
+<!-- // end -->
 
 <script
   src="<c:url value="/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"/>"></script>

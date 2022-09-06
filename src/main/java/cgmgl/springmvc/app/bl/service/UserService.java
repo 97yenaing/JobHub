@@ -39,6 +39,9 @@ public interface UserService {
 	public void doSaveCompany(@Valid CompanyDto companydto);
 
     User doGetLoginInfo();
+    
+    public boolean doIsLoggedIn();
+    
 
 	public User doGetApplicantById(long userIdForApplicant);
 

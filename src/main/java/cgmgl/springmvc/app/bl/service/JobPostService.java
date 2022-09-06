@@ -105,4 +105,10 @@ public interface JobPostService {
      * @return JobType
      */
     public JobType doGetJobTypeById(int jobTypeId);
+
+    public List<JobPost> getJobPostByPage(Long page);
+
+    public List<JobPost> doGetJobPostByJobTypeId(Integer jobTypeId, Long page);
+
+    public int doGetJobPostListCount();
 }
