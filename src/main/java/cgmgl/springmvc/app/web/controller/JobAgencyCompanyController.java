@@ -137,7 +137,7 @@ public class JobAgencyCompanyController {
 		} else if (this.companyservice.dofindByEmail(companydto.getEmail())) {
 
 			companyConfirm.addObject("rollBackCompanyForm", companydto);
-			companyConfirm.addObject("errorMsg", messageSources.getMessage("M_SC_0018", null, null));
+			companyConfirm.addObject("errorMsg", messageSources.getMessage("M_SC_0019", null, null));
 			companyConfirm.setViewName("createCompany");
 			return companyConfirm;
 		} else {
