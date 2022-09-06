@@ -7,6 +7,8 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -197,5 +199,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         }
         User user = userDAO.dbGetUserByEmail(user_email);
         return user;
+    }
+    
+    @Override
+    public boolean doIsLoggedIn() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication != null && !(authentication instanceof AnonymousAuthenticationToken)
+                && authentication.isAuthenticated();
     }
 }

@@ -38,21 +38,6 @@ public class JobAgencyCompanyController {
 
 	@Autowired
 	private MessageSource messageSources;
-
-	/**
-	 * <h2>error</h2>
-	 * <p>
-	 * 
-	 * </p>
-	 *
-	 * @return
-	 * @return String
-	 */
-	@RequestMapping(value = "/error")
-	public String error() {
-		return "access-denied";
-	}
-
 	/**
 	 * <h2>getCompanyList</h2>
 	 * <p>

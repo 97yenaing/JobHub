@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <c:url value="/password/sendEmail" var="send">
+  <c:url value="/loginForm/password/sendEmail" var="send">
   </c:url>
   <div class="com-inner">
     <div class="email-container">
