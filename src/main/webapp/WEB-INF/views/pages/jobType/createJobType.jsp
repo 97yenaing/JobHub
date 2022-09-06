@@ -27,8 +27,11 @@
         <label for="description">Description:</label> <br>
         <form:input path="description" value="${rollBackJobTypeDto.description}" class="form-input" placeholder="Enter the description for your job." rows="6" />
         </div>
-      <button type="submit" class="form-btn" name="confirmJobType">Create Confirm</button>
-      <button type="reset" class="" name="clear">Cancel</button>
+        <div class="create">
+          <button type="submit" class="form-btn" name="confirmJobType">Confirm</button>
+          <button type="reset" class="reset-btn" name="cancel">Reset</button>
+          <a class="back-btn" href="${pageContext.request.contextPath}/jobType/list">Back</a>
+        </div>
   </form:form>
   </div>
 </body>

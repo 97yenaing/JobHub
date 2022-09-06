@@ -97,7 +97,7 @@ font-size: 16px;
     font-size: 23px; 
     
   }
-  .container{
+  .signup-container{
     width:40%;
     margin:0 auto;
     margin-top:100px;
@@ -155,7 +155,7 @@ font-size: 16px;
     font-family: 'IBM Plex Sans-Bold';
     font-size: 16px;
   }
-  .container{
+  .signup-container{
     width:66%;
     margin:0 auto;
     margin-top:100px;
