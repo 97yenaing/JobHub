@@ -123,10 +123,5 @@ public class LoginController {
     public String AdminPage() {
         return "admin";
     }
-    @RequestMapping(value = "/error")
-    public ModelAndView errorPage() {
-        ModelAndView model = new ModelAndView();
-        model.setViewName("access-denied");
-        return model;
-    }
+
 }
