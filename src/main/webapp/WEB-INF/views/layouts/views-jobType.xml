@@ -15,7 +15,7 @@
         <put-attribute name="title" value="JobTypeList" />
         <put-attribute name="body" value="/WEB-INF/views/pages/jobType/jobTypeList.jsp" />
     </definition>
-    <definition name="editJobType" extends="template">
+    <definition name="updateJobType" extends="template">
         <put-attribute name="title" value="UpdateJobType" />
         <put-attribute name="body" value="/WEB-INF/views/pages/jobType/updateJobType.jsp" />
     </definition>

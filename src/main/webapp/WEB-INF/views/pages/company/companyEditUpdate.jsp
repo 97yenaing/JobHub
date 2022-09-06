@@ -18,52 +18,54 @@
   <div class="form-card">
     <c:url var="companyEditUpdate" value="/company/Confirm/Update"></c:url>
     <h2 class="form-header">Company Update And Edit</h2>
-    <form:form class="form-detail" action="${companyEditUpdate}"
+    <form:form class="form-container" action="${companyEditUpdate}"
       method="POST" id="form" modelAttribute="CompanyProfile">
       <c:if test="${errorMsg != null }">
         <div class="alert alert-danger">
           <strong>${errorMsg }</strong>
         </div>
       </c:if>
-      <div class="form-group">
+      <div class="group">
         <form:input path="company_id"
           value=" ${CompanyProfile.company_id}" class="form-input"
           type="hidden" />
       </div>
-      <div class="form-group">
+      <div class="group">
         <label for="company_name">Company Name:</label> <br>
         <form:input path="company_name"
           value=" ${CompanyProfile.company_name}" class="form-input"
           placeholder="Enter Company Name" />
         <form:errors path="company_name" class="text-danger" />
       </div>
-      <div class="form-group">
+      <div class="group">
         <label for="email">Company Email:</label> <br>
         <form:input path="email" value="${CompanyProfile.email}"
           class="form-input" placeholder="Enter Company Email" />
         <form:errors path="email" class="text-danger" />
       </div>
-      <div class="form-group">
+      <div class="group">
         <label for="Phone No">Phone No:</label> <br>
         <form:input path="phone" value="${CompanyProfile.phone}"
           class="form-input" placeholder="Enter Company Ph Number" />
         <form:errors path="phone" class="text-danger" />
       </div>
-      <div class="form-group">
+      <div class="group">
         <label for="Company Address">Company Address:</label> <br>
         <form:input path="address" value="${CompanyProfile.address}"
           class="form-input" placeholder="Enter Company Address" />
         <form:errors path="address" class="text-danger" />
       </div>
-      <div class="form-group">
+      <div class="group">
         <label for="Website link">Website Link:</label> <br>
         <form:input path="web_link" value="${CompanyProfile.web_link}"
           class="form-input" placeholder="Enter Website Link" />
         <form:errors path="web_link" class="text-danger" />
       </div>
+      <div class="create">
       <button type="submit" class="form-btn"
         name="company/Update/Confirm">Confirm</button>
       <button type="reset" class="" name="clear">Reset</button>
+      </div>
     </form:form>
   </div>
 </body>

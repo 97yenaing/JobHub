@@ -15,6 +15,7 @@
 </head>
 
 <body>
+<div class="confirm-form">
   <div class="card">
     <c:url var="createcompanyConfirm" value="/company/Insert"></c:url>
     <form:form class="form-detail" action="${createcompanyConfirm}" method="POST"
@@ -25,37 +26,40 @@
           </div>
         </c:if>
       <h1 class="profile-header">Confirm Company's Registration</h1>
-      <ul class="list-group list-group-unbordered mb-3">
-        <li class="list-group-item"><b>Company Name:</b> <a
+      <ul>
+        <li><b>Company Name:</b> <a
           class="float-right">${CompanyForm.company_name } <form:input
               type="hidden" path="company_name" name="company_name"
               value="${CompanyForm.company_name }" class="form-control" />
         </a></li>
-        <li class="list-group-item"><b>Company Email:</b> <a
+        <li><b>Company Email:</b> <a
           class="float-right">${CompanyForm.email } <form:input
               type="hidden" path="email" name="emial"
               value="${CompanyForm.email }" class="form-control" />
         </a></li>
-        <li class="list-group-item"><b>Phone Number:</b> <a
+        <li><b>Phone Number:</b> <a
           class="float-right">${CompanyForm.phone } <form:input
               type="hidden" path="phone" name="phone"
               value="${CompanyForm.phone }" class="form-control" />
         </a></li>
-        <li class="list-group-item"><b>Company Address:</b> <a
+        <li><b>Company Address:</b> <a
           class="float-right">${CompanyForm.address } <form:input
               type="hidden" path="address" name="address"
               value="${CompanyForm.address }" class="form-control" />
         </a></li>
-        <li class="list-group-item"><b>Website Link:</b> <a
+        <li><b>Website Link:</b> <a
           class="float-right">${CompanyForm.web_link } <form:input
               type="hidden" path="web_link" name="web_link"
               value="${CompanyForm.web_link }" class="form-control" />
         </a></li>
       </ul>
-      <button type="submit" class="confirm-btn1" name="addCompany">Create</button>
+      <div class="confirm-btn">
+      <button type="submit" class="create-btn" name="addCompany">Create</button>
     &nbsp;
-    <button type="submit" class="confirm-btn2" name="cancel">Cancel</button>
+    <button type="submit" class="cancel-btn" name="cancel">Cancel</button>
+    </div>
     </form:form>
+  </div>
   </div>
 </body>
 </html>

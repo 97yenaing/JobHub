@@ -29,9 +29,14 @@
             value="/WEB-INF/views/pages/login/home.jsp" />
     </definition>
     <!-- Sign-UP Page -->
-    <definition name="sign-up" extends="template">
+    <definition name="home" extends="template">
         <put-attribute name="title" value="Job Hub Sign Up" />
         <put-attribute name="body"
-            value="/WEB-INF/views/pages/login/home.jsp" />
+            value="/WEB-INF/views/pages/home/index.jsp" />
+    </definition>
+    <definition name="access-denied" extends="template">
+        <put-attribute name="title" value="Job Hub Access Denied" />
+        <put-attribute name="body"
+            value="/WEB-INF/views/pages/login/access-denied.jsp" />
     </definition>
     </tiles-definitions>

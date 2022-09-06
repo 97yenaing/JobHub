@@ -66,8 +66,9 @@ public class JobPostController {
         model.setViewName("jobPostList");
         return model;
     }
+
     /**
-     * <h2> getJobPostListByApplicant</h2>
+     * <h2>getJobPostListByApplicant</h2>
      * <p>
      * 
      * </p>
@@ -77,16 +78,25 @@ public class JobPostController {
      * @return ModelAndView
      */
     @RequestMapping(value = "/post/applicant/list")
-    public ModelAndView getJobPostListByApplicant(ModelAndView model) {
+    public ModelAndView getJobPostListByApplicant(
+            @RequestParam(value = "page", defaultValue = "1", required = false) Long page, ModelAndView model) {
         List<JobType> typeList = jobPostService.doGetJobTypeList();
         model.addObject("JobTypeList", typeList);
-        List<JobPost> jobPostList = jobPostService.doGetJobPostList();
+        int count = jobPostService.doGetJobPostListCount();
+        int startpage = (int) (page - count/3 > 1 ? page - count/3 : 1);
+        int endpage = startpage + count/3;
+        List<JobPost> jobPostList = jobPostService.getJobPostByPage(page);
+        // List<JobPost> jobPostList = jobPostService.doGetJobPostList();
+        // model.addObject("ApplicantJobPost", jobPostList);
         model.addObject("ApplicantJobPost", jobPostList);
+        model.addObject("startpage", startpage);
+        model.addObject("endpage", endpage);
         model.setViewName("findJobList");
         return model;
-    } 
+    }
+
     /**
-     * <h2> applicantJobPostList</h2>
+     * <h2>applicantJobPostList</h2>
      * <p>
      * 
      * </p>
@@ -95,20 +105,31 @@ public class JobPostController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/post/list/byJobType",method = RequestMethod.GET)
-    public ModelAndView applicantJobPostList(@RequestParam("id") Integer jobTypeId) {
+    @RequestMapping(value = "/post/list/byJobType", method = RequestMethod.GET)
+    public ModelAndView applicantJobPostList(
+            @RequestParam(value = "page", defaultValue = "0", required = false) Long page,
+            @RequestParam("id") Integer jobTypeId) {
         ModelAndView applicantFindJob = new ModelAndView("applicantJobPost");
+        int count = jobPostService.doGetJobPostListCount();
+        int startpage = (int) (page - count/3 > 1 ? page - count/3 : 1);
+        int endpage = startpage + count/3;
         List<JobType> typeList = jobPostService.doGetJobTypeList();
-        List<JobPost> findJobPost = jobPostService.doGetJobPostByJobTypeId(jobTypeId);
+        // List<JobPost> findJobPost =
+        // jobPostService.doGetJobPostByJobTypeId(jobTypeId);
+        // applicantFindJob.addObject("ApplicantJobPost", findJobPost);
+        List<JobPost> findJobPost = jobPostService.doGetJobPostByJobTypeId(jobTypeId, page);
+        applicantFindJob.addObject("JobType", jobTypeId);
         applicantFindJob.addObject("ApplicantJobPost", findJobPost);
         applicantFindJob.addObject("JobTypeList", typeList);
+        applicantFindJob.addObject("startpage", startpage);
+        applicantFindJob.addObject("endpage", endpage);
         applicantFindJob.setViewName("findJobList");
         System.out.println(findJobPost);
-        return applicantFindJob;   
+        return applicantFindJob;
     }
-    
+
     /**
-     * <h2> jobPostDetails</h2>
+     * <h2>jobPostDetails</h2>
      * <p>
      * 
      * </p>
@@ -123,9 +144,9 @@ public class JobPostController {
         JobPostDto jobPostDto = jobPostService.doGetJobPostById(jobPostId);
         jobPostDetailView.addObject("jobPostDetails", jobPostDto);
         jobPostDetailView.setViewName("detailsJobPost");
-        return jobPostDetailView; 
+        return jobPostDetailView;
     }
-    
+
     /**
      * <h2>newJobPost</h2>
      * <p>
@@ -216,10 +237,14 @@ public class JobPostController {
     public ModelAndView cancelJobPosrConfirm(@ModelAttribute("jobPostDto") @Valid JobPostDto jobPostDto,
             BindingResult result) {
         ModelAndView createJobPostView = new ModelAndView("createJobPost");
+        List<JobType> typeList = jobPostService.doGetJobTypeList();
+        JobType jobTypeId = jobPostService.doGetJobTypeById(jobPostDto.getJobType().getId());
+        jobPostDto.setJobType(jobTypeId);
+        createJobPostView.addObject("JobTypeList", typeList);
         createJobPostView.addObject("rollBackJobPostDto", jobPostDto);
         return createJobPostView;
     }
-    
+
     /**
      * <h2>editJobPost</h2>
      * <p>
@@ -240,7 +265,7 @@ public class JobPostController {
         editJobPostView.setViewName("editJobPost");
         return editJobPostView;
     }
-    
+
     /**
      * <h2>confirmEditedJobPost</h2>
      * <p>

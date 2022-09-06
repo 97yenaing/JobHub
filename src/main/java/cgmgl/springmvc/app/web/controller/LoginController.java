@@ -31,8 +31,10 @@ public class LoginController {
     private UserService userService;
     
     @RequestMapping(value = { "/" }, method = RequestMethod.GET)
-    public String login() {
-        return "login";
+    public ModelAndView Homepage(HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("home");
+        model.setViewName("home");
+        return model;
     }
    
     /**
@@ -49,9 +51,20 @@ public class LoginController {
         System.out.println(authentication.getName());
         ModelAndView model = new ModelAndView();
         User user = this.userService.doGetLoginInfo();
+        System.out.println(user.getEmail());
+        System.out.println(user.getName());
+        for (Authority authority : user.getAuthorities()) {
+            if (authority.getId() == 3) {
+                ModelAndView applicantModal = new ModelAndView("redirect:/post/applicant/list");
+                return applicantModal;
+            }
+            System.out.println(authority.getName());  
+        }
+       
         model.setViewName("home");
         return model;
     }
+    
     /**
      * <h2> signUp</h2>
      * <p>
@@ -62,6 +75,7 @@ public class LoginController {
      * @return
      * @return ModelAndView
      */
+    
     @RequestMapping(value = "/sign-up", method = RequestMethod.GET)
     public ModelAndView signUp(HttpServletRequest request) {
         ModelAndView model = new ModelAndView("sign-up");

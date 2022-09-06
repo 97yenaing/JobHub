@@ -8,6 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.Company;
 import cgmgl.springmvc.app.persistence.entity.User;
+import cgmgl.springmvc.app.persistence.entity.JobPost;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -41,6 +42,7 @@ public class CompanyDto {
 
 	@NotEmpty
 	private String Web_link;
+	//private List<JobPost> jobPost;
 
 	private Date created_at;
 
@@ -59,6 +61,7 @@ public class CompanyDto {
 		this.updated_at = Company.getCreated_at();
 		this.deleted_at = Company.getCreated_at();
 		this.Web_link = Company.getWeb_link();
+		//this.jobPost = Company.getJobPost();
 	}
 
 }

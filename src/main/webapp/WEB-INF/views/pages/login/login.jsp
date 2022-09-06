@@ -25,7 +25,7 @@
           type="hidden" name="${_csrf.parameterName}"
           value="${_csrf.token}" />
         <div class="forgot-pass">
-          <a href="<c:url value ="/login/forgot_password"/>"> Forgot
+          <a href="<c:url value ="/loginForm/forgot_password"/>"> Forgot
             Password</a>
         </div>
         <div class="forgot-pass">

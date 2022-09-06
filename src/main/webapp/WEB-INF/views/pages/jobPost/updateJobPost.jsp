@@ -56,8 +56,11 @@
         <input path="email" value="" class="form-input" placeholder="Enter eail to be contacted" />
         <form:errors path="autho.id" class="text-danger" />
       </div> --%>
-      <button type="submit" class="form-btn" name="editedJobPostConfirm">Confirm Edit</button>
-      <button type="reset" class="" name="clear">Reset</button>
+      <div class="create">
+      <button type="submit" class="form-btn" name="editedJobPostConfirm">Confirm</button>
+      <button type="reset" class="reset-btn" name="clear">Reset</button>
+      <a class="back-btn" href="${pageContext.request.contextPath}/post/list">Back</a>
+    </div>
   </form:form>
   </div>
 </body>

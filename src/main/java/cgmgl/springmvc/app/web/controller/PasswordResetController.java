@@ -80,7 +80,7 @@ public class PasswordResetController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/login/forgot_password", method = RequestMethod.GET)
+    @RequestMapping(value = "/loginForm/forgot_password", method = RequestMethod.GET)
     public ModelAndView email(HttpServletRequest request) {
         ModelAndView model = new ModelAndView("emailSend");
         model.addObject("emailForm", new PasswordResetMailForm());
@@ -100,7 +100,7 @@ public class PasswordResetController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/password/sendEmail", method = RequestMethod.POST)
+    @RequestMapping(value = "/loginForm/password/sendEmail", method = RequestMethod.POST)
     public ModelAndView sendEmail(@Valid @ModelAttribute("emailForm") PasswordResetMailForm passwordResetMailForm,
             BindingResult result, HttpServletRequest request) {
         ModelAndView model = new ModelAndView("emailSend");
@@ -119,7 +119,7 @@ public class PasswordResetController {
         passwordResetMailForm = this.passwordResetService.createResetToken(passwordResetMailForm.getUser_email());
         String url = getBaseUrl(request) + request.getServletPath() + "/" + passwordResetMailForm.getToken();
         this.sendMail(url, passwordResetMailForm);
-        ModelAndView newModel = new ModelAndView("redirect:/");
+        ModelAndView newModel = new ModelAndView("redirect:/loginPage");
         return newModel;
 
     }
@@ -134,7 +134,7 @@ public class PasswordResetController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/sendEmail/{token}", method = RequestMethod.GET)
+    @RequestMapping(value = "/loginForm/password/sendEmail/{token}", method = RequestMethod.GET)
     public ModelAndView showResetPassword(@PathVariable String token) {
         ModelAndView mv = new ModelAndView("invalidMail");
         PasswordResetMailForm passwordResetForm = passwordResetService.getDataByToken(token);
@@ -166,7 +166,7 @@ public class PasswordResetController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/password/reset", method = RequestMethod.POST)
+    @RequestMapping(value = "/loginForm/password/reset", method = RequestMethod.POST)
     public ModelAndView resetPassword(@Valid @ModelAttribute("passwordResetForm") PasswordResetForm passwordResetForm,
             BindingResult result) {
 
@@ -180,7 +180,7 @@ public class PasswordResetController {
         newPasswordResetForm.setPassword(passwordResetForm.getPassword());
         this.passwordResetService.doUpdatePassword(newPasswordResetForm);
         this.passwordResetService.doDeleteToken(passwordResetForm.getToken());
-        ModelAndView mv = new ModelAndView("redirect:/");
+        ModelAndView mv = new ModelAndView("redirect:/loginPage");
         mv.addObject("msg", "Password has been changed!");
         return mv;
 

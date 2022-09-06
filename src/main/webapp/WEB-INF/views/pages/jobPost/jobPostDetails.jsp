@@ -9,36 +9,33 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="confirm-form">
   <div class="card">
     <h1 class="profile-header">Job Post Details</h1>
     <c:url var="postDetails" value="/post/edit/confirm"></c:url>
-    <form:form class="form-container" action="${postDetails }" method="POST" id="form" modelAttribute="jobPostDetails">
+    <form:form action="${postDetails }" method="POST" id="form" modelAttribute="jobPostDetails">
     <input type="hidden" name="id" value="${jobPostDetails.id }" />
-    <ul class="list-group list-group-unbordered mb-3">
-    <li class="list-group-item"><b>Position:</b> <a
-      class="float-right">${jobPostDetails.position } <form:input
-          path="position" type="hidden" name="position"
-          value="${jobPostDetails.position }"
-          class="form-control" />
-    </a></li> 
-    <li class="list-group-item"><b>Offered Salary:</b> <a
-      class="float-right">${jobPostDetails.offered_salary } <form:input
-          path="offered_salary" type="hidden" name="offered_salary"
-          value="${jobPostDetails.offered_salary }"
-          class="form-control" />
-    </a></li>
-    <li class="list-group-item"><b>Offered Work Experience:</b> <a
-      class="float-right">${jobPostDetails.experience_year } <form:input
-          path="experience_year" type="hidden" name="experience_year"
-          value="${jobPostDetails.experience_year }"
-          class="form-control" />
-    </a></li>
-    <li class="list-group-item"><b>Num Of Position:</b> <a
-      class="float-right">${jobPostDetails.num_of_position } <form:input
-          path="num_of_position" type="hidden" name="num_of_position"
-          value="${jobPostDetails.num_of_position }"
-          class="form-control" />
-    </a></li>
+    <ul>
+    <li><b>Position:</b> 
+        <a class="float-right">${jobPostDetails.position } 
+          <form:input path="position" type="hidden" name="position"
+          value="${jobPostDetails.position }" />
+        </a></li> 
+    <li><b>Offered Salary:</b> 
+        <a class="float-right">${jobPostDetails.offered_salary } 
+          <form:input path="offered_salary" type="hidden" name="offered_salary"
+          value="${jobPostDetails.offered_salary }"/>
+        </a></li>
+    <li><b>Offered Work Experience:</b> 
+        <a class="float-right">${jobPostDetails.experience_year } 
+          <form:input path="experience_year" type="hidden" name="experience_year"
+          value="${jobPostDetails.experience_year }"/>
+        </a></li>
+    <li><b>Num Of Position:</b>
+        <a class="float-right">${jobPostDetails.num_of_position } 
+          <form:input path="num_of_position" type="hidden" name="num_of_position"
+          value="${jobPostDetails.num_of_position }"/>
+        </a></li>
     <%-- <li class="list-group-item"><b>Phone Number:</b> <a
       class="float-right">${jobPostDetails.phone } <form:input
           path="phone" type="hidden" name="phone"
@@ -51,22 +48,11 @@
           value="${jobPostDetails.email }"
           class="form-control" />
     </a></li> --%>
-    <li class="list-group-item"><b>Created Date:</b> <a
-      class="float-right">${jobPostDetails.created_at } <form:input
-          path="created_at" type="hidden" name="created_at"
-          value="${jobPostDetails.created_at }"
-          class="form-control" />
-    </a></li>
-    <li class="list-group-item"><b>Expired Date:</b> <a
-      class="float-right">${jobPostDetails.expired_at } <form:input
-          path="expired_at" type="hidden" name="expired_at"
-          value="${jobPostDetails.expired_at }"
-          class="form-control" />
-    </a></li>
   </ul>
   </form:form>
-    <button type="submit" class="confirm-btn1" name="addUser">Apply</button> &nbsp; &nbsp;
-    <button type="submit" class="confirm-btn2" name="cancel">Back</button>
+    <button type="submit" class="apply-btn" name="addUser">Apply</button> &nbsp; &nbsp;
+    <a class="detail-back-btn" href="${pageContext.request.contextPath}/post/applicant/list">Back</a>
+</div>
 </div>
 </body>
 </html>
