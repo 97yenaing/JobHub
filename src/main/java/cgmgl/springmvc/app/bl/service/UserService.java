@@ -36,7 +36,9 @@ public interface UserService {
 
     public void doSaveUser(@Valid UserDto userDto);
 
-	public void doSaveCompany(@Valid CompanyDto companydto);
+	  public void doSaveCompany(@Valid CompanyDto companydto);
+
+    User doGetLoginInfo();
 
     /**
      * Find by id.

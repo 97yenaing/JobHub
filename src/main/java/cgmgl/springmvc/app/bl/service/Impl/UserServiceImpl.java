@@ -1,11 +1,13 @@
 package cgmgl.springmvc.app.bl.service.Impl;
 
+import java.security.Principal;
 import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -198,4 +200,18 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         user.setPassword(passwordEncoder.encode(companydto.getUser().getPassword()));
         this.userDAO.dbAddCompany(user, companyInfo, created_date);
 	}
+
+    @Override
+    public User doGetLoginInfo() {
+        String user_email = null;
+        // TODO Auto-generated method stub
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            user_email = ((UserDetails) principal).getUsername();
+        } else {
+            user_email = principal.toString();
+        }
+        User user = userDAO.dbGetUserByEmail(user_email);
+        return user;
+    }
 }
