@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="<c:url value="/assets/css/reset.css" />"
@@ -25,21 +26,20 @@
 	type="text/css" />
 <link rel="stylesheet" href="<c:url value="/assets/css/signup1.css" />"
   type="text/css" />
-
-// start for datatable responsive
+  
 <link rel="stylesheet" href="<c:url value="/assets/css/form.css" />"
   type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-// end
+
 
 <script
   src="<c:url value="/resources/plugins/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
 <script src="<c:url value="/resources/js/adminlte.min.js"/>"></script>
-<script src="<c:url value="/resources/js/common.js"/>"></script>
 <script src="<c:url value="/resources/js/demo.js"/>"></script>
+<script src="<c:url value="/assets/js/common.js"/>"></script>
 <script type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet"
@@ -48,6 +48,8 @@
   href='<c:url value="/resources/plugins/fontawesome-free/css/all.min.css"/>'>
 <link rel="stylesheet"
   href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="<c:url value="/assets/css/findJob.css" />"
@@ -65,6 +67,8 @@
     
   <link rel="stylesheet" href="<c:url value="/assets/css/passwordReset.css" />"
     type="text/css" />
+  <link rel="stylesheet" href="<c:url value="/assets/css/common.css" />"
+  type="text/css" />
 </head>
 <body>
 	<tiles:insertAttribute name="header" />
@@ -72,7 +76,6 @@
 		<tiles:insertAttribute name="body" />
 	</div>
 	<tiles:insertAttribute name="footer" />
-<%-- 	<script src="<c:url value="/assets/js/jquery-3.6.0.min.js" />"></script> --%>
     <script src="<c:url value="/assets/js/jquery.heightLine.js" />"></script>
 	<script src="<c:url value="/assets/js/app.js" />"></script>
 </body>
