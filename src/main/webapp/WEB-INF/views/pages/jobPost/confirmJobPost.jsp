@@ -68,8 +68,10 @@ class="form-control" />
           class="form-control" />
     </a></li> --%>
       </ul>
-      <button type="submit" class="confirm-btn1" name="addJobPost">Create</button> &nbsp;
-    <button type="submit" class="confirm-btn2" name="cancel">Cancel</button>
+      <div class="confirm-btn">
+        <button type="submit" class="create-btn" name="addJobPost">Create JobPost</button> &nbsp;
+        <button type="submit" class="cancel-btn" name="cancel">Cancel</button>
+      </div>
     </form:form>
     </div>
   </div>

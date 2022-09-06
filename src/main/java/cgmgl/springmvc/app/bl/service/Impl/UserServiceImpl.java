@@ -18,12 +18,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
+import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.bl.dto.CustomUserDetail;
 import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.bl.service.UserService;
 import cgmgl.springmvc.app.persistence.dao.ApplicantInfoDao;
+import cgmgl.springmvc.app.persistence.dao.CompanyDAO;
 import cgmgl.springmvc.app.persistence.dao.UserDao;
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
+import cgmgl.springmvc.app.persistence.entity.Company;
 import cgmgl.springmvc.app.persistence.entity.User;
 
 @Service
@@ -37,6 +40,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Autowired
     private ApplicantInfoDao applicantInfoDao;
+    
+    @Autowired
+    private CompanyDAO companyDao;
 
     @Override
     public User doGetUserById(long userId) {
@@ -111,7 +117,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         User user = new User(applicantForm);
         user.setPassword(passwordEncoder.encode(applicantForm.getUser().getPassword()));
         this.userDAO.dbAddUser(user, applicantInfo, created_date);
-
     }
 
     @Override
@@ -187,6 +192,17 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		this.userDAO.dbAddUser(user, null, created_date);
 	}
 
+	@Override
+	public void doSaveCompany(@Valid CompanyDto companydto) {
+		// TODO Auto-generated method stub
+		Company companyInfo = new Company(companydto);
+        Date created_date = new Date();
+        companyDao.dbaddCompany(companyInfo, created_date);
+        User user = new User(companydto);
+        user.setPassword(passwordEncoder.encode(companydto.getUser().getPassword()));
+        this.userDAO.dbAddCompany(user, companyInfo, created_date);
+	}
+
     @Override
     public User doGetLoginInfo() {
         String user_email = null;
@@ -206,5 +222,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return authentication != null && !(authentication instanceof AnonymousAuthenticationToken)
                 && authentication.isAuthenticated();
+    }
+
+    @Override
+    public User doGetApplicantById(long userIdForApplicant) {
+      // TODO Auto-generated method stub
+      return this.doGetUserById(userIdForApplicant);
     }
 }

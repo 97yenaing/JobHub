@@ -1,6 +1,7 @@
 package cgmgl.springmvc.app.web.controller;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import cgmgl.springmvc.app.bl.dto.CompanyDto;
+import cgmgl.springmvc.app.bl.service.AuthorityService;
 import cgmgl.springmvc.app.bl.service.CompanyService;
+import cgmgl.springmvc.app.bl.service.UserService;
+import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.Company;
 
 /**
@@ -38,6 +42,13 @@ public class JobAgencyCompanyController {
 
 	@Autowired
 	private MessageSource messageSources;
+
+	@Autowired
+	private AuthorityService authorityService;
+
+	@Autowired
+	private UserService userService;
+
 	/**
 	 * <h2>getCompanyList</h2>
 	 * <p>
@@ -88,16 +99,16 @@ public class JobAgencyCompanyController {
 	 * @return
 	 * @return ModelAndView
 	 */
-	@RequestMapping(value = "/createcompanyConfirm", params = "clear", method = RequestMethod.GET)
-	public ModelAndView resetCompany(ModelAndView model) {
-
-		CompanyDto company = new CompanyDto();
-		ModelAndView createCompany = new ModelAndView("createCompany");
-		createCompany.addObject("rollBackCompanyForm", company);
-		createCompany.setViewName("createCompany");
-
-		return createCompany;
-	}
+	/*
+	 * @RequestMapping(value = "/createcompanyConfirm", params = "clear", method =
+	 * RequestMethod.GET) public ModelAndView resetCompany(ModelAndView model) {
+	 * 
+	 * CompanyDto company = new CompanyDto(); ModelAndView createCompany = new
+	 * ModelAndView("createCompany"); createCompany.addObject("rollBackCompanyForm",
+	 * company); createCompany.setViewName("createCompany");
+	 * 
+	 * return createCompany; }
+	 */
 
 	/**
 	 * <h2>createCompanyConfirm</h2>
@@ -112,10 +123,10 @@ public class JobAgencyCompanyController {
 	 * @throws ParseException
 	 * @return ModelAndView
 	 */
-	@RequestMapping(value = "/company/Create-Comfirm", params = "companyConfirm", method = RequestMethod.POST)
+	@RequestMapping(value = "/company/Insert", params = "addCompany", method = RequestMethod.POST)
 	public ModelAndView createCompanyConfirm(@ModelAttribute("rollBackCompanyForm") @Valid CompanyDto companydto,
 	        BindingResult result, HttpServletRequest request) throws ParseException {
-		ModelAndView companyConfirm = new ModelAndView("companyConfirm");
+		ModelAndView companyConfirm = new ModelAndView("createCompany");
 		if (result.hasErrors()) {
 
 			ModelAndView errorView = new ModelAndView("createCompany");
@@ -131,10 +142,14 @@ public class JobAgencyCompanyController {
 			return companyConfirm;
 		} else {
 
-			companyConfirm.addObject("CompanyForm", companydto);
-			companyConfirm.setViewName("companyConfirm");
-
-			return companyConfirm;
+			List<Authority> authorities = new ArrayList<Authority>();
+			int authoId = companydto.getAuthority().getId();
+			Authority authority = authorityService.doGetAuthById(authoId);
+			authorities.add(authority);
+			companydto.setAuthorityList(authorities);
+			this.userService.doSaveCompany(companydto);
+			ModelAndView createCompanyView = new ModelAndView("redirect:/home");
+			return createCompanyView;
 		}
 
 	}
@@ -152,15 +167,16 @@ public class JobAgencyCompanyController {
 	 * @throws ParseException
 	 * @return ModelAndView
 	 */
-	@RequestMapping(value = "/company/Insert", params = "cancel", method = RequestMethod.POST)
-	public ModelAndView comfirmCompanyCancel(@ModelAttribute("rollBackCompanyForm") @Valid CompanyDto companydto,
-	        BindingResult result, HttpServletRequest request) throws ParseException {
-		ModelAndView cancel = new ModelAndView("createCompany");
-
-		cancel.addObject("rollBackCompanyForm", companydto);
-		cancel.setViewName("createCompany");
-		return cancel;
-	}
+	/*
+	 * @RequestMapping(value = "/company/Insert", params = "cancel", method =
+	 * RequestMethod.POST) public ModelAndView
+	 * comfirmCompanyCancel(@ModelAttribute("rollBackCompanyForm") @Valid CompanyDto
+	 * companydto, BindingResult result, HttpServletRequest request) throws
+	 * ParseException { ModelAndView cancel = new ModelAndView("createCompany");
+	 * 
+	 * cancel.addObject("rollBackCompanyForm", companydto);
+	 * cancel.setViewName("createCompany"); return cancel; }
+	 */
 
 	/**
 	 * <h2>insertCompany</h2>
@@ -175,14 +191,21 @@ public class JobAgencyCompanyController {
 	 * @return
 	 * @return ModelAndView
 	 */
-	@RequestMapping(value = "/company/Insert", params = "addCompany", method = RequestMethod.POST)
-	public ModelAndView insertCompany(@ModelAttribute("CompanyForm") @Valid CompanyDto companydto, BindingResult result,
-	        HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView createCompanyView = new ModelAndView("redirect:/company/List");
-		this.companyservice.doaddCompay(companydto);
-
-		return createCompanyView;
-	}
+	/*
+	 * @RequestMapping(value = "/company/Insert", params = "addCompany", method =
+	 * RequestMethod.POST)
+	 * 
+	 * public ModelAndView insertCompany(@ModelAttribute("CompanyForm") @Valid
+	 * CompanyDto companydto, BindingResult result, HttpServletRequest request,
+	 * HttpServletResponse response) {
+	 * 
+	 * ModelAndView createCompanyView = new ModelAndView("redirect:/company/List");
+	 * this.companyservice.doaddCompay(companydto);
+	 * 
+	 * return createCompanyView;
+	 * 
+	 * }
+	 */
 
 	/**
 	 * <h2>profileCompany</h2>

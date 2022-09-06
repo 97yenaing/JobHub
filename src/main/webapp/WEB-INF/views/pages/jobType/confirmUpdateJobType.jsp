@@ -9,6 +9,7 @@
 <title>Update Job Type</title>
 </head>
 <body>
+<div class="confirm-form">
   <div class="form-card">
     <h1 class="form-header">Confirm Update Job Type</h1>
     <c:url var="updateJobType" value="/jobType/update"></c:url>
@@ -24,9 +25,12 @@
         <label for="description">Description:</label> <br>
         <form:input path="description" value="${confirmEditedJobTypeDto.description}" class="form-input" placeholder="Enter the description for your job." rows="6" />
         </div>
-      <button type="submit" class="form-btn" name="saveUpdateJobType">Update</button>
-      <button type="submit" class="" name="cancelUpdate">Cancel</button>
+        <div class="confirm-btn">
+          <button type="submit" class="create-btn" name="saveUpdateJobType">Update</button>
+          <button type="submit" class="cancel-btn" name="cancelUpdate">Cancel</button>
+        </div>
   </form:form>
+  </div>
   </div>
 </body>
 </html>

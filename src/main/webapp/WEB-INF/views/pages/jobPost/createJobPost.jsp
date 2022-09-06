@@ -49,18 +49,21 @@
         <form:input path="num_of_position" value="${rollBackJobPostDto.num_of_position}" class="form-input" placeholder="Enter your no. of vacancy." />
       </div>
       
-      <%-- <div class="form-group">
+      <%-- <div class="group">
         <label for="phone">Contact Phone:</label> <br>
         <input path="email" value="" class="form-input" placeholder="Enter ph number to be contacted." />
         <form:errors path="autho.id" class="text-danger" />
       </div>
-      <div class="form-group">
+      <div class="group">
         <label for="Contact Email">Contact Email:</label> <br>
         <input path="email" value="" class="form-input" placeholder="Enter eail to be contacted" />
         <form:errors path="autho.id" class="text-danger" />
       </div> --%>
+      <div class="create">
       <button type="submit" class="form-btn" name="confirmJobPost">Confirm</button>
-      <button type="reset" class="" name="clear">Reset</button>
+      <button type="reset" class="reset-btn" name="clear">Reset</button>
+      <a class="back-btn" href="${pageContext.request.contextPath}/post/list">Back</a>
+    </div>
   </form:form>
   </div>
 </body>

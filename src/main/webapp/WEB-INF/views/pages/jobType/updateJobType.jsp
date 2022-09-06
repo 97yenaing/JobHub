@@ -15,19 +15,20 @@
     <form:form class="form-container" action="${editJobType}" method="POST" id="form" modelAttribute="editJobTypeDto">
     <input type="hidden" name="id"
                 value="${editJobTypeDto.id }" />
-      <div class="form-group">
+      <div class="group">
         <label for="type_name">Job Type:</label> <br>
         <form:input path="type_name" value="${editJobTypeDto.type_name }" class="form-input" placeholder="Enter Job Type" />
       </div>
-      <div class="form-group">
+      <div class="group">
         <label for="description">Description:</label> <br>
         <form:input path="description" value="${editJobTypeDto.description}" class="form-input" placeholder="Enter the description for your job." rows="6" />
         </div>
-      <button type="submit" class="form-btn" name="confirmJobType">Confirm Edit</button>
-      <a class="btn btn-secondary" href="${pageContext.request.contextPath}/jobType/list">Back</a>
-      <a class="btn btn-secondary" href="${pageContext.request.contextPath}/jobType/edit?id=${editJobTypeDto.id}">Reset</a>
-      <!-- <button type="reset" class="" name="clear">Back</button> -->
-  </form:form>
+        <div class="create">
+          <button type="submit" class="form-btn" name="confirmJobType">Confirm</button>
+          <button type="reset" class="" name="cancel">Reset</button>
+          <a class="back-btn" href="${pageContext.request.contextPath}/jobType/list">Back</a>
+        </div>
+    </form:form>
   </div>
 </body>
 </html>

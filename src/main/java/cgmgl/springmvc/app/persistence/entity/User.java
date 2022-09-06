@@ -16,12 +16,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
+import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.bl.dto.UserDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -70,6 +72,10 @@ public class User implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "info_id")
 	private ApplicantInfo applicantInfo;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "company_id")
+	private Company company;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "users_authorities", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "authority_id"))
@@ -84,6 +90,7 @@ public class User implements Serializable {
 		this.updated_at = userform.getUpdated_at();
 		this.deleted_at = userform.getDeleted_at();
 		this.applicantInfo = userform.getApplicantInfo();
+		this.company = userform.getCompany();
 		this.authorities = userform.getAuthorityList();
 		
 	}
@@ -99,79 +106,16 @@ public class User implements Serializable {
 		this.applicantInfo = applicantForm.getUser().getApplicantInfo();
 		this.authorities = applicantForm.getAuthorityList();
 	}
+	
+	public User(CompanyDto companyDto) {
+		this.id = companyDto.getUser().getId();
+		this.name = companyDto.getUser().getName();
+		this.email = companyDto.getUser().getEmail();
+		this.password = companyDto.getUser().getPassword();
+		this.created_at = companyDto.getUser().getCreated_at();
+		this.updated_at = companyDto.getUser().getUpdated_at();
+		this.deleted_at = companyDto.getUser().getDeleted_at();
+		this.company = companyDto.getUser().getCompany();
+		this.authorities = companyDto.getAuthorityList();
+	}
 }
-
-	/** id. */
-	/*
-	 * @Id
-	 * 
-	 * @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 * 
-	 * @Column(name = "id") private int id;
-	 * 
-	 *//** username. */
-	/*
-	 * @Column(name = "username", nullable = false, length = 120) private String
-	 * username;
-	 * 
-	 *//** email. */
-	/*
-	 * @Column(name = "email", unique = true, nullable = false, length = 50) private
-	 * String email;
-	 * 
-	 *//** password. */
-	/*
-	 * @Column(name = "password", nullable = false) private String password;
-	 * 
-	 *//** gender. */
-	/*
-	 * @Column(name = "gender", length = 1) private char gender;
-	 * 
-	 *//** address. */
-	/*
-	 * @Column(name = "address") private String address;
-	 * 
-	 *//** created at. */
-	/*
-	 * @Column(name = "created_at", updatable = false) private Timestamp createdAt;
-	 * 
-	 *//** updated at. */
-	/*
-	 * @Column(name = "updated_at") private Timestamp updatedAt;
-	 * 
-	 *//** Auto Generate Getter Setter *//*
-	                                      * 
-	                                      * public int getId() { return id; }
-	                                      * 
-	                                      * public void setId(int id) { this.id = id; }
-	                                      * 
-	                                      * public String getUsername() { return username; }
-	                                      * 
-	                                      * public void setUsername(String username) { this.username = username; }
-	                                      * 
-	                                      * public String getEmail() { return email; }
-	                                      * 
-	                                      * public void setEmail(String email) { this.email = email; }
-	                                      * 
-	                                      * public String getPassword() { return password; }
-	                                      * 
-	                                      * public void setPassword(String password) { this.password = password; }
-	                                      * 
-	                                      * public char getGender() { return gender; }
-	                                      * 
-	                                      * public void setGender(char gender) { this.gender = gender; }
-	                                      * 
-	                                      * public String getAddress() { return address; }
-	                                      * 
-	                                      * public void setAddress(String address) { this.address = address; }
-	                                      * 
-	                                      * public Timestamp getCreatedAt() { return createdAt; }
-	                                      * 
-	                                      * public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt;
-	                                      * }
-	                                      * 
-	                                      * public Timestamp getUpdatedAt() { return updatedAt; }
-	                                      * 
-	                                      * public void setUpdatedAt(Timestamp updatedAt) { this.updatedAt = updatedAt;
-	                                      * }
-	                                      */

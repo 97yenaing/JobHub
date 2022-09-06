@@ -237,6 +237,10 @@ public class JobPostController {
     public ModelAndView cancelJobPosrConfirm(@ModelAttribute("jobPostDto") @Valid JobPostDto jobPostDto,
             BindingResult result) {
         ModelAndView createJobPostView = new ModelAndView("createJobPost");
+        List<JobType> typeList = jobPostService.doGetJobTypeList();
+        JobType jobTypeId = jobPostService.doGetJobTypeById(jobPostDto.getJobType().getId());
+        jobPostDto.setJobType(jobTypeId);
+        createJobPostView.addObject("JobTypeList", typeList);
         createJobPostView.addObject("rollBackJobPostDto", jobPostDto);
         return createJobPostView;
     }

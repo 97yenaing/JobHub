@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
+import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.persistence.entity.User;
 
@@ -35,10 +36,14 @@ public interface UserService {
 
     public void doSaveUser(@Valid UserDto userDto);
 
+	public void doSaveCompany(@Valid CompanyDto companydto);
+
     User doGetLoginInfo();
     
     public boolean doIsLoggedIn();
     
+
+	public User doGetApplicantById(long userIdForApplicant);
 
     /**
      * Find by id.
