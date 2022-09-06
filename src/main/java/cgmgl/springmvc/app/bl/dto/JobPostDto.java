@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.validation.constraints.NotEmpty;
 
+import cgmgl.springmvc.app.persistence.entity.Company;
 import cgmgl.springmvc.app.persistence.entity.JobPost;
 import cgmgl.springmvc.app.persistence.entity.JobType;
 import lombok.AllArgsConstructor;
@@ -72,6 +73,7 @@ public class JobPostDto {
      * </p>
      */
     private JobType jobType;
+    //private Company company;
     /**
      * <h2>created_at</h2>
      * <p>
@@ -79,13 +81,7 @@ public class JobPostDto {
      * </p>
      */
     private Date created_at;
-    /**
-     * <h2>expired_at</h2>
-     * <p>
-     * expired_at
-     * </p>
-     */
-    private Date expired_at;
+    
     /**
      * <h2>updated_at</h2>
      * <p>
@@ -116,9 +112,9 @@ public class JobPostDto {
         this.experience_year = jobPost.getExperience_year();
         this.num_of_position = jobPost.getNum_of_position();
         this.created_at = jobPost.getCreated_at();
-        this.expired_at = jobPost.getExpired_at();
         this.updated_at = jobPost.getUpdated_at();
         this.deleted_at = jobPost.getDeleted_at();
         this.jobType = jobPost.getJobType();
+        //this.company = jobPost.getCompany();
     }
 }

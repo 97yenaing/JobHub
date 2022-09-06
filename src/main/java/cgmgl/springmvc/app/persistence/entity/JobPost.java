@@ -89,7 +89,12 @@ public class JobPost {
     @ManyToOne
     @JoinColumn(name = "jobType_id", nullable = false)
     private JobType jobType;
-
+    
+    /*
+     * @ManyToOne
+     * 
+     * @JoinColumn(name = "company_id", nullable = false) private Company company;
+     */
     /**
      * <h2>created_at</h2>
      * <p>
@@ -123,24 +128,13 @@ public class JobPost {
      * expired_at
      * </p>
      */
-    @Column(name = "expired_at")
-    private Date expired_at;
-    
-    /**
-     * <h2> setExpiredAt</h2>
-     * <p>
+    /*
+     * @Column(name = "expired_at") private Date expired_at;
      * 
-     * </p>
-     *
-     * @param exp_date
-     * @return void
+     * public void setExpiredAt(int exp_date) { Calendar now =
+     * Calendar.getInstance(); now.add(Calendar.DAY_OF_WEEK, exp_date);
+     * this.expired_at=now.getTime(); }
      */
-    public void setExpiredAt(int exp_date) {
-        Calendar now = Calendar.getInstance();
-        now.add(Calendar.DAY_OF_WEEK, exp_date);
-        this.expired_at=now.getTime();
-    }
-
     /**
      * <h2>Constructor for JobPost</h2>
      * <p>
@@ -156,9 +150,10 @@ public class JobPost {
         this.experience_year = jobPostDto.getExperience_year();
         this.num_of_position = jobPostDto.getNum_of_position();
         this.created_at = jobPostDto.getCreated_at();
-        this.expired_at = jobPostDto.getExpired_at();
+        //this.expired_at = jobPostDto.getExpired_at();
         this.updated_at =jobPostDto.getUpdated_at();
         this.deleted_at =jobPostDto.getDeleted_at();
         this.jobType = jobPostDto.getJobType();
+        //this.company = jobPostDto.getCompany();
     }
 }

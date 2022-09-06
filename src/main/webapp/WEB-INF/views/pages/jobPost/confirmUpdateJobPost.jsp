@@ -56,8 +56,10 @@
         <input path="email" value="" class="form-input" placeholder="Enter eail to be contacted" />
         <form:errors path="autho.id" class="text-danger" />
       </div> --%>
+      <div class="confirm-btn">
       <button type="submit" class="form-btn" name="saveUpdateJobPost">Update</button>
       <button type="reset" class="" name="cancelUpdate">Cancel</button>
+      </div>
   </form:form>
   </div>
 </body>

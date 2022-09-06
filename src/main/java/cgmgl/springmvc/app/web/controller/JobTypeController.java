@@ -162,7 +162,7 @@ public class JobTypeController {
         JobTypeDto jobTypeDto = jobTypeService.doGetJobTypeById(jobTypeId);
         ModelAndView editJobTypeView = new ModelAndView("updateJobType");
         editJobTypeView.addObject("editJobTypeDto", jobTypeDto);
-        editJobTypeView.setViewName("editJobType");
+        editJobTypeView.setViewName("updateJobType");
         return editJobTypeView;
     }
 
@@ -213,7 +213,7 @@ public class JobTypeController {
      */
     @RequestMapping(value = "/jobType/update", params = "cancelUpdate", method = RequestMethod.POST)
     public ModelAndView cancelUpdateJobType() {
-        ModelAndView updateJobTypeView = new ModelAndView("redirect:/jobType/list");
+        ModelAndView updateJobTypeView = new ModelAndView("updateJobType");
         return updateJobTypeView;
     }
 

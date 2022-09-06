@@ -98,7 +98,6 @@ public class JobPostDaoImpl implements JobPostDao {
     @Override
     public void dbAddJobPost(JobPost jobPost, Date currentDate) {
         jobPost.setCreated_at(currentDate);
-        jobPost.setExpired_at(currentDate);
         sessionFactory.getCurrentSession().saveOrUpdate(jobPost);
     }
 
