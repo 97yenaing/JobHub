@@ -83,4 +83,8 @@ public interface JobPostDao {
      * @return void
      */
     public void dbUpdateJobPost(JobPost jobPost,Date updateAt);
+
+    public List<JobPost> dbgetJobPostList(Long page);
+
+    public List<JobPost> dbGetJobPostByJobTypeId(Integer jobTypeId, Long page);
 }

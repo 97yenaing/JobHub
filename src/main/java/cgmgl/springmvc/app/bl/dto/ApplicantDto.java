@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.validation.constraints.NotEmpty;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.JobPost;
@@ -27,6 +29,8 @@ public class ApplicantDto {
 	private List<Authority> authorityList;
 
 	private long applicantId;
+	
+	private MultipartFile photoFile;
 
 	private String profile;
 

@@ -172,4 +172,21 @@ public class JobPostServiceImpl implements JobPostService {
     public JobType doGetJobTypeById(int jobTypeId) {
         return this.jobTypeDao.dbGetJobTypeById(jobTypeId);
     }
+    @Override
+    public List<JobPost> getJobPostByPage(Long page) {
+        return this.jobPostDao.dbgetJobPostList(page);
+    }
+    @Override
+    public List<JobPost> doGetJobPostByJobTypeId(Integer jobTypeId, Long page) {
+        return jobPostDao.dbGetJobPostByJobTypeId(jobTypeId,page);
+    }
+    @Override
+    public int doGetJobPostListCount() {
+        int count = 0;
+        List<JobPost> jobPostList = jobPostDao.dbGetJobPostList();
+        for (JobPost jobPost : jobPostList) {
+            count++;
+        }
+        return count;
+    }
 }

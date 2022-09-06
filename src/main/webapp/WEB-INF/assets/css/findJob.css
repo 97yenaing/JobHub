@@ -46,6 +46,11 @@ body {
   padding: 20px 0;
 }
 
+.find-first-sec .pagination .page-link{
+  background-color:#dda0dd;
+  color:#000000;
+}
+
 .find-first-sec .post-list .post{
   float: left;
   margin-right: 30px;
