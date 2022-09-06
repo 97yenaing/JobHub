@@ -37,7 +37,6 @@
                   <td>${jobPost.experience_year }</td>
                 </tr>
               </table>
-              
               <div class="detail">
                 <i class="fa-solid fa-circle-right"></i>
                 <a href="${pageContext.request.contextPath}/post/details?id=${jobPost.id}">More Details...</a>

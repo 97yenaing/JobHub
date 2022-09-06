@@ -3,16 +3,21 @@ package cgmgl.springmvc.app.bl.service.Impl;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.Email;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cgmgl.springmvc.app.bl.dto.JobPostDto;
 import cgmgl.springmvc.app.bl.service.JobPostService;
+import cgmgl.springmvc.app.bl.service.UserService;
 import cgmgl.springmvc.app.persistence.dao.JobPostDao;
 import cgmgl.springmvc.app.persistence.dao.JobTypeDao;
+import cgmgl.springmvc.app.persistence.entity.Company;
 import cgmgl.springmvc.app.persistence.entity.JobPost;
 import cgmgl.springmvc.app.persistence.entity.JobType;
+import cgmgl.springmvc.app.persistence.entity.User;
 
 /**
  * <h2>JobPostServiceImpl Class</h2>
@@ -43,7 +48,9 @@ public class JobPostServiceImpl implements JobPostService {
      */
     @Autowired
     private JobTypeDao jobTypeDao;
-
+    
+    @Autowired
+    private UserService userService;
     /**
      * <h2>doGetJobPostList</h2>
      * <p>
@@ -97,6 +104,11 @@ public class JobPostServiceImpl implements JobPostService {
     public void doAddJobPost(JobPostDto jobPostDto) {
         Date currentDate = new Date();
         JobPost jobPost = new JobPost(jobPostDto);
+        User user = userService.doGetLoginInfo();
+        Company company =new Company();
+        company.setCompany_id(user.getCompany().getCompany_id());
+        jobPost.setCompany(company);
+        System.out.println(user.getCompany().getCompany_id());
         this.jobPostDao.dbAddJobPost(jobPost, currentDate);
     }
 
