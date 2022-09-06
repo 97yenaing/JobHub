@@ -35,6 +35,8 @@ public interface UserService {
 
     public void doSaveUser(@Valid UserDto userDto);
 
+    User doGetLoginInfo();
+
     /**
      * Find by id.
      *
