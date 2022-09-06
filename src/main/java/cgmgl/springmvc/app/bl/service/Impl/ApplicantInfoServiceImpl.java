@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import cgmgl.springmvc.app.bl.service.ApplicantInfoService;
 import cgmgl.springmvc.app.persistence.dao.ApplicantInfoDao;
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
+import cgmgl.springmvc.app.persistence.entity.User;
 
 @Transactional
 @Service("applicantService")

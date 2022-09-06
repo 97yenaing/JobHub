@@ -214,4 +214,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         User user = userDAO.dbGetUserByEmail(user_email);
         return user;
     }
+
+	@Override
+	public User doGetApplicantById(long userIdForApplicant) {
+		// TODO Auto-generated method stub
+		return this.doGetUserById(userIdForApplicant);
+	}
 }

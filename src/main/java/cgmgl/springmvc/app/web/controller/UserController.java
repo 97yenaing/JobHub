@@ -61,8 +61,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView email(HttpServletRequest request) {
-		ModelAndView model = new ModelAndView("login");
-		model.setViewName("loginPage");
+		ModelAndView model = new ModelAndView("loginPage");
 		return model;
 	}
 
