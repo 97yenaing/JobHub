@@ -37,7 +37,7 @@
                       <!-- <th>Contact Phone</th>
                       <th>Contact Email</th> -->
                       <th>Created At</th>
-                      <th>Expired At</th>
+                      <th>Updated At</th>
                       <!-- <th>Job Type</th> -->
                       <th>Details</th>
                       <th>Actions</th>
@@ -53,7 +53,7 @@
                         <td>${jobPost.experience_year}</td>
                         <td>${jobPost.num_of_position}</td>
                         <td>${jobPost.created_at}</td>
-                        <td>${jobPost.expired_at}</td>
+                        <td>${jobPost.updated_at}</td>
                         <td>
                           <a href="${pageContext.request.contextPath}/post/details?id=${jobPost.id}">Details</a> 
                         </td>
@@ -66,7 +66,6 @@
                             <a
                               href="${pageContext.request.contextPath}/post/edit?id=${jobPost.id}"
                               class="btn btn-secondary">Update</a> 
-                            
                               <a
                               href="${pageContext.request.contextPath}/post/delete?id=${jobPost.id}"
                               onclick="if (!(confirm('Are you sure you want to delete this post?'))) return false">delete</a>

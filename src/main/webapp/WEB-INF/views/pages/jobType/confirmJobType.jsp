@@ -9,28 +9,32 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="confirm-form">
   <div class="card">
     <h1 class="profile-header">Confirm Job Type</h1>
     <c:url var="JobTypeInsert" value="/jobType/insert"></c:url>
     <form:form class="form-create" action="${JobTypeInsert}" method="POST" id="form" modelAttribute="jobTypeDto">
     <input type="hidden" name="id" value="${jobTypeDto.id }">
       <ul class="list-group list-group-unbordered mb-3">
-        <li class="list-group-item"><b>Job Type:</b> 
+        <li><b>Job Type:</b> 
           <a class="float-right">${jobTypeDto.type_name } 
               <form:input path="type_name" type="hidden" name="type_name"
                value="${jobTypeDto.type_name }" class="form-control" />
           </a>
         </li> 
-        <li class="list-group-item"><b>Description:</b> 
+        <li><b>Description:</b> 
           <a class="float-right">${jobTypeDto.description } 
             <form:input path="description" type="hidden" name="description"
              value="${jobTypeDto.description }" class="form-control" />
           </a>
          </li>
     </ul>
-    <button type="submit" class="confirm-btn1" name="addJobType">Create</button> &nbsp;
-    <button type="submit" class="confirm-btn2" name="cancel">Cancel</button>
+    <div class="confirm-btn">
+    <button type="submit" class="create-btn" name="addJobType">Create JobType</button> &nbsp;
+    <button type="submit" class="cancel-btn" name="cancel">Cancel</button>
+    </div>
   </form:form>
+</div>
 </div>
 </body>
 </html>

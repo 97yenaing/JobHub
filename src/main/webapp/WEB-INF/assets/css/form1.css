@@ -23,10 +23,10 @@ body {
 }
 .form-container {
   margin: 0 auto;
-  max-width: 70%;
+  max-width: 90%;
 }
 .group {
-  margin-bottom: 80px;
+  margin-bottom: 55px;
 }
 .form-group-textarea {
   margin-bottom: 12px;
@@ -36,8 +36,16 @@ body {
   width: 63%;
   padding: 10px;
 }
+.form-container .create{
+  width:41%;
+  margin: 0 auto;
+}
 .form-btn {
   background-color: #a8c6fa;
+  width:120px;
+}
+.reset-btn{
+  width:120px;
 }
 .form-btn-textarea {
   background-color: #a8c6fa;
@@ -46,6 +54,9 @@ body {
 .form-container button {
   border-radius: 10px;
   padding: 7px;
+}
+.back-btn{
+  color:#000000;
 }
 .form-container br {
   display: none;
@@ -62,10 +73,11 @@ body {
   float: right;
   width: 63%;
   padding: 10px;
+  font-size: 20px;
 }
 .form-textarea {
   float: right;
-  width: 40%;
+  width: 63%;
   padding: 10px;
 }
 .clearfix::after {
@@ -93,22 +105,34 @@ body {
   }
   .form-container {
     margin: 0 auto;
-    max-width: 80%;
+    max-width: 85%;
     font-size: 2.375vw;
   }
   .form-input {
-    width: 63%;
+    width: 60%;
     padding: 1.302vw;
     font-size: 2.0vw;
   }
   .form-select {
-    width: 63%;
+    width: 60%;
     padding: 1.302vw;
     font-size: 2.0vw;
   }
   .form-textarea {
-    width: 50%;
+    width: 60%;
     padding: 1.302vw;
+  }
+  .form-container .create{
+    font-size: 1.604vw;
+    width:40%;
+    margin: 0 auto;
+  }
+  .form-btn {
+    background-color: #a8c6fa;
+    width:11.625vw;
+  }
+  .reset-btn{
+    width:11.625vw;
   }
 }
 
@@ -162,6 +186,21 @@ body {
     display: block;
   }
   .form-container button {
-    font-size: 2.656vw;
+    font-size: 2.256vw;
+    padding:0.781vw;
+  }
+  .group {
+    margin-bottom: 3.906vw;
+  }
+    .form-container .create{
+    width:76%;
+    margin: 0 auto;
+  }
+  .form-btn {
+    background-color: #a8c6fa;
+    width:15.625vw;
+  }
+  .reset-btn{
+    width:15.625vw;
   }
 }

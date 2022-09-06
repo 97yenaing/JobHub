@@ -16,8 +16,7 @@
       <div class="type">
         <ul class="nav-tabs clearfix">
         <c:forEach items="${JobTypeList}" var="jobType" varStatus="loop"> 
-          <li><a href="${pageContext.request.contextPath}/post/list/byJobType?id=${jobType.id}"
-          class="btn btn-info">${jobType.type_name}</a></li>
+          <li><a href="${pageContext.request.contextPath}/post/list/byJobType?id=${jobType.id}">${jobType.type_name}</a></li>
         </c:forEach>
         </ul>
         <ul class="post-list clearfix">
@@ -41,78 +40,12 @@
               
               <div class="detail">
                 <i class="fa-solid fa-circle-right"></i>
-                <a href="<c:url value ="/post/details"/>">More details...</a>
+                <a href="${pageContext.request.contextPath}/post/details?id=${jobPost.id}">More Details...</a>
               </div>
             </div>
           </li>
           </c:forEach>
         </ul>
-        <%-- <ul id="tab-2" class="post-list">
-          <li class="post tab2 heightline-post">
-            <div class="clearfix">
-              <!--<ul class="left-label">
-                <li>Position:</li>
-                <li>Salary:</li>
-                <li>Experience Year:</li>
-              </ul>
-              <ul class="right-txt">
-                <li>Sales & Marketing Manager</li>
-                <li>500000</li>
-                <li>5 years</li>
-              </ul>-->
-              <table>
-                <tr>
-                  <td>Position:</td>
-                  <td>Senior WebDeveloper</td>
-                </tr>
-                <tr>
-                  <td>Salary:</td>
-                  <td>400000</td>
-                </tr>
-                <tr>
-                  <td>Experience Year:</td>
-                  <td>2 years</td>
-                </tr>
-              </table>
-            </div>
-            <div class="detail">
-              <a href="">Details...</a>
-            </div>
-          </li>
-        </ul>
-        <ul id="tab-3" class="post-list">
-          <li class="post tab3 heightline-post">
-            <div class="clearfix">
-              <!--<ul class="left-label">
-                <li>Position:</li>
-                <li>Salary:</li>
-                <li>Experience Year:</li>
-              </ul>
-              <ul class="right-txt">
-                <li>Translator</li>
-                <li>200000</li>
-                <li>none</li>
-              </ul>-->
-              <table>
-                <tr>
-                  <td>Position:</td>
-                  <td>Senior WebDeveloper</td>
-                </tr>
-                <tr>
-                  <td>Salary:</td>
-                  <td>400000</td>
-                </tr>
-                <tr>
-                  <td>Experience Year:</td>
-                  <td>2 years</td>
-                </tr>
-              </table>
-            </div>
-            <div class="detail">
-              <a href="<c:url value ="/post/details"/>">Details...</a>
-            </div>
-          </li>
-        </ul> --%>
       </div> 
     </div>
   </section>
