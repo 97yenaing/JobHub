@@ -23,11 +23,11 @@
             value="/WEB-INF/views/pages/login/passwordResetForm.jsp" />
     </definition>
     <!-- Home Page -->
-    <definition name="home" extends="template">
+    <!-- <definition name="home" extends="template">
         <put-attribute name="title" value="Job Hub Home Page" />
         <put-attribute name="body"
             value="/WEB-INF/views/pages/login/home.jsp" />
-    </definition>
+    </definition> -->
     <!-- Sign-UP Page -->
     <definition name="home" extends="template">
         <put-attribute name="title" value="Job Hub Sign Up" />
@@ -38,5 +38,10 @@
         <put-attribute name="title" value="Job Hub Access Denied" />
         <put-attribute name="body"
             value="/WEB-INF/views/pages/login/access-denied.jsp" />
+    </definition>
+    <definition name="aboutus" extends="template">
+        <put-attribute name="title" value="About Us" />
+        <put-attribute name="body"
+            value="/WEB-INF/views/pages/aboutus/aboutus.jsp" />
     </definition>
     </tiles-definitions>

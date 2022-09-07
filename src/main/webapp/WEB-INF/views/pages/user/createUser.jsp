@@ -5,7 +5,7 @@
 <div class="com-inner">
   <div class="signup-container">
     <c:url var="createUser" value="/createUserConfirm"></c:url>
-    <form:form class="form-container" action="${createUser }"
+    <form:form action="${createUser }"
       method="POST" id="form" modelAttribute="userForm">
       <h1>Sign Up with Your Role</h1>
       <c:if test="${errorMsg != null }">

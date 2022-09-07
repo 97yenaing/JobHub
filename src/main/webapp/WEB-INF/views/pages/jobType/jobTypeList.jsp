@@ -4,7 +4,7 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<div class="content-wrapper">
+<%-- <div class="content-wrapper">
   <section class="content">
     <div class="row">
       <div class="col-12">
@@ -66,4 +66,43 @@
       </div>
     </div>
   </section>
-</div>
+</div> --%>
+<div class="list-data">
+    <div class="com-inner">
+      <div class="table-responsive">
+      <a href="${pageContext.request.contextPath}/jobType/create"
+       class="btn btn-info">Create Job Type</a>
+        <table id="data-table" class="table table-striped" style="width:100%">
+          <thead class="table-header">
+           <tr>
+             <th>ID</th>
+              <th>Job Type Name</th>
+              <th>Descriptions</th>
+              <th>CreatedAt</th>
+              <th>UpdatedAt</th>
+              <th>Actions</th>
+             </tr>
+          </thead>
+          <tbody>
+           <c:forEach items="${JobTypeList}" var="jobType" varStatus="loop">
+              <tr>
+               <td>${jobType.id }</td>
+                <td>${jobType.type_name}</td>
+                <td>${jobType.description }</td>
+                 <td>${jobType.createAt}</td>
+                 <td>${jobType.updateAt}</td>
+                 <td class="text-right py-0 align-middle">
+                 <div class="btn-group btn-group-sm">
+                  <a href="${pageContext.request.contextPath}/jobType/edit?id=${jobType.id}"
+                              class="btn btn-secondary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 
+                  <a href="${pageContext.request.contextPath}/jobType/delete?id=${jobType.id}"
+                              onclick="if (!(confirm('Are you sure you want to delete this post?'))) return false"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                  </div>
+                  </td>
+              </tr>
+           </c:forEach>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
