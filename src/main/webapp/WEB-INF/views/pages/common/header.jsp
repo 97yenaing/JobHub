@@ -15,12 +15,12 @@
 			<h1 ><img class="logo" src="<c:url value="/assets/img/logo-large.png" />" alt="JobHub_Log"></h1>	
 			<nav id="global-navi" class="clearfix" >
 				<ul class="clearfix">
-					<li><a href=#>Home</a></li>
-					<li><a href=#>Find Jobs</a></li>
-					<li><a href=#>About us</a></li>
-					<li class="pc"><a href="#" >Log in</a>
+					<li><a href="<%=request.getContextPath()%>/">Home</a></li>
+					<li><a href="<%=request.getContextPath()%>/post/applicant/list">Find Jobs</a></li>
+					<li><a href="<%=request.getContextPath()%>/register">About us</a></li>
+					<li class="pc"><a href="<%=request.getContextPath()%>/login" >Log in</a>
 					</li>
-					<li class="pc"><a href="#">sign up</a></li>
+					<li class="pc"><a href="<%=request.getContextPath()%>/register">sign up</a></li>
 				</ul>
 			</nav>
 			<button class="btn-gnavi">
@@ -28,9 +28,8 @@
         <span id="two"></span>
         <span id="three"></span>
       </button>			
-			<a href="#" class="mobile login-out" >Log in</a> 
-				<a href="#" class="mobile login-out">sign up</a>
-
+			<a href="<%=request.getContextPath()%>/login" class="mobile login-out" >Log in</a> 
+				<a href="<%=request.getContextPath()%>/register" class="mobile login-out">sign up</a>
 		</div>
 		
 	</header>

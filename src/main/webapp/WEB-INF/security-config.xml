@@ -23,8 +23,8 @@
         <!-- Job Post -->
         <intercept-url pattern="/post/list"
             access="hasAnyRole('COMPANY','ADMIN')" />
-        <intercept-url pattern="/post/applicant/list"
-            access="hasAnyRole('APPLICANT','COMPANY')" />
+        <!-- <intercept-url pattern="/post/applicant/list"
+            access="hasAnyRole('APPLICANT','COMPANY')" /> -->
         <intercept-url pattern="/post/list/byJobType"
              access="hasAnyRole('APPLICANT','COMPANY')" />
         <intercept-url pattern="/post/details"
@@ -52,8 +52,8 @@
             <intercept-url pattern="/login/password/**"
             access="hasAnyRole('APPLICANT', 'ADMIN','COMPANY' )" /> 
             <!-- User -->
-            <intercept-url pattern="/register"
-            access="hasAnyRole('APPLICANT','COMPANY','ADMIN' )" />
+           <!--  <intercept-url pattern="/register"
+            access="hasAnyRole('APPLICANT','COMPANY','ADMIN' )" /> -->
         <intercept-url pattern="/userInfo"
             access="hasAnyRole('COMPANY','ADMIN','APPLICANT')" />
         <!-- <intercept-url pattern="/userList" access="hasRole('ADMIN')" 
