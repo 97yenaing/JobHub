@@ -17,11 +17,11 @@
 				<ul class="clearfix">
 					<li><a href=#>Home</a></li>
 					<li><a href=#>Find Jobs</a></li>
-					<li><a href=#>About us</a></li>
-					<li class="pc"><a href="#" >Log in</a>
-					</li>
-					<li class="pc"><a href="#">sign up</a></li>
+					<li><a href=#>About Us</a></li>
+					<li class="pc"><a href="#" >Log In</a></li>
+					<li class="pc"><a href="#">Sign Up</a></li>
 				</ul>
+                
 			</nav>
 			<button class="btn-gnavi">
         <span id="one"></span>

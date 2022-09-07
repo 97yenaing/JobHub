@@ -9,32 +9,6 @@
 </head>
 <body>
  <section class="home-first-sec">
-    <!--<header class="header clearfix">
-      <div class="header-inner clearfix">
-        <h1 class="logo">
-          <a href="#">
-            <img src="img/common/img_logo.png" alt="img_logo">
-          </a>
-        </h1>
-        <nav class="nav-bar" id="nav">
-          <ul class="clearfix">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Find Job</a></li>
-            <li><a href="#">About Us</a></li>
-          </ul>
-        </nav>
-          <div class="search-bar">
-            <form action="/">
-              <input type="text" placeholder="Search.." name="search">
-            </form>
-          </div>
-          <div class="login">
-            <a href="#">Log In</a>
-            <a href="#" class="com-btn btn1">Sign Up</a>
-          </div>
-        
-      </div>
-    </header>-->
     <div class="com-inner clearfix">
       <div class="left-content">
         <h1 class="com-ttl">Job Hub</h1>
@@ -54,7 +28,7 @@
       <h2 class="com-ttl">Job Category</h2>
       <h3>Looking for work?</h3>
       <p>Find your career</p>
-      <ul class="cate-list clearfix">
+      <%-- <ul class="cate-list clearfix">
         <li class="left-cate category">
           <img src="<c:url value="/assets/img/home/img_it_development.jpg"/>" alt="img_it_development"/>
           <h4>IT and Development</h4>
@@ -67,7 +41,13 @@
           <img src="<c:url value="/assets/img/home/img_translator.jpg"/>" alt="img_translator">
           <h4>Translator</h4>
         </li>
-      </ul>
+      </ul> --%>
+      <ul class="cate-list clearfix">      
+          <c:forEach items="${JobTypeList}" var="jobType" varStatus="loop">
+            <li class="left-cate category heightline-post">
+            <a class="jobType" href="${pageContext.request.contextPath}/post/list/byJobType?id=${jobType.id}">${jobType.type_name}</a></li>
+          </c:forEach>
+        </ul>
     </div>
   </section>
   <!--/.home-second-sec-->
@@ -89,10 +69,10 @@
       <div class="clearfix about">
         <div class="about-content">
           <p>Our mission to create economic opportunities so people have better lives has taken us so much further. We foster a collaborative workplace that strives to create the best experience for job seekers.</p>
-          <a href="aboutAs.html">More...</a>
+          <a href="${pageContext.request.contextPath}/aboutus"><i class="fa-solid fa-circle-right"></i> &nbsp; &nbsp;More...</a>
         </div>
         <div class="about-img">
-          <img src="img/home/img_about.jpg" alt="img_about">
+          <img src="<c:url value="/assets/img/home/img_about.jpg"/>" alt="img_about">
         </div>
       </div>
     </div>

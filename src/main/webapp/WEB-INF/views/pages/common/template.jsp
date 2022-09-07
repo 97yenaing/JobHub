@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="<c:url value="/assets/css/reset.css" />"
 	type="text/css" />
@@ -68,19 +68,35 @@
     type="text/css" />
   <link rel="stylesheet" href="<c:url value="/assets/css/login.css" />"
     type="text/css" />
-    
   <link rel="stylesheet" href="<c:url value="/assets/css/passwordReset.css" />"
     type="text/css" />
+    
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
   <link rel="stylesheet" href="<c:url value="/assets/css/common.css" />"
+  type="text/css" />
+  <link rel="stylesheet" href="<c:url value="/assets/css/aboutus.css" />"
   type="text/css" />
 </head>
 <body>
 	<tiles:insertAttribute name="header" />
-	<div class="container main-content">
+	<!-- <div class="container main-content"> -->
 		<tiles:insertAttribute name="body" />
-	</div>
+	<!-- </div> -->
 	<tiles:insertAttribute name="footer" />
     <script src="<c:url value="/assets/js/jquery.heightLine.js" />"></script>
 	<script src="<c:url value="/assets/js/app.js" />"></script>
+  
+    <script src="<c:url value="/assets/js/library/slick.js" />"></script>
+    <script src="<c:url value="/assets/js/library/slick.min.js" />"></script>
+    <script src="<c:url value="/assets/js/slider.js" />"></script>
 </body>
 </html>

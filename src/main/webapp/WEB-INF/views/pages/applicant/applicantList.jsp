@@ -5,7 +5,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<div class="content-wrapper">
+<%-- <div class="content-wrapper">
   <section class="content">
     <div class="row">
       <div class="col-12">
@@ -74,4 +74,49 @@
       </div>
     </div>
   </section>
-</div>
+</div> --%>
+<div class="list-data">
+    <div class="com-inner">
+      <div class="table-responsive">
+      <a href="${pageContext.request.contextPath}/createUser"
+      class="btn btn-info">Create Applicant</a>
+        <table id="data-table" class="table table-striped" style="width:100%">
+          <thead class="table-header">
+           <tr>
+              <th>ID</th>                    
+              <th>Profile</th>
+              <th>Phone</th>
+               <th>Job Experienced Year</th>
+               <th>Job History</th>
+                <th>Edu Background</th>
+                <th>Gender</th>
+                <th>Certificates</th>
+                <th>Action</th>
+             </tr>
+          </thead>
+          <tbody>
+          <c:forEach items="${ApplicantList}" var="applicant" varStatus="loop">
+              <c:if test="${applicant.deleted_at == null }">
+                 <tr>
+                   <td>${applicant.id }</td>
+                   <td>${applicant.profile }</td>
+                   <td>${applicant.phone}</td>
+                   <td>${applicant.job_exp_year }
+                   <td>${applicant.job_history}</td>
+                   <td>${applicant.edu_bg}</td>
+                   <td>${applicant.gender}</td>
+                   <td>${applicant.certificates}</td>
+                   <td class="text-right py-0 align-middle">
+                   <div class="btn-group btn-group-sm">
+                      <a href="${pageContext.request.contextPath}/applicant/delete?id=${applicant.id }"
+                      data-target="#myModal" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </div>
+                   </td>
+                  </tr>
+                 </c:if>
+               </c:forEach>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

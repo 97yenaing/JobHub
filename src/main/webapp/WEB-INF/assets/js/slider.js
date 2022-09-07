@@ -1,6 +1,4 @@
-/**
- * 
- */
+
  $(document).ready(function () {
     $('.autoplay').slick({
         slidesToShow: 1,

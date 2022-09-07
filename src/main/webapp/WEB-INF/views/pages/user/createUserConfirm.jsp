@@ -2,6 +2,7 @@
   pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<div class="confirm-form">
 <div class="card">
   <c:url var="createUserConfirm" value="/saveAdmin"></c:url>
   <form:form class="form-create" action="${createUserConfirm }"
@@ -34,7 +35,10 @@
           </a>
         </c:forEach></li>
     </ul>
-    <button type="submit" class="confirm-btn1" name="confirmAdmin">Create</button> &nbsp;
-    <button type="submit" class="confirm-btn2" name="cancel">Cancel</button>
+    <div class="confirm-btn">
+    <button type="submit" class="create-btn" name="confirmAdmin">Create</button> &nbsp;
+    <button type="submit" class="cancel-btn" name="cancel">Cancel</button>
+    </div>
   </form:form>
+</div>
 </div>
