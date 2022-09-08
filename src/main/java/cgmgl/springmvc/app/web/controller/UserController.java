@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.bl.service.AuthorityService;
 import cgmgl.springmvc.app.bl.service.UserService;
+import cgmgl.springmvc.app.persistence.dao.UserDao;
 import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.User;
 
@@ -39,6 +41,9 @@ public class UserController {
 
 	@Autowired
 	private AuthorityService authorityService;
+	
+//	@Autowired
+//	private HttpSession session;
 
 	/**
 	 * <h2>userService</h2>
@@ -48,6 +53,10 @@ public class UserController {
 	 */
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	private HttpSession session;
+	
 
 	/**
 	 * <h2>email</h2>
@@ -61,9 +70,11 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView loginEmail(HttpServletRequest request) {
-		ModelAndView model = new ModelAndView("loginPage");
-		return model;
+		ModelAndView model = new ModelAndView("loginPage");	
+		session.removeAttribute("Login");
+		return model;		
 	}
+	
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView newUser() {
@@ -125,8 +136,7 @@ public class UserController {
 			applicantRegister.addObject("user", userDto);
 			applicantRegister.setViewName("applicantInfo");
 			return applicantRegister;
-		}
-		else if (authoId == 2) {
+		} else if (authoId == 2) {
 			List<Authority> authoList = new ArrayList<Authority>();
 			Authority authority = authorityService.doGetAuthById(authoId);
 			authoList.add(authority);
@@ -205,10 +215,10 @@ public class UserController {
 		ModelAndView createAdminView = new ModelAndView("redirect:/userList");
 		return createAdminView;
 	}
-	
+
 	@RequestMapping(value = "/saveAdmin", params = "cancel", method = RequestMethod.POST)
-	public ModelAndView cancelStudentConfirm(@ModelAttribute("userConfirmForm") @Valid UserDto userForm, BindingResult result)
-	        throws ParseException {
+	public ModelAndView cancelStudentConfirm(@ModelAttribute("userConfirmForm") @Valid UserDto userForm,
+	        BindingResult result) throws ParseException {
 		ModelAndView createUserView = new ModelAndView("createUser");
 		List<Authority> authorities = authorityService.doGetAuthList();
 		createUserView.addObject("userForm", userForm);
@@ -226,7 +236,7 @@ public class UserController {
 			confirmView.addObject("errorMsg", messageSource.getMessage("M_SC_0007", null, null));
 			return confirmView;
 		}
-		
+
 		List<Authority> authorities = new ArrayList<Authority>();
 		System.out.println(applicantForm.getAuthority().getId());
 		int authoId = applicantForm.getAuthority().getId();

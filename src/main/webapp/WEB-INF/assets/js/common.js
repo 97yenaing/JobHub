@@ -14,11 +14,7 @@ $(document).ready(function () {
 				top: topVal
 			}, 200);
 		});
-		$('a').click(function () {
-				console.log("Click function")
-			$('a').removeClass('active');
-			$(this).addClass("active");
-		});
+		
 	})
 });
 

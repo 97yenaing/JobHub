@@ -4,6 +4,7 @@ import java.security.Principal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.bl.service.UserService;
 import cgmgl.springmvc.app.bl.service.JobPostService;
 import cgmgl.springmvc.app.bl.service.UserService;
@@ -27,6 +29,7 @@ import cgmgl.springmvc.app.persistence.entity.User;
  * @author Yin Yin Swe
  *
  */
+
 @Controller
 public class LoginController {
     @Autowired
@@ -62,6 +65,7 @@ public class LoginController {
         System.out.println(user.getEmail());
         System.out.println(user.getName());
         model.setViewName("home");
+        session.setAttribute("Login",this.userService.doGetLoginInfo());
         return model;
     }
     @RequestMapping(value = "/aboutus")
@@ -116,5 +120,4 @@ public class LoginController {
         ModelAndView model = new ModelAndView("redirect:/home");
         return model;
     }
-
 }
