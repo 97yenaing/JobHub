@@ -7,6 +7,7 @@ import java.util.List;
 import javax.validation.constraints.NotEmpty;
 
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
+import cgmgl.springmvc.app.persistence.entity.ApplicantJobPost;
 import cgmgl.springmvc.app.persistence.entity.Company;
 import cgmgl.springmvc.app.persistence.entity.JobPost;
 import cgmgl.springmvc.app.persistence.entity.JobType;
@@ -105,7 +106,8 @@ public class JobPostDto {
      * </p>
      */
     private Date deleted_at;
-    private List<ApplicantInfo> applicantInfo = new ArrayList<ApplicantInfo>();
+    
+    List<ApplicantJobPost> applicantsJobPosts = new ArrayList<ApplicantJobPost>();
 
     /**
      * <h2>Constructor for JobPostDto</h2>
@@ -126,6 +128,6 @@ public class JobPostDto {
         this.deleted_at = jobPost.getDeleted_at();
         this.jobType = jobPost.getJobType();
         this.company = jobPost.getCompany();
-        this.applicantInfo = jobPost.getApplicantInfo();
+        this.applicantsJobPosts = jobPost.getApplicantsJobPosts();
     }
 }

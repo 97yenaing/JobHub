@@ -98,7 +98,7 @@ public class DeploymentListener {
 			this.authorityDAO.dbSaveAuthority(applicantAuthority);			
 			applicantAuthorities.add(applicantAuthority);
 			companyAuthorities.add(companyAuthority);
-			ApplicantInfo appInfo = new ApplicantInfo(1, null, "09-794114723", "2", null, null, "FEMALE", "North Dagon", null, null);
+			ApplicantInfo appInfo = new ApplicantInfo(1, null, "09-794114723", "2", null, null, "FEMALE", "North Dagon", null, null, null);
 			this.appInfoDao.dbSaveApplicantInfo(appInfo);
 			User applicant = new User(3, "applicant", "applicant1@gmail.com", passwordEncoder.encode("123"), null, null, null, appInfo, null, applicantAuthorities);
 			this.userDAO.dbSaveUser(applicant);	

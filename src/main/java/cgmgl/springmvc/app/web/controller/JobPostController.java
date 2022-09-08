@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import cgmgl.springmvc.app.bl.dto.ApplicantJobPostDto;
 import cgmgl.springmvc.app.bl.dto.JobPostDto;
 import cgmgl.springmvc.app.bl.service.JobPostService;
 import cgmgl.springmvc.app.persistence.entity.JobPost;
@@ -83,8 +84,8 @@ public class JobPostController {
         List<JobType> typeList = jobPostService.doGetJobTypeList();
         model.addObject("JobTypeList", typeList);
         int count = jobPostService.doGetJobPostListCount();
-        int startpage = (int) (page - count/3 > 1 ? page - count/3 : 1);
-        int endpage = startpage + count/3;
+        int startpage = (int) (page - count / 3 > 1 ? page - count / 3 : 1);
+        int endpage = startpage + count / 3;
         List<JobPost> jobPostList = jobPostService.getJobPostByPage(page);
         // List<JobPost> jobPostList = jobPostService.doGetJobPostList();
         // model.addObject("ApplicantJobPost", jobPostList);
@@ -111,8 +112,8 @@ public class JobPostController {
             @RequestParam("id") Integer jobTypeId) {
         ModelAndView applicantFindJob = new ModelAndView("applicantJobPost");
         int count = jobPostService.doGetJobPostListCount();
-        int startpage = (int) (page - count/3 > 1 ? page - count/3 : 1);
-        int endpage = startpage + count/3;
+        int startpage = (int) (page - count / 3 > 1 ? page - count / 3 : 1);
+        int endpage = startpage + count / 3;
         List<JobType> typeList = jobPostService.doGetJobTypeList();
         // List<JobPost> findJobPost =
         // jobPostService.doGetJobPostByJobTypeId(jobTypeId);
@@ -147,11 +148,6 @@ public class JobPostController {
         return jobPostDetailView;
     }
     
-    @RequestMapping(value = "/post/apply")
-    public ModelAndView applyJobPost(ModelAndView model) {
-        model.setViewName("applyJobPost");
-        return model; 
-    }
 
     /**
      * <h2>newJobPost</h2>
@@ -227,7 +223,23 @@ public class JobPostController {
         this.jobPostService.doAddJobPost(jobPostDto);
         return createJobPostView;
     }
-
+    @RequestMapping(value = "/post/apply/insert",params = "applyJobPost", method = RequestMethod.POST)
+    public ModelAndView applyJobPost(@ModelAttribute("jobPostDto") @Valid ApplicantJobPostDto applicantJobDto) {
+        
+    }
+    @RequestMapping(value = "/post/apply")
+    public ModelAndView applyJobPost(@ModelAttribute("ApplicantJobPostDto") @Valid ApplicantJobPostDto applicantJobDto,
+            BindingResult result, HttpServletRequest request) {
+        ModelAndView applyJobPost = new ModelAndView("applyJobPost");
+        ApplicantJobPostDto applicantJobPostDto = new ApplicantJobPostDto();
+        if (result.hasErrors()) {
+            ModelAndView errorView = new ModelAndView("applyJobPost");
+            errorView.addObject("ApplicantJobPostDto", applicantJobPostDto);
+            return errorView;
+        } 
+        applyJobPost.setViewName("applyJobPost");
+        return applyJobPost;
+    }
     /**
      * <h2>cancelJobPosrConfirm</h2>
      * <p>

@@ -5,16 +5,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
@@ -54,13 +50,8 @@ public class ApplicantInfo implements Serializable {
 
     private Date deleted_at;
 
-    /*
-     * @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-     * 
-     * @JoinTable(name = "applicant_jobPost", joinColumns = @JoinColumn(name =
-     * "info_id"), inverseJoinColumns = @JoinColumn(name = "post_id")) private
-     * List<JobPost> jobPosts = new ArrayList<JobPost>();
-     */
+    @OneToMany(mappedBy = "applicantInfo")
+    List<ApplicantJobPost> applicantsJobPosts = new ArrayList<ApplicantJobPost>();
 
     public ApplicantInfo(ApplicantDto applicantDto) {
         this.id = applicantDto.getApplicantId();
@@ -73,6 +64,6 @@ public class ApplicantInfo implements Serializable {
         this.address = applicantDto.getAddress();
         this.certificates = applicantDto.getCertificates();
         this.deleted_at = applicantDto.getDeleted_at();
-        //this.jobPosts = applicantDto.getJobPosts();
+        this.applicantsJobPosts = applicantDto.getApplicantsJobPosts();
     }
 }

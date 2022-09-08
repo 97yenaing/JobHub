@@ -9,6 +9,7 @@ import javax.validation.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
+import cgmgl.springmvc.app.persistence.entity.ApplicantJobPost;
 import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.JobPost;
 import cgmgl.springmvc.app.persistence.entity.User;
@@ -55,7 +56,7 @@ public class ApplicantDto {
 
 	private Date deleted_at;
 	
-	//private List<JobPost> jobPosts = new ArrayList<JobPost>();
+	List<ApplicantJobPost> applicantsJobPosts = new ArrayList<ApplicantJobPost>();
 
 	public ApplicantDto(ApplicantInfo applicantInfo) {
 		this.applicantId = applicantInfo.getId();
@@ -68,6 +69,6 @@ public class ApplicantDto {
 		this.address = applicantInfo.getAddress();
 		this.certificates = applicantInfo.getCertificates();
 		this.deleted_at = applicantInfo.getDeleted_at();
-		//this.jobPosts = applicantInfo.getJobPosts();
+		this.applicantsJobPosts = applicantInfo.getApplicantsJobPosts();
 	}
 }
