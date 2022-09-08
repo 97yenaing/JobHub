@@ -19,9 +19,9 @@
         <label for="type_name">Job Type:</label> <br>
         <form:input path="type_name" value="${editJobTypeDto.type_name }" class="form-input" placeholder="Enter Job Type" />
       </div>
-      <div class="group">
+      <div class="group clearfix">
         <label for="description">Description:</label> <br>
-        <form:input path="description" value="${editJobTypeDto.description}" class="form-input" placeholder="Enter the description for your job." rows="6" />
+        <form:textarea path="description" value="${editJobTypeDto.description}" class="jobType-textarea" placeholder="Enter the description for your job." rows="6" />
         </div>
         <div class="create">
           <button type="submit" class="form-btn" name="confirmJobType">Confirm</button>

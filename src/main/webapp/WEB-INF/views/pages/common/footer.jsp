@@ -9,7 +9,7 @@
     <ul class="list clearfix">
       <li><h5>For Client</h5>
         <ul class="info clearfix">
-          <li>Can applicant applicant or Company in our side.</li>
+          <li>Can applicant or Company in our side.</li>
           <li>Can Find the job that you interest in our side.</li>
           <li>Can looking for what type of job most popular<br
             class="pc"> in our side.
@@ -38,15 +38,9 @@
   </div>
   <h6>Follow us</h6>
   <ul class="icon clearfix">
-    <li><a href='#'><img
-        src="<c:url value="/assets/img/header/img_facebook.png" />"
-        alt="facebook"></a></li>
-    <li><a href='#'><img
-        src="<c:url value="/assets/img/header/img_instragram.png" />"
-        alt="instragram"></a></li>
-    <li><a href='#'><img
-        src="<c:url value="/assets/img/header/img_twitter.png" />"
-        alt="twitter"></a></li>
+    <li><i class="fa-brands fa-facebook"></i></li>
+    <li><i class="fa-brands fa-instagram"></i></li>
+    <li><i class="fa-brands fa-twitter"></i></li>
   </ul>
 </section>
 <footer>

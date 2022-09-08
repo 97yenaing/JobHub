@@ -71,6 +71,7 @@
 body {
   font-family: 'IBM Plex Sans Condensed';
   box-sizing: border-box;
+  font-size: 20px;
 }
 
 a {
@@ -82,7 +83,7 @@ a {
 }
 
 header #global-navi li a.active {
-  color: #ffd700;
+  color: #01015d;
 }
 
 header nav li a:hover {
@@ -92,6 +93,7 @@ header nav li a:hover {
 
 header {
   background-color: #10314c0a;
+  margin-bottom: 0px;
 }
 
 .head-inner, .foot-inner {
@@ -102,6 +104,7 @@ header {
 
 nav {
   margin-top: 20px;
+  //margin-top: 45px; //test
   box-shadow: 0px 3px #10314c0a;
   padding: 10px 0px;
 }
@@ -110,6 +113,7 @@ nav ul li {
   margin-right: 2%;
   float: left;
   text-decoration: none;
+  font-size:22px;
 }
 
 .image {
@@ -152,7 +156,7 @@ nav ul li {
   margin-right: 56.2%;
 }
 
-.user-about{
+.user-about {
   margin-right:42%;
 }
 
@@ -163,6 +167,10 @@ h1 {
 .logo {
   width: 100%;
 }
+
+//nav ul li:nth-child(3) {
+//  margin-right: 54.2%;
+//}
 
 .search-container button {
   float: right;
@@ -186,21 +194,31 @@ h1 {
   margin-top: -4px;
 }
 
-.foot-logo, h1 {
+.foot-logo {
   float: left;
-  width: 6%;
+  width: 7%;
   margin-right: 1%;
 }
-
+.logo{
+  float: left;
+  width: 7%;
+  margin-right: 1%;
+  margin-top: 10px
+}
+.foot-logo{
+  margin-top: 30px;
+  margin-right: 3%;
+}
 .jobhub {
   border-bottom: 1px solid #425059;
   background-color: #10314c0a;
+  // background-color: #76d0e933; //company
   padding-bottom: 30px;
   padding-top: 10px;
 }
 
 .foot-inner ul li {
-  line-height: 24px;
+  line-height: 1.6;
   float: left;
   margin-right: 3%;
   width: 27%;
@@ -220,7 +238,7 @@ h1 {
 
 .foot-inner ul li h5 {
   font-size: 25px;
-  font-weight: 300;
+  font-weight: 400;
   float: left;
   width: 100%;
   margin-bottom: 20px;
@@ -229,8 +247,9 @@ h1 {
 
 .foot-inner ul li .info li {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   list-style-type: square;
+  font-size: 20px;
 }
 
 .foot-inner ul li .info li::before {
@@ -250,17 +269,18 @@ h1 {
   float: left;
   margin-left: 10%;
   font-style: italic;
+  margin-top: 0px;
 }
 
 .icon {
   float: left;
   width: 30%;
-  margin-left: 4%;
+  margin-left: 2%;
 }
 
 .icon li {
   float: left;
-  margin-right: 5%;
+  margin-right: 7%;
 }
 
 .icon li:last-child {
@@ -269,11 +289,10 @@ h1 {
 
 footer {
   font-size: 20px;
-  font-weight: 300;
-  border-bottom: 1px solid #486c6d;
+  font-weight: 400;
   padding: 20px;
   text-align: center;
-  background-color: #9eadb9;
+  background-color: #386c7b33;
   color: #080808;
 }
 
@@ -302,7 +321,6 @@ footer {
     width: 93.286%;
   }
   nav {
-    margin-bottom: 3.906vw;
     margin-top: 2.604vw;
     box-shadow: 0vw 0.391vw #10314c0a;
     padding: 1.302vw 0vw;
@@ -310,6 +328,7 @@ footer {
   nav ul li {
     margin-right: 2%;
     float: left;
+    font-size: 2.4vw;
   }
   nav ul li:last-child {
     margin-right: 0%;
@@ -350,8 +369,6 @@ footer {
     margin-right: 1%;
   }
   .jobhub {
-    border-bottom: 0.13vw solid #425059;
-    background-color: #a3b99e;
     padding-bottom: 3.906vw;
     padding-top: 1.302vw;
   }
@@ -374,7 +391,7 @@ footer {
   }
   .foot-inner ul li .info li {
     margin-bottom: 1.302vw;
-    font-size: 1.172vw;
+    font-size: 1.872vw;
   }
   .foot-inner ul li .info li::before {
     position: absolute;
@@ -393,22 +410,20 @@ footer {
   .icon {
     float: left;
     width: 30%;
-    margin-left: 4%;
+    margin-left: 2%;
   }
   .icon li {
     float: left;
-    margin-right: 5%;
+    margin-right: 9%;
   }
   .icon li:last-child {
     margin-right: 0%;
   }
   footer {
-    font-size: 1.302vw;
+    font-size: 1.602vw;
     font-weight: 300;
-    border-bottom: 0.13vw solid #486c6d;
     padding: 2.604vw;
     text-align: center;
-    background-color: #9eadb9;
   }
 }
 
@@ -536,7 +551,7 @@ footer {
   }
   .login-out {
     float: left;
-    margin-top: 2.656vw;
+    margin-top: 4.656vw;
     margin-right: 3%;
     border: 1px solid #040822;
     padding: 0.313vw 1%;
@@ -544,14 +559,15 @@ footer {
     box-shadow: 0.078vw 0.078vw;
     font-size: 11px;
   }
+  .foot-logo {
+    margin-top: 2.656vw;
+  }
   .foot-logo, h1 {
     float: left;
-    width: 8%;
+    width: 9%;
     margin-right: 5%;
   }
   .jobhub {
-    border-bottom: 0.156vw solid #425059;
-    background-color: #a3b99e;
     padding-bottom: 4.688vw;
     padding-top: 1.563vw;
   }
@@ -572,12 +588,12 @@ footer {
     margin-right: 0%;
   }
   .foot-inner ul li h5 {
-    font-size: 3.125vw;
-    margin-bottom: 3.125vw;
+    font-size: 2.125vw;
+    margin-bottom: 1.125vw;
   }
   .foot-inner ul li .info li {
-    margin-bottom: 1.563vw;
-    font-size: 1.406vw;
+    margin-bottom: 0.563vw;
+    font-size: 1.906vw;
   }
   .foot-inner ul li .info li::before {
     position: absolute;
@@ -600,18 +616,16 @@ footer {
   }
   .icon li {
     float: left;
-    margin-right: 10%;
+    margin-right: 13%;
   }
   .icon li:last-child {
     margin-right: 0%;
   }
   footer {
-    font-size: 1.563vw;
+    font-size: 1.763vw;
     font-weight: 300;
-    border-bottom: 0.156vw solid #486c6d;
     padding: 3.125vw;
     text-align: center;
-    background-color: #9eadb9;
   }
   .mobile {
     display: block;

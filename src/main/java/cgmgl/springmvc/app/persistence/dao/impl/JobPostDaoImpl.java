@@ -65,7 +65,7 @@ public class JobPostDaoImpl implements JobPostDao {
         List<JobPost> resultJobPost = (List<JobPost>) jobPostByJobType.list();
         return resultJobPost;
     }
-    private static final int limitResultsPerPage =3 ;
+    private static final int limitResultsPerPage =4 ;
     @Override
     public List<JobPost> dbgetJobPostList(Long page) {
         Query q = sessionFactory.getCurrentSession().createQuery(

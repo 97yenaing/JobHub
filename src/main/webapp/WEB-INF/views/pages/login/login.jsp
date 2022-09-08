@@ -14,7 +14,7 @@
       <form action="<c:url value='/loginPage' />" method="POST">
         <font color="red">
           ${SPRING_SECURITY_LAST_EXCEPTION.message} </font>
-        <h1 class="h1">login to jobhub</h1>
+        <h2 class="login-header">login to jobhub</h2>
         <input type="text" name="useremail" placeholder="Enter email"
           class="login-input" /><br />
            <input type="password"
@@ -32,7 +32,7 @@
           <p>Do you have job hub account?</p>
         </div>
       </form>
-      <a href="<%=request.getContextPath()%>/register"><input type="submit"
+      <a href="<c:url value ="/register"/>"><input type="submit"
         class="login-registerbtn" value="Sign Up" /></a>
     </div>
   </div>
