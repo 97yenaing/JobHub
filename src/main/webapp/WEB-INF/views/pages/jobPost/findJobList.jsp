@@ -44,8 +44,8 @@
                 </table>
 
                 <div class="detail">
-                  <i class="fa-solid fa-circle-right"></i> <a
-                    href="<c:url value ="/post/details"/>">More
+                  <i class="fa-solid fa-circle-right"></i>  <a href="${pageContext.request.contextPath}/post/details?id=${jobPost.id}">
+                    More
                     details...</a>
                 </div>
               </div>
@@ -71,72 +71,10 @@
               </c:forEach></li>
           </ul>
         </div>
-        <%-- <ul id="tab-2" class="post-list">
-          <li class="post tab2 heightline-post">
-            <div class="clearfix">
-              <!--<ul class="left-label">
-                <li>Position:</li>
-                <li>Salary:</li>
-                <li>Experience Year:</li>
-              </ul>
-              <ul class="right-txt">
-                <li>Sales & Marketing Manager</li>
-                <li>500000</li>
-                <li>5 years</li>
-              </ul>-->
-              <table>
-                <tr>
-                  <td>Position:</td>
-                  <td>Senior WebDeveloper</td>
-                </tr>
-                <tr>
-                  <td>Salary:</td>
-                  <td>400000</td>
-                </tr>
-                <tr>
-                  <td>Experience Year:</td>
-                  <td>2 years</td>
-                </tr>
-              </table>
-            </div>
-            <div class="detail">
-              <a href="">Details...</a>
-            </div>
-          </li>
-        </ul>
-        <ul id="tab-3" class="post-list">
-          <li class="post tab3 heightline-post">
-            <div class="clearfix">
-              <!--<ul class="left-label">
-                <li>Position:</li>
-                <li>Salary:</li>
-                <li>Experience Year:</li>
-              </ul>
-              <ul class="right-txt">
-                <li>Translator</li>
-                <li>200000</li>
-                <li>none</li>
-              </ul>-->
-              <table>
-                <tr>
-                  <td>Position:</td>
-                  <td>Senior WebDeveloper</td>
-                </tr>
-                <tr>
-                  <td>Salary:</td>
-                  <td>400000</td>
-                </tr>
-                <tr>
-                  <td>Experience Year:</td>
-                  <td>2 years</td>
-                </tr>
-              </table>
-            </div>
-            <div class="detail">
-              <a href="<c:url value ="/post/details"/>">Details...</a>
-            </div>
-          </li>
-        </ul> --%>
+
+        <div class="detail">
+          <a href="${pageContext.request.contextPath}/post/details?id=${jobPost.id}">Details...</a>
+        </div>
       </div>
     </div>
   </section>

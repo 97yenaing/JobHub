@@ -8,10 +8,10 @@
     <form:form action="${changeUrl}" method="POST"
       modelAttribute="passwordResetForm">
       <div class="pass-group">
-        <h1 class="reset-header">Reset Your Password</h1>
+        <h2 class="reset-header">Reset Your Password</h2>
         <c:if test="${errorMsg != null}">
-          <div>
-            <span class="error-message">${errorMsg }</span>
+          <div class = "alert alert-danger">
+            <span>${errorMsg }</span>
           </div>
         </c:if>
         <form:password path="password" placeholder="Enter Password"

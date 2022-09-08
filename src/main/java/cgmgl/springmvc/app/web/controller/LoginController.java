@@ -5,15 +5,12 @@ import java.security.Principal;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.AuthenticatedPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.bl.service.UserService;
-import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.User;
 
 /**
@@ -33,7 +30,6 @@ public class LoginController {
     @RequestMapping(value = { "/" }, method = RequestMethod.GET)
     public ModelAndView Homepage(HttpServletRequest request) {
         ModelAndView model = new ModelAndView("home");
-        model.setViewName("home");
         return model;
     }
    
@@ -53,35 +49,10 @@ public class LoginController {
         User user = this.userService.doGetLoginInfo();
         System.out.println(user.getEmail());
         System.out.println(user.getName());
-        for (Authority authority : user.getAuthorities()) {
-            if (authority.getId() == 3) {
-                ModelAndView applicantModal = new ModelAndView("redirect:/post/applicant/list");
-                return applicantModal;
-            }
-            System.out.println(authority.getName());  
-        }
-       
         model.setViewName("home");
         return model;
     }
     
-    /**
-     * <h2> signUp</h2>
-     * <p>
-     * 
-     * </p>
-     *
-     * @param request
-     * @return
-     * @return ModelAndView
-     */
-    
-    @RequestMapping(value = "/sign-up", method = RequestMethod.GET)
-    public ModelAndView signUp(HttpServletRequest request) {
-        ModelAndView model = new ModelAndView("sign-up");
-        model.setViewName("sign-up");
-        return model;
-    }
     /**
      * <h2> companyPage</h2>
      * <p>
@@ -97,20 +68,6 @@ public class LoginController {
     }
 
     /**
-     * <h2> applicantPage</h2>
-     * <p>
-     * 
-     * </p>
-     *
-     * @return
-     * @return String
-     */
-    @RequestMapping(value = "/applicant")
-    public String applicantPage() {
-        return "redirect:/userList";
-    }
-
-    /**
      * <h2> AdminPage</h2>
      * <p>
      * 
@@ -122,6 +79,36 @@ public class LoginController {
     @RequestMapping(value = "/admin")
     public String AdminPage() {
         return "admin";
+    }
+    /**
+     * <h2> AccessDenied</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param request
+     * @return
+     * @return ModelAndView
+     */
+    @RequestMapping(value = "/error", method = RequestMethod.GET)
+    public ModelAndView AccessDenied(HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("access-denied");
+        return model;
+    }
+    /**
+     * <h2> Logout</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param request
+     * @return
+     * @return ModelAndView
+     */
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public ModelAndView Logout(HttpServletRequest request) {
+        ModelAndView model = new ModelAndView("redirect:/home");
+        return model;
     }
 
 }
