@@ -9,62 +9,73 @@
     http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http>
-        <intercept-url pattern="/home"
-            access="hasAnyRole('APPLICANT', 'ADMIN','COMPANY' )" />
+        <!-- <intercept-url pattern="/home" access="hasAnyRole('APPLICANT', 
+            'ADMIN','COMPANY' )" /> -->
         <intercept-url pattern="/applicant/list"
-            access="hasAnyRole('ADMIN','COMPANY')" />
-        <intercept-url pattern="/applicant/delete"
             access="hasRole('ADMIN')" />
+
+        <!-- <intercept-url pattern="/applicant/delete" access="hasRole('ADMIN')" 
+            /> -->
         <!-- Company -->
         <intercept-url pattern="/company/List"
-            access="hasAnyRole('APPLICANT','ADMIN')" />
+            access="hasAnyRole('COMPANY','ADMIN')" />
         <intercept-url pattern="/company/**"
-            access="hasRole('COMPANY')" />
+            access="hasAnyRole('COMPANY','ADMIN')" />
         <!-- Job Post -->
         <intercept-url pattern="/post/list"
             access="hasAnyRole('COMPANY','ADMIN')" />
-        <intercept-url pattern="/post/applicant/list"
-            access="hasAnyRole('APPLICANT','COMPANY')" />
-        <intercept-url pattern="/post/list/byJobType"
-             access="hasAnyRole('APPLICANT','COMPANY')" />
-        <intercept-url pattern="/post/details"
-            access="hasAnyRole('APPLICANT','COMPANY')" />
+
+        <!-- <intercept-url pattern="/post/applicant/list" access="hasAnyRole('APPLICANT','COMPANY','ADMIN')" 
+            /> -->
+        <!-- <intercept-url pattern="/post/list/byJobType" access="hasAnyRole('APPLICANT','COMPANY')" 
+            /> -->
+        <!-- <intercept-url pattern="/post/details" access="hasAnyRole('APPLICANT','COMPANY','ADMIN')" 
+            /> -->
+
         <intercept-url pattern="/post/create"
             access="hasRole('COMPANY')" />
-        <intercept-url pattern="/post/create/confirm"
-            access="hasRole('COMPANY')" />
-        <intercept-url pattern="/post/insert"
-            access="hasRole('COMPANY')" />
-        <intercept-url pattern="/post/edit"
-            access="hasRole('COMPANY')" />
-        <intercept-url pattern="/post/edit/confirm"
-            access="hasRole('COMPANY')" />
-        <intercept-url pattern="/post/update"
-            access="hasRole('COMPANY')" />
-        <intercept-url pattern="/post/delete"
-            access="hasRole('COMPANY')" />
-            <!-- Job Type -->
-          <intercept-url pattern="/jobType/**"
-            access="hasRole('ADMIN')" /> 
-            <!-- Password Reset -->
-            <intercept-url pattern="/login/forgot_password"
-            access="hasAnyRole('APPLICANT', 'ADMIN','COMPANY' )" />
-            <intercept-url pattern="/login/password/**"
-            access="hasAnyRole('APPLICANT', 'ADMIN','COMPANY' )" /> 
-            <!-- User -->
-            <intercept-url pattern="/register"
-            access="hasAnyRole('APPLICANT','COMPANY','ADMIN' )" />
-        <intercept-url pattern="/userInfo"
-            access="hasAnyRole('COMPANY','ADMIN','APPLICANT')" />
-        <!-- <intercept-url pattern="/userList" access="hasRole('ADMIN')" 
+
+        <!-- <intercept-url pattern="/post/create/confirm" access="hasRole('COMPANY')" 
             /> -->
+        <!-- <intercept-url pattern="/post/insert" access="hasRole('COMPANY')" 
+            /> -->
+        <!-- <intercept-url pattern="/post/edit" access="hasRole('COMPANY')" 
+            /> -->
+        <!-- <intercept-url pattern="/post/edit/confirm" access="hasRole('COMPANY')" 
+            /> <intercept-url pattern="/post/update" access="hasRole('COMPANY')" /> <intercept-url 
+            pattern="/post/delete" access="hasRole('COMPANY')" /> -->
+
+        <!-- Job Type -->
+        <intercept-url pattern="/jobType/list"
+            access="hasRole('ADMIN')" />
+
+        <!-- Password Reset <intercept-url pattern="/login/forgot_password" 
+            access="hasAnyRole('APPLICANT', 'ADMIN','COMPANY' )" /> <intercept-url pattern="/login/password/**" 
+            access="hasAnyRole('APPLICANT', 'ADMIN','COMPANY' )" /> -->
+        <!-- User -->
+        <!-- <intercept-url pattern="/register" access="hasAnyRole('APPLICANT','COMPANY','ADMIN' 
+            )" /> -->
+        <!-- <intercept-url pattern="/userInfo" access="hasAnyRole('COMPANY','APPLICANT')" 
+            /> -->
+        <intercept-url pattern="/createUser"
+            access="hasRole('ADMIN')" />
+        <intercept-url pattern="/saveAdmin"
+            access="hasRole('ADMIN')" />
+        <intercept-url pattern="/userList"
+            access="hasRole('ADMIN')" />
+        <intercept-url pattern="/editUser"
+            access="hasRole('ADMIN')" />
+        <intercept-url pattern="/updateUser"
+            access="hasRole('ADMIN')" />
+        <intercept-url pattern="/deleteUser"
+            access="hasRole('ADMIN')" />
 
         <form-login login-page="/login"
             login-processing-url="/loginPage"
             authentication-failure-url="/login?error"
             username-parameter="useremail" password-parameter="password"
             default-target-url="/home" />
-        <logout logout-url="/logout" logout-success-url="/login" />
+        <logout logout-url="/logout" logout-success-url="/logout" />
         <access-denied-handler error-page="/error" />
 
     </http>

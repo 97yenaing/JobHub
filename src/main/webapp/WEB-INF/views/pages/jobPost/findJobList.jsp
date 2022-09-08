@@ -70,6 +70,9 @@
               </c:forEach></li>
           </ul>
         </div>
+        <div class="detail">
+          <a href="${pageContext.request.contextPath}/post/details?id=${jobPost.id}">Details...</a>
+        </div>
       </div>
     </div>
   </section>

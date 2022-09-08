@@ -119,7 +119,7 @@ public class PasswordResetController {
         passwordResetMailForm = this.passwordResetService.createResetToken(passwordResetMailForm.getUser_email());
         String url = getBaseUrl(request) + request.getServletPath() + "/" + passwordResetMailForm.getToken();
         this.sendMail(url, passwordResetMailForm);
-        ModelAndView newModel = new ModelAndView("redirect:/loginPage");
+        ModelAndView newModel = new ModelAndView("redirect:/login");
         return newModel;
 
     }
@@ -180,8 +180,7 @@ public class PasswordResetController {
         newPasswordResetForm.setPassword(passwordResetForm.getPassword());
         this.passwordResetService.doUpdatePassword(newPasswordResetForm);
         this.passwordResetService.doDeleteToken(passwordResetForm.getToken());
-        ModelAndView mv = new ModelAndView("redirect:/loginPage");
-        mv.addObject("msg", "Password has been changed!");
+        ModelAndView mv = new ModelAndView("redirect:/login");
         return mv;
 
     }
