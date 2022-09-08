@@ -7,11 +7,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.hibernate.SessionFactory;
-import javax.transaction.Transactional;
-
-import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -81,7 +77,8 @@ public class UserDaoImpl implements UserDao {
      * 
      * @return
      */
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public long dbGetUserCount() {
         Query query = this.sessionFactory.getCurrentSession().createQuery("SELECT COUNT(u) FROM User u");
         return (long) query.getSingleResult();
@@ -102,7 +99,8 @@ public class UserDaoImpl implements UserDao {
      * @param user_email
      * @return
      */
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public User dbFindUserByAllEmail(String user_email) {
         String userQuery = "SELECT u FROM User u WHERE u.email = :email";
         Query query = this.sessionFactory.getCurrentSession().createQuery(userQuery);
@@ -144,7 +142,8 @@ public class UserDaoImpl implements UserDao {
         }
     }
     
-    @Override
+    @SuppressWarnings("rawtypes")
+	@Override
     public User dbGetUserByEmail(String userEmail) {
         // TODO Auto-generated method stub
         Query userById = this.sessionFactory.getCurrentSession().createQuery("SELECT u FROM User u where u.email = :email");

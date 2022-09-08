@@ -12,7 +12,7 @@
 <body>
 	<header>
 		<div class="head-inner clearfix">
-			<h1 ><img class="logo" src="<c:url value="/assets/img/logo-large.png" />" alt="JobHub_Log"></h1>	
+			<h1 class="ch1"><img class="logo" src="<c:url value="/assets/img/logo-large.png" />" alt="JobHub_Log"></h1>	
 			<nav id="global-navi" class="clearfix" >
 				<ul class="clearfix">
 					<li><a href=#>Home</a></li>

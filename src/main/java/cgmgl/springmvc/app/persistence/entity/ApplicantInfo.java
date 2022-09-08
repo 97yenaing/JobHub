@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
+import cgmgl.springmvc.app.bl.dto.ApplicantProfileDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,7 +29,8 @@ public class ApplicantInfo implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "info_id")
 	private long id;
-
+	
+	@Column(length = 9999)
 	private String profile;
 
 	private String phone;
@@ -59,5 +61,28 @@ public class ApplicantInfo implements Serializable {
 		this.address = applicantDto.getAddress();
 		this.certificates = applicantDto.getCertificates();
 		this.deleted_at = applicantDto.getDeleted_at();
+	}
+	public ApplicantInfo(ApplicantInfo applicantInfo) {
+		this.id = applicantInfo.getId();
+		this.profile = applicantInfo.getProfile();
+		this.phone = applicantInfo.getPhone();
+		this.job_exp_year = applicantInfo.getJob_exp_year();
+		this.job_history = applicantInfo.getJob_history();
+		this.edu_bg = applicantInfo.getEdu_bg();
+		this.gender = applicantInfo.getGender();
+		this.address = applicantInfo.getAddress();
+		this.certificates = applicantInfo.getCertificates();
+		this.deleted_at = applicantInfo.getDeleted_at();
+	}
+	public ApplicantInfo(ApplicantProfileDto applicantProfile) {
+		this.id = applicantProfile.getApplicantId();
+		this.profile = applicantProfile.getProfile();
+		this.phone = applicantProfile.getPhone();
+		this.address = applicantProfile.getAddress();
+		this.job_exp_year = applicantProfile.getJob_exp_year();
+		this.job_history = applicantProfile.getJob_history();
+		this.edu_bg = applicantProfile.getEdu_bg();
+		this.gender = applicantProfile.getGender();
+		this.certificates = applicantProfile.getCertificates();
 	}
 }

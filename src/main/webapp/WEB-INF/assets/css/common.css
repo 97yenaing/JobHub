@@ -474,7 +474,7 @@ footer {
     box-shadow: 0.078vw 0.078vw;
     font-size: 11px;
   }
-  .foot-logo, h1 {
+  .foot-logo, .ch1 {
     float: left;
     width: 8%;
     margin-right: 5%;

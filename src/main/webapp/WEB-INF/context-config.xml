@@ -32,7 +32,7 @@
 			<mvc:mapping path="/auth/**" />
 			<bean class="cgmgl.springmvc.app.web.filter.AuthInterceptor" />
 		</mvc:interceptor>
-	</mvc:interceptors> -->
+	</mvc:interceptors> --> 
 
     <!-- MESSAGE SOURCE -->
     <bean id="messageSource"
@@ -82,7 +82,13 @@
         class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory" />
     </bean>
-
+    
+    <!-- upload File -->
+    <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- setting maximum upload size -->
+        <property name="maxUploadSize" value="2000000" />
+    </bean>
 
     <!-- MAIL CONFIG -->
     <bean id="javaMailSender"
