@@ -18,7 +18,7 @@ body {
 /* Find Job Page First Section */
 
 .find-first-sec{
-  padding: 116px 0 30px;
+  padding: 40px 0 30px;
 }
 .find-first-sec .job-ttl{
   background-color: #d3d3d3;
@@ -43,6 +43,8 @@ body {
   padding: 5px;
 }
 .find-first-sec .post-list{
+  width:85%;
+  margin:0 auto;
   padding: 20px 0;
 }
 
@@ -102,7 +104,7 @@ body {
   /* Find Job Page First Section */
   
   .find-first-sec{
-    padding: 15.104vw 0 3.906vw;
+    padding: 0.104vw 0 3.906vw;
   }
   .find-first-sec .job-ttl{
     padding: 2.604vw;
@@ -116,7 +118,7 @@ body {
   }
   .find-first-sec .type .nav-tabs li {
     float: left;
-    padding: 2.083vw;
+    padding: 1.083vw 1.083vw;
   }
   .find-first-sec .type .nav-tabs li a{
     color: #010166;
@@ -177,7 +179,7 @@ body {
   }
   .find-first-sec .type .nav-tabs li {
     float: left;
-    padding: 2.5vw;
+    padding: 1.4vw 1.4vw;
   }
   .find-first-sec .type .nav-tabs li a{
     color: #010166;
