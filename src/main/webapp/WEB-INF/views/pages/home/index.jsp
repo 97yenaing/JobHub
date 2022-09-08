@@ -15,7 +15,7 @@
         <h2>Explore and discover the right job for you!</h2>
         <p>The job marketplace and community that connects and matches companies with remote professionals</p>
         <p class="main-content">Forget the old rules. You can have the best people.Right now. Right here.</p>
-        <a class="com-btn">Find Job</a>
+        <a class="com-btn" href ="<%=request.getContextPath()%>/post/applicant/list">Find Job</a>
       </div>
       <div class="right-img">
         <img src="<c:url value="/assets/img/home/img_right_main.png" />" alt="img_right_main"/>

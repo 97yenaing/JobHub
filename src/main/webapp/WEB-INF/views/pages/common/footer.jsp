@@ -5,7 +5,7 @@
 
 <section class="jobhub clearfix">
   <div class="foot-inner clearfix">
-   <img class="foot-logo" src="<c:url value="/assets/img/logo-large.png" />" alt="JobHub_Log">
+   <img class="foot-logo" src="<c:url value="/assets/img/header/logo-large.png" />" alt="JobHub_Log">
     <ul class="list clearfix">
       <li><h5>For Client</h5>
         <ul class="info clearfix">

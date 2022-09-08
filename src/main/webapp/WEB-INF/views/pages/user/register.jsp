@@ -55,7 +55,7 @@
       <button type="submit" name="signup" class="registerbtn">Sign
         Up</button>
       <div class="forgot-pass">
-        <a href="login_form.html" class="forgot-pass">Already have
+        <a href="<%=request.getContextPath()%>/login" class="forgot-pass">Already have
           an account?log In</a>
       </div>
     </form:form>

@@ -50,7 +50,7 @@
     </a></li>
   </ul>
   </form:form>
-    <button type="submit" class="apply-btn" name="addUser">Apply</button> &nbsp; &nbsp;
+    <button type="submit" class="apply-btn" name="applyJob">Apply</button> &nbsp; &nbsp;
     <a class="detail-back-btn" href="${pageContext.request.contextPath}/post/applicant/list">Back</a>
 </div>
 </div>
