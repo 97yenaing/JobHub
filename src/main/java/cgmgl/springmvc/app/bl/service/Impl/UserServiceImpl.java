@@ -296,7 +296,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		updateUser.setName(profileDto.getName());
 		updateUser.setEmail(profileDto.getEmail());
 		ApplicantInfo applicantdb = this.applicantInfoDao.dbGetApplicantById(profileDto.getApplicantId());
-		if (profileDto.getProfile() != null) {
+		if (profileDto.getProfile() != "") {
 			applicantdb.setProfile(profileDto.getProfile());
 		}
 		applicantdb.setPhone(profileDto.getPhone());
