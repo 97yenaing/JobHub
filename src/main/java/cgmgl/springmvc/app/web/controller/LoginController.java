@@ -37,6 +37,9 @@ public class LoginController {
 
     @Autowired
     private JobPostService jobPostService;
+    
+    @Autowired
+    private HttpSession session;
 
     @RequestMapping(value = { "/" }, method = RequestMethod.GET)
     public ModelAndView Homepage(HttpServletRequest request) {
