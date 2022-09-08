@@ -47,8 +47,9 @@ body {
 }
 
 .find-first-sec .pagination .page-link{
-  background-color:#dda0dd;
+  background-color:#a8c6fa;
   color:#000000;
+  font-size: 15px;
 }
 
 .find-first-sec .post-list .post{
@@ -162,10 +163,10 @@ body {
   /* Find Job Page First Section */
   
   .find-first-sec{
-    padding: 18.125vw 0 4.688vw;
+    padding: 4.125vw 0 2.688vw;
   }
   .find-first-sec .job-ttl{
-    padding: 3.125vw;
+    padding: 1.125vw;
   }
   .find-first-sec .job-ttl h2{
     font-size: 2.5vw;
@@ -187,6 +188,8 @@ body {
   }
   .find-first-sec .post-list{
     padding: 3.125vw 0;
+    width: 65%;
+    margin: 0 auto;
   }
   .find-first-sec .post-list .post{
     max-width: 54.688vw;

@@ -34,10 +34,15 @@
         <put-attribute name="body"
             value="/WEB-INF/views/pages/company/companyUpdateComfirm.jsp" />
     </definition>
-      <definition name="companyList" extends="template">
+    <definition name="companyList" extends="template">
         <put-attribute name="title" value="edit" />
         <put-attribute name="body"
             value="/WEB-INF/views/pages/company/companyList.jsp" />
+    </definition>
+    <definition name="applicantJobPostList" extends="template">
+        <put-attribute name="title" value="applicantPostList" />
+        <put-attribute name="body"
+            value="/WEB-INF/views/pages/company/applicantJobPostList.jsp" />
     </definition>
   
 </tiles-definitions>

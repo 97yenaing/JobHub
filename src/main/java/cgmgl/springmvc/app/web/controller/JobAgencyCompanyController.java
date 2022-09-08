@@ -64,8 +64,13 @@ public class JobAgencyCompanyController {
 		List<Company> companyList = companyservice.dogetCompanyList();
 		model.addObject("companyList", companyList);
 		model.setViewName("companyList");
-
 		return model;
+	}
+	
+	@RequestMapping(value = "/company/applicant/List", method = RequestMethod.GET)
+	public ModelAndView getApplicantJobPostList(ModelAndView model) {
+	    model.setViewName("applicantJobPostList");
+        return model; 
 	}
 
 	/**
@@ -322,5 +327,4 @@ public class JobAgencyCompanyController {
 		ModelAndView deleteView = new ModelAndView("redirect:/company/List");
 		return deleteView;
 	}
-
 }

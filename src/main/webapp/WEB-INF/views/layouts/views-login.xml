@@ -32,4 +32,9 @@
         <put-attribute name="body"
             value="/WEB-INF/views/pages/login/access-denied.jsp" />
     </definition>
+    <definition name="aboutus" extends="template">
+        <put-attribute name="title" value="About Us" />
+        <put-attribute name="body"
+            value="/WEB-INF/views/pages/aboutus/aboutus.jsp" />
+    </definition>
     </tiles-definitions>

@@ -44,8 +44,7 @@
                 </table>
 
                 <div class="detail">
-                  <i class="fa-solid fa-circle-right"></i>  <a href="${pageContext.request.contextPath}/post/details?id=${jobPost.id}">
-                    More
+                  <i class="fa-solid fa-circle-right"></i> <a href="${pageContext.request.contextPath}/post/details?id=${jobPost.id}">More
                     details...</a>
                 </div>
               </div>
@@ -71,7 +70,6 @@
               </c:forEach></li>
           </ul>
         </div>
-
         <div class="detail">
           <a href="${pageContext.request.contextPath}/post/details?id=${jobPost.id}">Details...</a>
         </div>

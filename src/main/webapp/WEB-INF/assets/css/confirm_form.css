@@ -6,12 +6,12 @@ body {
 .confirm-form .card {
   margin: 0 auto;
   max-width: 70%;
-  margin-top: 10%;
+  margin-top: 7%;
   background-color: lightgrey;
   padding-bottom: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 80px;
 }
-.confirm-form .profile-header {
+.confirm-form .card .profile-header {
   padding-top: 20px;
   text-align: center;
   font-size: 25px;
@@ -89,7 +89,7 @@ body {
     margin: 0 auto;
   }
   .confirm-form .create-btn, .apply-btn {
-    width : 16.276vw;
+    width : 14.276vw;
 	margin : 0 auto;
 	padding: 0.651vw 1.302vw;
 	border-radius: 1.953vw; 
