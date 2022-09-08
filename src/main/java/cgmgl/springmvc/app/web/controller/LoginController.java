@@ -113,7 +113,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public ModelAndView Logout(HttpServletRequest request) {
-        ModelAndView model = new ModelAndView("redirect:/home");
+        ModelAndView model = new ModelAndView("redirect:/");
         return model;
     }
 
