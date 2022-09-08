@@ -126,12 +126,13 @@ a{
   .email-input
   {
       width:100%;
-      max-width: 39.063vw;
+      max-width: 40.063vw;
       margin-top:3.125vw;
       padding:1.563vw;
       border: 0.156vw solid rgb(168, 166, 166);
       border-radius: 3.125vw;
       box-shadow: 0 0.625vw 1.25vw 0 rgba(0, 0, 0, 0.2), 0 0.938vw 3.125vw 0 rgba(0, 0, 0, 0.19);
+      font-size:12px;
   }
   .email-registerbtn{
     
@@ -143,5 +144,6 @@ a{
     color:aliceblue;
     cursor: pointer;
     border-radius: 3.125vw;
+    font-size:12px;
   }
 }
