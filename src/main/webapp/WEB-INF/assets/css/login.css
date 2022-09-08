@@ -34,6 +34,8 @@ a{
 .login-page .login-container{
   width:50%;
   margin:0 auto;
+  margin-top: 70px;
+  margin-bottom: 30px;
   padding: 50px 60px 60px 40px;
   border:none;
   background-color: #ced7df;
@@ -75,6 +77,8 @@ a{
  .login-page .login-container{
     width:73%;
     margin:0 auto;
+    margin-top: 6.51vw;
+    margin-bottom:2.604vw;
    /*  margin-top:13.021vw; */
     padding: 6.51vw 7.813vw 7.813vw 5.208vw;
     border:none;
@@ -110,6 +114,8 @@ a{
     max-width: 64.063vw;
     margin:0 auto;
     /* margin-top:15.625vw; */
+    margin-top: 10.156vw;
+    margin-bottom: 4.688vw;
     padding: 3.125vw 9.375vw 9.375vw 6.25vw;
     border:none;
     background-color: #ced7df;
