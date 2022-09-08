@@ -5,7 +5,7 @@
 
 <section class="jobhub clearfix">
   <div class="foot-inner clearfix">
-   <img class="foot-logo" src="<c:url value="/assets/img/logo-large.png" />" alt="JobHub_Log">
+   <img class="foot-logo" src="<c:url value="/assets/img/header/logo-large.png" />" alt="JobHub_Log">
     <ul class="list clearfix">
       <li><h5>For Client</h5>
         <ul class="info clearfix">
@@ -39,13 +39,13 @@
   <h6>Follow us</h6>
   <ul class="icon clearfix">
     <li><a href='#'><img
-        src="<c:url value="/assets/img/img_facebook.png" />"
+        src="<c:url value="/assets/img/header/img_facebook.png" />"
         alt="facebook"></a></li>
     <li><a href='#'><img
-        src="<c:url value="/assets/img/img_instragram.png" />"
+        src="<c:url value="/assets/img/header/img_instragram.png" />"
         alt="instragram"></a></li>
     <li><a href='#'><img
-        src="<c:url value="/assets/img/img_twitter.png" />"
+        src="<c:url value="/assets/img/header/img_twitter.png" />"
         alt="twitter"></a></li>
   </ul>
 </section>

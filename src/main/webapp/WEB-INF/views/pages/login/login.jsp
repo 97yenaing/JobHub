@@ -32,7 +32,7 @@
           <p>Do you have job hub account?</p>
         </div>
       </form>
-      <a href="<c:url value ="/sign-up"/>"><input type="submit"
+      <a href="<%=request.getContextPath()%>/register"><input type="submit"
         class="login-registerbtn" value="Sign Up" /></a>
     </div>
   </div>
