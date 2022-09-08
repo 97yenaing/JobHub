@@ -146,6 +146,12 @@ public class JobPostController {
         jobPostDetailView.setViewName("detailsJobPost");
         return jobPostDetailView;
     }
+    
+    @RequestMapping(value = "/post/apply")
+    public ModelAndView applyJobPost(ModelAndView model) {
+        model.setViewName("applyJobPost");
+        return model; 
+    }
 
     /**
      * <h2>newJobPost</h2>

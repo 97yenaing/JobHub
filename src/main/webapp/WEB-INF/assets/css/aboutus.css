@@ -95,17 +95,25 @@ body {
     margin: 0 auto;
     max-width: 89.583vw;
   }
-  h2{
+  .about-header{
+    font-size: 40px;
+    text-align: center;
+    padding: 20px 0;
+    color: #030394;
+  }
+  /* h2{
     font-size: 3.906vw;
     text-align: center;
     padding: 2.604vw 0;
-  }
+  } */
   /* About Us Page First Section */
   
   .about-first-sec{
     padding: 0.021vw 0 0;
   }
   .about-first-sec h2{
+    margin-top:0;
+    margin-bottom:0;
     color: #030394;
   }
   .about-first-sec .left-img{
@@ -116,9 +124,9 @@ body {
   .about-first-sec .right-txt{
     float: right;
     width: 100%;
-    font-size: 2.995vw;
+    font-size: 2.495vw;
     color: #01013f;
-    padding: 15% 1.953vw;
+    padding: 10% 1.953vw;
   }
   /* About Us Page Second Section */
   
@@ -167,11 +175,11 @@ body {
     margin: 0 auto;
     max-width: 93.125vw;
   }
-  h2{
+  /* h2{
     font-size: 4.688vw;
     text-align: center;
     padding: 3.125vw 0;
-  }
+  } */
   /* About Us Page First Section */
   
   .about-first-sec{
