@@ -129,6 +129,12 @@ public class JobPost {
     @Column(name = "deleted_at")
     private Date deleted_at;
 
+    /**
+     * <h2> applicantsJobPosts</h2>
+     * <p>
+     * applicantsJobPosts
+     * </p>
+     */
     @OneToMany(mappedBy = "jobPost")
     List<ApplicantJobPost> applicantsJobPosts = new ArrayList<ApplicantJobPost>();
 

@@ -34,5 +34,11 @@
     <property name="prefix" value="/WEB-INF/views/pages" />
     <property name="suffix" value=".jsp" />
   </bean>
-
+  
+   <!-- upload File -->
+    <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- setting maximum upload size -->
+        <property name="maxUploadSize" value="20000000000000" />
+    </bean>
 </beans>

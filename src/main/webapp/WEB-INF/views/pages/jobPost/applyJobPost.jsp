@@ -11,8 +11,8 @@
 <body>
   <div class="form-card">
     <h1 class="form-header">Applied Job Post</h1>
-    <c:url var="appliedJobPost" value="/post/create/confirm"></c:url>
-    <form:form class="form-container" action="${appliedJobPost}" method="POST" id="form" modelAttribute="ApplicantJobPostDto">
+    <c:url var="appliedJobPost" value="/post/apply/insert"></c:url>
+    <form:form class="form-container" action="${appliedJobPost}" method="POST" id="form" modelAttribute="ApplicantJobPostDto" enctype="multipart/form-data">
       <c:if test="${errorMsg != null }">
         <div class="alert alert-danger">
           <strong>${errorMsg }</strong>
@@ -21,12 +21,12 @@
       <form:errors path="expected_salary" class="text-danger" />
       <div class="group clearfix">
         <label for="expected_salary">Expected Salary:</label> <br>
-        <form:input path="expected_salary" value="" class="form-input" placeholder="Enter Expected Salary" /> 
+        <form:input type="number" path="expected_salary" value="${ApplicantJobPostDto.expected_salary }" class="form-input" placeholder="Enter Expected Salary" /> 
       </div>
       <form:errors path="apply_reason" class="text-danger" />
       <div class="group clearfix">
         <label for="Offered Salary">Apply Reason:</label> <br>
-        <form:input path="apply_reason" value="" class="form-input" placeholder="Enter Apply Reason." /> 
+        <form:input path="apply_reason" value="${ApplicantJobPostDto.apply_reason }" class="form-input" placeholder="Enter Apply Reason." /> 
       </div>
       <%-- <form:errors path="cv_file_path" class="text-danger" />
       <div class="group clearfix">

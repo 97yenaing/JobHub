@@ -12,8 +12,8 @@
 <div class="confirm-form">
   <div class="card">
     <h1 class="profile-header">Job Post Details</h1>
-    <c:url var="postDetails" value="/post/edit/confirm"></c:url>
-    <form:form action="${postDetails }" method="POST" id="form" modelAttribute="jobPostDetails">
+    <c:url var="postDetails" value="/post/apply"></c:url>
+    <form:form action="${postDetails}" method="GET" id="form" modelAttribute="jobPostDetails">
     <input type="hidden" name="id" value="${jobPostDetails.id }" />
     <ul>
     <li><b>Position:</b> 
@@ -49,9 +49,9 @@
           class="form-control" />
     </a></li>
   </ul>
+  <button type="submit" class="apply-btn" name="applyJob">Apply</button> &nbsp; &nbsp;
+  <a class="detail-back-btn" href="${pageContext.request.contextPath}/post/applicant/list">Back</a>
   </form:form>
-    <button type="submit" class="apply-btn" name="applyJob">Apply</button> &nbsp; &nbsp;
-    <a class="detail-back-btn" href="${pageContext.request.contextPath}/post/applicant/list">Back</a>
 </div>
 </div>
 </body>
