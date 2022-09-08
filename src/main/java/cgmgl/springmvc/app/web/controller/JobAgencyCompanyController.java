@@ -155,7 +155,7 @@ public class JobAgencyCompanyController {
 			authorities.add(authority);
 			companydto.setAuthorityList(authorities);
 			this.userService.doSaveCompany(companydto);
-			ModelAndView createCompanyView = new ModelAndView("redirect:/home");
+			ModelAndView createCompanyView = new ModelAndView("redirect:/");
 			return createCompanyView;
 		}
 

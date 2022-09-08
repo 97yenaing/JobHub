@@ -19,8 +19,8 @@
         <!-- Company -->
         <intercept-url pattern="/company/List"
             access="hasAnyRole('COMPANY','ADMIN')" />
-        <intercept-url pattern="/company/**"
-            access="hasAnyRole('COMPANY','ADMIN')" />
+        <!-- <intercept-url pattern="/company/**"
+            access="hasAnyRole('COMPANY','ADMIN')" /> -->
         <!-- Job Post -->
         <intercept-url pattern="/post/list"
             access="hasAnyRole('COMPANY','ADMIN')" />
