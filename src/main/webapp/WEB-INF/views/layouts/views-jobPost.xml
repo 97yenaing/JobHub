@@ -38,4 +38,9 @@
     <put-attribute name="title" value="DetailsJobPost" />
     <put-attribute name="body" value="/WEB-INF/views/pages/jobPost/jobPostDetails.jsp" />
   </definition>
+  <!-- Apply Job Post Details -->
+  <definition name="applyJobPost" extends="template">
+    <put-attribute name="title" value="ApplyJobPost" />
+    <put-attribute name="body" value="/WEB-INF/views/pages/jobPost/applyJobPost.jsp" />
+  </definition>
 </tiles-definitions>

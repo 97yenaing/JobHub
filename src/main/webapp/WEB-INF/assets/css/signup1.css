@@ -34,9 +34,10 @@ h1{
   font-size: 25px;
 }
 .signup-container{
-  width:40%;
+  width:50%;
   margin:0 auto;
-  margin-top:100px;
+  margin-top:70px;
+  margin-bottom:30px;
   padding: 50px 60px 60px 40px;
   border:none;
   background-color: #ced7df;
@@ -53,7 +54,7 @@ h1{
     border-radius: 8px;
 }
 .sign-select{
-  width: 93%;
+  width: 88%;
   margin-top:6px;
   padding: 10px;
   border: 1px solid rgb(168, 166, 166);
@@ -63,7 +64,7 @@ h1{
 .form-group{
   display: block;
   padding-top:30px;
-/*   padding-left: 70px; */
+  padding-left: 70px;
   font-family: 'IBM Plex Sans-Regular';
   font-size: 18px;
   text-align: left;
@@ -98,14 +99,19 @@ font-size: 16px;
     
   }
   .signup-container{
-    width:40%;
+    width:65%;
     margin:0 auto;
-    margin-top:100px;
+    margin-top:50px;
     padding: 50px 60px 60px 40px;
     border:none;
     background-color: #ced7df;
     text-align: center;
     border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .signup-container h1{
+    width:100%;
+    font-size:20px;
   }
   .sign-input
   {
@@ -158,13 +164,18 @@ font-size: 16px;
   .signup-container{
     width:66%;
     margin:0 auto;
-    margin-top:100px;
+    margin-top:65px;
+    margin-bottom:30px;
     padding: 20px 60px 60px 40px;
     border:none;
     background-color: #ced7df;
     text-align: center;
-    max-width: 250px;
+    max-width: 355px;
     border-radius: 20px;
+  }
+  .signup-container h1 {
+    width: 100%;
+    font-size: 20px;
   }
   .sign-input
   {
@@ -192,7 +203,6 @@ font-size: 16px;
     text-align: left;
   }
   .registerbtn{
-    
     margin-top: 20px;
     margin-left: 10px;
     padding: 5px 20px;
@@ -201,5 +211,9 @@ font-size: 16px;
     color:aliceblue;
     cursor: pointer;
     border-radius: 10px;
+  }
+  .forgot-pass {
+    margin-top: 20px;
+    font-size: 15px;
   }
 }

@@ -28,36 +28,35 @@ import lombok.Setter;
 @Table(name = "Company")
 @DynamicUpdate
 public class Company {
-	@Id
-	@Column(name = "company_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int company_id;
+    @Id
+    @Column(name = "company_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int company_id;
 
-	private String company_name;
-	private String email;
-	private String phone;
-	private String address;
-	private String web_link;
-	private Date created_at;
-	private Date updated_at;
-	private Date deleted_at;
-    /*
-     * @OneToMany(mappedBy = "company", cascade = CascadeType.ALL) private
-     * List<JobPost> jobPost;
-     */
+    private String company_name;
+    private String email;
+    private String phone;
+    private String address;
+    private String web_link;
+    private Date created_at;
+    private Date updated_at;
+    private Date deleted_at;
 
-	public Company(CompanyDto CompanyDto) {
-		this.company_id = CompanyDto.getCompany_id();
-		this.company_name = CompanyDto.getCompany_name();
-		System.out.println(CompanyDto.getCompany_name());
-		System.out.println("company data");
-		this.email = CompanyDto.getEmail();
-		this.phone = CompanyDto.getPhone();
-		this.address = CompanyDto.getAddress();
-		this.created_at = CompanyDto.getCreated_at();
-		this.updated_at = CompanyDto.getCreated_at();
-		this.deleted_at = CompanyDto.getCreated_at();
-		this.web_link = CompanyDto.getWeb_link();
-		//this.jobPost = CompanyDto.getJobPost();
-	}
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    private List<JobPost> jobPost;
+
+    public Company(CompanyDto CompanyDto) {
+        this.company_id = CompanyDto.getCompany_id();
+        this.company_name = CompanyDto.getCompany_name();
+        System.out.println(CompanyDto.getCompany_name());
+        System.out.println("company data");
+        this.email = CompanyDto.getEmail();
+        this.phone = CompanyDto.getPhone();
+        this.address = CompanyDto.getAddress();
+        this.created_at = CompanyDto.getCreated_at();
+        this.updated_at = CompanyDto.getCreated_at();
+        this.deleted_at = CompanyDto.getCreated_at();
+        this.web_link = CompanyDto.getWeb_link();
+        this.jobPost = CompanyDto.getJobPost();
+    }
 }

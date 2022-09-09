@@ -18,7 +18,7 @@ body {
 }
 .com-btn{
   border: 1px solid #010120;
-  padding: 15px 30px;
+  padding: 13px 25px;
   border-radius: 25px;
   color: #010120;
   background-color: #a8c6fa;
@@ -35,14 +35,14 @@ img{
 
 .home-first-sec{
   padding: 20px 0 30px;
-  border-bottom: 1px solid #808080;
 }
 .home-first-sec .left-content{
   float: left;
-  width:40%;
+  width:41%;
 }
 .home-first-sec .left-content h1{
   padding-bottom: 20px;
+  width:100%;
 }
 .home-first-sec .left-content h2{
   font-size: 25px;
@@ -62,11 +62,11 @@ img{
 
 .home-second-sec{
   padding: 45px 0 45px;
-  border-bottom: 1px solid #808080;
   text-align: center;
 }
 .home-second-sec .cate-list{
   padding: 45px 0 0;
+  margin-top:40px;
 }
 .home-second-sec h3{
   font-size: 25px;
@@ -74,6 +74,7 @@ img{
 .home-second-sec p{
   float: left;
   font-size: 25px;
+  margin-bottom : 0px;
 }
 .home-second-sec .cate-list .category{
   float: left;
@@ -81,15 +82,20 @@ img{
   margin-right: 5%;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+  padding:20px 0;
+  margin-bottom: 40px;
+  background-color: #a8c6fa;
+  color: #01015d;
 }
 .home-second-sec .cate-list li:nth-child(3n){
   margin-right: 0;
 }
 .home-second-sec .cate-list .category:hover{
-  border: 1px solid #0000ff;
+  border: 1px solid #01015d;
 }
-.home-second-sec .cate-list .category h4{
+.home-second-sec .cate-list .category .jobType{
   padding: 25px 0 20px;
+  text-decoration:none;
 }
 
 /* Home Page Slider Section */
@@ -103,28 +109,31 @@ img{
 /* Home Page Third Section */
 
 .home-third-sec{
-  padding: 45px 0 45px;
-  border-bottom: 1px solid #808080;
+  padding: 15px 0 45px;
 }
 .home-third-sec .about{
-  padding-top: 50px;
+  margin-top: 50px;
+  /* border : 2px solid #75b4d9; */
+  border : 2px solid #05878a;
+  box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;
+  border-radius: 8px;
 }
 .home-third-sec .com-ttl{
   text-align: center;
 }
 .home-third-sec .about-content{
   float: left;
-  background-color: #75b4d9;
   width: 49%;
-  padding: 117px 20px;
+  padding: 7% 20px 5% 20px;
+  font-size: 22px;
 }
 .home-third-sec .about-content p{
-  margin-bottom: 30px;
+  padding-bottom: 30px;
 }
 .home-third-sec .about-content a{
-  color: #661366;
+  color: #010120;
   padding: 5px 10px;
-  background-color: #EEF3F4;
+  background-color: #a8c6fa;
   border-radius: 5px;
 }
 .home-third-sec .about-img{
@@ -143,7 +152,7 @@ img{
     max-width: 89.583vw;
   }
   .com-btn{
-    padding: 1.302vw 3.255vw;
+    padding: 1.102vw 2.255vw;
     border-radius: 3.255vw;
   }
   .com-ttl{
@@ -152,9 +161,10 @@ img{
   /* Home Page First Section */
   
   .home-first-sec{
-    padding: 15.104vw 0 3.906vw;
+    padding: 2.104vw 0 3.906vw;
   }
   .home-first-sec .left-content{
+    font-size: 2.108vw;
     width:50%;
   }
   .home-first-sec .left-content h1{
@@ -162,7 +172,7 @@ img{
     padding-bottom: 2.604vw;
   }
   .home-first-sec .left-content h2{
-    font-size: 2.3vw;
+    font-size: 2.6vw;
     padding-bottom: 2.604vw;
   }
   .home-first-sec .left-content .main-content{
@@ -186,7 +196,7 @@ img{
   }
   .home-second-sec p{
     float: left;
-    font-size: 2.604vw;
+    font-size: 2.204vw;
   }
   .home-second-sec .cate-list .category{
     width: 30%;
@@ -198,7 +208,7 @@ img{
   /* Home Page Third Section */
   
   .home-third-sec{
-    padding: 5.859vw 0 5.859vw;
+    padding: 0.859vw 0 5.859vw;
   }
   .home-third-sec .about{
     padding-top: 6.51vw;
@@ -206,6 +216,7 @@ img{
   .home-third-sec .about-content{
     width: 49%;
     padding: 3.125vw 2.604vw;
+    font-size: 2.308vw;
   }
   .home-third-sec .about-content p{
     margin-bottom: 2.604vw;
@@ -241,12 +252,12 @@ img{
   /* Home Page First Section */
   
   .home-first-sec{
-    padding: 18.125vw 0 4.688vw;
-    border-bottom: 0.156vw solid #808080;
+    padding: 1.125vw 0 4.688vw;
   }
   .home-first-sec .left-content{
     float: left;
     width:100%;
+    font-size:2.35vw;
   }
   .home-first-sec .left-content h1{
     font-size: 5.25vw;
@@ -270,11 +281,12 @@ img{
   
   .home-second-sec{
     padding: 7.031vw 0 7.031vw;
-    border-bottom: 0.156vw solid #808080;
     text-align: center;
   }
   .home-second-sec .cate-list{
     padding: 7.031vw 0 0;
+    width: 80%;
+    margin: 0 auto;
   }
   .home-second-sec h3{
     font-size: 3.125vw;
@@ -299,8 +311,7 @@ img{
   /* Home Page Third Section */
   
   .home-third-sec{
-    padding: 7.031vw 0 7.031vw;
-    border-bottom: 0.156vw solid #808080;
+    padding: 1.031vw 0 7.031vw;
   }
   .home-third-sec .about{
     padding-top: 7.813vw;
@@ -310,7 +321,6 @@ img{
   }
   .home-third-sec .about-content{
     float: left;
-    background-color: #75b4d9;
     width: 100%;
     padding: 5.469vw 3.125vw;
     font-size: 2.5vw;

@@ -10,6 +10,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,6 +26,7 @@ import cgmgl.springmvc.app.bl.service.CompanyService;
 import cgmgl.springmvc.app.bl.service.UserService;
 import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.Company;
+import cgmgl.springmvc.app.persistence.entity.User;
 
 /**
  * <h2>JobAgencyCompanyController Class</h2>
@@ -64,8 +66,13 @@ public class JobAgencyCompanyController {
 		List<Company> companyList = companyservice.dogetCompanyList();
 		model.addObject("companyList", companyList);
 		model.setViewName("companyList");
-
 		return model;
+	}
+	
+	@RequestMapping(value = "/company/applicant/List", method = RequestMethod.GET)
+	public ModelAndView getApplicantJobPostList(ModelAndView model) {
+	    model.setViewName("applicantJobPostList");
+        return model; 
 	}
 
 	/**
@@ -219,14 +226,17 @@ public class JobAgencyCompanyController {
 	 * @return
 	 * @return ModelAndView
 	 */
-	@RequestMapping(value = "/company/Profile/{company_id}", method = RequestMethod.GET)
-	public ModelAndView profileCompany(@PathVariable("company_id") Integer company_id, ModelAndView model,
+	@RequestMapping(value = "/company/Profile", method = RequestMethod.GET)
+	public ModelAndView profileCompany(@RequestParam("company_id") Integer company_id, ModelAndView model,
 	        HttpServletRequest request) {
 		CompanyDto companyProfile = this.companyservice.dogetCompany(company_id);
-		model.addObject("CompanyProfile", companyProfile);
+		model.addObject("CompanyProfile", companyProfile);	
+		User user =userService.doGetLoginInfo();
+		long userIdForCompany = user.getId();
+		User company = this.userService.doGetApplicantById(userIdForCompany );
+		model.addObject("ComapanyProfile", company);
 		model.setViewName("companyProfile");
-
-		return model;
+		return model;		
 	}
 
 	@RequestMapping(value = "/company/Profile/Update", method = RequestMethod.POST)
@@ -322,5 +332,4 @@ public class JobAgencyCompanyController {
 		ModelAndView deleteView = new ModelAndView("redirect:/company/List");
 		return deleteView;
 	}
-
 }

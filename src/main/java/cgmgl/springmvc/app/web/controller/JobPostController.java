@@ -79,7 +79,7 @@ public class JobPostController {
      */
     @RequestMapping(value = "/post/applicant/list")
     public ModelAndView getJobPostListByApplicant(
-            @RequestParam(value = "page", defaultValue = "1", required = false) Long page, ModelAndView model) {
+            @RequestParam(value = "page", defaultValue = "0", required = false) Long page, ModelAndView model) {
         List<JobType> typeList = jobPostService.doGetJobTypeList();
         model.addObject("JobTypeList", typeList);
         int count = jobPostService.doGetJobPostListCount();
@@ -145,6 +145,12 @@ public class JobPostController {
         jobPostDetailView.addObject("jobPostDetails", jobPostDto);
         jobPostDetailView.setViewName("detailsJobPost");
         return jobPostDetailView;
+    }
+    
+    @RequestMapping(value = "/post/apply")
+    public ModelAndView applyJobPost(ModelAndView model) {
+        model.setViewName("applyJobPost");
+        return model; 
     }
 
     /**

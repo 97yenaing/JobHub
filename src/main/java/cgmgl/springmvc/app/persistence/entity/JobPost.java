@@ -1,14 +1,19 @@
 package cgmgl.springmvc.app.persistence.entity;
 
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -89,12 +94,17 @@ public class JobPost {
     @ManyToOne
     @JoinColumn(name = "jobType_id", nullable = false)
     private JobType jobType;
-    
-    /*
-     * @ManyToOne
-     * 
-     * @JoinColumn(name = "company_id", nullable = false) private Company company;
+
+    /**
+     * <h2>company</h2>
+     * <p>
+     * company
+     * </p>
      */
+    @ManyToOne
+    @JoinColumn(name = "company_id", nullable = false)
+    private Company company;
+
     /**
      * <h2>created_at</h2>
      * <p>
@@ -103,18 +113,18 @@ public class JobPost {
      */
     @Column(name = "created_at")
     private Date created_at;
-    
+
     /**
-     * <h2> updated_at</h2>
+     * <h2>updated_at</h2>
      * <p>
      * updated_at
      * </p>
      */
     @Column(name = "updated_at")
     private Date updated_at;
-    
+
     /**
-     * <h2> deleted_at</h2>
+     * <h2>deleted_at</h2>
      * <p>
      * deleted_at
      * </p>
@@ -122,12 +132,10 @@ public class JobPost {
     @Column(name = "deleted_at")
     private Date deleted_at;
 
-    /**
-     * <h2>expired_at</h2>
-     * <p>
-     * expired_at
-     * </p>
-     */
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "applicants_jobPosts", joinColumns = @JoinColumn(name = "post_id"), inverseJoinColumns = @JoinColumn(name = "info_id"))
+    private List<ApplicantInfo> applicantInfo = new ArrayList<ApplicantInfo>();
+
     /*
      * @Column(name = "expired_at") private Date expired_at;
      * 
@@ -150,10 +158,10 @@ public class JobPost {
         this.experience_year = jobPostDto.getExperience_year();
         this.num_of_position = jobPostDto.getNum_of_position();
         this.created_at = jobPostDto.getCreated_at();
-        //this.expired_at = jobPostDto.getExpired_at();
-        this.updated_at =jobPostDto.getUpdated_at();
-        this.deleted_at =jobPostDto.getDeleted_at();
+        this.updated_at = jobPostDto.getUpdated_at();
+        this.deleted_at = jobPostDto.getDeleted_at();
         this.jobType = jobPostDto.getJobType();
-        //this.company = jobPostDto.getCompany();
+        this.company = jobPostDto.getCompany();
+        this.applicantInfo = jobPostDto.getApplicantInfo();
     }
 }

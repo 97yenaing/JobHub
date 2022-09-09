@@ -1,5 +1,6 @@
 package cgmgl.springmvc.app.bl.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.Authority;
+import cgmgl.springmvc.app.persistence.entity.JobPost;
 import cgmgl.springmvc.app.persistence.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -52,6 +54,8 @@ public class ApplicantDto {
 	private String certificates;
 
 	private Date deleted_at;
+	
+	//private List<JobPost> jobPosts = new ArrayList<JobPost>();
 
 	public ApplicantDto(ApplicantInfo applicantInfo) {
 		this.applicantId = applicantInfo.getId();
@@ -64,5 +68,6 @@ public class ApplicantDto {
 		this.address = applicantInfo.getAddress();
 		this.certificates = applicantInfo.getCertificates();
 		this.deleted_at = applicantInfo.getDeleted_at();
+		//this.jobPosts = applicantInfo.getJobPosts();
 	}
 }

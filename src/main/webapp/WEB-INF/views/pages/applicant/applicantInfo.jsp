@@ -43,19 +43,19 @@
       <form:input id="post-image" path="profile" type="hidden"
         value="${imageData}" />
     </div>
-    <div class="group">
+    <div class="group clearfix">
       <label for="Phone No">Phone No:</label> <br>
       <form:input path="phone" value="${applicantInfoForm.phone }"
         class="form-input" placeholder="Enter Your Ph Number" />
       <form:errors path="phone" class="text-danger" />
     </div>
-    <div class="group">
+    <div class="group clearfix">
       <label for="company name">Address:</label> <br>
       <form:input path="address" value="${applicantInfoForm.address }"
         class="form-input" placeholder="Enter Your Address" />
       <form:errors path="address" class="text-danger" />
     </div>
-    <div class="group">
+    <div class="group clearfix">
       <label for="email">Gender:</label> <br>
       <form:select name="gender" path="gender"
         value="${applicantInfoForm.gender }" class="form-select">
@@ -64,7 +64,7 @@
       </form:select>
     </div>
 
-    <div class="group">
+    <div class="group clearfix">
       <label for="experience_year">Job Experience(Year):</label> <br>
       <form:input path="job_exp_year"
         value="${applicantInfoForm.job_exp_year }" class="form-input"

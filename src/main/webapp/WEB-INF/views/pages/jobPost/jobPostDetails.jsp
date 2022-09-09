@@ -36,21 +36,21 @@
           <form:input path="num_of_position" type="hidden" name="num_of_position"
           value="${jobPostDetails.num_of_position }"/>
         </a></li>
-    <%-- <li class="list-group-item"><b>Phone Number:</b> <a
-      class="float-right">${jobPostDetails.phone } <form:input
-          path="phone" type="hidden" name="phone"
-          value="${jobPostDetails.phone }"
+    <li><b>Phone Number:</b> 
+    <a class="float-right">${jobPostDetails.company.phone }
+      <form:input path="company" type="hidden" name="company"
+          value="${jobPostDetails.company}"
           class="form-control" />
     </a></li>
-    <li class="list-group-item"><b>Email:</b> <a
-      class="float-right">${jobPostDetails.email } <form:input
-          path="email" type="hidden" name="email"
-          value="${jobPostDetails.email }"
+    <li><b>Email:</b> 
+    <a class="float-right">${jobPostDetails.company.email } 
+      <form:input path="company" type="hidden" name="company"
+          value="${jobPostDetails.company}"
           class="form-control" />
-    </a></li> --%>
+    </a></li>
   </ul>
   </form:form>
-    <button type="submit" class="apply-btn" name="addUser">Apply</button> &nbsp; &nbsp;
+    <button type="submit" class="apply-btn" name="applyJob">Apply</button> &nbsp; &nbsp;
     <a class="detail-back-btn" href="${pageContext.request.contextPath}/post/applicant/list">Back</a>
 </div>
 </div>

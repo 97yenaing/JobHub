@@ -3,6 +3,48 @@
   clear: both;
   content: '';
 }
+/* drop down */
+.dropbtn {
+  background-color: #807c51a8;
+    color: white;
+    padding: 5px 50%;
+    font-size: 11px;
+    border: none;
+    cursor: pointer;
+   box-shadow: 0.5px 0.5px;
+}
+.tab {
+  width:8%;
+}
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #9d2a47;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
 
 @font-face {
   font-family: 'IBM Plex Sans-Bold';
@@ -21,10 +63,15 @@
   font-weight: 400;
   src: url('../font/IBMPlexSans-Regular.ttf');
 }
-.pc {display:block}
+
+.pc {
+  display: block
+}
+
 body {
   font-family: 'IBM Plex Sans Condensed';
   box-sizing: border-box;
+  font-size: 20px;
 }
 
 a {
@@ -36,17 +83,17 @@ a {
 }
 
 header #global-navi li a.active {
-  color: #ffd700;
-}
-header nav li a:hover {
- color:blue;
- text-decoration: none;
+  color: #01015d;
 }
 
+header nav li a:hover {
+  color: blue;
+  text-decoration: none;
+}
 
 header {
-  background-color: #fff;
-  margin-bottom: 20px;
+  background-color: #10314c0a;
+  margin-bottom: 0px;
 }
 
 .head-inner, .foot-inner {
@@ -56,8 +103,8 @@ header {
 }
 
 nav {
-  margin-bottom: 30px;
   margin-top: 20px;
+  //margin-top: 45px; //test
   box-shadow: 0px 3px #10314c0a;
   padding: 10px 0px;
 }
@@ -66,18 +113,38 @@ nav ul li {
   margin-right: 2%;
   float: left;
   text-decoration: none;
+  font-size:22px;
 }
 
-nav ul li:last-child {
+.image {
+  width: 4.5%;
+  border: none;
+  box-shadow: none;
+  border: none;
+  box-shadow: none;
+  padding: 0px 1%;
+  font-size: 15px;
+}
+
+/* nav ul li:last-child {
   margin-right: 0%;
   border: 1px solid #040822;
   padding: 0px 1%;
   border-radius: 5px;
   box-shadow: 0.5px 0.5px;
   font-size: 15px;
+} */
+.sign-up {
+  margin-right: 0%;
+  border: 1px solid #040822;
+  padding: 0px 1%;
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px;
+  font-size: 15px;
+  
 }
 
-nav ul li:nth-child(4) {
+.login-header {
   border: 1px solid #040822;
   padding: 0px 1%;
   border-radius: 5px;
@@ -85,8 +152,12 @@ nav ul li:nth-child(4) {
   font-size: 15px;
 }
 
-nav ul li:nth-child(3) {
+.about-us {
   margin-right: 56.2%;
+}
+
+.user-about {
+  margin-right:42%;
 }
 
 h1 {
@@ -96,6 +167,10 @@ h1 {
 .logo {
   width: 100%;
 }
+
+//nav ul li:nth-child(3) {
+//  margin-right: 54.2%;
+//}
 
 .search-container button {
   float: right;
@@ -119,21 +194,31 @@ h1 {
   margin-top: -4px;
 }
 
-.foot-logo, h1 {
+.foot-logo {
   float: left;
-  width: 6%;
+  width: 7%;
   margin-right: 1%;
 }
-
+.logo{
+  float: left;
+  width: 7%;
+  margin-right: 1%;
+  margin-top: 10px
+}
+.foot-logo{
+  margin-top: 30px;
+  margin-right: 3%;
+}
 .jobhub {
   border-bottom: 1px solid #425059;
-  background-color: #a3b99e;
+  background-color: #10314c0a;
+  // background-color: #76d0e933; //company
   padding-bottom: 30px;
   padding-top: 10px;
 }
 
 .foot-inner ul li {
-  line-height: 24px;
+  line-height: 1.6;
   float: left;
   margin-right: 3%;
   width: 27%;
@@ -153,7 +238,7 @@ h1 {
 
 .foot-inner ul li h5 {
   font-size: 25px;
-  font-weight: 300;
+  font-weight: 400;
   float: left;
   width: 100%;
   margin-bottom: 20px;
@@ -162,8 +247,9 @@ h1 {
 
 .foot-inner ul li .info li {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   list-style-type: square;
+  font-size: 20px;
 }
 
 .foot-inner ul li .info li::before {
@@ -181,19 +267,20 @@ h1 {
   font-size: 20px;
   font-weight: 300;
   float: left;
-  margin-left: 8%;
+  margin-left: 10%;
   font-style: italic;
+  margin-top: 0px;
 }
 
 .icon {
   float: left;
   width: 30%;
-  margin-left: 4%;
+  margin-left: 2%;
 }
 
 .icon li {
   float: left;
-  margin-right: 5%;
+  margin-right: 7%;
 }
 
 .icon li:last-child {
@@ -202,11 +289,10 @@ h1 {
 
 footer {
   font-size: 20px;
-  font-weight: 300;
-  border-bottom: 1px solid #486c6d;
+  font-weight: 400;
   padding: 20px;
   text-align: center;
-  background-color: #9eadb9;
+  background-color: #386c7b33;
   color: #080808;
 }
 
@@ -235,7 +321,6 @@ footer {
     width: 93.286%;
   }
   nav {
-    margin-bottom: 3.906vw;
     margin-top: 2.604vw;
     box-shadow: 0vw 0.391vw #10314c0a;
     padding: 1.302vw 0vw;
@@ -243,12 +328,13 @@ footer {
   nav ul li {
     margin-right: 2%;
     float: left;
+    font-size: 2.4vw;
   }
   nav ul li:last-child {
     margin-right: 0%;
     border: 0.13vw solid #040822;
     border-radius: 0.391vw;
-    box-shadow: 0.065vw 0.065vw;   
+    box-shadow: 0.065vw 0.065vw;
   }
   nav ul li:nth-child(4) {
     border: 0.13vw solid #040822;
@@ -256,7 +342,7 @@ footer {
     box-shadow: 0.065vw 0.065vw;
   }
   nav ul li:nth-child(3) {
-    margin-right:  39.2%;
+    margin-right: 39.2%;
   }
   h1 {
     margin-top: 1.302vw;
@@ -283,8 +369,6 @@ footer {
     margin-right: 1%;
   }
   .jobhub {
-    border-bottom: 0.13vw solid #425059;
-    background-color: #a3b99e;
     padding-bottom: 3.906vw;
     padding-top: 1.302vw;
   }
@@ -307,7 +391,7 @@ footer {
   }
   .foot-inner ul li .info li {
     margin-bottom: 1.302vw;
-    font-size: 1.172vw;
+    font-size: 1.872vw;
   }
   .foot-inner ul li .info li::before {
     position: absolute;
@@ -326,28 +410,27 @@ footer {
   .icon {
     float: left;
     width: 30%;
-    margin-left: 4%;
+    margin-left: 2%;
   }
   .icon li {
     float: left;
-    margin-right: 5%;
+    margin-right: 9%;
   }
   .icon li:last-child {
     margin-right: 0%;
   }
   footer {
-    font-size: 1.302vw;
+    font-size: 1.602vw;
     font-weight: 300;
-    border-bottom: 0.13vw solid #486c6d;
     padding: 2.604vw;
     text-align: center;
-    background-color: #9eadb9;
   }
 }
 
 @media screen and (max-width:767.9px) {
- 
-  .pc {display:none}
+  .pc {
+    display: none
+  }
   .btn-gnavi {
     right: 4.65%;
     position: absolute;
@@ -418,7 +501,9 @@ footer {
     right: 0vw;
     width: 100%;
   }
-  .pc {display:none}
+  .pc {
+    display: none
+  }
   header {
     margin-bottom: 3.125vw;
   }
@@ -429,7 +514,7 @@ footer {
     padding-top: 1.563vw;
   }
   .head-inner {
- padding-bottom: 1.25vw;
+    padding-bottom: 1.25vw;
   }
   nav {
     margin-bottom: 4.688vw;
@@ -449,7 +534,7 @@ footer {
     width: 100%;
   }
   .search-container button {
-  float: right;
+    float: right;
     padding: 0.638vw 1.719vw;
     font-size: 1.563vw;
     margin-top: 7px;
@@ -466,7 +551,7 @@ footer {
   }
   .login-out {
     float: left;
-    margin-top: 2.656vw;
+    margin-top: 4.656vw;
     margin-right: 3%;
     border: 1px solid #040822;
     padding: 0.313vw 1%;
@@ -474,14 +559,15 @@ footer {
     box-shadow: 0.078vw 0.078vw;
     font-size: 11px;
   }
-  .foot-logo, .ch1 {
+  .foot-logo {
+    margin-top: 2.656vw;
+  }
+  .foot-logo, h1 {
     float: left;
-    width: 8%;
+    width: 9%;
     margin-right: 5%;
   }
   .jobhub {
-    border-bottom: 0.156vw solid #425059;
-    background-color: #a3b99e;
     padding-bottom: 4.688vw;
     padding-top: 1.563vw;
   }
@@ -502,12 +588,12 @@ footer {
     margin-right: 0%;
   }
   .foot-inner ul li h5 {
-    font-size: 3.125vw;
-    margin-bottom: 3.125vw;
+    font-size: 2.125vw;
+    margin-bottom: 1.125vw;
   }
   .foot-inner ul li .info li {
-    margin-bottom: 1.563vw;
-    font-size: 1.406vw;
+    margin-bottom: 0.563vw;
+    font-size: 1.906vw;
   }
   .foot-inner ul li .info li::before {
     position: absolute;
@@ -530,21 +616,18 @@ footer {
   }
   .icon li {
     float: left;
-    margin-right: 10%;
+    margin-right: 13%;
   }
   .icon li:last-child {
     margin-right: 0%;
   }
   footer {
-    font-size: 1.563vw;
+    font-size: 1.763vw;
     font-weight: 300;
-    border-bottom: 0.156vw solid #486c6d;
     padding: 3.125vw;
     text-align: center;
-    background-color: #9eadb9;
   }
   .mobile {
     display: block;
   }
- 
 }

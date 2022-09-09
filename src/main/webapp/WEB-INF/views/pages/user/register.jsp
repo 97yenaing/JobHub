@@ -6,7 +6,7 @@
 <div class="com-inner">
   <div class="signup-container">
     <c:url var="register" value="/userInfo"></c:url>
-    <form:form class="form-container" action="${register }"
+    <form:form action="${register }"
       method="POST" id="form" modelAttribute="userForm">
       <h1>Sign Up with Your Role</h1>
       <c:if test="${errorMsg != null }">
@@ -55,7 +55,7 @@
       <button type="submit" name="signup" class="registerbtn">Sign
         Up</button>
       <div class="forgot-pass">
-        <a href="login_form.html" class="forgot-pass">Already have
+        <a href="<%=request.getContextPath()%>/login" class="forgot-pass">Already have
           an account?log In</a>
       </div>
     </form:form>

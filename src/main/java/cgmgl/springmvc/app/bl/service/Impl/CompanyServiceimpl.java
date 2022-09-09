@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.bl.service.CompanyService;
 import cgmgl.springmvc.app.persistence.dao.CompanyDAO;
@@ -19,6 +21,7 @@ import cgmgl.springmvc.app.persistence.entity.Company;
  * @author yair naing
  *
  */
+@Transactional
 @Service
 public class CompanyServiceimpl implements CompanyService {
 	@Autowired
