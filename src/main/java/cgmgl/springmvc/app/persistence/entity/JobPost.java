@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -130,12 +131,12 @@ public class JobPost {
     private Date deleted_at;
 
     /**
-     * <h2> applicantsJobPosts</h2>
+     * <h2>applicantsJobPosts</h2>
      * <p>
      * applicantsJobPosts
      * </p>
      */
-    @OneToMany(mappedBy = "jobPost")
+    @OneToMany(mappedBy = "jobPost", cascade = CascadeType.ALL)
     List<ApplicantJobPost> applicantsJobPosts = new ArrayList<ApplicantJobPost>();
 
     /**

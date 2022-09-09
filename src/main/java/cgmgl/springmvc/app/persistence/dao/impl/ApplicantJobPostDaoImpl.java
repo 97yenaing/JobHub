@@ -17,8 +17,8 @@ public class ApplicantJobPostDaoImpl implements ApplicantJobPostDao {
 
     @Override
     public void dbAddApplicantJobPost(ApplicantJobPost applicantJobPost, Date currentDate) {
+        System.out.println("dbAddApplicantJobPost...."+applicantJobPost);
         applicantJobPost.setApply_date(currentDate);
         sessionFactory.getCurrentSession().saveOrUpdate(applicantJobPost);
     }
-
 }

@@ -89,6 +89,7 @@ body {
 .find-first-sec .post-list .post .detail a{
   color: #04229b;
   padding: 5px 10px;
+  text-decoration: none;
 }
 
 /*  Ipad  */    

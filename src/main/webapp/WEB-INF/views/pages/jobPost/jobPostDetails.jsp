@@ -44,13 +44,15 @@
     </a></li>
     <li><b>Email:</b> 
     <a class="float-right">${jobPostDetails.company.email } 
-      <form:input path="company" type="hidden" name="company"
-          value="${jobPostDetails.company}"
+      <form:input path="company" type="hidden" name="company" 
+      value="${jobPostDetails.company}"
           class="form-control" />
     </a></li>
   </ul>
-  <button type="submit" class="apply-btn" name="applyJob">Apply</button> &nbsp; &nbsp;
-  <a class="detail-back-btn" href="${pageContext.request.contextPath}/post/applicant/list">Back</a>
+  <div class="create">
+    <button type="submit" class="apply-btn" name="applyJob">Apply</button> &nbsp; &nbsp;
+    <a class="detail-back-btn" href="${pageContext.request.contextPath}/post/applicant/list">Back</a>
+  </div>
   </form:form>
 </div>
 </div>
