@@ -54,7 +54,7 @@
         <div class="pagination">
           <ul class="pagination justify-content-center">
             <li class="list-group list-group-horizontal active"><c:forEach
-                begin="${startpage}" end="${endpage - 1}" var="p">
+                begin="${startpage}" end="${endpage}" var="p">
                 <c:choose>
                   <c:when test="${JobType != null}">
                     <a class="page-link"
@@ -69,9 +69,6 @@
                   href="<c:url value="/post/applicant/list" ><c:param name="page" value="${p}"/>${p}</c:url>">${p}</a> --%>
               </c:forEach></li>
           </ul>
-        </div>
-        <div class="detail">
-          <a href="${pageContext.request.contextPath}/post/details?id=${jobPost.id}">Details...</a>
         </div>
       </div>
     </div>

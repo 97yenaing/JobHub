@@ -22,8 +22,8 @@
         <put-attribute name="body"
             value="/WEB-INF/views/pages/login/passwordResetForm.jsp" />
     </definition>
-    <definition name="home" extends="template">
-        <put-attribute name="title" value="Job Hub Sign Up" />
+    <definition name="homePage" extends="template">
+        <put-attribute name="title" value="Job Hub" />
         <put-attribute name="body"
             value="/WEB-INF/views/pages/home/index.jsp" />
     </definition>

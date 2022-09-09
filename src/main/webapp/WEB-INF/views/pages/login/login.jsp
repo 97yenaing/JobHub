@@ -14,7 +14,7 @@
       <form action="<c:url value='/loginPage' />" method="POST">
         <font color="red">
           ${SPRING_SECURITY_LAST_EXCEPTION.message} </font>
-        <h2 class="login-header">login to jobhub</h2>
+        <h2 class="login-header1">login to jobhub</h2>
         <input type="text" name="useremail" placeholder="Enter email"
           class="login-input" /><br />
            <input type="password"

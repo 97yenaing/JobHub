@@ -23,7 +23,7 @@
       </h1>
       <nav id="global-navi" class="clearfix">
         <ul class="clearfix">
-          <li><a href="<%=request.getContextPath()%>/">Home</a></li>
+          <li><a href="<%=request.getContextPath()%>/homePageView">Home</a></li>
           <li><a
             href="<%=request.getContextPath()%>/post/applicant/list">Find
               Jobs</a></li>
@@ -57,10 +57,18 @@
 
                         </div>
                       </div></li>
-                    <li class="pc image"><a
-                      href="<%=request.getContextPath()%>/log-out"><img
+                    <li class="pc image">
+                      <%-- <a
+                      href="<%=request.getContextPath()%>/logout"><img
                         src="<c:url value="/assets/img/header/log-out.png" />"
-                        alt="logout"></a></li>
+                        alt="logout"></a></li> --%>
+                      <form
+                        action="<%=request.getContextPath()%>/logout"
+                        method="POST">
+                        <input type="submit" value="Logout" /> <input
+                          type="hidden" name="${_csrf.parameterName}"
+                          value="${_csrf.token}" />
+                      </form>
                     <li class="pc sing-up"><a
                       href="<%=request.getContextPath()%>/register">Sign
                         up</a></li>
@@ -84,10 +92,20 @@
                       href="<%=request.getContextPath()%>/company/Profile?company_id=${Login.company.company_id}"><img
                         src="<c:url value="/assets/img/header/profile.png" />"
                         alt="Profile"></a></li>
-                         <li class="pc image"><a
-                      href="<%=request.getContextPath()%>/log-out"><img
+                    <li class="pc image">
+                      <%-- <a
+                      href="<%=request.getContextPath()%>/logout"><img
                         src="<c:url value="/assets/img/header/log-out.png" />"
-                        alt="logout"></a></li>
+                        alt="logout"></a> --%>
+                      <form
+                        action="<%=request.getContextPath()%>/logout"
+                        method="POST">
+                        <input type="submit" value="Logout" /> <input
+                          type="hidden" name="${_csrf.parameterName}"
+                          value="${_csrf.token}" />
+                      </form>
+                    </li>
+
                   </c:if>
 
                   <c:if test="${authority.id == 3}">
@@ -106,10 +124,19 @@
                       href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}"><img
                         src="<c:url value="/assets/img/header/profile.png" />"
                         alt="Profile"></a></li>
-                         <li class="pc image"><a
-                      href="<%=request.getContextPath()%>/log-out"><img
+                    <li class="pc image">
+                      <%-- <a
+                      href="<%=request.getContextPath()%>/logout"><img
                         src="<c:url value="/assets/img/header/log-out.png" />"
-                        alt="logout"></a></li>
+                        alt="logout"></a> --%>
+                      <form
+                        action="<%=request.getContextPath()%>/logout"
+                        method="POST">
+                        <input type="submit" value="Logout" /> <input
+                          type="hidden" name="${_csrf.parameterName}"
+                          value="${_csrf.token}" />
+                      </form>
+                    </li>
                   </c:if>
 
                 </c:forEach>
