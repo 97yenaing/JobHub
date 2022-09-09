@@ -91,14 +91,15 @@ public class UserController {
 	public ModelAndView insert(@ModelAttribute("userForm") @Valid UserDto userDto, BindingResult result,
 	        HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView userView = new ModelAndView("register");
-		System.out.println(userDto.getEmail());
+		System.out.println("current" + userDto.getEmail());
 		int authoId = userDto.getAuthority().getId();
+		System.out.println("Error:" + result.hasErrors());
 		if (result.hasErrors()) {
 			List<Authority> authorities = authorityService.doGetAuthList();
-			UserDto newUser = new UserDto();
-			userView.addObject("userForm", newUser);
+			userView.addObject("userForm", userDto);
 			userView.addObject("authorityRoles", authorities);
 			userView.addObject("errorMsg", messageSource.getMessage("M_SC_0007", null, null));
+			return userView;
 		}
 
 		List<String> emailList = userService.doGetEmailList();
@@ -106,8 +107,7 @@ public class UserController {
 			System.out.println(email);
 			if (email.equals(userDto.getEmail())) {
 				List<Authority> authorities = authorityService.doGetAuthList();
-				UserDto newUser = new UserDto();
-				userView.addObject("userForm", newUser);
+				userView.addObject("userForm", userDto);
 				userView.addObject("authorityRoles", authorities);
 				userView.addObject("errorMsg", "Your email has already been registered!");
 				return userView;
@@ -117,8 +117,7 @@ public class UserController {
 		System.out.println(!userDto.getPassword().equals(userDto.getConfirmPwd()));
 		if (!userDto.getPassword().equals(userDto.getConfirmPwd())) {
 			List<Authority> authorities = authorityService.doGetAuthList();
-			UserDto newUser = new UserDto();
-			userView.addObject("userForm", newUser);
+			userView.addObject("userForm", userDto);
 			userView.addObject("authorityRoles", authorities);
 			userView.addObject("errorMsg", "Invalid Password!");
 			return userView;
@@ -147,6 +146,11 @@ public class UserController {
 			companyRegister.addObject("user", userDto);
 			companyRegister.setViewName("createCompany");
 			return companyRegister;
+		} else {
+			List<Authority> authorities = authorityService.doGetAuthList();
+			userView.addObject("userForm", userDto);
+			userView.addObject("authorityRoles", authorities);
+			userView.addObject("errorMsg", "You can't choose Admin role!");
 		}
 		return userView;
 	}
@@ -169,8 +173,7 @@ public class UserController {
 		List<Authority> authorities = authorityService.doGetAuthList();
 		if (result.hasErrors()) {
 			confirmView = new ModelAndView("createUser");
-			UserDto newUser = new UserDto();
-			confirmView.addObject("userForm", newUser);
+			confirmView.addObject("userForm", userDto);
 			confirmView.addObject("authorityRoles", authorities);
 			confirmView.addObject("errorMsg", messageSource.getMessage("M_SC_0007", null, null));
 			return confirmView;
@@ -180,8 +183,7 @@ public class UserController {
 			System.out.println(email);
 			if (email.equals(userDto.getEmail())) {
 				confirmView = new ModelAndView("createUser");
-				UserDto newUser = new UserDto();
-				confirmView.addObject("userForm", newUser);
+				confirmView.addObject("userForm", userDto);
 				confirmView.addObject("authorityRoles", authorities);
 				confirmView.addObject("errorMsg", "Your email has already been registered!");
 				return confirmView;
@@ -190,8 +192,7 @@ public class UserController {
 
 		if (!userDto.getPassword().equals(userDto.getConfirmPwd())) {
 			confirmView = new ModelAndView("createUser");
-			UserDto newUser = new UserDto();
-			confirmView.addObject("userForm", newUser);
+			confirmView.addObject("userForm", userDto);
 			confirmView.addObject("authorityRoles", authorities);
 			confirmView.addObject("errorMsg", "Invalid Password!");
 			return confirmView;
@@ -228,11 +229,12 @@ public class UserController {
 
 	@RequestMapping(value = "/applicantInfoSave", params = "addApplicant", method = RequestMethod.POST)
 	public ModelAndView insert(@ModelAttribute("applicantInfoForm") @Valid ApplicantDto applicantForm,
-	        BindingResult result, HttpServletRequest request, HttpServletResponse response) {
+	        BindingResult result, @RequestParam("imageData") String imageData, HttpServletRequest request,
+	        HttpServletResponse response) throws FileNotFoundException, IOException {
 		ModelAndView confirmView = new ModelAndView("applicantInfo");
+		applicantForm.setProfile(imageData);
 		if (result.hasErrors()) {
-			ApplicantDto newApplicant = new ApplicantDto();
-			confirmView.addObject("applicantInfoForm", newApplicant);
+			confirmView.addObject("applicantInfoForm", applicantForm);
 			confirmView.addObject("errorMsg", messageSource.getMessage("M_SC_0007", null, null));
 			return confirmView;
 		}

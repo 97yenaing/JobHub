@@ -18,7 +18,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class CompanyDto {
     private User user;
 

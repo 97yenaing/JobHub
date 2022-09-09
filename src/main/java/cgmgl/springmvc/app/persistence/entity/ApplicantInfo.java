@@ -18,6 +18,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
+import cgmgl.springmvc.app.bl.dto.ApplicantProfileDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -31,48 +32,64 @@ import lombok.Setter;
 @Entity
 @Table(name = "applicant_info")
 public class ApplicantInfo implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "info_id")
-    private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "info_id")
+	private long id;
+	
+	@Column(length = 9999)
+	private String profile;
 
-    private String profile;
+	private String phone;
 
-    private String phone;
+	private String job_exp_year;
 
-    private String job_exp_year;
+	private String job_history;
 
-    private String job_history;
+	private String edu_bg;
 
-    private String edu_bg;
+	private String gender;
 
-    private String gender;
+	private String address;
 
-    private String address;
-
-    private String certificates;
-
-    private Date deleted_at;
-
-    /*
-     * @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-     * 
-     * @JoinTable(name = "applicant_jobPost", joinColumns = @JoinColumn(name =
-     * "info_id"), inverseJoinColumns = @JoinColumn(name = "post_id")) private
-     * List<JobPost> jobPosts = new ArrayList<JobPost>();
-     */
-
-    public ApplicantInfo(ApplicantDto applicantDto) {
-        this.id = applicantDto.getApplicantId();
-        this.profile = applicantDto.getProfile();
-        this.phone = applicantDto.getPhone();
-        this.job_exp_year = applicantDto.getJob_exp_year();
-        this.job_history = applicantDto.getJob_history();
-        this.edu_bg = applicantDto.getEdu_bg();
-        this.gender = applicantDto.getGender();
-        this.address = applicantDto.getAddress();
-        this.certificates = applicantDto.getCertificates();
-        this.deleted_at = applicantDto.getDeleted_at();
-        //this.jobPosts = applicantDto.getJobPosts();
-    }
+	private String certificates;
+	
+	private Date deleted_at;
+	
+	public ApplicantInfo(ApplicantDto applicantDto)
+	{
+		this.id = applicantDto.getApplicantId();
+		this.profile = applicantDto.getProfile();
+		this.phone = applicantDto.getPhone();
+		this.job_exp_year = applicantDto.getJob_exp_year();
+		this.job_history = applicantDto.getJob_history();
+		this.edu_bg = applicantDto.getEdu_bg();
+		this.gender = applicantDto.getGender();
+		this.address = applicantDto.getAddress();
+		this.certificates = applicantDto.getCertificates();
+		this.deleted_at = applicantDto.getDeleted_at();
+	}
+	public ApplicantInfo(ApplicantInfo applicantInfo) {
+		this.id = applicantInfo.getId();
+		this.profile = applicantInfo.getProfile();
+		this.phone = applicantInfo.getPhone();
+		this.job_exp_year = applicantInfo.getJob_exp_year();
+		this.job_history = applicantInfo.getJob_history();
+		this.edu_bg = applicantInfo.getEdu_bg();
+		this.gender = applicantInfo.getGender();
+		this.address = applicantInfo.getAddress();
+		this.certificates = applicantInfo.getCertificates();
+		this.deleted_at = applicantInfo.getDeleted_at();
+	}
+	public ApplicantInfo(ApplicantProfileDto applicantProfile) {
+		this.id = applicantProfile.getApplicantId();
+		this.profile = applicantProfile.getProfile();
+		this.phone = applicantProfile.getPhone();
+		this.address = applicantProfile.getAddress();
+		this.job_exp_year = applicantProfile.getJob_exp_year();
+		this.job_history = applicantProfile.getJob_history();
+		this.edu_bg = applicantProfile.getEdu_bg();
+		this.gender = applicantProfile.getGender();
+		this.certificates = applicantProfile.getCertificates();
+	}
 }

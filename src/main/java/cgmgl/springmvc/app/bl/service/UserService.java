@@ -1,10 +1,13 @@
 package cgmgl.springmvc.app.bl.service;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
+import cgmgl.springmvc.app.bl.dto.ApplicantProfileDto;
 import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.persistence.entity.User;
@@ -16,7 +19,7 @@ public interface UserService {
 
     boolean doIsEmailExist(String user_email);
 
-    public void doSaveUser(@Valid ApplicantDto applicantForm);
+    public void doSaveUser(@Valid ApplicantDto applicantForm) throws FileNotFoundException, IOException;
 
     public User doGetUserById(long userId);
 
@@ -40,10 +43,13 @@ public interface UserService {
 
     User doGetLoginInfo();
     
-    public boolean doIsLoggedIn();
-    
+    public boolean doIsLoggedIn();    
 
-	public User doGetApplicantById(long userIdForApplicant);
+	public User doGetApplicantById(long userIdForApplicant) throws IOException;
+
+	public ApplicantProfileDto doGetApplicantByEmail(String userEmail);
+
+	public void doUpdateApplicant(@Valid ApplicantProfileDto profileDto);
 
     /**
      * Find by id.

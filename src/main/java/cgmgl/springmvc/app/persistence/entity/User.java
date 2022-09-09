@@ -23,6 +23,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.DynamicUpdate;
 
 import cgmgl.springmvc.app.bl.dto.ApplicantDto;
+import cgmgl.springmvc.app.bl.dto.ApplicantProfileDto;
 import cgmgl.springmvc.app.bl.dto.CompanyDto;
 import cgmgl.springmvc.app.bl.dto.UserDto;
 import lombok.AllArgsConstructor;
@@ -117,5 +118,16 @@ public class User implements Serializable {
 		this.deleted_at = companyDto.getUser().getDeleted_at();
 		this.company = companyDto.getUser().getCompany();
 		this.authorities = companyDto.getAuthorityList();
+	}
+	
+	public User(ApplicantProfileDto applicantProfileDto) {
+		this.id = applicantProfileDto.getUser().getId();
+		this.name = applicantProfileDto.getName();
+		this.email = applicantProfileDto.getEmail();
+		this.password = applicantProfileDto.getUser().getPassword();
+		this.created_at = applicantProfileDto.getUser().getCreated_at();
+		this.updated_at = applicantProfileDto.getUser().getUpdated_at();
+		this.deleted_at = applicantProfileDto.getUser().getDeleted_at();
+		this.applicantInfo = applicantProfileDto.getUser().getApplicantInfo();
 	}
 }
