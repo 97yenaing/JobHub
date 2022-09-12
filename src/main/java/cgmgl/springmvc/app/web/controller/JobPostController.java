@@ -92,7 +92,7 @@ public class JobPostController {
      */
     @RequestMapping(value = "/post/applicant/list")
     public ModelAndView getJobPostListByApplicant(
-            @RequestParam(value = "page", defaultValue = "1", required = false) Long page, ModelAndView model) {
+            @RequestParam(value = "page", defaultValue = "0", required = false) Long page, ModelAndView model) {
         List<JobType> typeList = jobPostService.doGetJobTypeList();
         model.addObject("JobTypeList", typeList);
         int count = jobPostService.doGetJobPostListCount();

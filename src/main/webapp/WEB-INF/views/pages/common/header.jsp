@@ -120,10 +120,20 @@
 
                         </div>
                       </div></li>
-                    <li class="pc image"><a
-                      href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}"><img
+                    <li class="pc image">
+                    <c:if test="${Login.applicantInfo.profile == null}">
+                    <a href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}"><img
                         src="<c:url value="/assets/img/header/profile.png" />"
-                        alt="Profile"></a>${Login.applicantInfo.id}</li>
+                        alt="Profile"></a>${Login.applicantInfo.id}
+                        </c:if>
+                    <c:if test="${Login.applicantInfo.profile != null}">
+                    <a href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}">
+                      <img class="profile-img"
+                      src="${Login.applicantInfo.profile }"
+                      style="width: 35px; height: 35px;" alt="Profile">
+                        </a>${Login.name}
+                        </c:if>
+                     </li>
                     <li class="pc image">
                       <%-- <a
                       href="<%=request.getContextPath()%>/logout"><img
