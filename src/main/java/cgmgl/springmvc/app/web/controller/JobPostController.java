@@ -1,5 +1,6 @@
 package cgmgl.springmvc.app.web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +20,10 @@ import org.springframework.web.servlet.ModelAndView;
 import cgmgl.springmvc.app.bl.dto.ApplicantJobPostDto;
 import cgmgl.springmvc.app.bl.dto.JobPostDto;
 import cgmgl.springmvc.app.bl.service.JobPostService;
+import cgmgl.springmvc.app.bl.service.UserService;
 import cgmgl.springmvc.app.persistence.entity.JobPost;
 import cgmgl.springmvc.app.persistence.entity.JobType;
+import cgmgl.springmvc.app.persistence.entity.User;
 
 /**
  * <h2>JobPostController Class</h2>
@@ -41,6 +44,8 @@ public class JobPostController {
      */
     @Autowired
     private JobPostService jobPostService;
+    @Autowired
+    private UserService userService;
     /**
      * <h2>messageSource</h2>
      * <p>
@@ -62,8 +67,15 @@ public class JobPostController {
      */
     @RequestMapping(value = "/post/list")
     public ModelAndView getJobPostList(ModelAndView model) {
+        User user = userService.doGetLoginInfo();
         List<JobPost> jobPostList = jobPostService.doGetJobPostList();
-        model.addObject("JobPostList", jobPostList);
+        List<JobPost> jobPostListByComId = new ArrayList<JobPost>();
+        for(JobPost jobPost : jobPostList) {
+            if(jobPost.getCompany().getCompany_id()==user.getCompany().getCompany_id()) {
+                jobPostListByComId.add(jobPost);
+            }
+        }
+        model.addObject("JobPostList", jobPostListByComId);
         model.setViewName("jobPostList");
         return model;
     }

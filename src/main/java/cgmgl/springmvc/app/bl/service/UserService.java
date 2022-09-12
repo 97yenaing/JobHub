@@ -41,9 +41,10 @@ public interface UserService {
     User doGetLoginInfo();
     
     public boolean doIsLoggedIn();
-    
 
 	public User doGetApplicantById(long userIdForApplicant);
+
+    public List<User> doGetUserNameList();
 
     /**
      * Find by id.

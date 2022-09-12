@@ -229,4 +229,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
       // TODO Auto-generated method stub
       return this.doGetUserById(userIdForApplicant);
     }
+
+    @Override
+    public List<User> doGetUserNameList() {
+        return this.userDAO.dbGetUserNameList();
+    }
 }

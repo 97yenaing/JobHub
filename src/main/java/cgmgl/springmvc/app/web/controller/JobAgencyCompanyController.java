@@ -69,11 +69,11 @@ public class JobAgencyCompanyController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/company/applicant/List", method = RequestMethod.GET)
-	public ModelAndView getApplicantJobPostList(ModelAndView model) {
-	    model.setViewName("applicantJobPostList");
-        return model; 
-	}
+    /*
+     * @RequestMapping(value = "/company/applicant/List", method =
+     * RequestMethod.GET) public ModelAndView getApplicantJobPostList(ModelAndView
+     * model) { model.setViewName("applicantJobPostList"); return model; }
+     */
 
 	/**
 	 * <h2>createCompany</h2>
