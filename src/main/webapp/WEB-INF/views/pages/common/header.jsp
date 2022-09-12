@@ -82,10 +82,10 @@
                         <button onclick="myFunction()" class="dropbtn">Dashboard</button>
                         <div id="myDropdown" class="dropdown-content">
                           <a
-                            href="<%=request.getContextPath()%>/applicant/list">ApplicantInfo
+                            href="<%=request.getContextPath()%>/post/apply/list">ApplicantInfo
                             List</a> <a
                             href="<%=request.getContextPath()%>/post/list">Job
-                            Category List</a>
+                            Post List</a>
 
                         </div>
                       </div></li>
@@ -208,10 +208,10 @@
                         <button onclick="myFunction()" class="dropbtn">Dashboard</button>
                         <div id="myDropdown" class="dropdown-content">
                           <a
-                            href="<%=request.getContextPath()%>/applicant/list">ApplicantInfo
+                            href="<%=request.getContextPath()%>/post/apply/list">ApplicantInfo
                             List</a> <a
                             href="<%=request.getContextPath()%>/post/list">Job
-                            Category List</a>
+                            Post List</a>
 
                         </div>
                       </div></li>
