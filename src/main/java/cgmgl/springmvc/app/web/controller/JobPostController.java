@@ -110,7 +110,7 @@ public class JobPostController {
             @RequestParam(value = "page", defaultValue = "0", required = false) Long page,
             @RequestParam("id") Integer jobTypeId) {
         ModelAndView applicantFindJob = new ModelAndView("applicantJobPost");
-        int count = jobPostService.doGetJobPostListCount();
+        int count = jobPostService.doGetJobPostListCount1(jobTypeId);
         int startpage = (int) (page - count/4 > 1 ? page - count/ 4: 1);
         int endpage = startpage + (count%4 == 0 ? (count/4)-1 : count/4);
         List<JobType> typeList = jobPostService.doGetJobTypeList();

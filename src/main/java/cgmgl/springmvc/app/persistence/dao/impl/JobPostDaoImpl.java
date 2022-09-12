@@ -65,7 +65,9 @@ public class JobPostDaoImpl implements JobPostDao {
         List<JobPost> resultJobPost = (List<JobPost>) jobPostByJobType.list();
         return resultJobPost;
     }
+    
     private static final int limitResultsPerPage =4 ;
+    @SuppressWarnings({ "unchecked", "deprecation", "rawtypes" })
     @Override
     public List<JobPost> dbgetJobPostList(Long page) {
         Query q = sessionFactory.getCurrentSession().createQuery(
@@ -74,10 +76,11 @@ public class JobPostDaoImpl implements JobPostDao {
         q.setMaxResults(limitResultsPerPage);
         return (List<JobPost>) q.list();
     }
-
+    
+    @SuppressWarnings({ "unchecked", "deprecation", "rawtypes" })
     @Override
     public List<JobPost> dbGetJobPostByJobTypeId(Integer jobTypeId, Long page) {
-        Query q = sessionFactory.getCurrentSession().createQuery("SELECT p FROM JobPost p where p.jobType.id = :id");
+        Query q = sessionFactory.getCurrentSession().createQuery("SELECT p FROM JobPost p where p.jobType.id = :id and p.deleted_at is null");
         q.setParameter("id", jobTypeId);
         q.setFirstResult((int) (page * limitResultsPerPage));
         q.setMaxResults(limitResultsPerPage);
@@ -150,5 +153,23 @@ public class JobPostDaoImpl implements JobPostDao {
     public void dbUpdateJobPost(JobPost jobPost, Date updateAt) {
         this.sessionFactory.getCurrentSession().update(jobPost);
     }
+    /**
+     * <h2> dbGetJobPostByJobTypeIdList </h2>
+     * <p>
+     * 
+     * </p>
+     * 
+     * @param jobTypeId
+     * @return
+     */
+    @SuppressWarnings({ "unchecked", "deprecation", "rawtypes" })
+    @Override
+    public List<JobPost> dbGetJobPostByJobTypeIdList(Integer jobTypeId) {
+            String jobPostQuery = "SELECT p FROM JobPost p where p.jobType.id = :id and p.deleted_at is null";
+            Query jobPostByJobType = this.sessionFactory.getCurrentSession().createQuery(jobPostQuery);
+            jobPostByJobType.setParameter("id", jobTypeId);
+            List<JobPost> resultJobPost = (List<JobPost>) jobPostByJobType.list();
+            return resultJobPost;
+        }
    
 }

@@ -111,4 +111,6 @@ public interface JobPostService {
     public List<JobPost> doGetJobPostByJobTypeId(Integer jobTypeId, Long page);
 
     public int doGetJobPostListCount();
+
+    public int doGetJobPostListCount1(Integer jobTypeId);
 }

@@ -87,4 +87,6 @@ public interface JobPostDao {
     public List<JobPost> dbgetJobPostList(Long page);
 
     public List<JobPost> dbGetJobPostByJobTypeId(Integer jobTypeId, Long page);
+
+    public List<JobPost> dbGetJobPostByJobTypeIdList(Integer jobTypeId);
 }

@@ -184,7 +184,16 @@ public class JobPostServiceImpl implements JobPostService {
     public int doGetJobPostListCount() {
         int count = 0;
         List<JobPost> jobPostList = jobPostDao.dbGetJobPostList();
-        for (JobPost jobPost : jobPostList) {
+        for (JobPost jobPost1 : jobPostList) {
+            count++;
+        }
+        return count;
+    }
+    @Override
+    public int doGetJobPostListCount1(Integer jobTypeId) {
+        int count = 0;
+        List<JobPost> jobPostList = jobPostDao.dbGetJobPostByJobTypeIdList(jobTypeId);
+        for (JobPost jobPost2 : jobPostList) {
             count++;
         }
         return count;
