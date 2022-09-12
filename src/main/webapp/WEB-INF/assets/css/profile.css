@@ -2,7 +2,8 @@ body {
   margin: 0 auto;
   max-width: 1400px;
   font-size: 20px;
- }
+}
+
 .card {
   margin: 0 auto;
   max-width: 70%;
@@ -11,6 +12,7 @@ body {
   padding-bottom: 20px;
   margin-bottom: 20px;
 }
+
 .profile-header {
   padding-top: 20px;
   text-align: center;
@@ -19,42 +21,56 @@ body {
   letter-spacing: 0.5px;
   margin-bottom: 3%;
 }
+
 .profile-img {
   margin: 0 0 3% 32%;
   width: 12%;
-} 
+}
+
 .card ul {
   margin: 0 auto;
   max-width: 80%;
   line-height: 4;
 }
+
 .card ul .float-right {
   float: right;
 }
+
 .card .btn-div {
   margin: 0 auto;
   max-width: 23.5%;
 }
+
 .card .button1 {
   margin-left: 38%;
 }
+
 .card .button2 {
   padding: 10px 20px;
   border-radius: 25px;
-  font-size: 20px;  
+  font-size: 20px;
 }
+
 .confirm-btn1 {
   margin-left: 34%;
   padding: 10px;
-  border-radius: 15px; 
+  border-radius: 15px;
   background-color: #a8c6fa;
 }
+
 .confirm-btn2 {
   padding: 10px;
   border-radius: 15px;
 }
+
 .margin-btn {
   margin-left: 38%;
+}
+
+.fix-image {
+  width: 200px;
+  height: 200px;
 }
 
 /*for ipad*/
@@ -81,7 +97,11 @@ body {
     width: 13%;
   }
   .card .button2 {
-    margin-top: 10px; 
+    margin-top: 10px;
+  }
+  .fix-image {
+    width: 26.042vw;
+    height: 26.042vw;
   }
 }
 
@@ -109,9 +129,13 @@ body {
     font-size: 2.5vw;
   }
   .card .button2 {
-    margin-top: 1.563vw; 
+    margin-top: 1.563vw;
     padding: 1.563vw;
     border-radius: 2.344vw;
     font-size: 2.5vw;
+  }
+  .fix-image {
+    width: 31.25vw;
+    height: 31.25vw;
   }
 }

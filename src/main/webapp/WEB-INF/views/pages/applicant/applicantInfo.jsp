@@ -11,11 +11,6 @@
 <div class="form-card">
   <h1 class="form-header applicant-header">Applicant's Registration
   </h1>
-  <c:if test="${errorMsg != null }">
-    <div class="alert custom-alert">
-      <strong>${errorMsg }</strong>
-    </div>
-  </c:if>
   <c:url var="applicantInfo" value="/applicantInfoSave"></c:url>
   <form:form class="form-container" action="${applicantInfo }"
     method="POST" id="form" modelAttribute="applicantInfoForm">
@@ -43,17 +38,17 @@
       <form:input id="post-image" path="profile" type="hidden"
         value="${imageData}" />
     </div>
+    <form:errors path="phone" class="text-danger" />
     <div class="group clearfix">
       <label for="Phone No">Phone No:</label> <br>
       <form:input path="phone" value="${applicantInfoForm.phone }"
-        class="form-input" placeholder="Enter Your Ph Number" />
-      <form:errors path="phone" class="text-danger" />
+        class="form-input" placeholder="Enter Your Ph Number" />      
     </div>
+    <form:errors path="address" class="text-danger" />
     <div class="group clearfix">
       <label for="company name">Address:</label> <br>
       <form:input path="address" value="${applicantInfoForm.address }"
-        class="form-input" placeholder="Enter Your Address" />
-      <form:errors path="address" class="text-danger" />
+        class="form-input" placeholder="Enter Your Address" />    
     </div>
     <div class="group clearfix">
       <label for="email">Gender:</label> <br>
@@ -63,34 +58,33 @@
         <option>FEMALE</option>
       </form:select>
     </div>
-
+    <form:errors path="job_exp_year" class="text-danger" />
     <div class="group clearfix">
       <label for="experience_year">Job Experience(Year):</label> <br>
       <form:input path="job_exp_year"
         value="${applicantInfoForm.job_exp_year }" class="form-input"
-        placeholder="Enter Your Experience(Year)" />
-      <form:errors path="job_exp_year" class="text-danger" />
+        placeholder="Enter Your Experience(Year)" />     
     </div>
+    <form:errors path="job_history" class="text-danger" />
     <div class="group clearfix">
       <label for="job_history">Job History:</label> <br>
       <form:textarea path="job_history"
         value="${applicantInfoForm.job_history }" class="form-textarea"
-        placeholder="Mention your previous jobs" rows="3" />
-      <form:errors path="job_history" class="text-danger" />
+        placeholder="Mention your previous jobs" rows="3" />      
     </div>
+    <form:errors path="edu_bg" class="text-danger" />
     <div class="group clearfix">
       <label for="edu_bg">Education Background:</label> <br>
       <form:textarea path="edu_bg" value="${applicantInfoForm.edu_bg }"
         class="form-textarea" placeholder="Enter Your Edu Background."
-        rows="3" />
-      <form:errors path="edu_bg" class="text-danger" />
+        rows="3" />      
     </div>
+    <form:errors path="certificates" class="text-danger" />
     <div class="group clearfix">
       <label for="certificates">Certificates:</label> <br>
       <form:textarea path="certificates"
         value="${applicantInfoForm.certificates }" class="form-textarea"
-        placeholder="Mention the Certificates you got." rows="3" />
-      <form:errors path="certificates" class="text-danger" />
+        placeholder="Mention the Certificates you got." rows="3" />      
     </div>
     <div class="create">
       <button type="submit" class="form-btn" name="addApplicant">Create</button>
