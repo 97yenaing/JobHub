@@ -33,7 +33,7 @@ import cgmgl.springmvc.app.persistence.entity.User;
 @Controller
 public class LoginController {
     /**
-     * <h2> userService</h2>
+     * <h2>userService</h2>
      * <p>
      * userService
      * </p>
@@ -42,16 +42,16 @@ public class LoginController {
     private UserService userService;
 
     /**
-     * <h2> jobPostService</h2>
+     * <h2>jobPostService</h2>
      * <p>
      * jobPostService
      * </p>
      */
     @Autowired
     private JobPostService jobPostService;
-    
+
     /**
-     * <h2> session</h2>
+     * <h2>session</h2>
      * <p>
      * session
      * </p>
@@ -60,7 +60,7 @@ public class LoginController {
     private HttpSession session;
 
     /**
-     * <h2> Homepage</h2>
+     * <h2>Homepage</h2>
      * <p>
      * 
      * </p>
@@ -78,7 +78,7 @@ public class LoginController {
     }
 
     /**
-     * <h2> homePageView</h2>
+     * <h2>homePageView</h2>
      * <p>
      * 
      * </p>
@@ -94,6 +94,7 @@ public class LoginController {
         model.setViewName("homePage");
         return model;
     }
+
     /**
      * <h2>homePage</h2>
      * <p>
@@ -113,11 +114,12 @@ public class LoginController {
         System.out.println(user.getEmail());
         System.out.println(user.getName());
         model.setViewName("homePage");
-        session.setAttribute("Login",this.userService.doGetLoginInfo());
+        session.setAttribute("Login", this.userService.doGetLoginInfo());
         return model;
     }
+
     /**
-     * <h2> aboutUsPage</h2>
+     * <h2>aboutUsPage</h2>
      * <p>
      * 
      * </p>
@@ -133,7 +135,7 @@ public class LoginController {
     }
 
     /**
-     * <h2> companyPage</h2>
+     * <h2>companyPage</h2>
      * <p>
      * 
      * </p>
@@ -141,13 +143,13 @@ public class LoginController {
      * @return
      * @return String
      */
-    @RequestMapping(value = "/company" , method = RequestMethod.GET)
+    @RequestMapping(value = "/company", method = RequestMethod.GET)
     public String companyPage() {
         return "admin";
     }
-  
+
     /**
-     * <h2> AccessDenied</h2>
+     * <h2>AccessDenied</h2>
      * <h2>applicantPage</h2>
      * <p>
      * 
@@ -162,9 +164,8 @@ public class LoginController {
         ModelAndView model = new ModelAndView("access-denied");
         return model;
     }
-    
     /**
-     * <h2> Logout</h2>
+     * <h2>Logout</h2>
      * <p>
      * 
      * </p>
