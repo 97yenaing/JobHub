@@ -67,7 +67,7 @@ public class ApplicantInfo implements Serializable {
 		this.address = applicantDto.getAddress();
 		this.certificates = applicantDto.getCertificates();
 		this.deleted_at = applicantDto.getDeleted_at();
-    this.applicantsJobPosts = applicantDto.getApplicantsJobPosts();
+		this.applicantsJobPosts = applicantDto.getApplicantsJobPosts();
 	}
 	public ApplicantInfo(ApplicantInfo applicantInfo) {
 		this.id = applicantInfo.getId();
@@ -80,7 +80,7 @@ public class ApplicantInfo implements Serializable {
 		this.address = applicantInfo.getAddress();
 		this.certificates = applicantInfo.getCertificates();
 		this.deleted_at = applicantInfo.getDeleted_at();
-    this.applicantsJobPosts = applicantDto.getApplicantsJobPosts();
+		this.applicantsJobPosts = applicantInfo.getApplicantsJobPosts();
 	}
 	public ApplicantInfo(ApplicantProfileDto applicantProfile) {
 		this.id = applicantProfile.getApplicantId();
