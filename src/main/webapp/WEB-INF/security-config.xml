@@ -16,12 +16,14 @@
             access="hasRole('ADMIN')" />
         <!-- Job Post -->
         <intercept-url pattern="/post/list"
-            access="hasAnyRole('COMPANY','ADMIN')" />
+            access="hasAnyRole('COMPANY')" />
 
         <intercept-url pattern="/post/create"
             access="hasRole('COMPANY')" />
         <intercept-url pattern="/post/apply"
             access="hasRole('APPLICANT')" />
+        <intercept-url pattern="/post/apply/list"
+            access="hasRole('COMPANY')" />
 
         <!-- <intercept-url pattern="/post/create/confirm" access="hasRole('COMPANY')" 
             /> -->
