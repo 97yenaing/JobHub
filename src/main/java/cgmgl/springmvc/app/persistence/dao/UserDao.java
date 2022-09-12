@@ -93,4 +93,6 @@ public interface UserDao {
 	void dbAddCompany(User user, Company companyInfo, Date created_date);
 
     public List<User> dbGetUserNameList();
+
+    List<User> dbGetUserListById(int i);
 }

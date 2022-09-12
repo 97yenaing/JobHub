@@ -317,4 +317,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         updateUser.setUpdated_at(updatedDate);
         this.userDAO.dbUpdateUser(updateUser);
     }
+
+    @Override
+    public List<User> doGetUserListById(int i) {
+        
+        return this.userDAO.dbGetUserListById(i);
+    }
 }

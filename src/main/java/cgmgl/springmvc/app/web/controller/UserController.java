@@ -258,6 +258,14 @@ public class UserController {
 		model.setViewName("userList");
 		return model;
 	}
+	@RequestMapping(value = "/user/admin/list")
+    public ModelAndView getAdminList(ModelAndView model) throws IOException {
+        List<User> userList = userService.doGetUserListById(1);
+        model.addObject("UserList", userList);
+        model.setViewName("userList");
+        return model;
+    }
+	
 
 	@RequestMapping(value = "/editUser", method = RequestMethod.GET)
 	public ModelAndView editUser(@RequestParam("id") Long userId, HttpServletRequest request) {

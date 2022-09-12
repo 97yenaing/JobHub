@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import cgmgl.springmvc.app.persistence.dao.UserDao;
 import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.Company;
+import cgmgl.springmvc.app.persistence.entity.JobPost;
 import cgmgl.springmvc.app.persistence.entity.User;
 
 /**
@@ -181,5 +182,13 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> dbGetUserNameList() {
         return sessionFactory.getCurrentSession().createQuery("select name from User").list();
+    }
+
+    @Override
+    public List<User> dbGetUserListById(int i) {
+        Query q = sessionFactory.getCurrentSession().createQuery("SELECT p FROM User p where p.authority.id = :id");
+        q.setParameter("id", i);
+        List<User> resultJobPost = (List<User>) q.list();
+        return resultJobPost;
     }
 }

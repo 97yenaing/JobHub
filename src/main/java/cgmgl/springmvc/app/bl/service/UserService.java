@@ -53,6 +53,8 @@ public interface UserService {
 
     public List<User> doGetUserNameList();
 
+    List<User> doGetUserListById(int i);
+
     /**
      * Find by id.
      *

@@ -78,7 +78,21 @@
     </div>
   </section>
 </div> --%>
-<div class="list-data">
+<ul class="nav-tabs clearfix">
+            <li><a
+              href="${pageContext.request.contextPath}/user/admin/list"
+              class="btn btn-info">Admin List</a></li>
+               <li><a
+              href="${pageContext.request.contextPath}/user/company/list"
+              class="btn btn-info">Company List</a></li>
+               <li><a
+              href="${pageContext.request.contextPath}/user/applicant/list"
+              class="btn btn-info">Applicant List</a></li>
+        </ul>
+        <ul class="post-list clearfix">
+            <li class="post tab1 heightline-post">
+              <div class="clearfix">
+                <div class="list-data">
   <div class="com-inner">
     <div class="table-responsive">
       <a href="${pageContext.request.contextPath}/createUser"
@@ -127,3 +141,62 @@
     </div>
   </div>
 </div>
+
+
+                <div class="detail">
+                  <i class="fa-solid fa-circle-right"></i> <a href="${pageContext.request.contextPath}/post/details?id=${jobPost.id}">More
+                    details...</a>
+                </div>
+              </div>
+            </li>
+        </ul>
+<%-- <div class="list-data">
+  <div class="com-inner">
+    <div class="table-responsive">
+      <a href="${pageContext.request.contextPath}/createUser"
+        class="btn btn-info">Add User</a>
+      <table id="data-table" class="table table-striped"
+        style="width: 100%">
+        <thead class="table-header">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Created At</th>
+            <th>Updated At</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <c:forEach items="${UserList}" var="user" varStatus="loop">
+            <c:if test="${user.deleted_at == null }">
+              <tr>
+                <td>${user.id }</td>
+                <td>${user.name }</td>
+                <td>${user.email}</td>
+                <c:forEach items="${user.authorities }" var="auo"
+                  varStatus="loop">
+                  <td>${auo.name }</td>
+                </c:forEach>
+                <td>${user.created_at}</td>
+                <td>${user.updated_at}</td>
+                <td><a
+                  href="${pageContext.request.contextPath}/editUser?id=${user.id}"
+                  class="btn btn-info"><i
+                    class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                  <a
+                  href="${pageContext.request.contextPath}/deleteUser?id=${user.id }"
+                  onclick="if (!(confirm('Are you sure you want to delete this post?'))) return false"><i
+                    class="fa fa-trash" aria-hidden="true"></i></a></td>
+              </tr>
+            </c:if>
+          </c:forEach>
+
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+ --%>
