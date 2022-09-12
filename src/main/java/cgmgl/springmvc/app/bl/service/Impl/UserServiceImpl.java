@@ -264,7 +264,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         // TODO Auto-generated method stub
         User user = this.doGetUserById(userIdForApplicant);
         UserDto userDto = new UserDto(user);
-        if (userDto.getApplicantInfo().getProfile() != null) {
+        if (userDto.getApplicantInfo() != null && userDto.getApplicantInfo().getProfile() != null) {
             String applicantImagePath = userDto.getApplicantInfo().getProfile();
             System.out.println(applicantImagePath + "Path");
             File applicantImgFile = new File(applicantImagePath);

@@ -12,7 +12,7 @@ public interface CompanyService {
 
 	public void dodeleteCompanyID(int company_id);
 
-	public CompanyDto dogetCompany(int company_id);
+	public Company dogetCompany(int company_id);
 
 	public void doupdateCompany(CompanyDto companyform);
 	

@@ -156,7 +156,7 @@ public class JobAgencyCompanyController {
 			authorities.add(authority);
 			companydto.setAuthorityList(authorities);
 			this.userService.doSaveCompany(companydto);
-			ModelAndView createCompanyView = new ModelAndView("redirect:/");
+			ModelAndView createCompanyView = new ModelAndView("redirect:/login");
 			return createCompanyView;
 		}
 
@@ -231,7 +231,7 @@ public class JobAgencyCompanyController {
 	@RequestMapping(value = "/company/Profile", method = RequestMethod.GET)
 	public ModelAndView profileCompany(@RequestParam("company_id") Integer company_id, ModelAndView model,
 	        HttpServletRequest request) throws IOException {
-		CompanyDto companyProfile = this.companyservice.dogetCompany(company_id);
+		Company companyProfile = this.companyservice.dogetCompany(company_id);
 		model.addObject("CompanyProfile", companyProfile);	
 		User user =userService.doGetLoginInfo();
 		long userIdForCompany = user.getId();
@@ -243,7 +243,7 @@ public class JobAgencyCompanyController {
 
 	@RequestMapping(value = "/company/Profile/Update", method = RequestMethod.POST)
 	public ModelAndView profileUpdate(@RequestParam("company_id") Integer company_id, HttpServletRequest request) {
-		CompanyDto companyProfile = this.companyservice.dogetCompany(company_id);
+		Company companyProfile = this.companyservice.dogetCompany(company_id);
 		ModelAndView model = new ModelAndView("CompanyProfile");
 		model.addObject("CompanyProfile", companyProfile);
 		model.setViewName("companyEditUpdate");
@@ -265,7 +265,7 @@ public class JobAgencyCompanyController {
 	@RequestMapping(value = "/company/Edit-Update", method = RequestMethod.GET)
 	public ModelAndView editUpdate(@RequestParam("company_id") Integer company_id, HttpServletRequest request) {
 
-		CompanyDto companyProfile = this.companyservice.dogetCompany(company_id);
+		Company companyProfile = this.companyservice.dogetCompany(company_id);
 		ModelAndView model = new ModelAndView("CompanyProfile");
 		model.addObject("CompanyProfile", companyProfile);
 		model.setViewName("companyEditUpdate");
@@ -311,7 +311,7 @@ public class JobAgencyCompanyController {
 	public ModelAndView updateCompany(@ModelAttribute("CompanyProfile") @Valid CompanyDto companydto,
 	        BindingResult result, HttpServletRequest request, HttpServletResponse response) {
 		this.companyservice.doupdateCompany(companydto);
-		ModelAndView updateView = new ModelAndView("redirect:/company/List");
+		ModelAndView updateView = new ModelAndView("redirect:/post/apply/list");
 		return updateView;
 	}
 

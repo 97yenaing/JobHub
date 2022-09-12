@@ -57,7 +57,7 @@
             value="${CompanyProfile.web_link}" class="form-control" />
       </a></li>
     </ul>
-    <div class="btn-div">
+    <div class="btn-div clearfix">
       <button type="submit" class="btn button1" name="editCompany">Edit</button>
       &nbsp;
       <button type="submit" class="btn btn-secondary button2"

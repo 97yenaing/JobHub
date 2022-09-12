@@ -131,16 +131,14 @@ public class CompanyDAOimpl implements CompanyDAO {
 	 * @return
 	 */
 	@Override
-	public CompanyDto dbgetCompany(int company_id) {
+	public Company dbgetCompany(int company_id) {
 		String companyquery = "select c from Company c where c.company_id=:company_id";
 		@SuppressWarnings("unchecked")
 		Query<Company> queryCompanyByID = this.sessionFactory.getCurrentSession().createQuery(companyquery);
 		queryCompanyByID.setParameter("company_id", company_id);
 		Company result = (Company) queryCompanyByID.uniqueResult();
-		CompanyDto companyForm = new CompanyDto(result);
-		return companyForm;
+		return result;
 	}
-
 	/**
 	 * <h2> dbdeleteCompanyID </h2>
 	 * <p>
