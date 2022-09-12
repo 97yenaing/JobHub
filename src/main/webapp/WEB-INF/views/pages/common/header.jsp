@@ -254,10 +254,22 @@
 
                       </div>
                     </div></li>
-                  <li class="mobile image profile"><a
+                  <li class="mobile image profile">
+                  <c:if test="${Login.applicantInfo.profile == null}">
+                  <a
                     href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}"><img
                       src="<c:url value="/assets/img/header/profile.png" />"
-                      alt="Profile">${Login.applicantInfo.id}</a></li>
+                      alt="Profile">${Login.applicantInfo.id}</a>
+                      </c:if>
+                      <c:if test="${Login.applicantInfo.profile != null}">
+                    <a href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}">
+                      <img class="profile-img"
+                      src="${Login.applicantInfo.profile }"
+                      style="width: 35px; height: 35px;" alt="Profile">
+                        </a>${Login.name}
+                        </c:if>
+                    </li>
+                    
                   <li class="pc image">
                     <%-- <a
                     href="<%=request.getContextPath()%>/logout"><img
