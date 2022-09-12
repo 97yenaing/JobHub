@@ -12,7 +12,7 @@
 <div class="confirm-form">
   <div class="card">
     <h1 class="profile-header">Job Post Details</h1>
-    <c:url var="postDetails" value="/post/edit/confirm"></c:url>
+    <c:url var="postDetails" value="/post/apply"></c:url>
     <form:form action="${postDetails }" method="POST" id="form" modelAttribute="jobPostDetails">
     <input type="hidden" name="id" value="${jobPostDetails.id }" />
     <ul>
