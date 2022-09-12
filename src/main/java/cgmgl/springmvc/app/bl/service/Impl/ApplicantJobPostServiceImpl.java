@@ -65,7 +65,8 @@ public class ApplicantJobPostServiceImpl implements ApplicantJobPostService {
     @Override
     public void doAddApplicantJobPost(ApplicantJobPostDto applicantJobPostDto) {
         ApplicantInfo applicantInfo = new ApplicantInfo();
-        applicantInfo.setId(userService.doGetLoginInfo().getId());
+        applicantInfo.setId(userService.doGetLoginInfo().getApplicantInfo().getId());
+        System.out.println("Applicant Id ...."+applicantInfo);
         Date currentDate = new Date();
         ApplicantJobPost applicantJobPost = new ApplicantJobPost(applicantJobPostDto);
         applicantJobPost.setStatus("Pending");

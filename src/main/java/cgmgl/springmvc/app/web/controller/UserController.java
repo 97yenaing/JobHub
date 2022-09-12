@@ -71,11 +71,12 @@ public class UserController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView loginEmail(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("loginPage");	
-		session.removeAttribute("Login");
+		if(this.userService.doIsLoggedIn()) {
+		    model.setViewName("redirect:/home");
+		}
 		return model;		
 	}
 	
-
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView newUser() {
 		List<Authority> authorities = authorityService.doGetAuthList();
