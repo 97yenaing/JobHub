@@ -9,31 +9,19 @@
     http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http>
-        <!-- <intercept-url pattern="/home" access="hasAnyRole('APPLICANT', 
-            'ADMIN','COMPANY' )" /> -->
         <intercept-url pattern="/applicant/list"
             access="hasRole('ADMIN')" />
-
-        <!-- <intercept-url pattern="/applicant/delete" access="hasRole('ADMIN')" 
-            /> -->
         <!-- Company -->
         <intercept-url pattern="/company/List"
-            access="hasAnyRole('COMPANY','ADMIN')" />
-        <intercept-url pattern="/company/**"
-            access="hasAnyRole('COMPANY','ADMIN')" />
+            access="hasRole('ADMIN')" />
         <!-- Job Post -->
         <intercept-url pattern="/post/list"
             access="hasAnyRole('COMPANY','ADMIN')" />
 
-        <!-- <intercept-url pattern="/post/applicant/list" access="hasAnyRole('APPLICANT','COMPANY','ADMIN')" 
-            /> -->
-        <!-- <intercept-url pattern="/post/list/byJobType" access="hasAnyRole('APPLICANT','COMPANY')" 
-            /> -->
-        <!-- <intercept-url pattern="/post/details" access="hasAnyRole('APPLICANT','COMPANY','ADMIN')" 
-            /> -->
-
         <intercept-url pattern="/post/create"
             access="hasRole('COMPANY')" />
+        <intercept-url pattern="/post/apply"
+            access="hasRole('APPLICANT')" />
 
         <!-- <intercept-url pattern="/post/create/confirm" access="hasRole('COMPANY')" 
             /> -->
@@ -49,14 +37,6 @@
         <intercept-url pattern="/jobType/list"
             access="hasRole('ADMIN')" />
 
-        <!-- Password Reset <intercept-url pattern="/login/forgot_password" 
-            access="hasAnyRole('APPLICANT', 'ADMIN','COMPANY' )" /> <intercept-url pattern="/login/password/**" 
-            access="hasAnyRole('APPLICANT', 'ADMIN','COMPANY' )" /> -->
-        <!-- User -->
-        <!-- <intercept-url pattern="/register" access="hasAnyRole('APPLICANT','COMPANY','ADMIN' 
-            )" /> -->
-        <!-- <intercept-url pattern="/userInfo" access="hasAnyRole('COMPANY','APPLICANT')" 
-            /> -->
         <intercept-url pattern="/createUser"
             access="hasRole('ADMIN')" />
         <intercept-url pattern="/saveAdmin"
@@ -75,7 +55,8 @@
             authentication-failure-url="/login?error"
             username-parameter="useremail" password-parameter="password"
             default-target-url="/home" />
-        <logout logout-url="/logout" logout-success-url="/logout" />
+        <logout logout-url="/logout"
+            logout-success-url="/homePageView" />
         <access-denied-handler error-page="/error" />
 
     </http>

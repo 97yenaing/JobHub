@@ -23,7 +23,7 @@
       </h1>
       <nav id="global-navi" class="clearfix">
         <ul class="clearfix">
-          <li><a href="<%=request.getContextPath()%>/">Home</a></li>
+          <li><a href="<%=request.getContextPath()%>/homePageView">Home</a></li>
           <li><a
             href="<%=request.getContextPath()%>/post/applicant/list">Find
               Jobs</a></li>

@@ -83,8 +83,8 @@ public class JobPostController {
         List<JobType> typeList = jobPostService.doGetJobTypeList();
         model.addObject("JobTypeList", typeList);
         int count = jobPostService.doGetJobPostListCount();
-        int startpage = (int) (page - count/3 > 1 ? page - count/3 : 1);
-        int endpage = startpage + count/3;
+        int startpage = (int) (page - count/ 4> 1 ? page - count/4 : 1);
+        int endpage = startpage + (count%4 == 0 ? (count/4)-1 : count/4);
         List<JobPost> jobPostList = jobPostService.getJobPostByPage(page);
         // List<JobPost> jobPostList = jobPostService.doGetJobPostList();
         // model.addObject("ApplicantJobPost", jobPostList);
@@ -110,9 +110,9 @@ public class JobPostController {
             @RequestParam(value = "page", defaultValue = "0", required = false) Long page,
             @RequestParam("id") Integer jobTypeId) {
         ModelAndView applicantFindJob = new ModelAndView("applicantJobPost");
-        int count = jobPostService.doGetJobPostListCount();
-        int startpage = (int) (page - count/3 > 1 ? page - count/3 : 1);
-        int endpage = startpage + count/3;
+        int count = jobPostService.doGetJobPostListCount1(jobTypeId);
+        int startpage = (int) (page - count/4 > 1 ? page - count/ 4: 1);
+        int endpage = startpage + (count%4 == 0 ? (count/4)-1 : count/4);
         List<JobType> typeList = jobPostService.doGetJobTypeList();
         // List<JobPost> findJobPost =
         // jobPostService.doGetJobPostByJobTypeId(jobTypeId);

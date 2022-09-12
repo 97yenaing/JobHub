@@ -32,18 +32,66 @@ import cgmgl.springmvc.app.persistence.entity.User;
 
 @Controller
 public class LoginController {
+    /**
+     * <h2>userService</h2>
+     * <p>
+     * userService
+     * </p>
+     */
     @Autowired
     private UserService userService;
 
+    /**
+     * <h2>jobPostService</h2>
+     * <p>
+     * jobPostService
+     * </p>
+     */
     @Autowired
     private JobPostService jobPostService;
-    
+
+    /**
+     * <h2>session</h2>
+     * <p>
+     * session
+     * </p>
+     */
     @Autowired
     private HttpSession session;
 
+    /**
+     * <h2>Homepage</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param request
+     * @return
+     * @return ModelAndView
+     */
     @RequestMapping(value = { "/" }, method = RequestMethod.GET)
     public ModelAndView Homepage(HttpServletRequest request) {
-        ModelAndView model = new ModelAndView("home");
+        ModelAndView model = new ModelAndView("homePage");
+        List<JobType> typeList = jobPostService.doGetJobTypeList();
+        model.addObject("JobTypeList", typeList);
+        return model;
+    }
+
+    /**
+     * <h2>homePageView</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param model
+     * @return
+     * @return ModelAndView
+     */
+    @RequestMapping(value = "/homePageView")
+    public ModelAndView homePageView(ModelAndView model) {
+        List<JobType> typeList = jobPostService.doGetJobTypeList();
+        model.addObject("JobTypeList", typeList);
+        model.setViewName("homePage");
         return model;
     }
 
@@ -62,15 +110,24 @@ public class LoginController {
         // ModelAndView model = new ModelAndView();
         List<JobType> typeList = jobPostService.doGetJobTypeList();
         model.addObject("JobTypeList", typeList);
-        System.out.println("Jobtype .........");
-        System.out.println(typeList);
         User user = this.userService.doGetLoginInfo();
         System.out.println(user.getEmail());
         System.out.println(user.getName());
-        model.setViewName("home");
-        session.setAttribute("Login",this.userService.doGetLoginInfo());
+        model.setViewName("homePage");
+        session.setAttribute("Login", this.userService.doGetLoginInfo());
         return model;
     }
+
+    /**
+     * <h2>aboutUsPage</h2>
+     * <p>
+     * 
+     * </p>
+     *
+     * @param model
+     * @return
+     * @return ModelAndView
+     */
     @RequestMapping(value = "/aboutus")
     public ModelAndView aboutUsPage(ModelAndView model) {
         model.setViewName("aboutus");
@@ -78,7 +135,7 @@ public class LoginController {
     }
 
     /**
-     * <h2> companyPage</h2>
+     * <h2>companyPage</h2>
      * <p>
      * 
      * </p>
@@ -86,13 +143,13 @@ public class LoginController {
      * @return
      * @return String
      */
-    @RequestMapping(value = "/company" , method = RequestMethod.GET)
+    @RequestMapping(value = "/company", method = RequestMethod.GET)
     public String companyPage() {
         return "admin";
     }
-  
+
     /**
-     * <h2> AccessDenied</h2>
+     * <h2>AccessDenied</h2>
      * <h2>applicantPage</h2>
      * <p>
      * 
@@ -107,9 +164,8 @@ public class LoginController {
         ModelAndView model = new ModelAndView("access-denied");
         return model;
     }
-    
     /**
-     * <h2> Logout</h2>
+     * <h2>Logout</h2>
      * <p>
      * 
      * </p>
@@ -118,9 +174,9 @@ public class LoginController {
      * @return
      * @return ModelAndView
      */
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public ModelAndView Logout(HttpServletRequest request) {
-        ModelAndView model = new ModelAndView("redirect:/home");
-        return model;
-    }
+    /*
+     * @RequestMapping(value = "/logout", method = RequestMethod.GET) public
+     * ModelAndView Logout(HttpServletRequest request) { ModelAndView model = new
+     * ModelAndView("redirect:/homePageView"); return model; }
+     */
 }
