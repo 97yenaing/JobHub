@@ -9,7 +9,7 @@
             <tr>
               <th>ID</th>
               <th>Applicant Name</th>
-              <!-- <th>Applicant Profile</th> -->
+              <th>Applicant Profile</th>
               <th>Position</th>
               <th>Work Experience(year)</th>
               <th>Job History</th>
@@ -27,9 +27,10 @@
                   <td>${userList.name}</td>
                 </c:if>
               </c:forEach>
-              <!-- <td>
-                <img class="profile-img" src="img/profile/img_applicant_profile.jpg">
-              </td> -->
+              <td>
+                <img class="profile-img" src="${applicantJobPost.applicantInfo.profile }"
+                style="width: 100px; height: 100px;" alt="post_img">
+              </td>
               <td>${applicantJobPost.jobPost.position }</td>
               <td>${applicantJobPost.applicantInfo.job_exp_year }</td>
               <td>${applicantJobPost.applicantInfo.job_history }</td>
