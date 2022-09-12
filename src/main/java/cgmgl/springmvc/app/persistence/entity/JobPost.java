@@ -7,14 +7,12 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import cgmgl.springmvc.app.bl.dto.JobPostDto;
@@ -132,17 +130,15 @@ public class JobPost {
     @Column(name = "deleted_at")
     private Date deleted_at;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "applicants_jobPosts", joinColumns = @JoinColumn(name = "post_id"), inverseJoinColumns = @JoinColumn(name = "info_id"))
-    private List<ApplicantInfo> applicantInfo = new ArrayList<ApplicantInfo>();
-
-    /*
-     * @Column(name = "expired_at") private Date expired_at;
-     * 
-     * public void setExpiredAt(int exp_date) { Calendar now =
-     * Calendar.getInstance(); now.add(Calendar.DAY_OF_WEEK, exp_date);
-     * this.expired_at=now.getTime(); }
+    /**
+     * <h2>applicantsJobPosts</h2>
+     * <p>
+     * applicantsJobPosts
+     * </p>
      */
+    @OneToMany(mappedBy = "jobPost", cascade = CascadeType.ALL)
+    List<ApplicantJobPost> applicantsJobPosts = new ArrayList<ApplicantJobPost>();
+
     /**
      * <h2>Constructor for JobPost</h2>
      * <p>
@@ -162,6 +158,6 @@ public class JobPost {
         this.deleted_at = jobPostDto.getDeleted_at();
         this.jobType = jobPostDto.getJobType();
         this.company = jobPostDto.getCompany();
-        this.applicantInfo = jobPostDto.getApplicantInfo();
+        this.applicantsJobPosts = jobPostDto.getApplicantsJobPosts();
     }
 }

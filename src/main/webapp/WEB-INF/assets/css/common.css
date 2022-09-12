@@ -96,7 +96,7 @@ header nav li a:hover {
 }
 
 header {
-  background-color: #10314c0a;
+  background-color: #386c7b33;
   margin-bottom: 0px;
 }
 
@@ -118,7 +118,9 @@ nav ul li {
   text-decoration: none;
   font-size: 22px;
 }
-
+nav ul li:nth-child(6n){
+  margin-right:0;
+}
 .image {
   width: 2.7%;
   border: none;
@@ -171,6 +173,31 @@ h1 {
   width: 100%;
 }
 
+/* //nav ul li:nth-child(3) {
+//  margin-right: 54.2%;
+//}
+ */
+.search-container button {
+  float: right;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  margin-top: -2px;
+  padding: 6px 15px;
+}
+
+.search-container button:hover {
+  background: #ccc;
+}
+
+.search-container input {
+  padding: 6px;
+  font-size: 17px;
+  border: 1px solid #caced3;
+  border-radius: 5px;
+  margin-top: -4px;
+}
 
 .foot-logo {
   float: left;
@@ -193,6 +220,7 @@ h1 {
 .jobhub {
   border-bottom: 1px solid #425059;
   background-color: #10314c0a;
+ /*  // background-color: #76d0e933; //company */
   padding-bottom: 30px;
   padding-top: 10px;
 }

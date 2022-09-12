@@ -41,15 +41,17 @@ public interface UserService {
 
 	public void doSaveCompany(@Valid CompanyDto companydto);
 
-    User doGetLoginInfo();
+  User doGetLoginInfo();
     
-    public boolean doIsLoggedIn();    
+  public boolean doIsLoggedIn();    
 
 	public User doGetApplicantById(long userIdForApplicant) throws IOException;
 
 	public ApplicantProfileDto doGetApplicantByEmail(String userEmail);
 
 	public void doUpdateApplicant(@Valid ApplicantProfileDto profileDto);
+
+    public List<User> doGetUserNameList();
 
     /**
      * Find by id.

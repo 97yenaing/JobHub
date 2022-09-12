@@ -70,11 +70,11 @@ public class JobAgencyCompanyController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/company/applicant/List", method = RequestMethod.GET)
-	public ModelAndView getApplicantJobPostList(ModelAndView model) {
-	    model.setViewName("applicantJobPostList");
-        return model; 
-	}
+    /*
+     * @RequestMapping(value = "/company/applicant/List", method =
+     * RequestMethod.GET) public ModelAndView getApplicantJobPostList(ModelAndView
+     * model) { model.setViewName("applicantJobPostList"); return model; }
+     */
 
 	/**
 	 * <h2>createCompany</h2>
@@ -156,7 +156,7 @@ public class JobAgencyCompanyController {
 			authorities.add(authority);
 			companydto.setAuthorityList(authorities);
 			this.userService.doSaveCompany(companydto);
-			ModelAndView createCompanyView = new ModelAndView("redirect:/home");
+			ModelAndView createCompanyView = new ModelAndView("redirect:/");
 			return createCompanyView;
 		}
 

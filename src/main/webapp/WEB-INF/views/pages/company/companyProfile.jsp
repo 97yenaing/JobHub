@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="css/profile.css" />
 </head>
 <body>
+<div class="confirm-form">
   <div class="card">
     <c:url var="companyProfile" value="/company/Profile/Update"></c:url>
     <form:form class="form-detail" action="${companyProfile}" method="POST"
@@ -25,32 +26,32 @@
         </c:if>
     <h1 class="profile-header">Company Profile</h1>
     <ul class="list-group list-group-unbordered mb-3">
-     <li class="list-group-item"> <a
+     <li> <a
         class="float-right"> <form:input
             path="company_id" type="hidden" name="company_id"
             value="${CompanyProfile.company_id}" class="form-control" />
       </a></li>
-      <li class="list-group-item"><b>Name:</b> <a
+      <li><b>Name:</b> <a
         class="float-right">${CompanyProfile.company_name } <form:input
             path="company_name" type="hidden" name="company_name"
             value="${CompanyProfile.company_name }" class="form-control" />
       </a></li>
-     <li class="list-group-item"><b>Email:</b> <a
+     <li><b>Email:</b> <a
         class="float-right">${CompanyProfile.email } <form:input
             path="email" type="hidden" name="email"
             value="${CompanyProfile.email }" class="form-control" />
       </a></li>
-      <li class="list-group-item"><b>Phone Number:</b> <a
+      <li><b>Phone Number:</b> <a
         class="float-right">${CompanyProfile.phone } <form:input
             path="phone" type="hidden" name="phone"
             value="${CompanyProfile.phone }" class="form-control" />
       </a></li>
-      <li class="list-group-item"><b>Address:</b> <a
+      <li><b>Address:</b> <a
         class="float-right">${CompanyProfile.address} <form:input
             path="address" type="hidden" name="address"
             value="${CompanyProfile.address}" class="form-control" />
       </a></li>
-      <li class="list-group-item"><b>Website:</b> <a
+      <li><b>Website:</b> <a
         class="float-right">${CompanyProfile.web_link} <form:input
             path="web_link" type="hidden" name="web_link"
             value="${CompanyProfile.web_link}" class="form-control" />
@@ -64,6 +65,6 @@
     </div>
     </form:form>
   </div>
-
+</div>
 </body>
 </html>

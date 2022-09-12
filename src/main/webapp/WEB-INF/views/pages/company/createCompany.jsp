@@ -72,7 +72,7 @@
         
       </div>
       <div class="create">
-      <button type="submit" class="form-btn" name="companyConfirm">Confirm</button>
+      <button type="submit" class="form-btn" name="addCompany">Confirm</button>
       <button type="reset" class="reset-btn" name="clear">Reset</button>
       </div>
     </form:form>

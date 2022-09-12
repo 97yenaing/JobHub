@@ -13,7 +13,7 @@
   <div class="card">
     <h1 class="profile-header">Job Post Details</h1>
     <c:url var="postDetails" value="/post/apply"></c:url>
-    <form:form action="${postDetails }" method="POST" id="form" modelAttribute="jobPostDetails">
+    <form:form action="${postDetails}" method="GET" id="form" modelAttribute="jobPostDetails">
     <input type="hidden" name="id" value="${jobPostDetails.id }" />
     <ul>
     <li><b>Position:</b> 
@@ -44,14 +44,16 @@
     </a></li>
     <li><b>Email:</b> 
     <a class="float-right">${jobPostDetails.company.email } 
-      <form:input path="company" type="hidden" name="company"
-          value="${jobPostDetails.company}"
+      <form:input path="company" type="hidden" name="company" 
+      value="${jobPostDetails.company}"
           class="form-control" />
     </a></li>
   </ul>
-  </form:form>
+  <div class="create">
     <button type="submit" class="apply-btn" name="applyJob">Apply</button> &nbsp; &nbsp;
     <a class="detail-back-btn" href="${pageContext.request.contextPath}/post/applicant/list">Back</a>
+  </div>
+  </form:form>
 </div>
 </div>
 </body>

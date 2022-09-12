@@ -225,12 +225,38 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	public void doSaveCompany(@Valid CompanyDto companydto) {
 		// TODO Auto-generated method stub
 		Company companyInfo = new Company(companydto);
-		Date created_date = new Date();
+    Date created_date = new Date();
 		companyDao.dbaddCompany(companyInfo, created_date);
 		User user = new User(companydto);
 		user.setPassword(passwordEncoder.encode(companydto.getUser().getPassword()));
 		this.userDAO.dbAddCompany(user, companyInfo, created_date);
 	}
+
+  @Override
+  public User doGetLoginInfo() {
+    String user_email = null;
+    // TODO Auto-generated method stub
+    Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    if (principal instanceof UserDetails) {
+      user_email = ((UserDetails) principal).getUsername();
+    } else {
+      user_email = principal.toString();
+    }
+    User user = userDAO.dbGetUserByEmail(user_email);
+    return user;
+  }
+    
+  @Override
+  public boolean doIsLoggedIn() {
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    return authentication != null && !(authentication instanceof AnonymousAuthenticationToken)
+    && authentication.isAuthenticated();
+  }
+
+  @Override
+  public List<User> doGetUserNameList() {
+    return this.userDAO.dbGetUserNameList();
+  }
 
 	@Override
 	public User doGetLoginInfo() {
