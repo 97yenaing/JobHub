@@ -1,5 +1,6 @@
 package cgmgl.springmvc.app.web.controller;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -225,10 +226,11 @@ public class JobAgencyCompanyController {
 	 * @param request
 	 * @return
 	 * @return ModelAndView
+	 * @throws IOException 
 	 */
 	@RequestMapping(value = "/company/Profile", method = RequestMethod.GET)
 	public ModelAndView profileCompany(@RequestParam("company_id") Integer company_id, ModelAndView model,
-	        HttpServletRequest request) {
+	        HttpServletRequest request) throws IOException {
 		CompanyDto companyProfile = this.companyservice.dogetCompany(company_id);
 		model.addObject("CompanyProfile", companyProfile);	
 		User user =userService.doGetLoginInfo();

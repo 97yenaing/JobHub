@@ -11,8 +11,12 @@
     <put-attribute name="title" value="Applicant's List - SPRING MVC FRAME" />
     <put-attribute name="body" value="/WEB-INF/views/pages/applicant/applicantList.jsp" />
   </definition>
-  <definition name="applicant/profile" extends="template">
+  <definition name="applicantProfile" extends="template">
     <put-attribute name="title" value="Applicant's Profile - SPRING MVC FRAME" />
     <put-attribute name="body" value="/WEB-INF/views/pages/applicant/applicantProfile.jsp" />
+  </definition>
+  <definition name="updateApplicantProfile" extends="template">
+    <put-attribute name="title" value="Applicant's Profile Update - SPRING MVC FRAME" />
+    <put-attribute name="body" value="/WEB-INF/views/pages/applicant/updateApplicantProfile.jsp" />
   </definition>
 </tiles-definitions>

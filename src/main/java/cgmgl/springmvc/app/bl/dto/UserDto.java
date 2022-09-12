@@ -1,6 +1,5 @@
 package cgmgl.springmvc.app.bl.dto;
 
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
