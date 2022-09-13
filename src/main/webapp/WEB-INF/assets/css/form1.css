@@ -94,6 +94,16 @@ body {
 .update-applicant-profile{
   margin-left:38%;
 }
+.job-confirm{
+    padding-top: 20px;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    font-size: 25px;
+    color: #01015d;
+    letter-spacing: 0.5px;
+    margin-bottom: 4%;
+}
 
 /*for ipad*/
 @media screen and (min-width: 768px) and (max-width: 1180px) {
@@ -215,5 +225,15 @@ body {
   }
   .update-applicant-profile{
   margin-left:30%;
+  }
+  .job-confirm{
+  padding-top: 3.125vw;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  font-size: 3.906vw;
+  color: #01015d;
+  letter-spacing: 0.078vw;
+  margin-bottom: 4%;
 }
 }

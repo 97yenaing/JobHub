@@ -9,8 +9,9 @@
 <title>Confirm Job Post Update</title>
 </head>
 <body>
+<div class="confirm-form">
   <div class="form-card">
-    <h1 class="form-header">Confirm Update Job Post</h1>
+    <h1 class="job-confirm">Confirm Update Job Post</h1>
     <c:url var="confirmUpdateJobPost" value="/post/update"></c:url>
     <form:form class="form-container" action="${confirmUpdateJobPost }" method="POST" id="form" modelAttribute="confirmEditedJobPostDto">
       <input type="hidden" name="id"
@@ -61,6 +62,7 @@
       <button type="reset" class="" name="cancelUpdate">Cancel</button>
       </div>
   </form:form>
+  </div>
   </div>
 </body>
 </html>

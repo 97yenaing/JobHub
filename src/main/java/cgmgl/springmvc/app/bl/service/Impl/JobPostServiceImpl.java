@@ -136,6 +136,7 @@ public class JobPostServiceImpl implements JobPostService {
      */
     @Override
     public void doUpdateJobPost(JobPostDto jobPostDto) {
+        Date currentDate = new Date();
         JobPost updateJobPost = this.jobPostDao.dbGetJobPostById(jobPostDto.getId());
         JobType jobTypeId = jobTypeDao.dbGetJobTypeById(jobPostDto.getJobType().getId());
         updateJobPost.setJobType(jobTypeId);
@@ -143,7 +144,7 @@ public class JobPostServiceImpl implements JobPostService {
         updateJobPost.setOffered_salary(Integer.parseInt(jobPostDto.getOffered_salary()));
         updateJobPost.setExperience_year(jobPostDto.getExperience_year());
         updateJobPost.setNum_of_position(jobPostDto.getNum_of_position());
-        this.jobPostDao.dbUpdateJobPost(updateJobPost, new Date());
+        this.jobPostDao.dbUpdateJobPost(updateJobPost,currentDate);
     }
 
     /**

@@ -9,7 +9,7 @@
 }
 
 .dropbtn {
-  font-size: 15px;
+  font-size: 21px;
   border: none;
   background-color: #c1d9e0;
 }
@@ -23,16 +23,17 @@
   display: none;
   position: absolute;
   background-color: #c1d9e0;
-  min-width: 160px;
+  max-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .dropdown-content a {
   color: #000;
-  padding: 12px 16px;
+  padding: 12px 5px;
   text-decoration: none;
   display: block;
+  font-size:18px;
 }
 
 .dropdown-content a:hover {
@@ -175,7 +176,7 @@ nav ul li:nth-child(7n) {
   box-shadow: none;
   font-size: 15px;
   margin-top: 2px;
-  margin-right: 0px;
+  margin-right: 1%;
 }
 
 .sign-up, .sign-admin {
@@ -208,11 +209,11 @@ nav ul li:nth-child(7n) {
 }
 
 .about-us {
- margin-right: 54.2%;
+ margin-right: 52%;
 }
 
 .user-about {
-  margin-right: 42%;
+  margin-right: 38%;
 }
 
 h1 {
@@ -368,7 +369,16 @@ footer {
   background-color: #354E57;
   transition: all .6s ease-in-out;
 }
-
+.profile-name {
+    margin-top: 1px;
+    float: left;
+    margin-right: 1%;
+    font-size: 22px;
+  }
+  .tab {
+    width: 10%;
+    margin-right: 1%;
+  }
 @media screen and (min-width: 768px) and (max-width: 1180px) {
   header {
     margin-bottom: 19.999px;
@@ -385,7 +395,7 @@ footer {
     margin-right: 20%;
   }
   .about-us {
-    margin-right: 44.2%;
+    margin-right: 42%;
   }
   nav {
     margin-top: 19.999px;
@@ -398,9 +408,9 @@ footer {
     font-size: 18.432px;
   }
   .tab {
-    width: 11%;
+    width: 13%;
     margin-top: 0.66vw;
-    margin-right: 4%;
+    margin-right: 1%;
   }
   .dropbtn {
     font-size: 15px;
@@ -497,6 +507,17 @@ footer {
     font-weight: 300;
     padding: 19.999px;
     text-align: center;
+  }
+  .profile-name {
+    margin-top: 5px;
+    float: left;
+    margin-right: 1%;
+    font-size: 17px;
+  }
+  .dropdown-content a {
+    padding: 5px 5px;
+    text-decoration: none;
+    font-size: 15px;
   }
 }
 
@@ -706,8 +727,9 @@ footer {
   }
   .tab {
     margin-right: 5%;
-    margin-top: 20px;
-    width: 10%;
+    margin-top: 2.188vw;
+    max-width:31.25vw;
+    width: 16%;
     float: left;
   }
   .show {
@@ -715,23 +737,35 @@ footer {
   }
   .profile {
     float: left;
-    margin-top: 25px;
-    width: 5%;
-    margin-right: 0px;
+    margin-top: 2.188vw;
+    max-width:4.925vw;
+    width: 6%;
+    margin-right: 0vw;
   }
   .mb {
-    margin-top: 25px;
+    margin-top: 3.906vw;
     margin-right: 2%;
   }
   .profile-name {
-    margin-top: 8px;
-    margin-top: 20px;
+    margin-top: 2.656vw;
     float: left;
     margin-right: 2%;
+    margin-left:1%;
+    font-size:2.813vw;
   }
   .log-mobile {
-    margin-top: 20px;
-    font-size: 15px;
+    margin-top: 3.125vw;
+    font-size: 2.344vw;
+    float: left;
+  }
+  .dropbtn {
+    font-size: 2.969vw;
+    border: none;
+    background-color: #c1d9e0;
+  }
+    .logout {
+    margin-top: 2.031vw;
+    font-size: 2.344vw;
     float: left;
   }
 }

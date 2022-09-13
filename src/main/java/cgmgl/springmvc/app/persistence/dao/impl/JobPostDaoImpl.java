@@ -150,7 +150,8 @@ public class JobPostDaoImpl implements JobPostDao {
      * @param updateAt
      */
     @Override
-    public void dbUpdateJobPost(JobPost jobPost, Date updateAt) {
+    public void dbUpdateJobPost(JobPost jobPost, Date currentDate) {
+        jobPost.setUpdated_at(currentDate);
         this.sessionFactory.getCurrentSession().update(jobPost);
     }
     /**
