@@ -1,5 +1,6 @@
 package cgmgl.springmvc.app.web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -177,12 +178,20 @@ public class ApplicantJobPostController {
      * @return
      * @return ModelAndView
      */
+
     @RequestMapping(value = "/post/apply/list")
     public ModelAndView applicantApplyJobList(ModelAndView model) {
+        User user = userService.doGetLoginInfo();
         List<ApplicantJobPost> applicantJobPostList = applicantJobPostService.doGetApplicantJobPostList();
         List<User> userList = this.userService.doGetUserList();
+        List<ApplicantJobPost> applicantJobPostListByComId=new ArrayList<ApplicantJobPost>();
+        for(ApplicantJobPost applicantJobPost:applicantJobPostList) {
+            if(applicantJobPost.getJobPost().getCompany().getCompany_id()==user.getCompany().getCompany_id()) {
+                applicantJobPostListByComId.add(applicantJobPost);
+            }
+        }
         model.addObject("UserList", userList);
-        model.addObject("ApplicantJobPostList", applicantJobPostList);
+        model.addObject("ApplicantJobPostList", applicantJobPostListByComId);
         model.setViewName("applicantJobPostList");
         return model;
     }
@@ -199,13 +208,20 @@ public class ApplicantJobPostController {
      */
     @RequestMapping(value = "/post/apply/accept")
     public ModelAndView applicantJobPostAccept(@RequestParam("id") Integer applicantJobPostId) {
+        User user = userService.doGetLoginInfo();
         ModelAndView stautsView = new ModelAndView("redirect:/post/apply/list");
         ApplicantJobPostDto applicantJobStatus = applicantJobPostService
                 .doGetApplicantJobAcceptById(applicantJobPostId);
         List<ApplicantJobPost> applicantJobPostList = applicantJobPostService.doGetApplicantJobPostList();
         List<User> userList = this.userService.doGetUserList();
+        List<ApplicantJobPost> applicantJobPostListByComId=new ArrayList<ApplicantJobPost>();
+        for(ApplicantJobPost applicantJobPost:applicantJobPostList) {
+            if(applicantJobPost.getJobPost().getCompany().getCompany_id()==user.getCompany().getCompany_id()) {
+                applicantJobPostListByComId.add(applicantJobPost);
+            }
+        }
         stautsView.addObject("UserList", userList);
-        stautsView.addObject("ApplicantJobPostList", applicantJobPostList);
+        stautsView.addObject("ApplicantJobPostList", applicantJobPostListByComId);
         stautsView.addObject("ApplicantJobPostDto", applicantJobStatus);
         stautsView.setViewName("applicantJobPostList");
         return stautsView;
@@ -223,12 +239,19 @@ public class ApplicantJobPostController {
      */
     @RequestMapping(value = "/post/apply/reject")
     public ModelAndView applicantJobPostReject(@RequestParam("id") Integer applicantJobPostId) {
+        User user = userService.doGetLoginInfo();
         ModelAndView stautsView = new ModelAndView("redirect:/post/apply/list");
         ApplicantJobPostDto applicantJobStatus = applicantJobPostService.doGetApplicantJobRejectById(applicantJobPostId);
         List<ApplicantJobPost> applicantJobPostList = applicantJobPostService.doGetApplicantJobPostList();
         List<User> userList = this.userService.doGetUserList();
+        List<ApplicantJobPost> applicantJobPostListByComId=new ArrayList<ApplicantJobPost>();
+        for(ApplicantJobPost applicantJobPost:applicantJobPostList) {
+            if(applicantJobPost.getJobPost().getCompany().getCompany_id()==user.getCompany().getCompany_id()) {
+                applicantJobPostListByComId.add(applicantJobPost);
+            }
+        }
         stautsView.addObject("UserList", userList);
-        stautsView.addObject("ApplicantJobPostList", applicantJobPostList);
+        stautsView.addObject("ApplicantJobPostList", applicantJobPostListByComId);
         stautsView.addObject("ApplicantJobPostDto", applicantJobStatus);
         stautsView.setViewName("applicantJobPostList");
         return stautsView;
