@@ -25,7 +25,7 @@
         <label for="description">Description:</label> <br>
         <form:input path="description" value="${confirmEditedJobTypeDto.description}" class="form-input" placeholder="Enter the description for your job." rows="6" />
         </div>
-        <div class="confirm-btn">
+        <div class="type-confirm-btn">
           <button type="submit" class="create-btn" name="saveUpdateJobType">Update</button>
           <button type="submit" class="cancel-btn" name="cancelUpdate">Cancel</button>
         </div>

@@ -326,7 +326,7 @@ h1 {
   font-size: 20px;
   font-weight: 300;
   float: left;
-  margin-left: 10%;
+  margin-left: 13%;
   font-style: italic;
   margin-top: 0px;
 }
@@ -487,7 +487,7 @@ footer {
   }
   .jobhub h6 {
     font-size: 14.999px;
-    margin-left: 12%;
+    margin-left: 13%;
     margin-top: 0.911vw;
   }
   .icon {
@@ -701,7 +701,7 @@ footer {
   }
   .jobhub h6 {
     font-size: 2.344vw;
-    margin-left: 13%;
+    margin-left: 16%;
     margin-top: 1%;
   }
   .icon {
@@ -747,8 +747,8 @@ footer {
     margin-right: 2%;
   }
   .profile-name {
-    margin-top: 2.656vw;
-    float: left;
+    margin-top: 5.456vw;
+    float: none;
     margin-right: 2%;
     margin-left:1%;
     font-size:2.813vw;

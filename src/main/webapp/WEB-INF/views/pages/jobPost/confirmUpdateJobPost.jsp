@@ -47,16 +47,6 @@
         <form:input path="num_of_position" value="${confirmEditedJobPostDto.num_of_position}" class="form-input" placeholder="Enter your no. of vacancy." />
         <form:errors path="num_of_position" class="text-danger" />
       </div>
-      <%-- <div class="form-group">
-        <label for="phone">Contact Phone:</label> <br>
-        <input path="email" value="" class="form-input" placeholder="Enter ph number to be contacted." />
-        <form:errors path="autho.id" class="text-danger" />
-      </div>
-      <div class="form-group">
-        <label for="Contact Email">Contact Email:</label> <br>
-        <input path="email" value="" class="form-input" placeholder="Enter eail to be contacted" />
-        <form:errors path="autho.id" class="text-danger" />
-      </div> --%>
       <div class="confirm-btn">
       <button type="submit" class="form-btn" name="saveUpdateJobPost">Update</button>
       <button type="submit" class="" name="cancelUpdate">Cancel</button>

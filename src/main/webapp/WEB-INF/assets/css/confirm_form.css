@@ -66,6 +66,18 @@ body {
   width: 12%;
   display: block;
 }
+.confirm-form .confirm-btn{
+    width:32%;
+    text-align:center;
+    margin:0 auto;
+    margin-top:30px;
+  }
+  .confirm-form .type-confirm-btn{
+    width:37%;
+    text-align:center;
+    margin:0 auto;
+    margin-top:30px;
+  }
 
 /*for ipad*/
 @media screen and (min-width: 768px) and (max-width: 1180px) {
@@ -103,6 +115,18 @@ body {
 	border-radius: 1.953vw;
 	font-size: 1.953vw;
   } 
+  .confirm-form .confirm-btn{
+  width:32%;
+  text-align:center;
+  margin:0 auto;
+  margin-top:3.906vw;
+  }
+    .confirm-form .type-confirm-btn{
+    width:42%;
+    text-align:center;
+    margin:0 auto;
+    margin-top:5.339vw;
+  }
 }
 
 /*for moblie */
@@ -152,4 +176,16 @@ body {
 	border-radius: 2.344vw;
 	font-size: 2.344vw;
   }
+  .confirm-form .confirm-btn{
+    width:58%;
+    text-align:center;
+    margin:0 auto;
+    margin-top:30px;
+  }
+    .confirm-form .type-confirm-btn{
+    width:80%;
+    text-align:center;
+    margin:0 auto;
+    margin-top:4.531vw;
+   }
 }

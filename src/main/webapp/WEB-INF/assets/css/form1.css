@@ -82,7 +82,7 @@ body {
 }
 .jobType-textarea {
     float: right;
-    width: 60%;
+    width: 63%;
     /* padding: 10px;
     margin-bottom:40px; */
 }
@@ -103,6 +103,9 @@ body {
     color: #01015d;
     letter-spacing: 0.5px;
     margin-bottom: 4%;
+}
+.create{
+  text-align:center;
 }
 
 /*for ipad*/
@@ -154,7 +157,10 @@ body {
   .reset-btn{
     width:11.625vw;
   }
-  
+  .jobType-textarea {
+    float: right;
+    width: 60%;
+  }
 }
 
 /*for moblie */
@@ -235,5 +241,9 @@ body {
   color: #01015d;
   letter-spacing: 0.078vw;
   margin-bottom: 4%;
+}
+.jobType-textarea {
+    float: right;
+    width: 100%;
 }
 }
