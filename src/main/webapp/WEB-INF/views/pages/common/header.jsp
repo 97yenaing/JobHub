@@ -24,9 +24,9 @@
       <nav id="global-navi" class="clearfix">
         <ul class="clearfix desktop">
           <li><a href="<%=request.getContextPath()%>/homePageView">Home</a></li>
-          <li><a
-            href="<%=request.getContextPath()%>/post/applicant/list">Find
-              Jobs</a></li>
+          <li><a href="<%=request.getContextPath()%>/post/applicant/list">Find
+              Jobs</a>
+          </li>
           <security:authorize
             access="hasAnyRole('COMPANY','APPLICANT','ADMIN')"
             var="isLoggedin" />
@@ -39,6 +39,7 @@
               <c:if test="${Login != null}">
                 <c:forEach items="${Login.authorities}" var="authority"
                   varStatus="loop">
+                  <c:if test="${authority.id == 1}">
                   <li class="mobile logout mb">
                     <form action="<%=request.getContextPath()%>/logout"
                       method="POST">
@@ -47,57 +48,51 @@
                         value="${_csrf.token}" />
                     </form>
                   </li>
+                  </c:if>
                   <c:if test="${authority.id == 2}">
-                  
-                  <li class="mobile image profile"><a
-                    href="<%=request.getContextPath()%>/company/Profile?company_id=${Login.company.company_id}"><img
-                      src="<c:url value="/assets/img/header/profile.png" />"
-                      alt="Profile"></a></li>
-                  <li class="profile-name mobile">${Login.company.company_name}</li>
-                  <li class="mobile log-mobile">
-                    <form action="<%=request.getContextPath()%>/logout"
-                      method="POST">
-                      <input type="submit" value="Logout" /> <input
-                        type="hidden" name="${_csrf.parameterName}"
-                        value="${_csrf.token}" />
-                    </form>
-                  </li>
-                </c:if>
-                
-                  <c:if test="${authority.id == 3}">
-                  
-                  <li class="mobile image profile">
-                  <c:if test="${empty Login.applicantInfo.profile}">
-                      <a
-                        href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}">
-                        <img
+                    <li class="mobile image profile"><a
+                      href="<%=request.getContextPath()%>/company/Profile?company_id=${Login.company.company_id}"><img
                         src="<c:url value="/assets/img/header/profile.png" />"
-                        alt="Profile">${Login.applicantInfo.id}</a>
-                    </c:if>
-                    <c:if test="${not empty Login.applicantInfo.profile}">
-                      <a
-                        href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}">
-                        <img
-                        src="<c:url value="${Login.applicantInfo.profile }" />"
-                        style="height: 25px;" alt="Profile">
-                      </a>
-                        </c:if>
-                     </li>
+                        alt="Profile"></a>
+                    </li>
+                    <li class="profile-name mobile">${Login.company.company_name}</li>
+                    <li class="mobile log-mobile">
+                      <form
+                        action="<%=request.getContextPath()%>/logout"
+                        method="POST">
+                        <input type="submit" value="Logout" /> <input
+                          type="hidden" name="${_csrf.parameterName}"
+                          value="${_csrf.token}" />
+                      </form>
+                    </li>
+                  </c:if>
+
+                  <c:if test="${authority.id == 3}">
+                    <li class="mobile image profile">
+                    <c:if test="${empty Login.applicantInfo.profile}">
+                      <a href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}">
+                          <img
+                          src="<c:url value="/assets/img/header/profile.png" />"
+                          alt="Profile">${Login.applicantInfo.id}</a>
+                      </c:if> 
+                      <c:if test="${not empty Login.applicantInfo.profile}">
+                        <a href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}">
+                        <img src="<c:url value="${Login.applicantInfo.profile }" />"
+                          style="height: 25px;" alt="Profile">
+                        </a>
+                      </c:if>
+                    </li>
                     <li class="mobile profile-name">${Login.name}</li>
-                  <li class="mobile logout">
-                    <%-- <a
-                    href="<%=request.getContextPath()%>/logout"><img
-                      src="<c:url value="/assets/img/header/log-out.png" />"
-                      alt="logout"></a> --%>
-                    <form action="<%=request.getContextPath()%>/logout"
-                      method="POST">
-                      <input type="submit" value="Logout" /> <input
-                        type="hidden" name="${_csrf.parameterName}"
-                        value="${_csrf.token}" />
-                    </form>
-                  </li>
-                </c:if>
-                  
+                    <li class="mobile logout">
+                      <form action="<%=request.getContextPath()%>/logout"
+                        method="POST">
+                        <input type="submit" value="Logout" /> <input
+                          type="hidden" name="${_csrf.parameterName}"
+                          value="${_csrf.token}" />
+                      </form>
+                    </li>
+                  </c:if>
+
                   <c:if test="${authority.id == 1}">
                     <li class="tab admin"><div class="dropdown pc">
                         <button onclick="myFunction()" class="dropbtn">Dashboard</button>
@@ -111,7 +106,6 @@
                             List</a> <a
                             href="<%=request.getContextPath()%>/jobType/list">Job
                             Category List</a>
-
                         </div>
                       </div></li>
                     <li class="pc logout">
@@ -134,7 +128,6 @@
                             List</a> <a
                             href="<%=request.getContextPath()%>/post/list">Job
                             Post List</a>
-
                         </div>
                       </div></li>
                     <li class="pc image"><a
@@ -164,16 +157,14 @@
                         </div>
                       </div></li>
                     <li class="pc image">
-                      <%-- <c:if test="${Login.applicantInfo.profile == null}"> --%>
                       <c:if test="${empty Login.applicantInfo.profile}">
                         <a
                           href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}">
                           <img
                           src="<c:url value="/assets/img/header/profile.png" />"
                           alt="profile">
-
                         </a>
-                      </c:if> <%-- <c:if test="${Login.applicantInfo.profile != null}"> --%>
+                      </c:if> 
                       <c:if
                         test="${not empty Login.applicantInfo.profile}">
                         <a
@@ -182,14 +173,12 @@
                           src="<c:url value="${Login.applicantInfo.profile }" />"
                           style="width: 35px; height: 35px;"
                           alt="Profile">
-
                         </a>
                       </c:if>
                     </li>
                     <li class="pc profile-name">${Login.name}</li>
                     <li class="pc logout">
-                      <form
-                        action="<%=request.getContextPath()%>/logout"
+                      <form action="<%=request.getContextPath()%>/logout"
                         method="POST">
                         <input type="submit" value="Logout" /> <input
                           type="hidden" name="${_csrf.parameterName}"
@@ -197,7 +186,6 @@
                       </form>
                     </li>
                   </c:if>
-
                 </c:forEach>
               </c:if>
             </c:when>
@@ -215,9 +203,11 @@
         </ul>
       </nav>
       <button class="btn-gnavi">
-        <span id="one"></span> <span id="two"></span> <span id="three"></span>
+        <span id="one"></span> 
+        <span id="two"></span> 
+        <span id="three"></span>
       </button>
-      
+
       <!--   For mobile -->
       <ul class="clearfix mobile">
         <c:choose>
@@ -244,10 +234,10 @@
 
                       </div>
                     </div></li>
-                  
+
                 </c:if>
                 <c:if test="${authority.id == 2}">
-                <li class="tab"><div class="dropdown mobile">
+                  <li class="tab"><div class="dropdown mobile">
                       <button onclick="myFunction()" class="dropbtn">Dashboard</button>
                       <div id="myDropdown" class="dropdown-content">
                         <a
@@ -257,10 +247,10 @@
                           Post List</a>
                       </div>
                     </div></li>
-                    </c:if>
-                
+                </c:if>
+
                 <c:if test="${authority.id == 3}">
-                <li class="tab"><div class="dropdown">
+                  <li class="tab"><div class="dropdown">
                       <button onclick="myFunction()"
                         class="dropbtn mobile">Dashboard</button>
                       <div id="myDropdown" class="dropdown-content">
@@ -269,9 +259,9 @@
                           Job List </a>
 
                       </div>
-                 </div></li>
-                 </c:if>
-                
+                    </div></li>
+                </c:if>
+
               </c:forEach>
             </c:if>
           </c:when>
@@ -288,7 +278,5 @@
     </div>
 
   </header>
-
-
 </body>
 </html>
