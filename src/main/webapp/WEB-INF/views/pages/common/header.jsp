@@ -42,7 +42,7 @@
                   varStatus="loop">
 
                   <c:if test="${authority.id == 1}">
-                    <li class="tab"><div class="dropdown pc">
+                    <li class="tab admin"><div class="dropdown pc">
                         <button onclick="myFunction()" class="dropbtn">Dashboard</button>
                         <div id="myDropdown" class="dropdown-content">
                           <a
@@ -58,10 +58,6 @@
                         </div>
                       </div></li>
                     <li class="pc logout">
-                      <%-- <a
-                      href="<%=request.getContextPath()%>/logout"><img
-                        src="<c:url value="/assets/img/header/log-out.png" />"
-                        alt="logout"></a> --%>
                       <form
                         action="<%=request.getContextPath()%>/logout"
                         method="POST">
@@ -70,11 +66,6 @@
                           value="${_csrf.token}" />
                       </form>
                     </li>
-                    <li class="pc sign-admin"><a
-                      href="<%=request.getContextPath()%>/register">Sign
-                        up</a></li>
-                    <%--  </c:if>
-                </c:forEach> --%>
                   </c:if>
 
                   <c:if test="${authority.id == 2}">
@@ -95,11 +86,6 @@
                         alt="Profile"></a></li>
                     <li class="pc">${Login.company.company_name}</li>
                     <li class="pc image">
-                      <%-- <a
-                      href="<%=request.getContextPath()%>/logout">
-                      <img
-                        src="<c:url value="/assets/img/header/log-out.png" />"
-                        alt="logout"></a> --%>
                       <form
                         action="<%=request.getContextPath()%>/logout"
                         method="POST">
@@ -111,7 +97,7 @@
                   </c:if>
 
                   <c:if test="${authority.id == 3}">
-                    <li class="tab pc"><div class="dropdown pc">
+                    <li class="tab  pc"><div class="dropdown pc">
                         <button onclick="myFunction()"
                           class="dropbtn pc">Dashboard</button>
                         <div id="myDropdown" class="dropdown-content">
@@ -197,10 +183,6 @@
                       </div>
                     </div></li>
                   <li class="mobile logout mb">
-                    <%-- <a
-                    href="<%=request.getContextPath()%>/logout"><img
-                      src="<c:url value="/assets/img/header/log-out.png" />"
-                      alt="logout"></a> --%>
                     <form action="<%=request.getContextPath()%>/logout"
                       method="POST">
                       <input type="submit" value="Logout" /> <input
@@ -208,11 +190,6 @@
                         value="${_csrf.token}" />
                     </form>
                   </li>
-                  <li class="mobile sign-up mb"><a
-                    href="<%=request.getContextPath()%>/register">Sign
-                      up</a></li>
-                  <%--  </c:if>
-                </c:forEach> --%>
                 </c:if>
 
                 <c:if test="${authority.id == 2}">
@@ -300,32 +277,10 @@
           </c:otherwise>
         </c:choose>
       </ul>
-      <%-- <a href="<%=request.getContextPath()%>/login"
-        class="mobile login-out">Log in</a> <a
-        href="<%=request.getContextPath()%>/register"
-        class="mobile login-out">sign up</a> --%>
     </div>
 
   </header>
-  <script>
-			function myFunction() {
-				document.getElementById("myDropdown").classList.toggle("show");
-			}
-
-			window.onclick = function(event) {
-				if (!event.target.matches('.dropbtn')) {
-					var dropdowns = document
-							.getElementsByClassName("dropdown-content");
-					var i;
-					for (i = 0; i < dropdowns.length; i++) {
-						var openDropdown = dropdowns[i];
-						if (openDropdown.classList.contains('show')) {
-							openDropdown.classList.remove('show');
-						}
-					}
-				}
-			}
-		</script>
+ 
 
 </body>
 </html>

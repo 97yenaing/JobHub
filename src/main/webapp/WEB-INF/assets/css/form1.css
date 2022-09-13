@@ -91,6 +91,9 @@ body {
   clear: both;
   content: '';
 }
+.update-applicant-profile{
+  margin-left:38%;
+}
 
 /*for ipad*/
 @media screen and (min-width: 768px) and (max-width: 1180px) {
@@ -141,6 +144,7 @@ body {
   .reset-btn{
     width:11.625vw;
   }
+  
 }
 
 /*for moblie */
@@ -209,4 +213,7 @@ body {
   .reset-btn{
     width:15.625vw;
   }
+  .update-applicant-profile{
+  margin-left:30%;
+}
 }

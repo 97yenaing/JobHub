@@ -4,28 +4,70 @@
   content: '';
 }
 
+.admin {
+  margin-left: 11%;
+}
+
 .dropbtn {
+  font-size: 15px;
+  border: none;
+  background-color: #c1d9e0;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #c1d9e0;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #c1d9e0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #c1d9e0;
+}
+
+/* .dropbtn {
   padding: 3px 24%;
   font-size: 15px;
   border: none;
   cursor: pointer;
   background-color: #10314c0a;
-}
-
+} */
 .tab {
-  width: 10%;
+  width: 6%;
 }
 
 .dropbtn:hover, .dropbtn:focus {
   background-color: #10314c0a;
 }
 
-.dropdown {
+/* .dropdown {
   position: relative;
   background-color: #10314c0a;
-}
+} */
 
-.dropdown-content {
+/* .dropdown-content {
   display: none;
   position: absolute;
   background-color: #f1f1f1;
@@ -33,23 +75,21 @@
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-}
+} */
 
-.dropdown-content a {
+/* .dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-}
+} */
 
-.dropdown a:hover {
+/* .dropdown a:hover {
   background-color: #ddd;
-}
-
-.show {
+} */
+/*  show {
   display: block;
-}
-
+}  */
 @font-face {
   font-family: 'IBM Plex Sans-Bold';
   font-weight: 700;
@@ -168,7 +208,7 @@ nav ul li:nth-child(7n) {
 }
 
 .about-us {
-  margin-right: 56.2%;
+ margin-right: 54.2%;
 }
 
 .user-about {
@@ -358,17 +398,12 @@ footer {
     font-size: 18.432px;
   }
   .tab {
-    width: 13%;
+    width: 11%;
     margin-top: 0.66vw;
     margin-right: 4%;
   }
   .dropbtn {
-    color: white;
-    padding: 0.391vw 24%;
-    font-size: 1.953vw;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0.065vw 0.065vw;
+    font-size: 15px;
   }
   .image {
     width: 4.7%;
@@ -670,8 +705,8 @@ footer {
     display: block;
   }
   .tab {
-    margin-right: 11%;
-    margin-top: 22px;
+    margin-right: 5%;
+    margin-top: 20px;
     width: 10%;
     float: left;
   }
