@@ -1,5 +1,9 @@
 package cgmgl.springmvc.app.web.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
@@ -24,6 +29,7 @@ import cgmgl.springmvc.app.bl.dto.JobPostDto;
 import cgmgl.springmvc.app.bl.service.ApplicantJobPostService;
 import cgmgl.springmvc.app.bl.service.JobPostService;
 import cgmgl.springmvc.app.bl.service.UserService;
+import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.ApplicantJobPost;
 import cgmgl.springmvc.app.persistence.entity.JobPost;
 import cgmgl.springmvc.app.persistence.entity.User;
@@ -177,10 +183,11 @@ public class ApplicantJobPostController {
      * @param model
      * @return
      * @return ModelAndView
+     * @throws IOException 
      */
 
     @RequestMapping(value = "/post/apply/list")
-    public ModelAndView applicantApplyJobList(ModelAndView model) {
+    public ModelAndView applicantApplyJobList(ModelAndView model) throws IOException {
         User user = userService.doGetLoginInfo();
         List<ApplicantJobPost> applicantJobPostList = applicantJobPostService.doGetApplicantJobPostList();
         List<User> userList = this.userService.doGetUserList();
@@ -188,6 +195,18 @@ public class ApplicantJobPostController {
         for(ApplicantJobPost applicantJobPost:applicantJobPostList) {
             if(applicantJobPost.getJobPost().getCompany().getCompany_id()==user.getCompany().getCompany_id()) {
                 applicantJobPostListByComId.add(applicantJobPost);
+                String applicantImagePath = applicantJobPost.getApplicantInfo().getProfile();
+                System.out.println(applicantImagePath + "Path");
+                File applicantImgFile = new File(applicantImagePath);
+                ApplicantInfo applicant = applicantJobPost.getApplicantInfo();
+                if (applicantImgFile.exists()) {
+                    FileInputStream fis = new FileInputStream(applicantImgFile);
+                    byte byteArray[] = new byte[(int) applicantImgFile.length()];
+                    fis.read(byteArray);
+                    String imageString = "data:image/png;base64," + Base64.encodeBase64String(byteArray);
+                    applicant.setProfile(imageString);
+                    applicantJobPost.setApplicantInfo(applicant);
+                }
             }
         }
         model.addObject("UserList", userList);
@@ -205,9 +224,10 @@ public class ApplicantJobPostController {
      * @param applicantJobPostId
      * @return
      * @return ModelAndView
+     * @throws IOException 
      */
     @RequestMapping(value = "/post/apply/accept")
-    public ModelAndView applicantJobPostAccept(@RequestParam("id") Integer applicantJobPostId) {
+    public ModelAndView applicantJobPostAccept(@RequestParam("id") Integer applicantJobPostId) throws IOException {
         User user = userService.doGetLoginInfo();
         ModelAndView stautsView = new ModelAndView("redirect:/post/apply/list");
         ApplicantJobPostDto applicantJobStatus = applicantJobPostService
@@ -218,6 +238,18 @@ public class ApplicantJobPostController {
         for(ApplicantJobPost applicantJobPost:applicantJobPostList) {
             if(applicantJobPost.getJobPost().getCompany().getCompany_id()==user.getCompany().getCompany_id()) {
                 applicantJobPostListByComId.add(applicantJobPost);
+                String applicantImagePath = applicantJobPost.getApplicantInfo().getProfile();
+                System.out.println(applicantImagePath + "Path");
+                File applicantImgFile = new File(applicantImagePath);
+                ApplicantInfo applicant = applicantJobPost.getApplicantInfo();
+                if (applicantImgFile.exists()) {
+                    FileInputStream fis = new FileInputStream(applicantImgFile);
+                    byte byteArray[] = new byte[(int) applicantImgFile.length()];
+                    fis.read(byteArray);
+                    String imageString = "data:image/png;base64," + Base64.encodeBase64String(byteArray);
+                    applicant.setProfile(imageString);
+                    applicantJobPost.setApplicantInfo(applicant);
+                }
             }
         }
         stautsView.addObject("UserList", userList);
@@ -236,9 +268,10 @@ public class ApplicantJobPostController {
      * @param applicantJobPostId
      * @return
      * @return ModelAndView
+     * @throws IOException 
      */
     @RequestMapping(value = "/post/apply/reject")
-    public ModelAndView applicantJobPostReject(@RequestParam("id") Integer applicantJobPostId) {
+    public ModelAndView applicantJobPostReject(@RequestParam("id") Integer applicantJobPostId) throws IOException {
         User user = userService.doGetLoginInfo();
         ModelAndView stautsView = new ModelAndView("redirect:/post/apply/list");
         ApplicantJobPostDto applicantJobStatus = applicantJobPostService.doGetApplicantJobRejectById(applicantJobPostId);
@@ -248,6 +281,18 @@ public class ApplicantJobPostController {
         for(ApplicantJobPost applicantJobPost:applicantJobPostList) {
             if(applicantJobPost.getJobPost().getCompany().getCompany_id()==user.getCompany().getCompany_id()) {
                 applicantJobPostListByComId.add(applicantJobPost);
+                String applicantImagePath = applicantJobPost.getApplicantInfo().getProfile();
+                System.out.println(applicantImagePath + "Path");
+                File applicantImgFile = new File(applicantImagePath);
+                ApplicantInfo applicant = applicantJobPost.getApplicantInfo();
+                if (applicantImgFile.exists()) {
+                    FileInputStream fis = new FileInputStream(applicantImgFile);
+                    byte byteArray[] = new byte[(int) applicantImgFile.length()];
+                    fis.read(byteArray);
+                    String imageString = "data:image/png;base64," + Base64.encodeBase64String(byteArray);
+                    applicant.setProfile(imageString);
+                    applicantJobPost.setApplicantInfo(applicant);
+                }
             }
         }
         stautsView.addObject("UserList", userList);

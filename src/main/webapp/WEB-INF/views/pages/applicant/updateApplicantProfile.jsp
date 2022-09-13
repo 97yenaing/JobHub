@@ -9,7 +9,7 @@
 }
 </style> -->
 <div class="form-card">
-  <h1 class="form-header applicant-header">Applicant's Registration
+  <h1 class="form-header applicant-header">Applicant's Profile Edit
   </h1>
   <c:url var="updateApplicantProfile" value="/applicant/profile/update"></c:url>
   <form:form class="form-container" action="${updateApplicantProfile }"
@@ -73,12 +73,12 @@
         value="${updateApplicant.job_exp_year }" class="form-input"
         placeholder="Enter Your Experience(Year)" />     
     </div>
+     <form:errors path="job_history" class="text-danger" />
     <div class="group clearfix">
       <label for="job_history">Job History:</label> <br>
       <form:textarea path="job_history"
         value="${updateApplicant.job_history }" class="form-textarea"
         placeholder="Mention your previous jobs" rows="3" />
-      <form:errors path="job_history" class="text-danger" />
     </div>
     <form:errors path="edu_bg" class="text-danger" />
     <div class="group clearfix">

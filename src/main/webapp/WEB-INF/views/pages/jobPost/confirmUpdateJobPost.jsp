@@ -59,7 +59,7 @@
       </div> --%>
       <div class="confirm-btn">
       <button type="submit" class="form-btn" name="saveUpdateJobPost">Update</button>
-      <button type="reset" class="" name="cancelUpdate">Cancel</button>
+      <button type="submit" class="" name="cancelUpdate">Cancel</button>
       </div>
   </form:form>
   </div>

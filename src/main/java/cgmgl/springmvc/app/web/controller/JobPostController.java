@@ -327,7 +327,7 @@ public class JobPostController {
      * @return ModelAndView
      */
     @RequestMapping(value = "/post/update", params = "cancelUpdate", method = RequestMethod.POST)
-    public ModelAndView cancelUpdateJobType() {
+    public ModelAndView cancelUpdateJobType(@Valid JobPostDto jobPostDto) {
         ModelAndView updateJobPostView = new ModelAndView("redirect:/post/list");
         return updateJobPostView;
     }

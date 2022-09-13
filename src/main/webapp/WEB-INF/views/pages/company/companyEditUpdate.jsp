@@ -17,7 +17,7 @@
 <body>
   <div class="form-card">
     <c:url var="companyEditUpdate" value="/company/Confirm/Update"></c:url>
-    <h2 class="form-header">Company Registration's Edit</h2>
+    <h2 class="form-header">Company Profile's Edit</h2>
     <form:form class="form-container" action="${companyEditUpdate}"
       method="POST" id="form" modelAttribute="CompanyProfile">
       <c:if test="${errorMsg != null }">
@@ -66,10 +66,9 @@
           class="form-input" placeholder="Enter Website Link" />
         
       </div>
-      <div class="create">
+      <div class="update-applicant-profile">
       <button type="submit" class="form-btn"
-        name="company/Update/Confirm">Confirm</button>
-      <button type="reset" class="" name="clear">Reset</button>
+        name="company/Update/Confirm">Save</button>
       </div>
     </form:form>
   </div>

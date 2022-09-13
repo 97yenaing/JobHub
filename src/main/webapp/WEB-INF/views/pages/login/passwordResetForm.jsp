@@ -10,7 +10,7 @@
       <div class="pass-group">
         <h2 class="reset-header">Reset Your Password</h2>
         <c:if test="${errorMsg != null}">
-          <div class = "alert alert-danger">
+          <div class = "alert custom-alert">
             <span>${errorMsg }</span>
           </div>
         </c:if>

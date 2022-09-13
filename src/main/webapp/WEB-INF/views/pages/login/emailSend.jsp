@@ -14,7 +14,7 @@
   <div class="com-inner">
     <div class="email-container">
     <c:if test="${errorMsg != null}">
-          <div class = "alert alert-danger">
+          <div class = "alert custom-alert">
             <span>${errorMsg }</span>
           </div>
         </c:if>

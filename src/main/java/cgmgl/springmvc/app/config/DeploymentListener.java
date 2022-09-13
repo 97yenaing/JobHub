@@ -81,7 +81,7 @@ public class DeploymentListener {
 			Authority adminAuthority = new Authority(null, "ROLE_ADMIN");
 			this.authorityDAO.dbSaveAuthority(adminAuthority);
 			adminAuthorities.add(adminAuthority);
-			User admin = new User(1, "admin", "admin@gmail.com", passwordEncoder.encode("123"), null, null, null, null, null, adminAuthorities);
+			User admin = new User(1, "admin", "admin@gmail.com", passwordEncoder.encode("123"), new Date(), null, null, null, null, adminAuthorities);
 			this.userDAO.dbSaveUser(admin);
 
 			List<Authority> companyAuthorities = new ArrayList<Authority>();
@@ -90,7 +90,7 @@ public class DeploymentListener {
 			companyAuthorities.add(companyAuthority);
 			Company companyInfo = new Company(1, "SCM", "scm@gmail.com", "09793214719", "Bo ta Htaung Township", "www.scam.com", null, null, null,null);
 			this.companyDao.dbaddCompany(companyInfo, new Date());
-			User company = new User(2, "company", "company1@gmail.com", passwordEncoder.encode("123"), null, null, null, null, companyInfo, companyAuthorities);
+			User company = new User(2, "company", "company1@gmail.com", passwordEncoder.encode("123"), new Date(), null, null, null, companyInfo, companyAuthorities);
 			this.userDAO.dbSaveUser(company);
 			
 			List<Authority> applicantAuthorities = new ArrayList<Authority>();
@@ -100,7 +100,7 @@ public class DeploymentListener {
 			companyAuthorities.add(companyAuthority);
 			ApplicantInfo appInfo = new ApplicantInfo(1, null, "09-794114723", "2", null, null, "FEMALE", "North Dagon", null, null, null);
 			this.appInfoDao.dbSaveApplicantInfo(appInfo);
-			User applicant = new User(3, "applicant", "applicant1@gmail.com", passwordEncoder.encode("123"), null, null, null, appInfo, null, applicantAuthorities);
+			User applicant = new User(3, "applicant", "applicant1@gmail.com", passwordEncoder.encode("123"), new Date(), null, null, appInfo, null, applicantAuthorities);
 			this.userDAO.dbSaveUser(applicant);	
 		}
 	}

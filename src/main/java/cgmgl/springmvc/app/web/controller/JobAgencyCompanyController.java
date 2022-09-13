@@ -250,6 +250,12 @@ public class JobAgencyCompanyController {
 
 		return model;
 	}
+	@RequestMapping(value = "/company/Profile/Update", params = "cancel", method = RequestMethod.POST)
+    public ModelAndView cancelCompanyEdit(@ModelAttribute("CompanyProfile") @Valid CompanyDto companydto,
+            BindingResult result, HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView updateView = new ModelAndView("redirect:/homePageView");
+        return updateView;
+    }
 
 	/**
 	 * <h2>editUpdate</h2>
@@ -311,9 +317,15 @@ public class JobAgencyCompanyController {
 	public ModelAndView updateCompany(@ModelAttribute("CompanyProfile") @Valid CompanyDto companydto,
 	        BindingResult result, HttpServletRequest request, HttpServletResponse response) {
 		this.companyservice.doupdateCompany(companydto);
-		ModelAndView updateView = new ModelAndView("redirect:/post/apply/list");
+		ModelAndView updateView = new ModelAndView("redirect:/homePageView");
 		return updateView;
 	}
+	@RequestMapping(value = "/company/Update", params = "cancel", method = RequestMethod.POST)
+    public ModelAndView cancelCompany(@ModelAttribute("CompanyProfile") @Valid CompanyDto companydto,
+            BindingResult result, HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView updateView = new ModelAndView("redirect:/homePageView");
+        return updateView;
+    }
 
 	/**
 	 * <h2>companyDelete</h2>
