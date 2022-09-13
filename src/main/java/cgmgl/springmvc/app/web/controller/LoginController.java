@@ -1,5 +1,7 @@
 package cgmgl.springmvc.app.web.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +20,7 @@ import cgmgl.springmvc.app.bl.dto.UserDto;
 import cgmgl.springmvc.app.bl.service.UserService;
 import cgmgl.springmvc.app.bl.service.JobPostService;
 import cgmgl.springmvc.app.bl.service.UserService;
+import cgmgl.springmvc.app.persistence.entity.ApplicantInfo;
 import cgmgl.springmvc.app.persistence.entity.Authority;
 import cgmgl.springmvc.app.persistence.entity.JobType;
 import cgmgl.springmvc.app.persistence.entity.User;
@@ -108,18 +112,26 @@ public class LoginController {
      */
     @RequestMapping(value = "/home")
     public ModelAndView homePage(ModelAndView model, Principal authentication) throws IOException {
-        System.out.println(authentication.getName());
         // ModelAndView model = new ModelAndView();
         List<JobType> typeList = jobPostService.doGetJobTypeList();
         model.addObject("JobTypeList", typeList);
         User user = this.userService.doGetLoginInfo();
-        System.out.println(user.getEmail());
-        System.out.println(user.getName());
         model.setViewName("homePage");
-        //long userIdForApplicant = user.getId();
-        //User applicant = this.userService.doGetApplicantById(userIdForApplicant);
-        //model.addObject("ApplicantProfile", applicant);
-        session.setAttribute("Login", this.userService.doGetLoginInfo());
+        if (user.getApplicantInfo() != null && user.getApplicantInfo().getProfile() != null) {
+            String applicantImagePath = user.getApplicantInfo().getProfile();
+            System.out.println(applicantImagePath + "Path");
+            File applicantImgFile = new File(applicantImagePath);
+            ApplicantInfo applicant = user.getApplicantInfo();
+            if (applicantImgFile.exists()) {
+                FileInputStream fis = new FileInputStream(applicantImgFile);
+                byte byteArray[] = new byte[(int) applicantImgFile.length()];
+                fis.read(byteArray);
+                String imageString = "data:image/png;base64," + Base64.encodeBase64String(byteArray);
+                applicant.setProfile(imageString);
+                user.setApplicantInfo(applicant);
+            }
+        }
+        session.setAttribute("Login", user);
         return model;
     }
 
