@@ -9,7 +9,7 @@
   font-size: 15px;
   border: none;
   cursor: pointer;
-   background-color: #10314c0a;
+  background-color: #10314c0a;
 }
 
 .tab {
@@ -68,6 +68,10 @@
   src: url('../font/IBMPlexSans-Regular.ttf');
 }
 
+.desktop {
+  padding-top: 20px;
+}
+
 .pc {
   display: block
 }
@@ -118,9 +122,11 @@ nav ul li {
   text-decoration: none;
   font-size: 22px;
 }
-nav ul li:nth-child(6n){
-  margin-right:0;
+
+nav ul li:nth-child(7n) {
+  margin-right: 0;
 }
+
 .image {
   width: 2.7%;
   border: none;
@@ -128,19 +134,23 @@ nav ul li:nth-child(6n){
   border: none;
   box-shadow: none;
   font-size: 15px;
-  margin-top: 2px
+  margin-top: 2px;
+  margin-right: 0px;
 }
 
-
-.sign-up {
+.sign-up, .sign-admin {
   margin-right: 0%;
   border: 1px solid #040822;
   padding: 2px 1%;
   border-radius: 5px;
   box-shadow: 0.5px 0.5px;
   font-size: 15px;
+  /*  margin-top: 5px; */
+  float: left;
+}
+
+.sign-admin {
   margin-top: 5px;
-    float: left;
 }
 
 .logout {
@@ -220,7 +230,7 @@ h1 {
 .jobhub {
   border-bottom: 1px solid #425059;
   background-color: #10314c0a;
- /*  // background-color: #76d0e933; //company */
+  /*  // background-color: #76d0e933; //company */
   padding-bottom: 30px;
   padding-top: 10px;
 }
@@ -323,13 +333,16 @@ footer {
   header {
     margin-bottom: 19.999px;
   }
+  .desktop {
+    padding-top: 6px;
+  }
   .head-inner, .foot-inner {
     max-width: 1300.001px;
     margin: 0 auto;
     width: 93.286%;
   }
   .user-about {
-   margin-right: 26%;
+    margin-right: 20%;
   }
   .about-us {
     margin-right: 44.2%;
@@ -346,11 +359,10 @@ footer {
   }
   .tab {
     width: 13%;
-   margin-top: 0.66vw;
+    margin-top: 0.66vw;
     margin-right: 4%;
   }
   .dropbtn {
-    background-color: #807c51a8;
     color: white;
     padding: 0.391vw 24%;
     font-size: 1.953vw;
@@ -552,7 +564,7 @@ footer {
     margin-bottom: 3.125vw;
   }
   h1 {
-   margin-top: 0.063vw;
+    margin-top: 0.063vw;
   }
   .logo {
     float: left;
@@ -659,7 +671,7 @@ footer {
   }
   .tab {
     margin-right: 11%;
-   margin-top: 8px;
+    margin-top: 22px;
     width: 10%;
     float: left;
   }
@@ -668,11 +680,23 @@ footer {
   }
   .profile {
     float: left;
-    margin-top: 10px;
+    margin-top: 25px;
     width: 5%;
+    margin-right: 0px;
   }
   .mb {
-  margin-top : 10px;
-  margin-right : 2%;
+    margin-top: 25px;
+    margin-right: 2%;
+  }
+  .profile-name {
+    margin-top: 8px;
+    margin-top: 20px;
+    float: left;
+    margin-right: 2%;
+  }
+  .log-mobile {
+    margin-top: 20px;
+    font-size: 15px;
+    float: left;
   }
 }

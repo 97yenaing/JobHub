@@ -19,7 +19,7 @@ public interface CompanyDAO {
 	
 	void dbcreateCompany(Company company);
 
-	public CompanyDto dbgetCompany(int company_id);
+	public Company dbgetCompany(int company_id);
 	
 
 	public void dbdeleteCompanyID(int company_id, Date CurrentDate);

@@ -67,15 +67,14 @@ public class CompanyServiceimpl implements CompanyService {
 	 */
 	@Override
 	public void doupdateCompany(CompanyDto companyDto) {
-		Company company = new Company(companyDto);
-		CompanyDto updateCompany = this.companydao.dbgetCompany(companyDto.getCompany_id());
-		updateCompany.setCompany_name(companyDto.getCompany_name());
-		updateCompany.setEmail(companyDto.getEmail());
-		updateCompany.setPhone(companyDto.getPhone());
-		updateCompany.setAddress(companyDto.getAddress());
-		updateCompany.setWeb_link(companyDto.getWeb_link());
-		updateCompany.setUpdated_at(new Date());
-		updateCompany.setCreated_at(companyDto.getCreated_at());
+		Company company = this.companydao.dbgetCompany(companyDto.getCompany_id());
+		company.setCompany_name(companyDto.getCompany_name());
+		company.setEmail(companyDto.getEmail());
+		company.setPhone(companyDto.getPhone());
+		company.setAddress(companyDto.getAddress());
+		company.setWeb_link(companyDto.getWeb_link());
+		company.setUpdated_at(new Date());
+		company.setCreated_at(companyDto.getCreated_at());
 		this.companydao.dbupdateCompany(company);		
 
 	}
@@ -90,7 +89,7 @@ public class CompanyServiceimpl implements CompanyService {
 	 * @return
 	 */
 	@Override
-	public CompanyDto dogetCompany(int company_id) {
+	public Company dogetCompany(int company_id) {
 		return companydao.dbgetCompany(company_id);
 
 	}

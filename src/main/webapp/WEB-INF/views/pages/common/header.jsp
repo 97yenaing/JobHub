@@ -22,7 +22,7 @@
           alt="JobHub_Log">
       </h1>
       <nav id="global-navi" class="clearfix">
-        <ul class="clearfix">
+        <ul class="clearfix desktop">
           <li><a href="<%=request.getContextPath()%>/homePageView">Home</a></li>
           <li><a
             href="<%=request.getContextPath()%>/post/applicant/list">Find
@@ -70,7 +70,7 @@
                           value="${_csrf.token}" />
                       </form>
                     </li>
-                    <li class="pc sign-up"><a
+                    <li class="pc sign-admin"><a
                       href="<%=request.getContextPath()%>/register">Sign
                         up</a></li>
                     <%--  </c:if>
@@ -92,7 +92,8 @@
                     <li class="pc image"><a
                       href="<%=request.getContextPath()%>/company/Profile?company_id=${Login.company.company_id}"><img
                         src="<c:url value="/assets/img/header/profile.png" />"
-                        alt="Profile"></a>${Login.company.company_name}</li>
+                        alt="Profile"></a></li>
+                    <li class="pc">${Login.company.company_name}</li>
                     <li class="pc image">
                       <%-- <a
                       href="<%=request.getContextPath()%>/logout">
@@ -135,10 +136,6 @@
                         </c:if>
                      </li>
                     <li class="pc image">
-                      <%-- <a
-                      href="<%=request.getContextPath()%>/logout"><img
-                        src="<c:url value="/assets/img/header/log-out.png" />"
-                        alt="logout"></a> --%>
                       <form
                         action="<%=request.getContextPath()%>/logout"
                         method="POST">
@@ -222,14 +219,14 @@
                             List</a> <a
                             href="<%=request.getContextPath()%>/post/list">Job
                             Post List</a>
-
-                        </div>
-                      </div></li>
+                      </div>
+                    </div></li>
                   <li class="mobile image profile"><a
                     href="<%=request.getContextPath()%>/company/Profile?company_id=${Login.company.company_id}"><img
                       src="<c:url value="/assets/img/header/profile.png" />"
-                      alt="Profile"></a>${Login.company.company_name}</li>
-                  <li class="pc image">
+                      alt="Profile"></a></li>
+                  <li class="profile-name">${Login.company.company_name}</li>
+                  <li class="mobile log-mobile">
                     <%-- <a
                     href="<%=request.getContextPath()%>/logout"><img
                       src="<c:url value="/assets/img/header/log-out.png" />"
@@ -288,10 +285,10 @@
             </c:if>
           </c:when>
           <c:otherwise>
-            <li class="mobile login-header"><a
+            <li class="mobile"><a
               href="<%=request.getContextPath()%>/login"
               class="mobile login-out">Log in</a></li>
-            <li class="mobile sign-up"><a
+            <li class="mobile"><a
               href="<%=request.getContextPath()%>/register"
               class="mobile login-out">sign up</a></li>
           </c:otherwise>

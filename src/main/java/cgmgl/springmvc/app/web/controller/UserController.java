@@ -247,7 +247,7 @@ public class UserController {
 		authorities.add(authority);
 		applicantForm.setAuthorityList(authorities);
 		this.userService.doSaveUser(applicantForm);
-		ModelAndView createUserView = new ModelAndView("redirect:/homePageView");
+		ModelAndView createUserView = new ModelAndView("redirect:/login");
 		return createUserView;
 	}
 

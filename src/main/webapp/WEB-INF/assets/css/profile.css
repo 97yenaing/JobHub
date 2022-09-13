@@ -43,13 +43,20 @@ body {
 }
 
 .card .button1 {
-  margin-left: 38%;
+  padding: 10px 28px;
+  border-radius: 25px;
+  font-size: 20px;
+  float: left;
+  color: #fff;
+  background-color: #6c757d;
+  margin-right: 6%
 }
 
 .card .button2 {
   padding: 10px 20px;
   border-radius: 25px;
   font-size: 20px;
+  float: left
 }
 
 .confirm-btn1 {
