@@ -72,7 +72,7 @@ public class UserController {
 	public ModelAndView loginEmail(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("loginPage");	
 		if(this.userService.doIsLoggedIn()) {
-		    model.setViewName("redirect:/home");
+		    model.setViewName("homePage");
 		}
 		return model;		
 	}
@@ -247,7 +247,7 @@ public class UserController {
 		authorities.add(authority);
 		applicantForm.setAuthorityList(authorities);
 		this.userService.doSaveUser(applicantForm);
-		ModelAndView createUserView = new ModelAndView("redirect:/homePageView");
+		ModelAndView createUserView = new ModelAndView("redirect:/login");
 		return createUserView;
 	}
 

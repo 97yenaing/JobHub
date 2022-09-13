@@ -121,18 +121,23 @@
                         </div>
                       </div></li>
                     <li class="pc image">
-                    <c:if test="${Login.applicantInfo.profile == null}">
-                    <a href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}"><img
-                        src="<c:url value="/assets/img/header/profile.png" />"
-                        alt="Profile"></a>${Login.applicantInfo.id}
-                        </c:if>
-                    <c:if test="${Login.applicantInfo.profile != null}">
+                    <%-- <c:if test="${Login.applicantInfo.profile == null}"> --%>
+                    <c:if test="${empty Login.applicantInfo.profile}">
                     <a href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}">
+                    <img src="<c:url value="/assets/img/header/profile.png" />"
+                        alt="profile">
+                        ${Login.name}
+                    </a>
+                    </c:if>
+                      <%-- <c:if test="${Login.applicantInfo.profile != null}"> --%>
+                    <c:if test="${not empty Login.applicantInfo.profile}">  
+                       <a href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}">
                       <img class="profile-img"
-                      src="${Login.applicantInfo.profile }"
+                      src="<c:url value="${Login.applicantInfo.profile }" />"
                       style="width: 35px; height: 35px;" alt="Profile">
-                        </a>${Login.name}
-                        </c:if>
+                      ${Login.name}
+                      </a>
+                       </c:if>  
                      </li>
                     <li class="pc image">
                       <%-- <a
@@ -257,14 +262,15 @@
                   <li class="mobile image profile">
                   <c:if test="${Login.applicantInfo.profile == null}">
                   <a
-                    href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}"><img
+                    href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}">
+                    <img
                       src="<c:url value="/assets/img/header/profile.png" />"
                       alt="Profile">${Login.applicantInfo.id}</a>
                       </c:if>
-                      <c:if test="${Login.applicantInfo.profile != null}">
+                    <c:if test="${Login.applicantInfo.profile != null}">
                     <a href="<%=request.getContextPath()%>/applicant/profile?id=${Login.applicantInfo.id}">
-                      <img class="profile-img"
-                      src="${Login.applicantInfo.profile }"
+                      <img
+                      src="<c:url value="${Login.applicantInfo.profile }" />"
                       style="width: 35px; height: 35px;" alt="Profile">
                         </a>${Login.name}
                         </c:if>
