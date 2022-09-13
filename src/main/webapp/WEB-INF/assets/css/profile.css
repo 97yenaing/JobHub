@@ -23,8 +23,9 @@ body {
 }
 
 .profile-img {
-  margin: 0 0 3% 32%;
-  width: 12%;
+  width: 200px;
+  height: 200px;
+  margin: 0 0 3% 35%;
 }
 
 .card ul {
@@ -110,6 +111,11 @@ body {
     width: 26.042vw;
     height: 26.042vw;
   }
+  .profile-img {
+    margin: 0 0 3% 29%;
+    width: 26.042vw;
+    height: 26.042vw;
+  }
 }
 
 /*for moblie */
@@ -142,6 +148,11 @@ body {
     font-size: 2.5vw;
   }
   .fix-image {
+    width: 31.25vw;
+    height: 31.25vw;
+  }
+  .profile-img {
+    margin: 0 0 3% 30%;
     width: 31.25vw;
     height: 31.25vw;
   }

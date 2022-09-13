@@ -8,9 +8,16 @@
     method="POST" id="form" modelAttribute="ApplicantProfile">
     <b><h1 class="profile-header">Profile</h1></b>
     <ul>
+    
+    <c:if test="${not empty Login.applicantInfo.profile}"> 
       <img class="profile-img"
         src="${ApplicantProfile.applicantInfo.profile }"
-        style="width: 200px; height: 200px;" alt="post_img">
+         alt="post_img">
+        </c:if>
+        <c:if test="${empty Login.applicantInfo.profile}">
+        <img class="profile-img"
+          src="<c:url value="/assets/img/header/profile.png" />" alt="profile">
+        </c:if>
         <form:input path="applicantInfo.profile" type="hidden" name="applicantProfile"
             value="${ApplicantProfile.applicantInfo.profile }" class="form-control" />
       <li><b>Name:</b> <a class="float-right">${ApplicantProfile.name }

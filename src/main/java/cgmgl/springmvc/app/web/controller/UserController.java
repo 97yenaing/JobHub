@@ -72,7 +72,7 @@ public class UserController {
 	public ModelAndView loginEmail(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("loginPage");	
 		if(this.userService.doIsLoggedIn()) {
-		    model.setViewName("redirect:/home");
+		    model.setViewName("homePage");
 		}
 		return model;		
 	}

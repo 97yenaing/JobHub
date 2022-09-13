@@ -1,5 +1,6 @@
 package cgmgl.springmvc.app.web.controller;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 
@@ -103,9 +104,10 @@ public class LoginController {
      *
      * @return
      * @return ModelAndView
+     * @throws IOException 
      */
     @RequestMapping(value = "/home")
-    public ModelAndView homePage(ModelAndView model, Principal authentication) {
+    public ModelAndView homePage(ModelAndView model, Principal authentication) throws IOException {
         System.out.println(authentication.getName());
         // ModelAndView model = new ModelAndView();
         List<JobType> typeList = jobPostService.doGetJobTypeList();
@@ -114,6 +116,9 @@ public class LoginController {
         System.out.println(user.getEmail());
         System.out.println(user.getName());
         model.setViewName("homePage");
+        //long userIdForApplicant = user.getId();
+        //User applicant = this.userService.doGetApplicantById(userIdForApplicant);
+        //model.addObject("ApplicantProfile", applicant);
         session.setAttribute("Login", this.userService.doGetLoginInfo());
         return model;
     }

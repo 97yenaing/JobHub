@@ -95,59 +95,59 @@ font-size: 16px;
   }
   h1{
     font-family: 'IBM Plex Sans-Bold';
-    font-size: 23px; 
+    font-size: 2.995vw; 
     
   }
   .signup-container{
     width:65%;
     margin:0 auto;
-    margin-top:50px;
-    padding: 50px 60px 60px 40px;
+    margin-top:6.51vw;
+    padding: 6.51vw 7.813vw 7.813vw 5.208vw;
     border:none;
     background-color: #ced7df;
     text-align: center;
-    border-radius: 20px;
-    margin-bottom: 20px;
+    border-radius: 2.604vw;
+    margin-bottom: 2.604vw;
   }
   .signup-container h1{
     width:100%;
-    font-size:20px;
+    font-size:2.604vw;
   }
   .sign-input
   {
       width: 100%;
-      margin-top:6px;
-      padding: 10px;
-      border: 1px solid rgb(168, 166, 166);
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      border-radius: 8px;
+      margin-top:0.781vw;
+      padding: 1.302vw;
+      border: 0.13vw solid rgb(168, 166, 166);
+      box-shadow: 0 0.521vw 1.042vw 0 rgba(0, 0, 0, 0.2), 0 0.781vw 2.604vw 0 rgba(0, 0, 0, 0.19);
+      border-radius: 1.042vw;
   }
   .sign-select{
     width: 100%;
-    margin-top:6px;
-    padding: 10px;
-    border: 1px solid rgb(168, 166, 166);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 8px;
+    margin-top:0.781vw;
+    padding: 1.302vw;
+    border: 0.13vw solid rgb(168, 166, 166);
+    box-shadow: 0 0.521vw 1.042vw 0 rgba(0, 0, 0, 0.2), 0 0.781vw 2.604vw 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1.042vw;
   }
   .form-group{
     display: block;
-    padding-top:30px;
-    padding-left:11px;
+    padding-top:3.906vw;
+    padding-left:1.432vw;
     font-family: 'IBM Plex Sans-Regular';
-    font-size: 15px;
+    font-size: 1.953vw;
     text-align: left;
   }
-.registerbtn{
-  margin-top: 20px;
-  margin-left: 10px;
-  padding: 5px 20px;
-  border:none;
-  background-color: #6d95d2;
-  color:aliceblue;
-  cursor: pointer;
-  border-radius: 10px;
-}
+  .registerbtn{
+    margin-top: 2.604vw;
+    margin-left: 1.302vw;
+    padding: 0.651vw 2.604vw;
+    border:none;
+    background-color: #6d95d2;
+    color:aliceblue;
+    cursor: pointer;
+    border-radius: 1.302vw;
+  }
 }
 /*sp*/
 @media screen and (max-width: 767.9px){
@@ -159,61 +159,61 @@ font-size: 16px;
   h1{
     width: 100%;
     font-family: 'IBM Plex Sans-Bold';
-    font-size: 16px;
+    font-size: 2.5vw;
   }
   .signup-container{
     width:66%;
     margin:0 auto;
-    margin-top:65px;
-    margin-bottom:30px;
-    padding: 20px 60px 60px 40px;
+    margin-top:10.156vw;
+    margin-bottom:4.688vw;
+    padding: 3.125vw 9.375vw 9.375vw 6.25vw;
     border:none;
     background-color: #ced7df;
     text-align: center;
-    max-width: 355px;
-    border-radius: 20px;
+    max-width: 55.469vw;
+    border-radius: 3.125vw;
   }
   .signup-container h1 {
     width: 100%;
-    font-size: 20px;
+    font-size: 3.125vw;
   }
   .sign-input
   {
       width: 100%;
-      margin-top:6px;
-      padding: 10px;
-      border: 1px solid rgb(168, 166, 166);
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      border-radius: 8px;
+      margin-top:0.938vw;
+      padding: 1.563vw;
+      border: 0.156vw solid rgb(168, 166, 166);
+      box-shadow: 0 0.625vw 1.25vw 0 rgba(0, 0, 0, 0.2), 0 0.938vw 3.125vw 0 rgba(0, 0, 0, 0.19);
+      border-radius: 1.25vw;
   }
   .sign-select{
     width: 100%;
-    margin-top:6px;
-    padding: 10px;
-    border: 1px solid rgb(168, 166, 166);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 8px;
+    margin-top:0.938vw;
+    padding: 1.563vw;
+    border: 0.156vw solid rgb(168, 166, 166);
+    box-shadow: 0 0.625vw 1.25vw 0 rgba(0, 0, 0, 0.2), 0 0.938vw 3.125vw 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1.25vw;
   }
   .form-group{
     display: block;
-    padding-top:25px;
-    padding-left:11px;
+    padding-top:3.906vw;
+    padding-left:1.719vw;
     font-family: 'IBM Plex Sans-Regular';
-    font-size: 15px;
+    font-size: 2.344vw;
     text-align: left;
   }
   .registerbtn{
-    margin-top: 20px;
-    margin-left: 10px;
-    padding: 5px 20px;
+    margin-top: 3.125vw;
+    margin-left: 1.563vw;
+    padding: 0.781vw 3.125vw;
     border:none;
     background-color: #6d95d2;
     color:aliceblue;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 1.563vw;
   }
   .forgot-pass {
-    margin-top: 20px;
-    font-size: 15px;
+    margin-top: 3.125vw;
+    font-size: 2.344vw;
   }
 }
