@@ -94,7 +94,7 @@
         value="${updateApplicant.certificates }" class="form-textarea"
         placeholder="Mention the Certificates you got." rows="3" />      
     </div>
-    <div class="create">
+    <div class="update-applicant-profile">
       <button type="submit" class="form-btn" name="updateApplicant">Save</button>
     </div>
   </form:form>
